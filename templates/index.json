@@ -1,0 +1,465 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "top_categories_bcQfVc": {
+      "type": "top-categories",
+      "blocks": {
+        "slide_UapfHx": {
+          "type": "slide",
+          "settings": {
+            "explinks": "shopify://collections/cheeks",
+            "image": "shopify://shop_images/image_6.png",
+            "exphead": "CHEEKS"
+          }
+        },
+        "slide_FPb4FW": {
+          "type": "slide",
+          "settings": {
+            "explinks": "shopify://collections/eyes",
+            "image": "shopify://shop_images/image_7.png",
+            "exphead": "EYES"
+          }
+        },
+        "slide_kfD9fF": {
+          "type": "slide",
+          "settings": {
+            "explinks": "shopify://collections/face",
+            "image": "shopify://shop_images/image_8.png",
+            "exphead": "FACE"
+          }
+        },
+        "slide_4AediQ": {
+          "type": "slide",
+          "settings": {
+            "explinks": "shopify://collections/lips",
+            "image": "shopify://shop_images/image_9.png",
+            "exphead": "LIPS"
+          }
+        },
+        "slide_9G6X9X": {
+          "type": "slide",
+          "settings": {
+            "explinks": "shopify://collections/tools",
+            "image": "shopify://shop_images/image_11.png",
+            "exphead": "TOOLS"
+          }
+        },
+        "slide_E8BNFL": {
+          "type": "slide",
+          "settings": {
+            "explinks": "shopify://collections/shop-the-look",
+            "image": "shopify://shop_images/image_10.png",
+            "exphead": "TRIAL SETS"
+          }
+        }
+      },
+      "block_order": [
+        "slide_UapfHx",
+        "slide_FPb4FW",
+        "slide_kfD9fF",
+        "slide_4AediQ",
+        "slide_9G6X9X",
+        "slide_E8BNFL"
+      ],
+      "name": "Top-categories",
+      "settings": {
+        "expheadd": "",
+        "custom_class": "home-category top-category"
+      }
+    },
+    "swipe_hero_h6wJN8": {
+      "type": "swipe-hero",
+      "blocks": {
+        "slide_jfwM7H": {
+          "type": "slide",
+          "settings": {
+            "subtitle": "BEAUTY FOR EVERY TYPE.",
+            "title": "Oily, dry, sensitive, acne-prone? We've got you.",
+            "description": "Our makeup is powered by skincare science and made to flex with your skin’s needs—whatever they are.",
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/face",
+            "main_image": "shopify://shop_images/Rectangle_1337_1.png",
+            "secondary_image": "shopify://shop_images/Group_1171278897.png"
+          }
+        },
+        "slide_zaypxW": {
+          "type": "slide",
+          "settings": {
+            "subtitle": "TINTED. TASTY. TOTALLY YOU.",
+            "title": "Your lips &amp; cheeks deserve better.",
+            "description": "This is Jelly Tint—a juicy pop of color that melts on, stays on, and feels like nothing.",
+            "button_label": "SHOP JELLY TINT",
+            "button_link": "shopify://collections/tints",
+            "main_image": "shopify://shop_images/SAM09872-Edit_1.png",
+            "secondary_image": "shopify://shop_images/Group_1171278897_1.png"
+          }
+        },
+        "slide_Hya3gd": {
+          "type": "slide",
+          "settings": {
+            "subtitle": "EVERY SHADE. EVERY STORY.",
+            "title": "LOUD, SOFT, OR SUBTLE—WE GOT YOU.",
+            "description": "These buttery-matte lipsticks flex with your mood and hydrate while they slay.",
+            "button_label": "FIND YOUR TYPE",
+            "button_link": "shopify://collections/foundations",
+            "main_image": "shopify://shop_images/2022-09-13_Type_Beauty-1449_2.png",
+            "secondary_image": "shopify://shop_images/Group_1171278897_2.png"
+          }
+        }
+      },
+      "block_order": [
+        "slide_jfwM7H",
+        "slide_zaypxW",
+        "slide_Hya3gd"
+      ],
+      "name": "Swipe Hero Section",
+      "settings": {}
+    },
+    "scrolling_promotion_fqnLLg": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "scrolling_text_3Phria": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "CRUELTY-FREE"
+          }
+        },
+        "scrolling_text_kp7pYG": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "VEGAN"
+          }
+        },
+        "scrolling_text_TjJybk": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "SKINCARE POWERED"
+          }
+        },
+        "scrolling_text_eHWzLr": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "CRUELTY-FREE"
+          }
+        },
+        "scrolling_text_UKD6BB": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "VEGAN"
+          }
+        },
+        "scrolling_text_tqqmPr": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "SKINCARE POWERED"
+          }
+        },
+        "scrolling_text_aJtJJj": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "CRUELTY-FREE"
+          }
+        },
+        "scrolling_text_K9t47d": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "VEGAN"
+          }
+        },
+        "scrolling_text_wpFBxH": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "SKINCARE POWERED"
+          }
+        }
+      },
+      "block_order": [
+        "scrolling_text_3Phria",
+        "scrolling_text_kp7pYG",
+        "scrolling_text_TjJybk",
+        "scrolling_text_eHWzLr",
+        "scrolling_text_UKD6BB",
+        "scrolling_text_tqqmPr",
+        "scrolling_text_aJtJJj",
+        "scrolling_text_K9t47d",
+        "scrolling_text_wpFBxH"
+      ],
+      "name": "Scrolling Promotion",
+      "settings": {
+        "bg_color": "#ff8f1a"
+      }
+    },
+    "2795d4fb-9f92-4f33-b92d-3ce89fd71106": {
+      "type": "exp-categories",
+      "blocks": {
+        "2edaa4a0-0ce3-418e-9542-d5a34481d100": {
+          "type": "slide",
+          "settings": {
+            "explinks": "shopify://collections/face",
+            "image": "shopify://shop_images/face_75768f4e-1328-4585-b736-d1312cc64fda.png",
+            "exphead": "FACE"
+          }
+        },
+        "d69b43db-1075-4520-b970-3f7aa8a57a74": {
+          "type": "slide",
+          "settings": {
+            "explinks": "shopify://collections/eyes",
+            "image": "shopify://shop_images/eyes_b302ea1c-bff6-4a42-9679-265c3c6ec1b7.png",
+            "exphead": "EYES"
+          }
+        },
+        "280d6c8a-5c79-4cd1-839a-99229c6e0c79": {
+          "type": "slide",
+          "settings": {
+            "explinks": "shopify://collections/cheeks",
+            "image": "shopify://shop_images/CHEEKS_OPTION2_5d488e49-17fb-4692-a51e-970c82f2f84c.png",
+            "exphead": "CHEEKS"
+          }
+        },
+        "a5967fc2-5727-4639-b81b-b1af0fb636e0": {
+          "type": "slide",
+          "settings": {
+            "explinks": "shopify://collections/lips",
+            "image": "shopify://shop_images/lips_1872fa55-df41-4663-ac7c-a7b7642fd6d1.png",
+            "exphead": "LIPS"
+          }
+        }
+      },
+      "block_order": [
+        "2edaa4a0-0ce3-418e-9542-d5a34481d100",
+        "d69b43db-1075-4520-b970-3f7aa8a57a74",
+        "280d6c8a-5c79-4cd1-839a-99229c6e0c79",
+        "a5967fc2-5727-4639-b81b-b1af0fb636e0"
+      ],
+      "settings": {
+        "expheadd": "EXPLORE OUR CATEGORIES",
+        "custom_class": "home-category"
+      }
+    },
+    "pdp_banner_BwcL3b": {
+      "type": "pdp-banner",
+      "name": "pdp banner",
+      "settings": {
+        "image_1": "shopify://shop_images/Group_91.png",
+        "image_2": "shopify://shop_images/Group_91_1.png",
+        "custom_class": "",
+        "padding_top": 0,
+        "padding_bottom": 56,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 20
+      }
+    },
+    "feature_collection_home_6Uxg7f": {
+      "type": "feature-collection-home",
+      "name": "feature-collection-home",
+      "settings": {
+        "custom_class": "",
+        "heading": "Our Bestsellers, Your Must-Haves",
+        "caption": "",
+        "collection": "hp-carousal",
+        "show_view_all": false,
+        "layout": "regular",
+        "products_number": 4,
+        "show_promotional_block": false,
+        "promotional_block_title": "",
+        "promotional_block_button_label": "",
+        "promotional_block_button_link": ""
+      }
+    },
+    "image_button_HUM6RC": {
+      "type": "image-button",
+      "custom_css": [
+        "img {object-fit: cover;}"
+      ],
+      "name": "Image & Button",
+      "settings": {
+        "main_image": "shopify://shop_images/Group_1171278993.png",
+        "mob_image": "shopify://shop_images/Frame_44.png",
+        "button_label": "Shop Now",
+        "button_link": "shopify://collections"
+      }
+    },
+    "image_with_text_home_XGaw3w": {
+      "type": "image-with-text-home",
+      "name": "Image-text home",
+      "settings": {
+        "main_image": "shopify://shop_images/Group_1171278931.png",
+        "mob_image": "shopify://shop_images/Group_1171278943_1.png",
+        "title": "Find Your Perfect Match",
+        "description": "Find makeup that loves your skin! Take the Type Beauty Skin Quiz for personalized, skin-loving makeup picks made just for you.",
+        "button_label": "Take the Quiz",
+        "button_link": "shopify://pages/skincare-quiz"
+      }
+    },
+    "pdp_banner_hFL7yQ": {
+      "type": "pdp-banner",
+      "name": "pdp banner",
+      "settings": {
+        "image_1": "shopify://shop_images/Group_1171278940.png",
+        "image_2": "shopify://shop_images/Group_1171278941.png",
+        "custom_class": "page-width type-beauty",
+        "padding_top": 80,
+        "padding_bottom": 0,
+        "mobile_padding_top": 70,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "170953785425440a25": {
+      "type": "apps",
+      "blocks": {
+        "live2_ai_shoppable_videos_carousel_8W6EbL": {
+          "type": "shopify://apps/live2-ai-shoppable-videos/blocks/carousel/0596afb0-e030-408f-9be8-108a43e90013",
+          "settings": {
+            "publish_id": "7fqdiisko8",
+            "custom_css": ""
+          }
+        }
+      },
+      "block_order": [
+        "live2_ai_shoppable_videos_carousel_8W6EbL"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "about_home_section_Gni4Nd": {
+      "type": "about-home-section",
+      "name": "Founder Section",
+      "settings": {
+        "image": "shopify://shop_images/image.png",
+        "name": "ANANYA KAPUR",
+        "text": "I’ve always loved makeup, but I hated how it messed with my skin. So, during the pandemic, I started mixing my own formulas — makeup that works like skincare. And it worked! That’s how Type Beauty Inc. was born: dermatologist-tested, <span>skin-friendly</span> makeup made just for you.",
+        "button_label": "ABOUT US",
+        "button_link": "shopify://pages/about-us"
+      }
+    },
+    "pdp_banner_ddtiCX": {
+      "type": "pdp-banner",
+      "name": "pdp banner",
+      "settings": {
+        "image_1": "shopify://shop_images/Group_1171278949.png",
+        "image_2": "shopify://shop_images/Group_91_478d189b-e303-4c3c-a2c5-dab30446e83e.png",
+        "custom_class": "",
+        "padding_top": 100,
+        "padding_bottom": 66,
+        "mobile_padding_top": 30,
+        "mobile_padding_bottom": 30
+      }
+    },
+    "testimonial_section_xKrDm8": {
+      "type": "testimonial-section",
+      "blocks": {
+        "testimonial_pJiWjK": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/Rectangle_1341.png",
+            "icon": "shopify://shop_images/Group_1171278809.png",
+            "name": "Yashvi Patel",
+            "verified": true,
+            "rating": "4.5",
+            "max_rating": "5",
+            "title": "Amazing",
+            "description": "My acne cleared up while using the Zit Quit Foundation!"
+          }
+        },
+        "testimonial_Ba9H6g": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/2022-09-13_Type_Beauty-1449.png",
+            "icon": "shopify://shop_images/Frame_43_1.png",
+            "name": "Nimrit Kaur",
+            "verified": true,
+            "rating": "4.5",
+            "max_rating": "5",
+            "title": "Pigment that pops, blend that slays",
+            "description": "Obsessed is an understatement. These shadows are buttery, buildable, and made for every mood—day to drama in seconds."
+          }
+        },
+        "testimonial_3LbbbF": {
+          "type": "testimonial",
+          "settings": {
+            "image": "shopify://shop_images/2023-04-23_Type_Beauty-2250bg3.png",
+            "icon": "shopify://shop_images/Frame_41.png",
+            "name": "Inaya Dixit",
+            "verified": true,
+            "rating": "4.5",
+            "max_rating": "5",
+            "title": "Bold color, zero drama.",
+            "description": "These lipsticks glide on like butter, stay all night, and look stunning on every shade of skin. We’re never going back."
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_pJiWjK",
+        "testimonial_Ba9H6g",
+        "testimonial_3LbbbF"
+      ],
+      "name": "Testimonials Section",
+      "settings": {
+        "heading": "LOVED BY MANY"
+      }
+    },
+    "blog_post_2_LJ74p8": {
+      "type": "blog-post-2",
+      "name": "Blog Posts Feature",
+      "settings": {
+        "heading": "SCIENCE BACKED BEAUTY.",
+        "blog": "blog"
+      }
+    },
+    "1648907590ddbbe982": {
+      "type": "apps",
+      "blocks": {
+        "9d3a9a6b-eb8b-484b-a703-58d16c1dd981": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "9d3a9a6b-eb8b-484b-a703-58d16c1dd981"
+      ],
+      "settings": {
+        "full_width": true
+      }
+    }
+  },
+  "order": [
+    "top_categories_bcQfVc",
+    "swipe_hero_h6wJN8",
+    "scrolling_promotion_fqnLLg",
+    "2795d4fb-9f92-4f33-b92d-3ce89fd71106",
+    "pdp_banner_BwcL3b",
+    "feature_collection_home_6Uxg7f",
+    "image_button_HUM6RC",
+    "image_with_text_home_XGaw3w",
+    "pdp_banner_hFL7yQ",
+    "170953785425440a25",
+    "about_home_section_Gni4Nd",
+    "pdp_banner_ddtiCX",
+    "testimonial_section_xKrDm8",
+    "blog_post_2_LJ74p8",
+    "1648907590ddbbe982"
+  ]
+}

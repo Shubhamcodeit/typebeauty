@@ -1,0 +1,1633 @@
+{%- liquid
+  if section.settings.blending_modes
+    assign text_brightness = settings.color_text | color_brightness 
+    assign bg_brightness = settings.color_background | color_brightness
+    if text_brightness < 20 and bg_brightness > 230
+      assign blending_class = "has-black-text"
+    endif
+  else
+    assign blending_class = "no-blending"
+  endif
+-%}
+
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://rawgit.com/kenwheeler/slick/master/slick/slick.js"></script>
+ <link rel="stylesheet" href="https://rawgit.com/kenwheeler/slick/master/slick/slick.css">
+<link rel="stylesheet" href="https://rawgit.com/kenwheeler/slick/master/slick/slick-theme.css">
+
+   
+<vertical-slider class="verti-bottom-slider-home verti-new vertical-slider {{ blending_class }} vertical-slider--{{ section.settings.text_size }}-text" style="display:block">
+
+  {%- for block in section.blocks -%}
+
+    {%- liquid
+      assign index = forloop.index0 | modulo: 3
+      if index == 0
+        assign primary_class = 'push-right-one-tenth lap--push-right-padding'
+        assign secondary_class_p = 'pull-right-half-tenth'
+        assign secondary_class_l = 'pull-right-one-tenth'
+        assign third_class = 'push-right-one-plus-tenth'
+      elsif index == 1
+        assign primary_class = 'push-right-two-tenths'
+        assign secondary_class_p = 'pull-right-half-tenth'
+        assign secondary_class_l = 'pull-right-one-plus-tenth'
+        assign third_class = 'push-right-one-tenth'
+      elsif index == 2
+        assign primary_class_p = 'push-left-four-tenths'
+        assign primary_class_l = 'push-left-three-tenths'
+        assign secondary_class_p = 'pull-left-half-tenth'
+        assign secondary_class_l = 'pull-left-one-tenth'
+        assign third_class_p = 'push-left-three-tenths'
+        assign third_class_l = 'push-left-two-tenths'
+      endif 
+      assign cycle = forloop.index | modulo: 2
+
+    -%}
+
+    <div class="slide" id="slide-{{ block.id }}" 
+      data-position="{{ index }}" 
+      data-index="{{ forloop.index0 }}"
+      {% if block.settings.image2 != blank and block.settings.image3 != blank %} data-images="3" {% endif %} 
+      {% if forloop.last %} data-last="true" {% endif %}
+      {% if forloop.first %} data-first="true" {% endif %}
+      {% unless block.settings.button_label == blank %} data-link {% endunless %}
+      {{ block.shopify_attributes }}
+    >
+
+      <!-- headings -->
+
+    <div class="vertical-slider-headings_top has-black-text">
+     <div id="slick-caption-list_text">
+    <div class="slides slick-dots-thumb_text">
+       {%- for block in section.blocks -%}
+               <div class="slide-heading_text  slide-heading slide-heading--align-left
+        ten-tenths palm--full-width push-left-one-tenth lap--push-left-padding palm--push-left-none" >
+        
+                {%- unless block.settings.heading == blank -%}
+                  <h2 class="slide-title seven-tenths palm--full-width"><span>{{ block.settings.heading | escape }}</span></h2>
+                {%- endunless -%}
+        
+                {%- unless block.settings.caption == blank -%}
+                  <span class="slide-caption seven-tenths palm--full-width h4">{{ block.settings.caption | escape }}</span>
+                {%- endunless -%}
+        
+                {%- unless block.settings.button_label == blank -%}
+                  <a class="slide-button button button--underline palm--hide" href="{{ block.settings.button_link }}" title="{{ block.settings.button_label | escape }}">{{ block.settings.button_label | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                {%- endunless -%}
+                </div>
+
+            <div class="slide-heading_text text2 slide-heading slide-heading--align-left
+        ten-tenths palm--full-width push-left-one-tenth lap--push-left-padding palm--push-left-none" >
+        
+                {%- unless block.settings.heading2 == blank -%}
+                  <h2 class="slide-title seven-tenths palm--full-width"><span>{{ block.settings.heading2 | escape }}</span></h2>
+                {%- endunless -%}
+        
+                {%- unless block.settings.caption2 == blank -%}
+                  <span class="slide-caption seven-tenths palm--full-width h4">{{ block.settings.caption2 | escape }}</span>
+                {%- endunless -%}
+        
+                {%- unless block.settings.button_label2 == blank -%}
+                  <a class="slide-button button button--underline palm--hide" href="{{ block.settings.button_link2 }}" title="{{ block.settings.button_label2 | escape }}">{{ block.settings.button_label2 | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                {%- endunless -%}
+                </div>
+
+             <div class="slide-heading_text text2 slide-heading slide-heading--align-left
+        ten-tenths palm--full-width push-left-one-tenth lap--push-left-padding palm--push-left-none" >
+        
+                {%- unless block.settings.heading3 == blank -%}
+                  <h2 class="slide-title seven-tenths palm--full-width"><span>{{ block.settings.heading3 | escape }}</span></h2>
+                {%- endunless -%}
+        
+                {%- unless block.settings.caption3 == blank -%}
+                  <span class="slide-caption seven-tenths palm--full-width h4">{{ block.settings.caption3 | escape }}</span>
+                {%- endunless -%}
+        
+                {%- unless block.settings.button_label3 == blank -%}
+                  <a class="slide-button button button--underline palm--hide" href="{{ block.settings.button_link3 }}" title="{{ block.settings.button_label3 | escape }}">{{ block.settings.button_label3 | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                {%- endunless -%}
+                </div>
+         
+         {% endfor %}
+         </div>
+     </div>
+</div>
+  
+    
+      <!-- primary image -->
+      <div style="position: relative;" class="slide-image slide-image--primary 
+        {% if block.settings.image1.aspect_ratio > 1 %} 
+          six-tenths lap--seven-tenths 
+          {%- assign sizes = 'sizes="(max-width: 599px) calc(100vw - 60px), (max-width: 1023px) 59vw, 50vw"' -%}
+        {% else %} 
+          five-tenths lap--six-tenths 
+          {%- assign sizes = 'sizes="(max-width: 599px) calc(100vw - 60px), (max-width: 1023px) 50vw, 42vw"' -%}
+        {% endif %} 
+        {% if index == 2 %}
+          {% if block.settings.image2.aspect_ratio < 1 %} 
+            {{ primary_class_p }} 
+          {% else %} 
+            {{ primary_class_l }} 
+          {% endif %}
+        {% else %}
+          {{ primary_class }}
+        {% endif %}
+        palm--full-width palm--push-right-none palm--push-left-none"
+        data-scroll-speed="-.2" data-scroll-parent="slide-{{ block.id }}" data-scroll-mirror 
+        {% if block.settings.image2 != blank or block.settings.image3 != blank %}
+          data-scroll-mobile
+        {% endif %}
+        {% unless block.settings.image1_caption == blank %} data-caption {% endunless %}
+      >
+<img class="wavy-circle-verty-two" src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Wavy_circle-_Home_Page.svg?v=1651956144">
+        <img class="jali-verty-two" src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Long_Grid-_Home_Page.svg?v=1651956144">
+  
+    <div id="slider">
+	<div class="slides">
+    <div class="slide_inner_12">
+    {%- if block.settings.image1_link != blank -%}
+          <a href="{{ block.settings.image1_link }}" class="slide-image__link">
+        {%- endif -%}
+
+          {%- if block.settings.video1 != blank -%}
+            <div class="slide-image__video" style="padding-top:{{ 100 | divided_by: block.settings.image1.aspect_ratio }}%">
+              <video autoplay muted loop playsinline>
+                <source src="{{ block.settings.video1 }}" type="video/mp4">
+              </video>
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.image1 != blank -%}
+            {%- render 'lazy-image', image: block.settings.image1, alt: block.settings.image1_caption, sizes: sizes -%}
+          {%- else -%}
+            <span class="onboarding-svg">
+              {{ 'image' | placeholder_svg_tag }}
+            </span>
+          {%- endif -%}
+
+    
+        {%- if block.settings.image1_link != blank -%}
+          </a>
+        {%- endif -%}
+
+
+        {%- if block.settings.image1_caption != blank -%}
+          <div class="slide-image__caption slide-image__caption--right palm--hide">
+            <div class="rte">
+              {{ block.settings.image1_caption }}
+            </div>
+          </div>
+        {%- endif -%}
+      
+        <p class="bot-text">{{block.settings.img-bottom-text}}</p>
+    </div>
+
+    <div class="slide_inner_12">
+    {%- if block.settings.image12_link != blank -%}
+          <a href="{{ block.settings.image12_link }}" class="slide-image__link">
+        {%- endif -%}
+
+          {%- if block.settings.image12 != blank -%}
+            {%- render 'lazy-image', image: block.settings.image12, alt: block.settings.image1_caption, sizes: sizes -%}
+          {%- else -%}
+            <span class="onboarding-svg">
+              {{ 'image' | placeholder_svg_tag }}
+            </span>
+          {%- endif -%}
+
+    
+        {%- if block.settings.image12_link != blank -%}
+          </a>
+        {%- endif -%}
+
+
+        {%- unless block.settings.image12_caption == blank -%}
+          <div class="slide-image__caption slide-image__caption--right palm--hide">
+            <div class="rte">
+              {{ block.settings.image12_caption }}
+            </div>
+          </div>
+        {%- endunless -%}
+      
+        <p class="bot-text">{{block.settings.img-bottom-text2}}</p>
+    </div>
+
+     <div class="slide_inner_12">
+    {%- if block.settings.image13_link != blank -%}
+          <a href="{{ block.settings.image13_link }}" class="slide-image__link">
+        {%- endif -%}
+
+          {%- if block.settings.image13 != blank -%}
+            {%- render 'lazy-image', image: block.settings.image13, alt: block.settings.image13_caption, sizes: sizes -%}
+          {%- else -%}
+            <span class="onboarding-svg">
+              {{ 'image' | placeholder_svg_tag }}
+            </span>
+          {%- endif -%}
+
+    
+        {%- if block.settings.image13_link != blank -%}
+          </a>
+        {%- endif -%}
+
+
+        {%- unless block.settings.image13_caption == blank -%}
+          <div class="slide-image__caption slide-image__caption--right palm--hide">
+            <div class="rte">
+              {{ block.settings.image13_caption }}
+            </div>
+          </div>
+        {%- endunless -%}
+      
+        <p class="bot-text">{{block.settings.img-bottom-text3 }}</p>
+    </div>
+    <div class="slide_inner_12">
+    {%- if block.settings.image14_link != blank -%}
+          <a href="{{ block.settings.image14_link }}" class="slide-image__link">
+        {%- endif -%}
+
+          {%- if block.settings.image14 != blank -%}
+            {%- render 'lazy-image', image: block.settings.image14, alt: block.settings.image14_caption, sizes: sizes -%}
+          {%- else -%}
+            <span class="onboarding-svg">
+              {{ 'image' | placeholder_svg_tag }}
+            </span>
+          {%- endif -%}
+
+    
+        {%- if block.settings.image14_link != blank -%}
+          </a>
+        {%- endif -%}
+
+
+        {%- unless block.settings.image14_caption == blank -%}
+          <div class="slide-image__caption slide-image__caption--right palm--hide">
+            <div class="rte">
+              {{ block.settings.image14_caption }}
+            </div>
+          </div>
+        {%- endunless -%}
+      
+        <p class="bot-text">{{block.settings.img-bottom-text2}}</p>
+    </div>
+    <div class="slide_inner_15">
+    {%- if block.settings.image15_link != blank -%}
+          <a href="{{ block.settings.image15_link }}" class="slide-image__link">
+        {%- endif -%}
+
+          {%- if block.settings.image15 != blank -%}
+            {%- render 'lazy-image', image: block.settings.image15, alt: block.settings.image15_caption, sizes: sizes -%}
+          {%- else -%}
+            <span class="onboarding-svg">
+              {{ 'image' | placeholder_svg_tag }}
+            </span>
+          {%- endif -%}
+
+    
+        {%- if block.settings.image15_link != blank -%}
+          </a>
+        {%- endif -%}
+
+
+        {%- unless block.settings.image15_caption == blank -%}
+          <div class="slide-image__caption slide-image__caption--right palm--hide">
+            <div class="rte">
+              {{ block.settings.image15_caption }}
+            </div>
+          </div>
+        {%- endunless -%}
+      
+        <p class="bot-text">{{block.settings.img-bottom-text2}}</p>
+    </div>
+      </div>
+       </div>
+      </div>
+
+      <!-- secondary image -->
+      {% if block.settings.image2 != blank %}
+        <div class="slide-image slideleft1 slide-image--secondary push-top-one-tenth
+          {% if block.settings.image2.aspect_ratio < 1 %} 
+            two-tenths lap--two-plus-tenths {{ secondary_class_p }} 
+            {%- assign sizes = 'sizes="(max-width: 599px) 59vw, (max-width: 1023px) 30vw, 17vw"' -%}
+          {% else %} 
+            two-plus-tenths lap--three-tenths {{ secondary_class_l }} 
+            {%- assign sizes = 'sizes="(max-width: 599px) 59vw, (max-width: 1023px) 25vw, 21vw"' -%}
+          {% endif %}
+          palm--seven-tenths 
+          {% if block.settings.image3 != blank %} 
+            palm--pull-top-two-tenths 
+          {% else %}
+            palm--pull-top-none palm--push-top-one-tenth
+          {% endif %}
+          {% if cycle == 0 %}
+            palm--push-right-one-tenth
+          {% else %}
+            palm--push-left-one-tenth palm--pull-right-none
+          {% endif %}
+          " 
+          data-scroll-speed="1" data-scroll-parent="slide-{{ block.id }}" data-scroll-mobile
+          {% unless block.settings.image2_caption == blank %} data-caption {% endunless %}
+        >
+
+          
+        
+        <div id="slider-overlay">
+        <div class="slides">
+        <div class="slide_inner_2 slide-image">
+
+        {%- if block.settings.image2_link != blank -%}
+            <a href="{{ block.settings.image2_link }}" class="slide-image__link">
+          {%- endif -%}
+          
+            {%- if block.settings.video2 != blank -%}
+              <div class="slide-image__video" style="padding-top:{{ 100 | divided_by: block.settings.image2.aspect_ratio }}%">
+                <video autoplay muted loop playsinline>
+                  <source src="{{ block.settings.video2 }}" type="video/mp4">
+                </video>
+              </div>
+            {%- endif -%}
+        
+          {%- render 'lazy-image', image: block.settings.image2, alt: block.settings.image2_caption,   image2_caption : block.settings.image2_caption, sizes: sizes -%}
+          <div class="slide-image__caption {% if index == 2 %} slide-image__caption--right {% else %} slide-image__caption--left {% endif %} palm--hide">
+              <div class="rte">
+                {{ block.settings.image2_caption }}
+              </div>
+            </div>
+
+          {%- if block.settings.image2_link != blank -%}
+            </a>
+          {%- endif -%}
+
+        </div>
+        <div class="slide_inner_2 slide-image">
+
+         {%- if block.settings.image22_link != blank -%}
+            <a href="{{ block.settings.image22_link }}" class="slide-image__link">
+          {%- endif -%}
+          
+            {%- if block.settings.video22 != blank -%}
+              <div class="slide-image__video" style="padding-top:{{ 100 | divided_by: block.settings.image22.aspect_ratio }}%">
+                <video autoplay muted loop playsinline>
+                  <source src="{{ block.settings.video22 }}" type="video/mp4">
+                </video>
+              </div>
+            {%- endif -%}
+        
+          {%- render 'lazy-image', image: block.settings.image22, alt: block.settings.image22_caption, image2_caption : block.settings.image22_caption, sizes: sizes -%}
+          <div class="slide-image__caption {% if index == 2 %} slide-image__caption--right {% else %} slide-image__caption--left {% endif %} palm--hide">
+              <div class="rte">
+                {{ block.settings.image22_caption }}
+              </div>
+            </div>
+               {%- if block.settings.image22_link != blank -%}
+            </a>
+          {%- endif -%}
+        
+        </div>
+        
+        <div class="slide_inner_2 slide-image">
+        
+             {%- if block.settings.image23_link != blank -%}
+            <a href="{{ block.settings.image23_link }}" class="slide-image__link">
+          {%- endif -%}
+          
+            {%- if block.settings.video23 != blank -%}
+              <div class="slide-image__video" style="padding-top:{{ 100 | divided_by: block.settings.image23.aspect_ratio }}%">
+                <video autoplay muted loop playsinline>
+                  <source src="{{ block.settings.video23 }}" type="video/mp4">
+                </video>
+              </div>
+            {%- endif -%}
+        
+          {%- render 'lazy-image', image: block.settings.image23, alt: block.settings.image23_caption, image2_caption : block.settings.image23_caption , sizes: sizes -%}
+          <div class="slide-image__caption {% if index == 2 %} slide-image__caption--right {% else %} slide-image__caption--left {% endif %} palm--hide">
+              <div class="rte">
+                {{ block.settings.image23_caption }}
+              </div>
+            </div>
+             {%- if block.settings.image23_link != blank -%}
+            </a>
+          {%- endif -%}
+        
+        </div>
+         <div class="slide_inner_2 slide-image">
+
+         {%- if block.settings.image24_link != blank -%}
+            <a href="{{ block.settings.image24_link }}" class="slide-image__link">
+          {%- endif -%}
+          
+            {%- if block.settings.video24 != blank -%}
+              <div class="slide-image__video" style="padding-top:{{ 100 | divided_by: block.settings.image24.aspect_ratio }}%">
+                <video autoplay muted loop playsinline>
+                  <source src="{{ block.settings.video24 }}" type="video/mp4">
+                </video>
+              </div>
+            {%- endif -%}
+        
+          {%- render 'lazy-image', image: block.settings.image24, alt: block.settings.image24_caption, image2_caption : block.settings.image24_caption, sizes: sizes -%}
+          <div class="slide-image__caption {% if index == 2 %} slide-image__caption--right {% else %} slide-image__caption--left {% endif %} palm--hide">
+              <div class="rte">
+                {{ block.settings.image24_caption }}
+              </div>
+            </div>
+               {%- if block.settings.image24_link != blank -%}
+            </a>
+          {%- endif -%}
+        
+        </div>
+         <div class="slide_inner_2 slide-image">
+
+         {%- if block.settings.image25_link != blank -%}
+            <a href="{{ block.settings.image25_link }}" class="slide-image__link">
+          {%- endif -%}
+          
+            {%- if block.settings.video25 != blank -%}
+              <div class="slide-image__video" style="padding-top:{{ 100 | divided_by: block.settings.image25.aspect_ratio }}%">
+                <video autoplay muted loop playsinline>
+                  <source src="{{ block.settings.video25 }}" type="video/mp4">
+                </video>
+              </div>
+            {%- endif -%}
+        
+          {%- render 'lazy-image', image: block.settings.image25, alt: block.settings.image22_caption, image2_caption : block.settings.image25_caption, sizes: sizes -%}
+          <div class="slide-image__caption {% if index == 2 %} slide-image__caption--right {% else %} slide-image__caption--left {% endif %} palm--hide">
+              <div class="rte">
+                {{ block.settings.image25_caption }}
+              </div>
+            </div>
+               {%- if block.settings.image25_link != blank -%}
+            </a>
+          {%- endif -%}
+        
+        </div>
+        </div>
+        </div>
+        
+        
+       
+
+        </div>
+      {%- endif -%}
+
+      <div class="slide-break palm--hide"></div>
+
+      <!-- third image -->
+      {% if block.settings.image3 != blank %}
+        <div class="slide-image slide-image--third push-top-half-tenth
+          {% if block.settings.image3.aspect_ratio < 1 %} 
+            one-plus-tenth lap--two-tenths 
+            {%- assign sizes = 'sizes="(max-width: 599px) 34vw, (max-width: 1023px) 17vw, 13vw"' -%}
+          {% else %} 
+            two-tenths lap--two-plus-tenths
+            {%- assign sizes = 'sizes="(max-width: 599px) 34vw, (max-width: 1023px) 21vw, 17vw"' -%}
+          {% endif %} 
+          {% if index == 2 %}
+            {% if block.settings.image2.aspect_ratio < 1 %} 
+              {{ third_class_p }} 
+            {% else %} 
+              {{ third_class_l }} 
+            {% endif %}
+          {% else %}
+            {{ third_class }}
+          {% endif %}
+          palm--four-tenths palm--pull-right-one-tenth
+          {% if cycle == 0 %}
+            palm--push-left-one-tenth
+          {% else %}
+            palm--pull-left-one-tenth
+          {% endif %}
+          "
+          data-scroll-speed=".3" data-scroll-parent="slide-{{ block.id }}" data-scroll-mobile
+          {% unless block.settings.image3_caption == blank %} data-caption {% endunless %}
+        >
+ <div id="slick-caption-list">
+    <div class="slides slick-dots-thumb">
+        <div class="slide_inner_3">
+          {%- if block.settings.image3_link != blank -%}
+            <a href="{{ block.settings.image3_link }}" class="slide-image__link">
+          {%- endif -%}
+
+       
+            {%- if block.settings.video3 != blank -%}
+              <div class="slide-image__video" style="padding-top:{{ 100 | divided_by: block.settings.image3.aspect_ratio }}%">
+                <video autoplay muted loop playsinline>
+                  <source src="{{ block.settings.video3 }}" type="video/mp4">
+                </video>
+              </div>
+            {%- endif -%}
+           
+       {%- render 'lazy-image', image: block.settings.image3, alt: block.settings.image3_caption, sizes: sizes -%} 
+              
+            
+          {%- if block.settings.image3_link != blank -%}
+            </a>
+          {%- endif -%}
+
+
+          {%- unless block.settings.image3_caption == blank -%}
+            <div class="slide-image__caption palm--hide rte">
+              <div class="rte">
+                {{ block.settings.image3_caption }}
+              </div>
+            </div>
+          {%- endunless -%}
+            </div>
+        
+      <div class="slide_inner_3">
+          {%- if block.settings.image32_link != blank -%}
+            <a href="{{ block.settings.image32_link }}" class="slide-image__link">
+          {%- endif -%}
+
+       
+            {%- if block.settings.video32 != blank -%}
+              <div class="slide-image__video" style="padding-top:{{ 100 | divided_by: block.settings.image32.aspect_ratio }}%">
+                <video autoplay muted loop playsinline>
+                  <source src="{{ block.settings.video32 }}" type="video/mp4">
+                </video>
+              </div>
+            {%- endif -%}
+           
+          {%- render 'lazy-image', image: block.settings.image32, alt: block.settings.image32_caption, sizes: sizes -%} 
+            
+          {%- if block.settings.image32_link != blank -%}
+            </a>
+          {%- endif -%}
+
+
+          {%- unless block.settings.image32_caption == blank -%}
+            <div class="slide-image__caption palm--hide rte">
+              <div class="rte">
+                {{ block.settings.image32_caption }}
+              </div>
+            </div>
+          {%- endunless -%}
+            </div>
+
+        <div class="slide_inner_3">
+          {%- if block.settings.image33_link != blank -%}
+            <a href="{{ block.settings.image33_link }}" class="slide-image__link">
+          {%- endif -%}
+
+       
+            {%- if block.settings.video33 != blank -%}
+              <div class="slide-image__video" style="padding-top:{{ 100 | divided_by: block.settings.image33.aspect_ratio }}%">
+                <video autoplay muted loop playsinline>
+                  <source src="{{ block.settings.video33 }}" type="video/mp4">
+                </video>
+              </div>
+            {%- endif -%}
+           
+          {%- render 'lazy-image', image: block.settings.image33, alt: block.settings.image33_caption, sizes: sizes -%} 
+            
+          {%- if block.settings.image33_link != blank -%}
+            </a>
+          {%- endif -%}
+
+
+          {%- unless block.settings.image33_caption == blank -%}
+            <div class="slide-image__caption palm--hide rte">
+              <div class="rte">
+                {{ block.settings.image33_caption }}
+              </div>
+            </div>
+          {%- endunless -%}
+            </div>
+
+<div class="slide_inner_3">
+          {%- if block.settings.image34_link != blank -%}
+            <a href="{{ block.settings.image34_link }}" class="slide-image__link">
+          {%- endif -%}
+
+       
+            {%- if block.settings.video34 != blank -%}
+              <div class="slide-image__video" style="padding-top:{{ 100 | divided_by: block.settings.image34.aspect_ratio }}%">
+                <video autoplay muted loop playsinline>
+                  <source src="{{ block.settings.video34 }}" type="video/mp4">
+                </video>
+              </div>
+            {%- endif -%}
+           
+          {%- render 'lazy-image', image: block.settings.image34, alt: block.settings.image34_caption, sizes: sizes -%} 
+            
+          {%- if block.settings.image34_link != blank -%}
+            </a>
+          {%- endif -%}
+
+
+          {%- unless block.settings.image34_caption == blank -%}
+            <div class="slide-image__caption palm--hide rte">
+              <div class="rte">
+                {{ block.settings.image34_caption }}
+              </div>
+            </div>
+          {%- endunless -%}
+            </div>
+        <div class="slide_inner_3">
+          {%- if block.settings.image35_link != blank -%}
+            <a href="{{ block.settings.image35_link }}" class="slide-image__link">
+          {%- endif -%}
+
+       
+            {%- if block.settings.video35 != blank -%}
+              <div class="slide-image__video" style="padding-top:{{ 100 | divided_by: block.settings.image35.aspect_ratio }}%">
+                <video autoplay muted loop playsinline>
+                  <source src="{{ block.settings.video35 }}" type="video/mp4">
+                </video>
+              </div>
+            {%- endif -%}
+           
+          {%- render 'lazy-image', image: block.settings.image35, alt: block.settings.image35_caption, sizes: sizes -%} 
+            
+          {%- if block.settings.image35_link != blank -%}
+            </a>
+          {%- endif -%}
+
+
+          {%- unless block.settings.image35_caption == blank -%}
+            <div class="slide-image__caption palm--hide rte">
+              <div class="rte">
+                {{ block.settings.image35_caption }}
+              </div>
+            </div>
+          {%- endunless -%}
+            </div>
+      
+        </div>
+    </div>
+        </div>
+      {%- endif -%}
+
+      {%- unless block.settings.button_label == blank -%}
+        <div class="slide-button__holder hide palm--show-inline" style="width:100%">
+          <a class="slide-button button button--underline" href="{{ block.settings.button_link }}" title="{{ block.settings.button_label | escape }}">{{ block.settings.button_label | escape }}<span class="svg svg__arrow" aria-hidden="true">{%- render 'theme-symbols', icon: 'arrow-right' -%}</span></a>
+        </div>
+      {%- endunless -%}
+
+    </div>
+
+  {%- endfor -%}
+
+<div class="vertical-slider-headings_tb has-black-text">
+     <div id="slick-caption-list_text">
+    <div class="slides slick-dots-thumb_text">
+       {%- for block in section.blocks -%}
+               <div class="slide-heading_text  slide-heading slide-heading--align-left
+        ten-tenths palm--full-width push-left-one-tenth lap--push-left-padding palm--push-left-none" >
+        
+                {%- unless block.settings.heading == blank -%}
+                  <h2 class="slide-title seven-tenths palm--full-width"><span>{{ block.settings.heading | escape }}</span></h2>
+                {%- endunless -%}
+        
+                {%- unless block.settings.caption == blank -%}
+                  <span class="slide-caption seven-tenths palm--full-width h4">{{ block.settings.caption | escape }}</span>
+                {%- endunless -%}
+        
+                {%- unless block.settings.button_label == blank -%}
+                  <a class="slide-button button button--underline palm--hide" href="{{ block.settings.button_link }}" title="{{ block.settings.button_label | escape }}">{{ block.settings.button_label | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                {%- endunless -%}
+                </div>
+
+            <div class="slide-heading_text  text-slide2 slide-heading slide-heading--align-left
+        ten-tenths palm--full-width push-left-one-tenth lap--push-left-padding palm--push-left-none" >
+        
+                {%- unless block.settings.heading2 == blank -%}
+                  <h2 class="slide-title seven-tenths palm--full-width"><span>{{ block.settings.heading2 | escape }}</span></h2>
+                {%- endunless -%}
+        
+                {%- unless block.settings.caption2 == blank -%}
+                  <span class="slide-caption seven-tenths palm--full-width h4">{{ block.settings.caption2 | escape }}</span>
+                {%- endunless -%}
+        
+                {%- unless block.settings.button_label2 == blank -%}
+                  <a class="slide-button button button--underline palm--hide" href="{{ block.settings.button_link2 }}" title="{{ block.settings.button_label2 | escape }}">{{ block.settings.button_label2 | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                {%- endunless -%}
+                </div>
+
+        <div class="slide-heading_text  text-slide3 slide-heading slide-heading--align-left
+        ten-tenths palm--full-width push-left-one-tenth lap--push-left-padding palm--push-left-none" >
+        
+                {%- unless block.settings.heading3 == blank -%}
+                  <h2 class="slide-title seven-tenths palm--full-width"><span>{{ block.settings.heading3 | escape }}</span></h2>
+                {%- endunless -%}
+        
+                {%- unless block.settings.caption3 == blank -%}
+                  <span class="slide-caption seven-tenths palm--full-width h4">{{ block.settings.caption3 | escape }}</span>
+                {%- endunless -%}
+        
+                {%- unless block.settings.button_label3 == blank -%}
+                  <a class="slide-button button button--underline palm--hide" href="{{ block.settings.button_link3 }}" title="{{ block.settings.button_label3 | escape }}">{{ block.settings.button_label3 | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                {%- endunless -%}
+                </div>
+         <div class="slide-heading_text  text-slide3 slide-heading slide-heading--align-left
+        ten-tenths palm--full-width push-left-one-tenth lap--push-left-padding palm--push-left-none" >
+        
+                {%- unless block.settings.heading4 == blank -%}
+                  <h2 class="slide-title seven-tenths palm--full-width"><span>{{ block.settings.heading4 | escape }}</span></h2>
+                {%- endunless -%}
+        
+                {%- unless block.settings.caption4 == blank -%}
+                  <span class="slide-caption seven-tenths palm--full-width h4">{{ block.settings.caption4 | escape }}</span>
+                {%- endunless -%}
+        
+                {%- unless block.settings.button_label4 == blank -%}
+                  <a class="slide-button button button--underline palm--hide" href="{{ block.settings.button_link4 }}" title="{{ block.settings.button_label4 | escape }}">{{ block.settings.button_label3 | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                {%- endunless -%}
+                </div>
+  <div class="slide-heading_text  text-slide3 slide-heading slide-heading--align-left
+        ten-tenths palm--full-width push-left-one-tenth lap--push-left-padding palm--push-left-none" >
+        
+                {%- unless block.settings.heading5 == blank -%}
+                  <h2 class="slide-title seven-tenths palm--full-width"><span>{{ block.settings.heading5 | escape }}</span></h2>
+                {%- endunless -%}
+        
+                {%- unless block.settings.caption5 == blank -%}
+                  <span class="slide-caption seven-tenths palm--full-width h4">{{ block.settings.caption5 | escape }}</span>
+                {%- endunless -%}
+        
+                {%- unless block.settings.button_label5 == blank -%}
+                  <a class="slide-button button button--underline palm--hide" href="{{ block.settings.button_link5 }}" title="{{ block.settings.button_label5 | escape }}">{{ block.settings.button_label3 | escape }}<span class="svg svg__arrow" aria-hidden="true">{% render 'theme-symbols', icon: 'arrow-right' %}</span></a>
+                {%- endunless -%}
+                </div>
+         {% endfor %}
+         </div>
+     </div>
+</div>
+  
+</vertical-slider>
+
+{% schema %}
+  {
+    "name": "Multiple Slider Homepage",
+    "class": "mount-vertical-slideshow mount-parallax section-w-margin slide-scroll-home slide_multi_scroll",
+    "max_blocks": 8,
+    "settings": [
+      {
+        "type": "select",
+        "id": "text_size",
+        "label": "t:sections.footer.blocks.text.settings.text_size.label",
+        "options": [
+          {
+            "value": "regular",
+            "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__1.label"
+          },
+          {
+            "value": "large",
+            "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__2.label"
+          }
+        ],
+        "default": "large"
+      },
+      {
+        "type": "checkbox",
+        "id": "blending_modes",
+        "label": "Text blending modes",
+        "info": "When enabled, the text will appear with a different color over the images.",
+        "default": true
+      }
+    ],
+    "blocks": [
+    	{
+	      "type": "image",
+        "name": "t:sections.slider.blocks.image.name",
+	      "settings": [
+            {
+            "type": "header",
+            "content": "Content Slide 1"
+            },
+            {
+            "type": "text",
+            "id": "heading",
+            "label": "t:sections.slider.blocks.image.settings.heading.label",
+            "default": "Welcome to our store"
+          },
+          {
+            "type": "text",
+            "id": "caption",
+            "label": "t:sections.slider.blocks.image.settings.subheading.label",
+            "default": "Showcase your best products"
+          },
+         {
+            "type": "text",
+            "id": "img-bottom-text",
+            "label": "right image text"
+          },
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+          },
+           {
+            "type": "header",
+            "content": "Content Slide 2"
+            },
+            {
+            "type": "text",
+            "id": "heading2",
+            "label": "t:sections.slider.blocks.image.settings.heading.label",
+            "default": "Welcome to our store"
+          },
+          {
+            "type": "text",
+            "id": "caption2",
+            "label": "t:sections.slider.blocks.image.settings.subheading.label",
+            "default": "Showcase your best products"
+          },
+         {
+            "type": "text",
+            "id": "img-bottom-text2",
+            "label": "right image text"
+          },
+          {
+            "type": "text",
+            "id": "button_label2",
+            "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+          },
+          {
+            "type": "url",
+            "id": "button_link2",
+            "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+          },
+             {
+            "type": "header",
+            "content": "Content Slide 3"
+            },
+            {
+            "type": "text",
+            "id": "heading3",
+            "label": "t:sections.slider.blocks.image.settings.heading.label",
+            "default": "Welcome to our store"
+          },
+          {
+            "type": "text",
+            "id": "caption3",
+            "label": "t:sections.slider.blocks.image.settings.subheading.label",
+            "default": "Showcase your best products"
+          },
+         {
+            "type": "text",
+            "id": "img-bottom-text3",
+            "label": "right image text"
+          },
+          {
+            "type": "text",
+            "id": "button_label3",
+            "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+          },
+          {
+            "type": "url",
+            "id": "button_link3",
+            "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+          },
+              {
+            "type": "header",
+            "content": "Content Slide 4"
+            },
+            {
+            "type": "text",
+            "id": "heading4",
+            "label": "t:sections.slider.blocks.image.settings.heading.label",
+            "default": "Welcome to our store"
+          },
+          {
+            "type": "text",
+            "id": "caption4",
+            "label": "t:sections.slider.blocks.image.settings.subheading.label",
+            "default": "Showcase your best products"
+          },
+         {
+            "type": "text",
+            "id": "img-bottom-text4",
+            "label": "right image text"
+          },
+          {
+            "type": "text",
+            "id": "button_label4",
+            "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+          },
+          {
+            "type": "url",
+            "id": "button_link4",
+            "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+          },
+              {
+            "type": "header",
+            "content": "Content Slide 5"
+            },
+            {
+            "type": "text",
+            "id": "heading5",
+            "label": "t:sections.slider.blocks.image.settings.heading.label",
+            "default": "Welcome to our store"
+          },
+          {
+            "type": "text",
+            "id": "caption5",
+            "label": "t:sections.slider.blocks.image.settings.subheading.label",
+            "default": "Showcase your best products"
+          },
+         {
+            "type": "text",
+            "id": "img-bottom-text5",
+            "label": "right image text"
+          },
+          {
+            "type": "text",
+            "id": "button_label5",
+            "label": "t:sections.rich-text.blocks.button.settings.button_label.label"
+          },
+          {
+            "type": "url",
+            "id": "button_link5",
+            "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+          },
+          {
+            "type": "header",
+            "content": "t:sections.highlight-extra-words.vertical-slider.settings.image1.header"
+          },
+          {
+            "type": "header",
+            "content": "Image 1 Slide 1"
+          },
+          {
+            "type": "image_picker",
+            "id": "image1",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+          },
+          
+          {
+            "type": "text",
+            "id": "video1",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+	        {
+	          "type": "richtext",
+	          "id": "image1_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+	        },
+          {
+            "type": "url",
+            "id": "image1_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          },
+
+          {
+            "type": "header",
+            "content": "Image 1 Slide 2"
+          },
+          {
+            "type": "image_picker",
+            "id": "image12",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+          },
+         {
+            "type": "text",
+            "id": "video12",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+	        {
+	          "type": "richtext",
+	          "id": "image12_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+	        },
+          {
+            "type": "url",
+            "id": "image12_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          }, 
+               {
+            "type": "header",
+            "content": "Image 1 Slide 3"
+          },
+         
+         {
+            "type": "image_picker",
+            "id": "image13",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+          },
+          {
+            "type": "text",
+            "id": "video13",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+	        {
+	          "type": "richtext",
+	          "id": "image13_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+	        },
+          {
+            "type": "url",
+            "id": "image13_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          }, 
+             {
+            "type": "header",
+            "content": "Image 1 Slide 4"
+          },
+         
+         {
+            "type": "image_picker",
+            "id": "image14",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+          },
+          {
+            "type": "text",
+            "id": "video14",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+	        {
+	          "type": "richtext",
+	          "id": "image14_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+	        },
+          {
+            "type": "url",
+            "id": "image14_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          }, 
+             {
+            "type": "header",
+            "content": "Image 1 Slide 5"
+          },
+         
+         {
+            "type": "image_picker",
+            "id": "image15",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+          },
+          {
+            "type": "text",
+            "id": "video15",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+	        {
+	          "type": "richtext",
+	          "id": "image15_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+	        },
+          {
+            "type": "url",
+            "id": "image15_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          }, 
+          {
+            "type": "header",
+            "content": "t:sections.highlight-extra-words.vertical-slider.settings.image2.header"
+          },
+            {
+            "type": "header",
+            "content": "Image 2 Slide 1"
+          },
+	        {
+	          "type": "image_picker",
+	          "id": "image2",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+	        },
+          {
+            "type": "text",
+            "id": "video2",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+	        {
+	          "type": "richtext",
+	          "id": "image2_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+	        },
+          {
+            "type": "url",
+            "id": "image2_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          },
+         {
+            "type": "header",
+            "content": "Image 2 Slide 2"
+          },
+	        {
+	          "type": "image_picker",
+	          "id": "image22",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+	        },
+          {
+            "type": "text",
+            "id": "video22",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+	        {
+	          "type": "richtext",
+	          "id": "image22_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+	        },
+          {
+            "type": "url",
+            "id": "image22_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          },
+           {
+            "type": "header",
+            "content": "Image 2 Slide 3"
+          },
+	        {
+	          "type": "image_picker",
+	          "id": "image23",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+	        },
+          {
+            "type": "text",
+            "id": "video23",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+	        {
+	          "type": "richtext",
+	          "id": "image23_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+	        },
+          {
+            "type": "url",
+            "id": "image23_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          },
+             {
+            "type": "header",
+            "content": "Image 2 Slide 4"
+          },
+	        {
+	          "type": "image_picker",
+	          "id": "image24",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+	        },
+          {
+            "type": "text",
+            "id": "video24",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+	        {
+	          "type": "richtext",
+	          "id": "image24_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+	        },
+          {
+            "type": "url",
+            "id": "image24_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          },
+             {
+            "type": "header",
+            "content": "Image 2 Slide 5"
+          },
+	        {
+	          "type": "image_picker",
+	          "id": "image25",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+	        },
+          {
+            "type": "text",
+            "id": "video25",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+	        {
+	          "type": "richtext",
+	          "id": "image25_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+	        },
+          {
+            "type": "url",
+            "id": "image25_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          },
+          {
+            "type": "header",
+            "content": "t:sections.highlight-extra-words.vertical-slider.settings.image3.header"
+          },
+              {
+            "type": "header",
+            "content": "Image 3 Slide 1"
+          },
+	        {
+	          "type": "image_picker",
+	          "id": "image3",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+	        },
+          {
+            "type": "text",
+            "id": "video3",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+          {
+            "type": "richtext",
+            "id": "image3_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+          },
+          {
+            "type": "url",
+            "id": "image3_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          },
+             {
+            "type": "header",
+            "content": "Image 3 Slide 2"
+          },
+	        {
+	          "type": "image_picker",
+	          "id": "image32",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+	        },
+          {
+            "type": "text",
+            "id": "video32",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+          {
+            "type": "richtext",
+            "id": "image32_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+          },
+          {
+            "type": "url",
+            "id": "image32_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          },
+               {
+            "type": "header",
+            "content": "Image 3 Slide 3"
+          },
+	        {
+	          "type": "image_picker",
+	          "id": "image33",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+	        },
+          {
+            "type": "text",
+            "id": "video33",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+          {
+            "type": "richtext",
+            "id": "image33_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+          },
+          {
+            "type": "url",
+            "id": "image33_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          },
+               {
+            "type": "header",
+            "content": "Image 3 Slide 4"
+          },
+	        {
+	          "type": "image_picker",
+	          "id": "image34",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+	        },
+          {
+            "type": "text",
+            "id": "video34",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+          {
+            "type": "richtext",
+            "id": "image34_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+          },
+          {
+            "type": "url",
+            "id": "image34_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          },
+            {
+            "type": "header",
+            "content": "Image 3 Slide 5"
+          },
+	        {
+	          "type": "image_picker",
+	          "id": "image35",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image.label"
+	        },
+          {
+            "type": "text",
+            "id": "video35",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.video.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.video.info"
+          },
+          {
+            "type": "richtext",
+            "id": "image35_caption",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.caption.label",
+            "info": "t:sections.highlight-extra-words.vertical-slider.settings.caption.info"
+          },
+          {
+            "type": "url",
+            "id": "image35_link",
+            "label": "t:sections.highlight-extra-words.vertical-slider.settings.image_link.label"
+          }
+	      ]
+	    }
+	  ],
+    "presets": [{
+      "name": "t:sections.slider.slider_vertical.name",
+      "blocks": [{
+        "type": "image",
+        "settings": {
+          "heading": "Welcome to our store",
+          "caption": "Showcase your best products",
+          "button_label": "Explore all"
+        }
+      },{
+        "type": "image",
+        "settings": {
+          "heading": "Write about yourself",
+          "caption": "Include some awesome images",
+          "button_label": "Learn more"
+        }
+      },{
+        "type": "image",
+        "settings": {
+          "heading": "Promote your products",
+          "caption": "Include various promotions and flash sales",
+          "button_label": "Shop now"
+        }
+      }]
+    }]
+  }
+{% endschema %}
+<style>
+  .stamp-img{
+ 
+  }
+  @keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+  .bot-text{
+margin:0;
+    margin-top: 5px;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: Inter;
+    text-align: end;
+  }
+  .verti-new .slide-heading {
+  bottom: 29vh!important;
+   
+  }
+  .verti-new{
+    max-width: 86%;
+    margin: auto;
+  margin-bottom: -200px!important;
+    padding: 100px 0;
+  }
+  .verti-new .push-top-half-tenth {
+  
+      margin-right: calc(var(--grid-width) / 12 * 0.5)!important;
+}
+  .verti-new .slide-image--third .slide-image__caption{
+  text-align: center;
+    width: max-content!important;
+    margin: auto;
+    border-bottom: 1px solid;
+  }
+  .wavy-circle-verty-two{
+  position: absolute;
+    top: 0%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+  }
+  .jali-verty-two{
+ position: absolute;
+    top: 105%;
+    left: 56%;
+    transform: translate(-50%, -50%);
+    width: 71%;
+  }
+  @media only screen and (max-width: 768px) {
+  .verti-new{
+    max-width: 100%;
+    padding: 0;
+  }
+    .verti-new .palm--pull-top-two-tenths {
+    margin-top: calc(var(--grid-width) / 12 * -7)!important;
+}
+     .verti-new .push-top-half-tenth {
+    margin-top: calc(var(--grid-width) / 12 * -1.5)!important;
+}
+    .jali-verty-two{
+    position: absolute;
+    top: 100%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    width: 61%;
+    }
+     .wavy-circle-verty-two{
+  position: absolute;
+    top: 0%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+  }
+    .verti-new .slide-button__holder{
+    margin-top: 5vh;
+    }
+  }
+
+/* Custom Dev Css */
+  .slide_inner_1 {
+    position: relative;
+    padding-right: 33px;
+}
+
+.slide_multi_scroll .slide-image__caption.slide-image__caption--right {
+    right: 29px;
+}
+  .slide_inner_3 {
+    padding-bottom: 33px;
+  }
+  .slick-dots-thumb_text{
+    z-index: 9999;
+  }
+.slick-dots-thumb_text .slide-button {
+    color: #ff8f1a!important;
+    border-color: #ff8f1a!important;
+    font-family: Inter;
+    font-weight: 600!important;
+}
+.slick-dots-thumb_text .slide-button svg path {
+    fill: #ff8f1a!important;
+}
+.slick-dots-thumb_text  .slide-heading {
+    padding-left: 0px;
+    margin: 0px;
+}
+.slide_multi_scroll  .vertical-slider-headings_tb.has-black-text {
+    position: absolute;
+    top: 30%;
+    left: 0px;
+    max-width:53%;
+}
+.slide_multi_scroll  vertical-slider {
+    position: relative;
+}
+  
+/* .slick-dots-thumb_text .slide-heading {
+    bottom: 29vh!important;
+}
+.slick-dots-thumb_text .slide-heading {
+    height: calc(100vh - var(--header-size));
+    bottom: 25vh;
+    left: 0;
+    position: fixed;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 9;
+    color: var(--color-text);
+    pointer-events: none;
+} */
+  
+.vertical-slider-headings_top {
+    display: none;
+}
+
+ #shopify-section-{{ section.id }} .slide_inner_2 figure.lazy-image {
+    width: 90%;
+    float: right;
+}
+  
+#shopify-section-{{ section.id }}   .vertical-slider .slide-image__caption.slide-image__caption--left {
+    left: 33px;
+    bottom: -31px;
+}
+ #shopify-section-{{ section.id }}  .slide_inner_12 {
+    position: relative;
+}
+  #shopify-section-{{ section.id }} .slide_inner_12 figure.lazy-image {
+    width: 96%;
+}
+  
+@media screen and (max-width: 599px) {
+.slide_multi_scroll .vertical-slider-headings_tb.has-black-text {
+    display: none;
+}
+ .slide_inner_1 {
+    position: relative;
+    padding-right: 0px;
+} 
+  .vertical-slider-headings_top.has-black-text {
+    float: left;
+    width: 100%;
+    display:block;
+}
+  
+  
+  }
+  .slick-initialized .slick-slide {
+    margin-left: 1px;
+}
+</style>
+
+{% assign autoplay_speed = 4000 %}
+      
+ <script>
+$('#shopify-section-{{ section.id }} #slider .slides').slick({
+  lazyLoad: 'progressive',
+  arrows: false,
+  dots: false,
+  speed: 500,
+  infinite: true,
+  cssEase: 'ease-in-out',
+  swipe: true,
+  // fade: true,
+  autoplay: true,
+  autoplaySpeed: 99999999999999,
+  asNavFor: '#shopify-section-{{ section.id }} #slider-overlay .slides, #shopify-section-{{ section.id }} .slick-dots-thumb, #shopify-section-{{ section.id }} .slick-dots-thumb_text'
+});
+
+$('#shopify-section-{{ section.id }} #slider-overlay .slides').slick({
+  lazyLoad: 'progressive',
+  arrows: false,
+  // fade: true,
+  centerPadding: '0px',
+  infinite: true,
+  centerMode: true,
+  speed: 500,
+  swipe: true,
+  cssEase: 'ease-in-out',
+  slidesToShow: 1,
+  adaptiveHeight: true,
+  autoplay: true,
+  autoplaySpeed: 99999999999999,
+  asNavFor: '#shopify-section-{{ section.id }} .slick-dots-thumb, #shopify-section-{{ section.id }} #slider .slides, #shopify-section-{{ section.id }} .slick-dots-thumb_text' });
+
+$('#shopify-section-{{ section.id }} .slick-dots-thumb').slick({
+  lazyLoad: 'progressive',
+  arrows: false,
+  infinite: true,
+    swipe: true,
+  slidesToShow: 1,
+  centerMode: true,
+  centerPadding: '0px',
+  adaptiveHeight: true,
+  cssEase: 'ease-in-out',
+   autoplay: true,
+  autoplaySpeed: 99999999999999,
+  asNavFor: '#shopify-section-{{ section.id }} #slider-overlay .slides, #shopify-section-{{ section.id }} #slider .slides, #shopify-section-{{ section.id }} .slick-dots-thumb_text',
+  focusOnSelect: true });
+
+$('#shopify-section-{{ section.id }} .slick-dots-thumb_text').slick({
+  lazyLoad: 'progressive',
+  arrows: false,
+  infinite: true,
+    swipe: true,
+  slidesToShow: 1,
+  centerMode: true,
+  centerPadding: '0px',
+  adaptiveHeight: true,
+  cssEase: 'ease-in-out',
+  focusOnSelect: true,
+  autoplay: true,
+  autoplaySpeed: 99999999999999,
+    asNavFor: '#shopify-section-{{ section.id }} #slider-overlay .slides, #shopify-section-{{ section.id }} #slider .slides, #shopify-section-{{ section.id }} .slick-dots-thumb '
+});
+   
+//# sourceURL=pen.js
+    </script>
+   

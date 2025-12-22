@@ -1,0 +1,81 @@
+<div class="grid-section">
+  {% for block in section.blocks %}
+    <div class="grid-inner">
+      <a href="{{ block.settings.imageurl }}">
+        <img src="{{ block.settings.image | img_url: 'master' }}">
+        <p>{{ block.settings.title }}</p>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+<style>
+  .grid-section{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1220px;
+    padding: 0 20px;
+    margin: auto;
+  }
+  .grid-inner{
+       position: relative;
+    width: 30%;
+    margin-bottom: 4rem;
+  }
+  .grid-inner p{
+      position: absolute;
+    left: 50%;
+    top: 83%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    color: #fff;
+    font-size: 3rem;
+    font-weight: 500;
+  }
+  .grid-inner img{
+    width: 100%;
+  }
+  @media only screen and (max-width: 600px) {
+ .grid-inner {
+    position: relative;
+    width: 48%;
+    margin-bottom: 1rem;
+}
+}
+</style>
+{% schema %}
+  {
+    "name": "collection custom",
+    "settings": [
+     
+    ],
+     "blocks": [
+     {
+       "name": "Slide",
+       "type": "slide",
+       "settings": [
+         {
+           "type": "url",
+           "id": "imageurl",
+           "label": "Image"
+         },
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Image"
+         },
+         {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }
+       ]
+     }
+  ],
+    "presets": [
+      {
+        "name": "collection custom"
+      }
+    ]
+  }
+{% endschema %}

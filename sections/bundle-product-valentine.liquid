@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<product-page 
+id="product-{{ section.id }}" class="product" 
+data-collection="{{ collection.handle }}" data-id="{{ product.id }}" 
+data-availability="{{ product.available }}" 
+{% if product.has_only_default_variant %} data-single-variant="true" {% endif %} 
+style="display:block"
+>
+
+<div class="product__offers four-tenths lap--five-tenths smaller-lap--full-width smaller-lap--push-left-none">
+
+<div class="insider-prod">
+
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign product_form_id = 'product-form-' | append: section.id -%}
+
+{%- for block in section.blocks -%}
+{%- case block.type -%}
+
+{%- when 'header' -%}
+<div 
+{% if block.settings.stick_product_header_on_mobile %} 
+class="smaller-lap--hide" 
+{% else %}
+class="set-mobile-position"
+{% endif %} 
+{{ block.shopify_attributes }}
+>
+<product-header 
+{% if block.settings.stick_product_header_on_mobile %} data-move-header-on-mobile {% endif %}
+>
+{%- render 'product-header', product: product, variant: current_variant, show_vendor: block.settings.show_vendor, show_tax_info: block.settings.show_tax_info, show_sku: block.settings.show_sku, show_barcode: block.settings.show_barcode, show_reviews: block.settings.show_reviews -%}
+</product-header>
+{%- if block.settings.stick_product_header_on_mobile -%}
+<script>
+ProductHeaderHelper('#product-{{ section.id }}');
+</script>
+{%- endif -%}
+</div>
+
+
+<h3 class="select-text">Select your Lustre</h3>
+<select id="concealer-select">
+{% for product in collections['lip-shimmers'].products %}        
+<option data-attr="{{product.handle}}" value="{{product.title}}">{{product.title}}</option>        
+{% endfor %} 
+</select>
+<div class="product__variants concealer-custom-shades"> 
+  <div class="product-variant" data-name="product-color">
+<span class="concealer-selected-shade">Selected Shade:<span>400 Influencer</span></span>
+<div class="product-variant__container">
+
+<div class="product-variant__item product-variant__item--color firsty"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-1-" value="400 Influencer" checked="" class="product-variant__input product-variant-value"> <span class="tooltiptext">400 Influencer</span> <label data-varid="40128009830478" for="soak-it-lip-shimmer-option-color-1-" class="product-variant__label selected-var"><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/400-Influencer.png?crop=center&amp;height=44&amp;v=1670319121&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-2-" value="401 Stun Gun" class="product-variant__input product-variant-value"> <span class="tooltiptext">401 Stun Gun</span> <label data-varid="40128009863246" for="soak-it-lip-shimmer-option-color-2-" class="product-variant__label "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/401-Stun-Gun.png?crop=center&amp;height=44&amp;v=1670320491&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-3-" value="402 SelfMade" class="product-variant__input product-variant-value"> <span class="tooltiptext">402 SelfMade</span> <label data-varid="40128009896014" for="soak-it-lip-shimmer-option-color-3-" class="product-variant__label "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/402-SelfMade.png?crop=center&amp;height=44&amp;v=1670320569&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-4-" value="403 Salty" class="product-variant__input product-variant-value"> <span class="tooltiptext">403 Salty</span> <label data-varid="40128009928782" for="soak-it-lip-shimmer-option-color-4-" class="product-variant__label "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/403-Salty.png?crop=center&amp;height=44&amp;v=1670319004&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-5-" value="404 Melodrama" class="product-variant__input product-variant-value"> <span class="tooltiptext">404 Melodrama</span> <label data-varid="40128009961550" for="soak-it-lip-shimmer-option-color-5-" class="product-variant__label "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/404-Melodrama.png?crop=center&amp;height=44&amp;v=1670318905&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-6-" value="405 CEO" class="product-variant__input product-variant-value"> <span class="tooltiptext">405 CEO</span> <label data-varid="40128009994318" for="soak-it-lip-shimmer-option-color-6-" class="product-variant__label "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/405-CEO.png?crop=center&amp;height=44&amp;v=1670320697&amp;width=44 "></span></label> </div>
+
+
+
+</div>
+
+</div></div>    
+<h3 class="select-text">Select your Lustre</h3>
+<select id="foundation-select">
+{% for product in collections['lip-shimmers'].products %}        
+<option data-attr="{{product.handle}}" value="{{product.title}}">{{product.title}}</option>        
+{% endfor %} 
+</select>
+<div class="product__variants foundation-custom-shades"><div class="product-variant" data-name="product-color">
+<span class="foundation-selected-shade">Selected Shade:<span>400 Influencer</span></span>
+<div class="product-variant__container">
+  
+<div class="product-variant__item product-variant__item--color firsty"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-11-" value="400 Influencer" checked="" class="product-variant__input1 product-variant-value"> <span class="tooltiptext">400 Influencer</span> <label data-varid="40128009830478" for="soak-it-lip-shimmer-option-color-11-" class="product-variant__label1 selected-var"><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/400-Influencer.png?crop=center&amp;height=44&amp;v=1670319121&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-22-" value="401 Stun Gun" class="product-variant__input1 product-variant-value"> <span class="tooltiptext">401 Stun Gun</span> <label data-varid="40128009863246" for="soak-it-lip-shimmer-option-color-22-" class="product-variant__label1 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/401-Stun-Gun.png?crop=center&amp;height=44&amp;v=1670320491&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-33-" value="402 SelfMade" class="product-variant__input1 product-variant-value"> <span class="tooltiptext">402 SelfMade</span> <label data-varid="40128009896014" for="soak-it-lip-shimmer-option-color-33-" class="product-variant__label1 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/402-SelfMade.png?crop=center&amp;height=44&amp;v=1670320569&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-44-" value="403 Salty" class="product-variant__input1 product-variant-value"> <span class="tooltiptext">403 Salty</span> <label data-varid="40128009928782" for="soak-it-lip-shimmer-option-color-44-" class="product-variant__label1 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/403-Salty.png?crop=center&amp;height=44&amp;v=1670319004&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-55-" value="404 Melodrama" class="product-variant__input1 product-variant-value"> <span class="tooltiptext">404 Melodrama</span> <label data-varid="40128009961550" for="soak-it-lip-shimmer-option-color-55-" class="product-variant__label1 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/404-Melodrama.png?crop=center&amp;height=44&amp;v=1670318905&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-66-" value="405 CEO" class="product-variant__input1 product-variant-value"> <span class="tooltiptext">405 CEO</span> <label data-varid="40128009994318" for="soak-it-lip-shimmer-option-color-66-" class="product-variant__label1 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/405-CEO.png?crop=center&amp;height=44&amp;v=1670320697&amp;width=44 "></span></label> </div>
+
+
+
+</div>
+
+</div></div>    
+  
+<h3 class="select-text">Select your Lustre</h3>
+<select id="primer-select">
+{% for product in collections['lip-shimmers'].products %}        
+<option data-attr="{{product.handle}}" value="{{product.title}}">{{product.title}}</option>        
+{% endfor %} 
+</select>
+<div class="product__variants lustre_custom_shades_03"> 
+  <div class="product-variant" data-name="product-color">
+<span class="lusture-selected-shade-01">Selected Shade:<span>400 Influencer</span></span>
+<div class="product-variant__container">
+
+<div class="product-variant__item product-variant__item--color firsty"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-31-" value="400 Influencer" checked="" class="product-variant__input2 product-variant-value"> <span class="tooltiptext">400 Influencer</span> <label data-varid="40128009830478" for="soak-it-lip-shimmer-option-color-31-" class="product-variant__label3 selected-var"><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/400-Influencer.png?crop=center&amp;height=44&amp;v=1670319121&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-32-" value="401 Stun Gun" class="product-variant__input2 product-variant-value"> <span class="tooltiptext">401 Stun Gun</span> <label data-varid="40128009863246" for="soak-it-lip-shimmer-option-color-32-" class="product-variant__label3 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/401-Stun-Gun.png?crop=center&amp;height=44&amp;v=1670320491&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-33-" value="402 SelfMade" class="product-variant__input2 product-variant-value"> <span class="tooltiptext">402 SelfMade</span> <label data-varid="40128009896014" for="soak-it-lip-shimmer-option-color-33-" class="product-variant__label3 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/402-SelfMade.png?crop=center&amp;height=44&amp;v=1670320569&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-34-" value="403 Salty" class="product-variant__input2 product-variant-value"> <span class="tooltiptext">403 Salty</span> <label data-varid="40128009928782" for="soak-it-lip-shimmer-option-color-34-" class="product-variant__label3 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/403-Salty.png?crop=center&amp;height=44&amp;v=1670319004&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-35-" value="404 Melodrama" class="product-variant__input2 product-variant-value"> <span class="tooltiptext">404 Melodrama</span> <label data-varid="40128009961550" for="soak-it-lip-shimmer-option-color-35-" class="product-variant__label3 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/404-Melodrama.png?crop=center&amp;height=44&amp;v=1670318905&amp;width=44 "></span></label> </div> 
+<div class="product-variant__item product-variant__item--color"> <input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-36-" value="405 CEO" class="product-variant__input2 product-variant-value"> <span class="tooltiptext">405 CEO</span> <label data-varid="40128009994318" for="soak-it-lip-shimmer-option-color-36-" class="product-variant__label3 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/405-CEO.png?crop=center&amp;height=44&amp;v=1670320697&amp;width=44 "></span></label> </div>
+
+  
+</div>
+
+</div>
+  
+  </div>  
+
+  <h3 class="select-text">Select your Lusture</h3>
+<select id="lustre-select">
+{% for product in collections['lip-shimmers'].products %}        
+<option data-attr="{{product.handle}}" value="{{product.title}}">{{product.title}}</option>        
+{% endfor %} 
+</select>
+<div class="product__variants lustre_custom_shades_04"> 
+  <div class="product-variant" data-name="product-color">
+<span class="lusture-selected-shade-02">Selected Shade:<span>400 Influencer</span></span>
+<div class="product-variant__container">
+
+<div class="product-variant__item product-variant__item--color firsty">
+<input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-41-" value="400 Influencer" checked="" class="product-variant__input3 product-variant-value">
+<span class="tooltiptext">400 Influencer</span>
+<label data-varid="40128009830478" for="soak-it-lip-shimmer-option-color-41-" class="product-variant__label4 selected-var"><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/400-Influencer.png?crop=center&amp;height=44&amp;v=1670319121&amp;width=44 "></span></label>
+</div>
+
+<div class="product-variant__item product-variant__item--color">
+<input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-42-" value="401 Stun Gun" class="product-variant__input3 product-variant-value">
+<span class="tooltiptext">401 Stun Gun</span>
+<label data-varid="40128009863246" for="soak-it-lip-shimmer-option-color-42-" class="product-variant__label4 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/401-Stun-Gun.png?crop=center&amp;height=44&amp;v=1670320491&amp;width=44 "></span></label>
+</div>
+
+<div class="product-variant__item product-variant__item--color">
+<input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-43-" value="402 SelfMade" class="product-variant__input3 product-variant-value">
+<span class="tooltiptext">402 SelfMade</span>
+<label data-varid="40128009896014" for="soak-it-lip-shimmer-option-color-43-" class="product-variant__label4 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/402-SelfMade.png?crop=center&amp;height=44&amp;v=1670320569&amp;width=44 "></span></label>
+</div>
+
+<div class="product-variant__item product-variant__item--color">
+<input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-444-" value="403 Salty" class="product-variant__input3 product-variant-value">
+<span class="tooltiptext">403 Salty</span>
+<label data-varid="40128009928782" for="soak-it-lip-shimmer-option-color-444-" class="product-variant__label4 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/403-Salty.png?crop=center&amp;height=44&amp;v=1670319004&amp;width=44 "></span></label>
+</div>
+
+  
+<div class="product-variant__item product-variant__item--color">
+<input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-45-" value="404 Melodrama" class="product-variant__input3 product-variant-value">
+<span class="tooltiptext">404 Melodrama</span>
+<label data-varid="40128009961550" for="soak-it-lip-shimmer-option-color-45-" class="product-variant__label4 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/404-Melodrama.png?crop=center&amp;height=44&amp;v=1670318905&amp;width=44 "></span></label>
+</div>
+
+<div class="product-variant__item product-variant__item--color">
+<input type="radio" name="product-color" id="soak-it-lip-shimmer-option-color-46-" value="405 CEO" class="product-variant__input3 product-variant-value">
+<span class="tooltiptext">405 CEO</span>
+<label data-varid="40128009994318" for="soak-it-lip-shimmer-option-color-46-" class="product-variant__label4 "><span aria-hidden="true" style=" background-image: url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/405-CEO.png?crop=center&amp;height=44&amp;v=1670320697&amp;width=44 "></span></label>
+</div>
+
+  
+</div>
+
+</div>
+  
+  </div>  
+  
+{%- when 'variant_picker' -%}
+<product-variants
+data-variants="{{ product.options_with_values.size }}"
+data-type="{{ block.settings.variants_style }}"
+data-hide-variants="true"
+data-url="{{ product.url }}" data-id="{{ section.id }}"
+style="display:block"
+{{ block.shopify_attributes }}
+>
+
+{%- render 'product-variants', product: product, color_swatches: block.settings.show_color_swatches, style: block.settings.variants_style -%}
+
+{%- if block.settings.show_quantities != "no" -%} 
+<span class="variant-quantity product__variant-quantity" 
+{% if product.tags contains "preorder" %} style="display:none" {% endif %}
+data-type="{{ block.settings.show_quantities }}"
+></span>
+{%- capture variant_inventory -%}
+[{%- for variant in product.variants -%}{
+"id": {{ variant.id }}{%- if variant.inventory_management != null -%}, 
+"quantity": {{ variant.inventory_quantity }}, 
+"inventory": "{{ variant.inventory_policy }}"{%- endif -%}
+{%- if variant.available == false -%},"unavailable": true{%- endif -%}
+}{%- unless forloop.last -%},{%- endunless -%}
+{%- endfor -%}]
+{%- endcapture -%}
+<span class="variant-quantity-data" data-inventory='{{ variant_inventory }}'></span>
+{%- endif -%}
+
+<noscript>
+<select name="id" id="Variants-{{ section.id }}" class="productSelect"
+{% if product.has_only_default_variant %} style="display:none!important" {% endif %}
+form="{{ product_form_id }}"
+>
+{%- for variant in product.variants -%}
+<option
+{% if variant == current_variant %}selected="selected"{% endif %}
+{% if variant.available == false %}disabled{% endif %}
+value="{{ variant.id }}"
+>
+{{ variant.title }}
+{% if variant.available == false %} - {{ 'product.inventory.sold_out_variant' | t }}{% endif %}
+- {{ variant.price | money | strip_html }}
+</option>
+{%- endfor -%}
+</select>
+</noscript>
+
+<script type="application/json">
+{{ product.variants | json }}
+</script>
+
+</product-variants>
+
+{%- when 'buy_buttons' -%}
+
+<product-form 
+id="add-to-cart-{{ section.id }}" class="product__form" {% if settings.cart_action == 'overlay' %} data-ajax-cart {% endif %}
+style="display:block"
+{{ block.shopify_attributes }}
+>
+
+{%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+
+<template>
+<input type="hidden" class="item-varid" name="id" value="{{ current_variant.id }}">
+</template>
+<script>
+document.getElementById('add-to-cart-{{ section.id }}').querySelector('form').append(document.getElementById('add-to-cart-{{ section.id }}').querySelector('template').content.cloneNode(true));
+</script>
+<p class="quant-btn desk">QUANTITY</p>
+<div class="product__cart-actions cart-actions buttons-holder">
+
+<div class="product__cart-actions-holder" data-value="{{ product.selected_or_first_available_variant.id }}" >
+<div class="mob-flexed">
+<p class="quant-btn mob">QUANTITY</p>
+<div class="quant-selector">
+<a class="less" data-variantid="39799270506574" href="javascript:void(0)">
+<img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/39384297500c145afa524e1721a04663.svg?v=1650276446">
+</a>
+{%- if block.settings.show_quantity_selector -%}
+<input type="number" name="quantity" value="1" min="1" class="product__quantity js-qty" aria-label="{{ 'product.page.quantity' | t }}">
+{%- endif -%}
+<a class="more" data-variantid="39799270506574" href="javascript:void(0)">
+<img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/18dddcc9cf53b547eaf0f76c308502f6_e2c6dbb9-0564-4b89-be39-282da393cb9c.svg?v=1650276446">
+</a>
+</div>
+
+</div>
+
+<button type="submit" name="add" class="product__add-to-cart-bundle-vl btbtbtn {% unless current_variant.available %} disabled {% endunless %}">
+<span class="add-to-cart__text">
+{%- liquid
+if current_variant.available
+echo 'product.page.add_to_cart_button' | t
+else
+echo 'product.inventory.sold_out_variant' | t
+endif
+-%}
+</span>
+</button>
+
+</div>
+
+{%- liquid
+if block.settings.show_dynamic_checkout
+echo form | payment_button
+endif
+echo form | payment_terms
+-%}
+
+</div>
+
+{%- endform -%}
+
+</product-form>
+
+{%- when 'collapsible_tab' -%}
+
+<toggle-tab data-index="{{ forloop.index }}" class="toggle" {{ block.shopify_attributes }}>
+<span class="toggle__title text-size--smaller" tabindex="0" aria-expanded="false" aria-controls="toggle-{{ block.id }}">{{ block.settings.heading | escape }}</span>
+<div id="toggle-{{ block.id }}" class="toggle__content rte">
+{%- liquid
+echo block.settings.content
+unless block.settings.page == blank
+echo block.settings.page.content
+endunless
+unless block.settings.image == blank
+assign sizes = 'sizes="(max-width: 948px) calc(100vw - 20px), (min-width: 949px) and (max-width: 1023px) calc(100vw - 200px), 25vw"'
+render 'lazy-image', image: block.settings.image, type: 'image', alt: block.settings.title, sizes: sizes
+endunless
+-%}
+</div>
+</toggle-tab>
+
+{%- when 'pickup_avaiability' -%} 
+
+{%- assign pick_up_availabilities = current_variant.store_availabilities | where: 'pick_up_enabled', true -%}
+{% comment %}
+<pickup-availability class="product__pickup-availabilities no-js-hidden"
+{% if current_variant.available and pick_up_availabilities.size > 0 %} available {% endif %}
+data-base-url="{{ shop.url }}{{ routes.root_url }}"
+data-variant-id="{{ current_variant.id }}"
+data-has-only-default-variant="{{ product.has_only_default_variant }}"
+data-id="{{ section.id }}"
+{{ block.shopify_attributes }}
+>
+<template>
+<pickup-availability-preview class="pickup-availability-preview store-availability-container">
+<div class="store-availability-information">
+{%- render 'theme-symbols', icon: 'out_of_stock' -%}
+<div class="store-availability-information-container">
+<p class="store-availability-information__title">{{ 'store_availability.pick_up_currently_unavailable' | t }}</p>
+<p class="store-availability-information__stores">
+<button class="button--text store-availability-information__link" data-store-availability-modal-open aria-haspopup="dialog">
+{{ 'store_availability.refresh' | t }}
+</button>
+</p>
+</div>
+</div>
+</template>
+</pickup-availability>
+{% endcomment %}
+{%- when 'share' -%}
+<toggle-tab data-index="{{ forloop.index }}" class="toggle" {{ block.shopify_attributes }}>
+<span tabindex="0" class="toggle__title text-size--smaller" aria-expanded="false" aria-controls="toggle-{{ block.id }}">{{ 'general.sharing.title' | t }}</span>
+<div id="toggle-{{ block.id }}" class="toggle__content rte">
+{%- render 'share', title: product.title, url: product.url, image: product.featured_media -%}
+</div>
+</toggle-tab>
+
+{%- endcase -%}
+{%- endfor -%}
+
+</div>
+
+</div>
+
+<div class="product__gallery six-tenths lap--push-left-padding smaller-lap--full-width smaller-lap--push-left-none" style="z-ndex: 99999!important;">
+
+{%- assign sizes = 'sizes="(max-width: 835px) calc(100vw - 90px), (max-width: 1023px) 50vw, 42vw"' -%}
+
+<product-slider id="product-gallery-{{ section.id }}" class="product-gallery hi" data-size="{{ product.media.size }}" style="display:block">
+
+<div class="product-gallery__viewport">
+
+<div class="product-gallery__container push-left-one-tenth lap--push-left-none">
+
+<div class="product-gallery__items">
+
+{%- if product.media.size == 0 -%} 
+
+<div class="product-gallery__item" style="width: 100%;">
+<span class="onboarding-svg with-background">
+{{ 'product-1' | placeholder_svg_tag }}
+</span>
+</div>
+
+{%- endif -%}
+
+{%- liquid
+for media in product.media
+render 'product-media', media: media, enable_zoom: section.settings.enable_zoom, index: forloop.index0, media_aspect: section.settings.media_aspect, loop: section.settings.enable_video_looping, sizes: sizes
+endfor
+-%}
+
+</div>
+
+</div>
+
+</div>
+
+</product-slider>
+
+{%- assign first_3d_model = product.media | where: "media_type", "model" | first -%}
+
+{%- if first_3d_model -%}
+
+<button
+aria-label="{{ 'product.page.view_in_space_label' | t }}"
+class="product-gallery__view-in-space"
+data-shopify-xr
+data-shopify-first-model3d-id="{{ first_3d_model.id }}"
+data-shopify-model3d-id="{{ first_3d_model.id }}"
+data-shopify-title="{{ product.title | escape }}"
+data-shopify-xr-hidden
+>
+<span aria-hidden="true">{%- render 'theme-symbols', icon: 'model-button' -%}</span>
+<span class='product-gallery__view-in-space-text'>{{ 'product.page.view_in_space' | t }}</span>
+</button>
+
+<link id="ModelViewerStyle" rel="stylesheet" href="https://cdn.shopify.com/shopifycloud/model-viewer-ui/assets/v1.0/model-viewer-ui.css" media="print" onload="this.media='all'">
+
+{%- endif -%}
+
+</div>
+
+<div class="product__content">
+
+{%- for block in section.blocks -%}
+{%- case block.type -%}
+
+{%- when '@app' -%}
+<div class="five-tenths lap--six-tenths smaller-lap--full-width push-left-one-tenth lap--push-left-padding smaller-lap--push-left-none section-w-margin" {{ block.shopify_attributes }}>
+{%- render block -%}
+</div>
+
+{%- when 'custom_liquid' -%}
+<div class="five-tenths lap--six-tenths smaller-lap--full-width push-left-one-tenth lap--push-left-padding smaller-lap--push-left-none section-w-margin" {{ block.shopify_attributes }}>
+{{ block.settings.custom_liquid }}
+</div>
+
+{%- when 'description' -%}
+<div class="product__description five-tenths lap--six-tenths smaller-lap--full-width push-left-one-tenth lap--push-left-padding smaller-lap--push-left-none" {{ block.shopify_attributes }}>
+<div class="rte">
+{{ product.description }}
+</div>
+</div>
+
+{%- when 'toggles-with-icons' -%}
+<div class="mount-toggles five-tenths lap--six-tenths push-left-one-tenth lap--push-left-padding" {{ block.shopify_attributes }}>
+
+{%- if block.settings.title != blank -%}
+<div class="section-header">
+<h2 class="section-header__title">{{ block.settings.title | escape }}</h2>
+</div>
+{%- endif -%}
+
+<div class="toggles">
+{%- liquid
+if block.settings.feature1_title != blank or block.settings.feature1_icon != blank
+render 'toggle-with-icon-content', title: block.settings.feature1_title, custom_icon: block.settings.feature1_icon, content: block.settings.feature1_text, id: 'product-feature-toggle-1', select_icon: "none"
+endif
+if block.settings.feature2_title != blank or block.settings.feature2_icon != blank
+render 'toggle-with-icon-content', title: block.settings.feature2_title, custom_icon: block.settings.feature2_icon, content: block.settings.feature2_text, id: 'product-feature-toggle-2', select_icon: "none"
+endif
+if block.settings.feature3_title != blank or block.settings.feature3_icon != blank
+render 'toggle-with-icon-content', title: block.settings.feature3_title, custom_icon: block.settings.feature3_icon, content: block.settings.feature3_text, id: 'product-feature-toggle-3', select_icon: "none"
+endif
+if block.settings.feature4_title != blank or block.settings.feature4_icon != blank
+render 'toggle-with-icon-content', title: block.settings.feature4_title, custom_icon: block.settings.feature4_icon, content: block.settings.feature4_text, id: 'product-feature-toggle-4', select_icon: "none"
+endif
+if block.settings.feature5_title != blank or block.settings.feature5_icon != blank
+render 'toggle-with-icon-content', title: block.settings.feature5_title, custom_icon: block.settings.feature5_icon, content: block.settings.feature5_text, id: 'product-feature-toggle-5', select_icon: "none"
+endif
+if block.settings.feature6_title != blank or block.settings.feature6_icon != blank
+render 'toggle-with-icon-content', title: block.settings.feature6_title, custom_icon: block.settings.feature6_icon, content: block.settings.feature6_text, id: 'product-feature-toggle-6', select_icon: "none"
+endif
+-%}
+</div>
+
+</div>
+
+{%- when 'images-with-text-slider' -%}
+<div class="mount-css-slider mount-images-with-text-slider" {{ block.shopify_attributes }}>
+
+{%- if block.settings.title != blank -%}
+<div class="section-header grid-item five-tenths lap--six-tenths smaller-lap--smart-width push-left-one-tenth lap--push-left-padding">
+<h2 class="section-header__title">{{ block.settings.title | escape }}</h2>
+</div>
+{%- endif -%}
+
+<css-slider class="css-slider css-slider--snapping images-with-text-slider" id="css-slider-{{ block.id }}" data-navigation-class="lap--six-tenths smaller-lap--twelve-tenths push-left-one-tenth lap--push-left-padding">
+
+<div class="images-with-text-slider__titles css-slides-container grid push-right-half-tenth lap--push-right-padding">
+{%- liquid
+if block.settings.image1_title != blank or block.settings.image1 != blank
+render 'image-with-text-slider-title', first: true, index: 0, heading: block.settings.image1_title, heading_type: 'body'
+endif
+if block.settings.image2_title != blank or block.settings.image2 != blank
+render 'image-with-text-slider-title', index: 1, heading: block.settings.image2_title, heading_type: 'body'
+endif
+if block.settings.image3_title != blank or block.settings.image3 != blank
+render 'image-with-text-slider-title', index: 2, heading: block.settings.image3_title, heading_type: 'body'
+endif
+if block.settings.image4_title != blank or block.settings.image4 != blank
+render 'image-with-text-slider-title', index: 3, heading: block.settings.image4_title, heading_type: 'body'
+endif
+if block.settings.image5_title != blank or block.settings.image5 != blank
+render 'image-with-text-slider-title', index: 4, heading: block.settings.image5_title, heading_type: 'body'
+endif
+if block.settings.image6_title != blank or block.settings.image6 != blank
+render 'image-with-text-slider-title', index: 5, heading: block.settings.image6_title, heading_type: 'body'
+endif
+-%}
+</div>
+
+<div class="images-with-text-slider__content css-slides-container grid push-right-half-tenth lap--push-right-padding">
+{%- liquid
+if block.settings.image1 != blank or block.settings.image1_caption
+render 'image-with-text-slider-image', first: true, image: block.settings.image1, caption: block.settings.image1_caption, aspect_ratio: block.settings.gallery_aspect
+endif
+if block.settings.image2 != blank or block.settings.image2_caption
+render 'image-with-text-slider-image', image: block.settings.image2, caption: block.settings.image2_caption, aspect_ratio: block.settings.gallery_aspect
+endif
+if block.settings.image3 != blank or block.settings.image3_caption
+render 'image-with-text-slider-image', image: block.settings.image3, caption: block.settings.image3_caption, aspect_ratio: block.settings.gallery_aspect
+endif
+if block.settings.image4 != blank or block.settings.image4_caption
+render 'image-with-text-slider-image', image: block.settings.image4, caption: block.settings.image4_caption, aspect_ratio: block.settings.gallery_aspect
+endif
+if block.settings.image5 != blank or block.settings.image5_caption
+render 'image-with-text-slider-image', image: block.settings.image5, caption: block.settings.image5_caption, aspect_ratio: block.settings.gallery_aspect
+endif
+if block.settings.image6 != blank or block.settings.image6_caption
+render 'image-with-text-slider-image', image: block.settings.image6, caption: block.settings.image6_caption, aspect_ratio: block.settings.gallery_aspect
+endif
+-%}
+</div>
+
+</css-slider>
+
+</div>
+
+{%- endcase -%}
+{%- endfor -%}
+
+</div>
+
+{%- if first_3d_model -%}
+<script type="application/json" id="ProductJSON-{{ product.id }}">
+{{ product.media | where: 'media_type', 'model' | json }}
+</script>
+{%- endif -%}
+
+</product-page>
+
+{% schema %}
+{
+"name": "Valentine Product Bundle",
+"class": "mount-product-page mount-product-gallery mount-css-slider main-product section-w-margin",
+"tag": "section",
+"blocks": [
+{
+"type": "@app"
+},
+{
+"type": "header",
+"name": "t:sections.highlight-extra-words.product-page.product-header.header",
+"limit": 1,
+"settings": [
+{
+"type": "checkbox",
+"id": "show_vendor",
+"label": "t:sections.highlight-extra-words.product-page.product-header.show_vendor",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "show_reviews",
+"label": "t:sections.highlight-extra-words.product-page.product-header.show_reviews",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "show_tax_info",
+"label": "t:sections.highlight-extra-words.product-page.product-header.show_tax_info",
+"default": false
+},
+{
+"type": "checkbox",
+"id": "show_sku",
+"label": "t:sections.highlight-extra-words.product-page.product-header.show_sku",
+"default": false
+},
+{
+"type": "checkbox",
+"id": "show_barcode",
+"label": "t:sections.highlight-extra-words.product-page.product-header.show_barcode",
+"default": false
+},
+{
+"type": "header",
+"content": "t:sections.split-extra-words.product-header-extra.name"
+},
+{
+"type": "checkbox",
+"id": "stick_product_header_on_mobile",
+"label": "t:sections.split-extra-words.product-header-extra.label",
+"info": "t:sections.split-extra-words.product-header-extra.info",
+"default": true
+}
+]
+},
+{
+"type": "variant_picker",
+"name": "t:sections.main-product.blocks.variant_picker.name",
+"limit": 1,
+"settings": [
+{
+"type": "select",
+"id": "variants_style",
+"label": "t:sections.split-extra-words.sections.main-product.settings.variants.label",
+"options": [
+{
+"value": "radio",
+"label": "t:sections.split-extra-words.sections.main-product.settings.variants.options__1"
+},
+{
+"value": "select",
+"label": "t:sections.split-extra-words.sections.main-product.settings.variants.options__2"
+}
+],
+"default": "radio"
+},
+{
+"type": "checkbox",
+"id": "show_color_swatches",
+"label": "t:sections.highlight-extra-words.product-page.color_swatches.label",
+"info": "t:sections.highlight-extra-words.product-page.color_swatches.info",
+"default": true
+},
+{
+"type": "select",
+"id": "show_quantities",
+"label": "t:sections.main-product.blocks.variant_picker.settings.low_inventory_notification.label",
+"info": "t:sections.main-product.blocks.variant_picker.settings.low_inventory_notification.info",
+"options": [
+{
+"value": "no",
+"label": "t:sections.main-product.blocks.variant_picker.settings.low_inventory_notification.options__1.label"
+},
+{
+"value": "below",
+"label": "t:sections.main-product.blocks.variant_picker.settings.low_inventory_notification.options__2.label"
+},
+{
+"value": "always",
+"label": "t:sections.main-product.blocks.variant_picker.settings.low_inventory_notification.options__3.label"
+}
+],
+"default": "no"
+}
+]
+},
+{
+"type": "buy_buttons",
+"name": "t:sections.main-product.blocks.buy_buttons.name",
+"limit": 1,
+"settings": [
+{
+"type": "checkbox",
+"id": "show_dynamic_checkout",
+"label": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.label",
+"info": "t:sections.main-product.blocks.buy_buttons.settings.show_dynamic_checkout.info",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "show_quantity_selector",
+"label": "t:sections.main-product.blocks.buy_buttons.settings.show_quantity_selector.label",
+"default": true
+}
+]
+},
+{
+"type": "share",
+"name": "t:sections.main-product.blocks.share.name",
+"limit": 1,
+"settings": [
+{
+"type": "paragraph",
+"content": "t:sections.main-product.blocks.share.settings.featured_image_info.content"
+},
+{
+"type": "paragraph",
+"content": "t:sections.main-product.blocks.share.settings.title_info.content"
+}
+]
+},
+
+{
+"type": "imageswatch",
+"name": "ConcealerSwatch",
+"settings": [
+{
+"type": "text",
+"label": "Swatch Title",
+"id" : "title"
+},
+{
+"type": "image_picker",
+"label": "Concealer Swatch image",
+"id" : "image"
+}
+
+]
+},
+{
+"type": "description",
+"name": "t:sections.main-product.blocks.description.name",
+"limit": 1
+},
+{
+"type": "custom_liquid",
+"name": "t:sections.custom-liquid.name",
+"settings": [
+{
+"type": "liquid",
+"id": "custom_liquid",
+"label": "t:sections.custom-liquid.settings.custom_liquid.label"
+}
+]
+},
+{
+"type": "collapsible_tab",
+"name": "t:sections.main-product.blocks.collapsible_tab.name",
+"settings": [
+{
+"id": "heading",
+"type": "text",
+"info": "t:sections.main-product.blocks.collapsible_tab.settings.heading.info",
+"label": "t:sections.main-product.blocks.collapsible_tab.settings.heading.label",
+"default": "Collapsible tab"
+},
+{
+"id": "content",
+"type": "richtext",
+"label": "t:sections.main-product.blocks.collapsible_tab.settings.content.label"
+},
+{
+"id": "page",
+"type": "page",
+"label": "t:sections.main-product.blocks.collapsible_tab.settings.page.label"
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "t:sections.main-product.blocks.collapsible_tab.settings.image.label"
+}
+]
+}, 
+{
+"type": "pickup_avaiability",
+"name": "t:sections.main-product.blocks.pickup_availability.name",
+"limit": 1
+},
+{
+"type": "images-with-text-slider",
+"name": "t:sections.highlight-extra-words.product-page.images-with-text-slider.name",
+"limit": 1,
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "t:sections.highlight-extra-words.heading.label",
+"default": "Additional product images"
+},
+{
+"type": "select",
+"id": "gallery_aspect",
+"label": "t:settings_schema.product-grid.settings.aspect_ratio.label",
+"options": [
+{
+"value": "1.33333",
+"label": "t:sections.gallery.settings.aspect_ratio.options__1.label",
+"group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
+},
+{
+"value": "1",
+"label": "t:sections.gallery.settings.aspect_ratio.options__2.label",
+"group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
+},
+{
+"value": "0.83333",
+"label": "t:sections.gallery.settings.aspect_ratio.options__3.label",
+"group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
+},
+{
+"value": "0.666667",
+"label": "t:sections.gallery.settings.aspect_ratio.options__4.label",
+"group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
+}
+],
+"default": "1"
+},
+{
+"type": "header",
+"content": "t:sections.highlight-extra-words.product-page.images-with-text-slider.image_1"
+},
+{
+"type": "image_picker",
+"id": "image1",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.image.label"
+},
+{
+"type": "text",
+"id": "image1_title",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.title.label"
+},
+{
+"type": "richtext",
+"id": "image1_caption",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.caption.label"
+},
+{
+"type": "header",
+"content": "t:sections.highlight-extra-words.product-page.images-with-text-slider.image_2"
+},
+{
+"type": "image_picker",
+"id": "image2",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.image.label"
+},
+{
+"type": "text",
+"id": "image2_title",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.title.label"
+},
+{
+"type": "richtext",
+"id": "image2_caption",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.caption.label"
+},
+{
+"type": "header",
+"content": "t:sections.highlight-extra-words.product-page.images-with-text-slider.image_3"
+},
+{
+"type": "image_picker",
+"id": "image3",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.image.label"
+},
+{
+"type": "text",
+"id": "image3_title",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.title.label"
+},
+{
+"type": "richtext",
+"id": "image3_caption",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.caption.label"
+},
+{
+"type": "header",
+"content": "t:sections.highlight-extra-words.product-page.images-with-text-slider.image_4"
+},
+{
+"type": "image_picker",
+"id": "image4",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.image.label"
+},
+{
+"type": "text",
+"id": "image4_title",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.title.label"
+},
+{
+"type": "richtext",
+"id": "image4_caption",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.caption.label"
+},
+{
+"type": "header",
+"content": "t:sections.highlight-extra-words.product-page.images-with-text-slider.image_5"
+},
+{
+"type": "image_picker",
+"id": "image5",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.image.label"
+},
+{
+"type": "text",
+"id": "image5_title",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.title.label"
+},
+{
+"type": "richtext",
+"id": "image5_caption",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.caption.label"
+},
+{
+"type": "header",
+"content": "t:sections.highlight-extra-words.product-page.images-with-text-slider.image_6"
+},
+{
+"type": "image_picker",
+"id": "image6",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.image.label"
+},
+{
+"type": "text",
+"id": "image6_title",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.title.label"
+},
+{
+"type": "richtext",
+"id": "image6_caption",
+"label": "t:sections.highlight-extra-words.product-page.images-with-text-slider.settings.caption.label"
+}
+]
+},
+{
+"type": "toggles-with-icons",
+"name": "t:sections.highlight-extra-words.product-page.toggles-with-icons.name",
+"limit": 1,
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "t:sections.highlight-extra-words.heading.label",
+"default": "Key product features"
+},
+{
+"type": "paragraph",
+"content": "t:sections.text-columns-with-icons.settings.icons.info"
+},
+{
+"type": "header",
+"content": "t:sections.highlight-extra-words.product-page.toggles-with-icons.feature_1"
+},
+{
+"type": "text",
+"id": "feature1_title",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.title.label"
+},
+{
+"type": "image_picker",
+"id": "feature1_icon",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.icon.label",
+"info": "t:sections.highlight-extra-words.custom-icon.info"
+},
+{
+"type": "richtext",
+"id": "feature1_text",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.text.label"
+},
+{
+"type": "header",
+"content": "t:sections.highlight-extra-words.product-page.toggles-with-icons.feature_2"
+},
+{
+"type": "text",
+"id": "feature2_title",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.title.label"
+},
+{
+"type": "image_picker",
+"id": "feature2_icon",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.icon.label",
+"info": "t:sections.highlight-extra-words.custom-icon.info"
+},
+{
+"type": "richtext",
+"id": "feature2_text",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.text.label"
+},
+{
+"type": "header",
+"content": "t:sections.highlight-extra-words.product-page.toggles-with-icons.feature_3"
+},
+{
+"type": "text",
+"id": "feature3_title",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.title.label"
+},
+{
+"type": "image_picker",
+"id": "feature3_icon",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.icon.label",
+"info": "t:sections.highlight-extra-words.custom-icon.info"
+},
+{
+"type": "richtext",
+"id": "feature3_text",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.text.label"
+},
+{
+"type": "header",
+"content": "t:sections.highlight-extra-words.product-page.toggles-with-icons.feature_4"
+},
+{
+"type": "text",
+"id": "feature4_title",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.title.label"
+},
+{
+"type": "image_picker",
+"id": "feature4_icon",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.icon.label",
+"info": "t:sections.highlight-extra-words.custom-icon.info"
+},
+{
+"type": "richtext",
+"id": "feature4_text",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.text.label"
+},
+{
+"type": "header",
+"content": "t:sections.highlight-extra-words.product-page.toggles-with-icons.feature_5"
+},
+{
+"type": "text",
+"id": "feature5_title",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.title.label"
+},
+{
+"type": "image_picker",
+"id": "feature5_icon",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.icon.label",
+"info": "t:sections.highlight-extra-words.custom-icon.info"
+},
+{
+"type": "richtext",
+"id": "feature5_text",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.text.label"
+},
+{
+"type": "header",
+"content": "t:sections.highlight-extra-words.product-page.toggles-with-icons.feature_6"
+},
+{
+"type": "text",
+"id": "feature6_title",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.title.label"
+},
+{
+"type": "image_picker",
+"id": "feature6_icon",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.icon.label",
+"info": "t:sections.highlight-extra-words.custom-icon.info"
+},
+{
+"type": "richtext",
+"id": "feature6_text",
+"label": "t:sections.highlight-extra-words.product-page.toggles-with-icons.settings.text.label"
+}
+]
+}
+],
+"settings": [
+{
+"type": "header",
+"content": "t:sections.main-product.settings.header.content",
+"info": "t:sections.main-product.settings.header.info"
+},
+{
+"type": "select",
+"id": "media_aspect",
+"label": "t:settings_schema.product-grid.settings.aspect_ratio.label",
+"options": [
+{
+"value": "natural",
+"label": "t:sections.gallery.settings.aspect_ratio.options__5.label",
+"group": "t:sections.gallery.settings.aspect_ratio.options__5.group"
+},
+{
+"value": "1.33333",
+"label": "t:sections.gallery.settings.aspect_ratio.options__1.label",
+"group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
+},
+{
+"value": "1",
+"label": "t:sections.gallery.settings.aspect_ratio.options__2.label",
+"group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
+},
+{
+"value": "0.83333",
+"label": "t:sections.gallery.settings.aspect_ratio.options__3.label",
+"group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
+},
+{
+"value": "0.666667",
+"label": "t:sections.gallery.settings.aspect_ratio.options__4.label",
+"group": "t:sections.gallery.settings.aspect_ratio.options__1.group"
+}
+],
+"default": "natural",
+"info": "t:sections.gallery.settings.aspect_ratio.info"
+},
+{
+"type": "checkbox",
+"id": "enable_zoom",
+"label": "t:sections.main-product.settings.enable_zoom.label",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "enable_video_looping",
+"label": "t:sections.main-product.settings.enable_video_looping.label",
+"default": false
+}
+]
+}
+{% endschema %}
+
+<!--   <script>
+
+function refreshCart(){
+$.ajax({
+type: 'GET',
+url: '/cart.js',
+dataType: 'json',
+success: function(data) { 
+console.log(data);
+var cart_structure = "";
+var cart_structure1 = "";
+var empty_cart = " ";
+
+if(data.item_count > 0) {
+$('.cart-heading').show();
+$('.empty-cart').hide();
+$('.bottom-content').show(); 
+$('.site-cart-heading').text(data.item_count+' PRODUCT IN YOUR CART');
+$('.cart__footer').removeClass().addClass('cart__footer');
+$('#site-cart-sidebar').addClass('sidebar--opened');
+$('#site-cart-sidebar').css('display','block');
+$('body').addClass('sidebar-opened');
+}      
+else{
+$('.cart-heading').hide();
+$('.empty-cart').show();
+$('.bottom-content').hide();
+$('.site-cart-heading').text(data.item_count+' PRODUCT IN YOUR CART');
+$('.cart__footer').addClass('cart--empty');
+}
+
+
+
+$(data.items).each(function (ix, em){
+
+if(data.item_count > 0) {
+
+var elements = "<div>";
+if (data.item_count > 0) {
+elements += 'test';
+}
+elements += "</div>";
+
+
+var elements123 = "<div>";
+for(var key in em.properties) {
+//            var elements123 +=('key: ' + key + '\n' + 'value: ' + em.properties[key]);
+elements123 += "<div>"+ key +" : "+em.properties[key]+"</div>";
+
+var deodem = em.properties[key];			            
+if(deodem === "Bundle-Product"){
+var prm = deodem;
+}
+else{
+var prm = "";
+}
+}elements += "</div>";
+
+cart_structure += '<div class="cart-item" data-title="Eye Light Concealer " data-id="39741437378638:3a4d287232ccdc0d9b8674e956f4d699" data-variant="39741437378638" data-qty="1">'+
+'<div>'+
+'<a href="'+em.url+'" class="thumbnail">'+
+'<figure class="lazy-image  lazy-image--transparent " data-ratio="" style="padding-top: 130%">'+
+'<img src="'+ em.image +'?crop=center&amp;height=260&amp;v=1648906613&amp;width=200 260w" sizes="100px" class="img lazy" loading="lazy" width="326" height="391">'+
+'</figure>'+
+'</a>'+
+'<div class="content">'+
+'<a href="'+em.url+'">'+
+'<span class="title">'+em.title+'</span></a><div class="price">'+
+'<div class="item__price-list"><span class="item__price">₹ '+ parseFloat(em.final_price / 100) +'</span></div></div><div class="item__properties"></div>'+
+'<div class="quant-selector"><a  class="quant-variable minus-btn less" data-variantid="'+ em.variant_id + '"  href="javascript:void(0)"><img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/39384297500c145afa524e1721a04663.svg?v=1650276446"></a>'+
+'<input  class="qty js-qty" type="number"   value="' + em.quantity + '" min="0" aria-label="Quantity1">'+
+'<a  class="quant-variable plus-btn more" data-variantid="'+ em.variant_id + '"  href="javascript:void(0)"><img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/18dddcc9cf53b547eaf0f76c308502f6_e2c6dbb9-0564-4b89-be39-282da393cb9c.svg?v=1650276446"></a></div>'+
+'</div>'+
+'</div>'+
+'<div class="actions">'+
+'<a href="#" class="remove" data-variantid="'+ em.variant_id + '" data-index="'+ix+'" title="Remove item from cart" aria-label="Remove item from cart" data-href="/cart/change?line=1&amp;quantity=0"><span aria-hidden="true"><svg aria-hidden="true" focusable="false" role="presentation" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.41418 0L16.9705 15.5563L15.5563 16.9706L-2.89679e-05 1.41421L1.41418 0Z" fill="#111111"></path><path d="M16.9706 1.41431L1.41423 16.9707L1.85966e-05 15.5564L15.5564 9.31025e-05L16.9706 1.41431Z" fill="#111111"></path></svg></span></a>'+
+'</div></div>';
+
+cart_structure1 += '<li  class="cart_product " id="'+prm+'" data-pro_handle="' + em.url + '" data-variantid="' + em.variant_id + '"><div class="image-info"><div class="image"><img src="'+ em.image +'" width="90px"/></div><div class="product-information"><span> '+ em.title +' </span><span class="price">Price - '+ parseFloat(em.final_line_price / 100) +'</span><div class="qty-input bold js-cart-variant-update">\
+<i class="less" data-variantid="'+ em.variant_id + '"> </i> <input class="js-qty" type="text" data-variantid="'+ em.variant_id + '" value="' + em.quantity + '"> <i class="more" data-variantid="'+ em.variant_id + '"></i>\
+</div></div><div class="edit-product" data-variantid="'+ em.variant_id + '"><img src="https://cdn.shopify.com/s/files/1/0136/9754/8374/files/edit.svg?v=1637914055"></div><div class="remove-pro"><a href="#" class="remove-pro-cart" data-variantid="'+ em.variant_id + '" data-index="'+ix+'">remove</a></div></div></li>';                 
+}        
+});   
+
+$('.sub-total span').html('₹ '+data.items_subtotal_price/ 100);
+$('.totalling span').html('₹ '+data.total_price/ 100);
+
+$('.cart-items').html(cart_structure);
+
+
+$('.demo123').html(data.item_count);	         
+}
+});	
+
+
+}
+
+
+$(document).on('click','.col-add-btn',function(){ 
+event.preventDefault();
+var ID = $(this).parent().find('.item-varid').val();   
+$.ajax({
+type: 'POST',
+url: '/cart/add.js',
+data: {
+quantity: 1,
+id: ID
+},
+dataType: 'json', 
+success: function (data) { 
+$('.site-cart-heading').text(data.quantity+' PRODUCT IN YOUR CART');
+refreshCart();
+} 
+});
+});
+
+
+
+$(document).on('click','.remove',function(e){ 
+var variant_id = $(e.target).attr("data-variantid");
+var data_attr_val = $(this).attr("data-index");
+var data_pro_index = parseInt(data_attr_val)+1;
+console.log(data_attr_val);
+var quantity = 0;
+$.ajax({
+url: "/cart/change.js",
+data: {
+line: data_pro_index,
+quantity: 0
+},
+datatype:"JSON",
+method:"POST",
+success: function(data){
+refreshCart();
+}
+})
+});
+
+
+$(document).on('click','.less',function(e){   
+var variant_id = $(e.target).attr("data-variantid");
+var quantity = $(this).parent().find('.js-qty').val();
+console.log(quantity-1);
+$.ajax({
+url: "/cart/change.js",
+data: {id: variant_id, quantity: quantity-1},
+datatype:"JSON",
+method:"POST",
+success: function(data){
+refreshCart();
+}
+})    
+});
+
+
+$(document).on('click','.more',function(e){
+var variant_id = $(e.target).attr("data-variantid");
+var current_val = $(this).prev(".js-qty").val(parseInt(jQuery(this).prev(".js-qty").val())+1);
+
+var updated_val =  $(this).parent().find('.js-qty').val() ;
+
+setTimeout(function() {
+
+console.log(updated_val);
+$.ajax({
+url: "/cart/change.js",
+data: {id: variant_id, quantity:updated_val},
+datatype:"JSON",
+method:"POST",
+success: function(data){
+refreshCart();
+}
+});
+
+}, 2500);
+
+
+
+});
+
+
+
+
+</script> -->
+
+<style>
+.product-variant{
+margin-bottom: 30px;
+}
+.concealer-selected-shade ,.foundation-selected-shade{
+display: block;
+margin: 20px 0;
+font-weight: 500;
+}
+.select-text{
+font-size: 1.3em;
+font-weight: 500;
+margin-top: 1em;
+}
+select{
+background-color: deeppink;
+font-weight: 500;
+width: 100%;
+color: #fff;
+border: none;
+}
+.second-text a{
+color: #ff3fb5;
+text-decoration: underline;
+}
+.major-use span{
+color: #ff8f1a!important;
+}
+.product-variant__item   {
+position: relative;
+display: inline-block;
+}
+.product-variant__item .tooltiptext {
+visibility: hidden;
+/*     width: 120px; */
+font-size: 14px;
+color: #000;
+font-family: inter;
+font-weight: 500;
+text-align: center;
+padding: 0px 15px;
+border-radius: 6px;
+position: absolute;
+z-index: 1;
+left: 50%;
+transform: translateX(-50%);
+top: -36px;
+}
+
+.product-variant__item:hover .tooltiptext {
+visibility: visible;
+}
+.product-item__variant:hover .absoluted-title-variant{
+display: block;
+}
+  .lusture-selected-shade-01, .lusture-selected-shade-02{
+    display: block;
+    margin: 20px 0;
+    font-weight: 500;
+  }
+@media only screen and (max-width: 768px) {
+.set-mobile-position ,.product__variants {
+padding-left: 15px;
+}
+}
+
+</style> 

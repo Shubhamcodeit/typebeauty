@@ -1,0 +1,132 @@
+<style>
+  .mobile-only{
+    display: none;
+  }
+  .easy-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+  .easy-grid img{
+    width: 100%;
+    vertical-align: top;
+  }
+  .easy-grid video{
+    object-fit: cover;
+    width: 100%;
+  }
+  .easy-grid .easy-right{
+    padding-right: 150px;
+  }
+  .easy-to-apply-section{
+    margin-block: 160px 120px;
+  }
+  @media (max-width: 1440px){
+    .easy-grid .easy-right {
+    padding-right: 100px;
+}
+  }
+  @media (max-width: 1279px){
+    .easy-grid .easy-right {
+    padding-right: 15px;
+}
+    .easy-to-apply-section {
+    margin-block: 100px 80px;
+}
+  }
+@media (max-width: 768px){
+.easy-grid .easy-right {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+  .mobile-only{
+    display: block;
+    padding: 0 15px;
+  }
+  .easy-grid{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .easy-grid .easy-left{
+    order: 2;
+  }
+  .easy-to-apply-section h2{
+    margin-bottom: 10px;
+  }
+  .easy-to-apply-section p{
+    font-size: 16px;
+    line-height: 140%;
+    margin-bottom: 15px;
+    color: #000000BF;
+  }
+  .easy-to-apply-section {
+    margin-block: 80px;
+}
+  .easy-grid video{
+    max-height: 300px;
+  }
+}
+</style>
+
+<div class="easy-to-apply-section">
+  <div class="section-header mobile-only">
+      <h2>{{ section.settings.heading }}</h2>
+      <p class="subheading">{{ section.settings.subheading }}</p>
+  </div>
+  <div class="easy-grid">
+    <div class="easy-left">
+      <img src="{{ section.settings.left_img | image_url }}" class="desktop-img">
+      <img src="{{ section.settings.mob_img | image_url }}" class="mobile-img">
+    </div>
+    <div class="easy-right">
+{% if section.settings.video_url != blank %}
+    <video controls playsinline class="uploaded-video" width="850" height="580">
+      <source src="{{ section.settings.video_url }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Video PDP",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "EASY TO APPLY, EASY TO LOVE"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Your No-Fuss, Everyday Glow – No Brushes Needed"
+    },
+    {
+      "type": "image_picker",
+      "id": "left_img",
+      "label": "Left Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mob_img",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL (Upload via Settings > Files and paste URL here)"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Video PDP",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,58 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "blocks": {
+        "social_sharing": {
+          "type": "social_sharing",
+          "settings": {}
+        },
+        "blog_navigation": {
+          "type": "blog_navigation",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "social_sharing",
+        "blog_navigation"
+      ],
+      "settings": {
+        "show_image": true,
+        "blog_show_date": true,
+        "blog_show_author": false,
+        "blog_show_comments": false
+      }
+    },
+    "rich_text_T6A6mQ": {
+      "type": "rich-text",
+      "blocks": {
+        "text_ayUXfT": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ article.metafields.custom.faq_schema.value }}</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_ayUXfT"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "text_alignment": "left"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_T6A6mQ"
+  ]
+}

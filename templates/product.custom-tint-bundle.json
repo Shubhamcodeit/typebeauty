@@ -1,0 +1,175 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "bundle-product-tint",
+      "blocks": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "show_vendor": false,
+            "show_reviews": false,
+            "show_tax_info": false,
+            "show_sku": false,
+            "show_barcode": false,
+            "stick_product_header_on_mobile": false
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variants_style": "radio",
+            "show_color_swatches": true,
+            "show_quantities": "no"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_quantity_selector": true
+          }
+        },
+        "pickup_avaiability": {
+          "type": "pickup_avaiability",
+          "settings": {}
+        },
+        "f3fcae28-c3e1-4551-9cf8-2e057682df9d": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "FIND YOUR SHADE",
+            "content": "<p>Find your Shade <a href=\"https://www.typebeautyinc.com/pages/skincare-quiz\" title=\"https://www.typebeautyinc.com/pages/skincare-quiz\">here</a></p>",
+            "page": ""
+          }
+        },
+        "9d23327f-d043-4890-9616-2f5f4b7d173f": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "INGREDIENTS",
+            "content": "<p>{{ product.metafields.my_fields.product_ingredients | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "1baab5c0-1d06-41e9-a081-f0b44d2b3cad": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "HOW TO USE / APPLY",
+            "content": "<p>{{ product.metafields.my_fields.how_to_use | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "d5bf8b8c-02a6-4627-ae5c-208ed0e496da": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "ADDITIONAL INFORMATION",
+            "content": "<p>{{ product.metafields.custom.additional_info | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "f749127d-d77d-4389-bfcc-900b3e189da0": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p class=\"desc-head\">{{product.metafields.my_fields.desc_head}}</p>\n<table class=\"product-custom-table\">\n{% if product.metafields.my_fields.prodone_feature != blank %}\n<tr>\n<td class=\"dark\">{{product.metafields.my_fields.prodone_feature}}</td>\n<td class=\"light\">{{product.metafields.my_fields.prodone_desc}}</td>\n</tr>\n{% endif %}\n{% if product.metafields.my_fields.prodtwo_feature != blank %}\n<tr>\n<td class=\"dark\">{{product.metafields.my_fields.prodtwo_feature}}</td>\n<td class=\"light\">{{product.metafields.my_fields.prodtwo_desc}}</td>\n</tr>\n{% endif %}\n{% if product.metafields.my_fields.prodthree_feature != blank %}\n<tr>\n\n<td class=\"dark\">{{product.metafields.my_fields.prodthree_feature}}</td>\n<td class=\"light\">{{product.metafields.my_fields.prodthree_desc}}</td>\n</tr>\n{% endif %}\n</table>"
+          }
+        },
+        "5094b23e-ed99-4f7b-964e-a06e9163b694": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div>{{product.description}}</div>"
+          }
+        },
+        "371bbddf-cf8d-4509-abfa-800053a0ec40": {
+          "type": "images-with-text-slider",
+          "disabled": true,
+          "settings": {
+            "title": "",
+            "gallery_aspect": "1.33333",
+            "image1": "shopify://shop_images/dbc8e7b532208182907dc36b3a779591_2.png",
+            "image1_title": "",
+            "image1_caption": "",
+            "image2": "shopify://shop_images/804adcabc6e566f2a6d86637bec19616_1.png",
+            "image2_title": "",
+            "image2_caption": "",
+            "image3": "shopify://shop_images/dbc8e7b532208182907dc36b3a779591_2.png",
+            "image3_title": "",
+            "image3_caption": "",
+            "image4_title": "",
+            "image4_caption": "",
+            "image5_title": "",
+            "image5_caption": "",
+            "image6_title": "",
+            "image6_caption": ""
+          }
+        },
+        "2dbeab83-e436-4f49-a40f-762e33a6702d": {
+          "type": "imageswatch",
+          "disabled": true,
+          "settings": {
+            "title": "10 Vanilla test",
+            "image": "shopify://shop_images/10-Vanilla.webp"
+          }
+        }
+      },
+      "block_order": [
+        "header",
+        "variant_picker",
+        "buy_buttons",
+        "pickup_avaiability",
+        "f3fcae28-c3e1-4551-9cf8-2e057682df9d",
+        "9d23327f-d043-4890-9616-2f5f4b7d173f",
+        "1baab5c0-1d06-41e9-a081-f0b44d2b3cad",
+        "d5bf8b8c-02a6-4627-ae5c-208ed0e496da",
+        "f749127d-d77d-4389-bfcc-900b3e189da0",
+        "5094b23e-ed99-4f7b-964e-a06e9163b694",
+        "371bbddf-cf8d-4509-abfa-800053a0ec40",
+        "2dbeab83-e436-4f49-a40f-762e33a6702d"
+      ],
+      "settings": {
+        "media_aspect": "natural",
+        "enable_zoom": true,
+        "enable_video_looping": false
+      }
+    },
+    "1652002811c5d0593f": {
+      "type": "custom-coded-product",
+      "settings": {
+        "first-text": "The Future of Beauty Has Arrived.",
+        "second-text": "",
+        "third-text": "",
+        "linktext": "",
+        "custom_text_body": ""
+      }
+    },
+    "1651786538ad89d0da": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "products_number": 3
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1652002811c5d0593f",
+    "1651786538ad89d0da",
+    "product-recommendations"
+  ]
+}

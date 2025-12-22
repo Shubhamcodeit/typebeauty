@@ -1,0 +1,115 @@
+<ul class="sidebar__menu sidebar--{{ type }}">
+	{%- for link in menu.links -%}
+		<li class="{% if link.links != blank %} for-toggle-purposes{% endif %}">
+			<a href="{% if link.links != blank %}javascript:void(0);{% else %}{{ link.url }}{% endif %}"  class="{% if link.active or link.child_active %}selected hasdrop{% endif %}{% if link.links != blank %}clickdrop{% endif %}" >
+				<span style="flex: 1;"><span class="underline-animation">{{ link.title }}</span></span>
+              {% if link.links != blank %} 
+              <img style="max-width: 32px;" src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/icons8-sort-down-100.png?v=1687370846">
+                {% endif %}
+				
+			</a>
+			{%- if link.links != blank -%}
+				<div data-handle="{{ link.handle }}" class="sidebar__submenu sidebar__submenu--first sidebar--{{ type }}">
+					<div class="sidebar__container">
+						<div class="sub-menu">
+							<ul>
+								{%- for childlink in link.links -%}
+									<li class="{% if childlink.links != blank %}has-second-submenu{% endif %}">
+										<a style="margin: 0;" href="{{ childlink.url }}" {% if childlink.active or childlink.child_active %} class="selected" {% endif %}>
+											<span style="flex: 1;"><span class="underline-animation">{{ childlink.title | escape }}</span></span>
+                                  {%- if childlink.links != blank -%}
+											<img style="max-width: 32px;" src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/icons8-sort-down-100.png?v=1687370846">
+										{% endif %}
+                                        </a>
+                                      
+										{%- if childlink.links != blank -%}
+											<div data-handle="{{ childlink.handle }}" class="sidebar__submenu sidebar__submenu--second sidebar--{{ type }}">
+												<div class="sidebar__container">
+													<div class="sub-menu">
+														<ul>
+															{%- for subchildlink in childlink.links -%}
+																<li>
+																	<a href="{{ subchildlink.url }}" {% if subchildlink.active %} class="selected" {% endif %}>
+																		<span style="flex: 1;"><span class="underline-animation">{{ subchildlink.title | escape }}</span></span>
+																	</a>
+																</li>
+															{%- endfor -%}
+														</ul>
+													</div>
+												</div>
+											</div>
+										{%- endif -%}
+									</li>
+								{%- endfor -%}
+							</ul>
+						</div>
+					</div>
+				</div>
+			{%- endif -%}
+		</li>
+	{%- endfor -%}
+</ul>
+
+<style>
+.sidebar__menu a {
+font-family: Inter;
+font-weight: 900;
+font-size: 20px;
+line-height: 164.19%;
+/* identical to box height, or 33px */
+
+letter-spacing: 0.05em;
+text-transform: uppercase;
+
+color: #000000;
+}
+  .sub-menu{
+  padding-left: 6%;
+  }
+  .sub-menu a{
+  font-size: 15px;
+  }
+  .sub-menu li{
+  display: flex;
+    align-items: center;
+  }
+  .sub-menu a{
+  margin-right: 10px;
+  }
+  .arrow-right{
+  display: none;
+  }
+  .sub-menu li:hover .arrow-right{
+   display : block;
+ }
+  .sidebar__submenu{
+    display: none;
+  }
+  .sidebar__submenu--second .sidebar__container{
+    display: none;
+  }
+  .sub-menu li{
+    display: block!important;
+  }
+</style>
+<script>
+  $(".clickdrop , .hasdropclickdrop").click(function(){
+ $(this).parent(".for-toggle-purposes").find(".sidebar__submenu").slideToggle();
+    var $image = $(this).find("img");
+    if ($image.attr('src').endsWith('https://cdn.shopify.com/s/files/1/0555/4018/7214/files/icons8-sort-down-100.png?v=1687370846')) {
+          $image.attr('src', 'https://cdn.shopify.com/s/files/1/0555/4018/7214/files/icons8-sort-up-100.png?v=1687373397');
+        } else {
+          $image.attr('src', 'https://cdn.shopify.com/s/files/1/0555/4018/7214/files/icons8-sort-down-100.png?v=1687370846');
+        }
+});
+    $(".has-second-submenu").click(function(){
+      $(this).find(".sidebar__container").slideToggle();
+       var $image = $(this).find("img");
+    if ($image.attr('src').endsWith('https://cdn.shopify.com/s/files/1/0555/4018/7214/files/icons8-sort-down-100.png?v=1687370846')) {
+          $image.attr('src', 'https://cdn.shopify.com/s/files/1/0555/4018/7214/files/icons8-sort-up-100.png?v=1687373397');
+        } else {
+          $image.attr('src', 'https://cdn.shopify.com/s/files/1/0555/4018/7214/files/icons8-sort-down-100.png?v=1687370846');
+        }
+      });
+  
+</script>

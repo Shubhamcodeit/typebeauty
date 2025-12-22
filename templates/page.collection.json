@@ -1,0 +1,114 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "no_margins": false,
+        "reduced_margins": false
+      }
+    },
+    "live2embed_dfRti3": {
+      "type": "live2embed",
+      "disabled": true,
+      "settings": {
+        "publish_id": "onc3t3fyxl",
+        "custom_css": ""
+      }
+    },
+    "live2embed_AMdtHy": {
+      "type": "live2embed",
+      "disabled": true,
+      "settings": {
+        "publish_id": "7fqdiisko8",
+        "custom_css": ".live2ai-container { padding: 0 calc(var(--grid-width) / 12 * 1); }.live2ai-layout-wrapper { width: 100%; } .live2ai-carousel-wrapper { display: grid !important; grid-template-columns: repeat(6, 1fr); width: 100%; } .live2ai_carousel_item { display: inline-block; width: unset; } @media screen and (max-width: 767px){  .live2ai-layout-wrapper { width: 100%; }.live2ai-carousel-wrapper{ display: flex!important;    flex-direction: column; grid-template-columns: repeat(2, 1fr); width: 100%; } .live2ai_carousel_item { display: inline-block; width: 100%!important; } }"
+      }
+    },
+    "live2embed_nkwiV7": {
+      "type": "live2embed",
+      "disabled": true,
+      "settings": {
+        "publish_id": "faktfiu1sr",
+        "custom_css": ""
+      }
+    },
+    "custom_collection_hUDXmW": {
+      "type": "custom-collection",
+      "blocks": {
+        "slide_b3Yi9F": {
+          "type": "slide",
+          "settings": {
+            "imageurl": "https://www.typebeautyinc.com/collections/cheeks",
+            "image": "shopify://shop_images/cheeks_c82639ef-ee59-4316-9604-5bd06fc4c23e.png",
+            "title": "Cheeks"
+          }
+        },
+        "slide_RjTkW9": {
+          "type": "slide",
+          "settings": {
+            "imageurl": "https://www.typebeautyinc.com/collections/eyes",
+            "image": "shopify://shop_images/eyes_8cd4f876-1bba-43f1-8862-21a2884e1512.png",
+            "title": "Eyes"
+          }
+        },
+        "slide_8hUaEn": {
+          "type": "slide",
+          "settings": {
+            "imageurl": "https://www.typebeautyinc.com/collections/face",
+            "image": "shopify://shop_images/face_1d06ae3a-efca-4527-afcb-acd11f3d3771.png",
+            "title": "Face"
+          }
+        },
+        "slide_hhCFjf": {
+          "type": "slide",
+          "settings": {
+            "imageurl": "https://www.typebeautyinc.com/collections/lips",
+            "image": "shopify://shop_images/lips_838bb30e-1f9b-491e-8de5-ab58e65c1e79.png",
+            "title": "Lips"
+          }
+        },
+        "slide_tFDhTE": {
+          "type": "slide",
+          "settings": {
+            "imageurl": "https://www.typebeautyinc.com/collections/tools",
+            "image": "shopify://shop_images/tools_0f54b9d7-a1af-4f68-8a16-70f933b5c7ae.png",
+            "title": "Tools"
+          }
+        },
+        "slide_WKeQEC": {
+          "type": "slide",
+          "settings": {
+            "imageurl": "https://www.typebeautyinc.com/collections/sample-sets",
+            "image": "shopify://shop_images/trial_sets.png",
+            "title": "Trial Sets"
+          }
+        }
+      },
+      "block_order": [
+        "slide_b3Yi9F",
+        "slide_RjTkW9",
+        "slide_8hUaEn",
+        "slide_hhCFjf",
+        "slide_tFDhTE",
+        "slide_WKeQEC"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "live2embed_dfRti3",
+    "live2embed_AMdtHy",
+    "live2embed_nkwiV7",
+    "custom_collection_hUDXmW"
+  ]
+}

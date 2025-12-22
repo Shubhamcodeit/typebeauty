@@ -1,0 +1,257 @@
+<style>
+   body.show-announcement-bar{
+    margin-top: 140px!important;
+  }
+        .parallax {
+            position: relative;
+            height: 40vh;
+            background-image: url('https://www.typebeautyinc.com/cdn/shop/collections/e7f1a7ed47ff5db7f9ded7c81aa71277_1.png?v=1696067747');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 50px;
+            background: white;
+            text-align: center;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+    #shopify-section-footer{
+        margin-top: 0;
+  }
+  .flexed{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    padding: 0 20px;
+    margin: auto;
+    align-items: center;
+  }
+  .link-p{
+    color: #fe2cba;
+    font-weight: 500;
+    display: block;
+  }
+  .link-p a{
+    display: block;
+    text-decoration: underline;
+  }
+  .leftio{
+        margin-top: 3rem;
+    width: 40%;
+  }
+  .rightio{
+    width: 60%;
+  }
+  .flexed h3{
+     color: #fe2cba;
+    font-size: 1.5rem;
+        color: #fe2cba;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+  .teltel{
+       display: block;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  @media only screen and (max-width: 600px) {
+    .parallax{
+      margin-bottom: 10px;
+    }
+  .flexed{
+    display: block;
+  }
+    .leftio{
+      width: 100%;
+    }
+    .rightio{
+      width: 100%;
+    }
+    body.show-announcement-bar {
+    margin-top: 34px !important;
+}
+    .shopify-section{
+      padding: 0!important;
+    }
+}
+</style>
+  <div class="parallax">Contact Us</div>
+   
+<div class="section-header five-tenths lap--full-width push-left-one-tenth lap--push-left-none">
+ 
+</div>
+<div class="flexed">
+  <div class="leftio">
+    <h3>E-mail</h3>
+    <p class="link-p">
+      Customer related queries:
+<a href="mailto:customercare@typebeautyinc.com">customercare@typebeautyinc.com</a>
+    </p> 
+<p class="link-p">
+  Collaboration, press and media enquiry:
+  <a href="mailto:partnerships@typebeautyinc.com">partnerships@typebeautyinc.com</a>
+
+</p>
+
+<p class="link-p">
+  Career opportunities:
+  <a href="mailto:info@typebeautyinc.com">info@typebeautyinc.com</a>
+
+</p>
+<h3>Phone</h3>
+<a class="teltel" href="tel:+919625226472" class="">+91 96252 26472</a>
+    <p>Call Timing: Mon to Sat - 9:30 am to 6:30 pm</p>
+   
+  </div>
+  <div class="rightio five-tenths lap--nine-tenths smaller-lap--full-width push-left-one-tenth lap--push-left-none">
+    <div class="simple-form">
+
+      {%- form 'contact' -%}
+
+        {%- liquid
+          if form.posted_successfully?
+            assign success_text = 'contact.form.post_success' | t
+            render 'form-success', text: success_text
+          endif
+        -%}
+
+        {%- render 'form-errors', form: form -%}
+
+        <h2 class="h4" style="margin-bottom:2em">{{ section.settings.title | escape }}</h2>
+          
+        <div class="simple-grid">
+
+          {%- for block in section.blocks -%}
+
+            {%- case block.type -%}
+
+              {%- when 'email' -%}
+                <div class="one-half" {{ block.shopify_attributes }}>
+                  <label for="ContactFormName" class="text-size--small">{{ 'contact.form.name' | t }}</label>
+                  <input type="text" id="ContactFormName" class="input-full" name="contact[name]" autocapitalize="words" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" required>
+                </div>
+                <div class="one-half">
+                  <label for="ContactFormEmail" class="text-size--small">{{ 'contact.form.email' | t }}</label>
+                  <input type="email" id="ContactFormEmail" class="input-full" name="contact[email]" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" required>
+                </div>
+
+              {%- when 'field' -%}
+                <div class="one-whole" {{ block.shopify_attributes }}>
+                  {%- assign id = block.id | prepend: 'field' -%}
+                  <label for="{{ id }}" class="text-size--small">{{ block.settings.label | escape }}{% if block.settings.required %} * {% endif %}</label>
+                  {%- if block.settings.type == 'input' -%}
+                    <input type="text"
+                  {%- else -%}
+                    <textarea rows="10"
+                  {%- endif -%}
+                      id="{{ id }}" name="contact[{{ block.settings.label | handleize }}]" 
+                      autocorrect="off" autocapitalize="off" autocomplete="off" 
+                      {% if block.settings.required %} required {% endif %}
+                    >
+                  {%- if block.settings.type == 'textarea' -%}
+                    </textarea>
+                  {%- endif -%}
+                </div>
+
+              {%- when 'button' -%}
+                <div class="one-whole" {{ block.shopify_attributes }}>
+                  <span class="info text-size--small">{{ 'contact.form.required_fields' | t }}</span>
+                  <button type="submit" class="button button--solid button--wide button--align" aria-label="{{ 'contact.form.submit_label' | t }}">
+                    {%- render 'theme-symbols', icon: 'plane' -%}
+                  </button>
+                </div>
+
+            {%- endcase -%}
+
+          {%- endfor -%}
+
+        </div>
+
+      {%- endform -%}
+
+    </div>
+  </div>
+
+  {%- unless page.content == blank -%}
+    <div class="four-tenths lap--full-width push-left-one-tenth lap--push-left-none lap--push-top-one-tenth rte">
+      {{ page.content }}
+    </div>
+  {%- endunless -%}
+</div>
+
+{% schema %}
+  {
+    "name": "t:sections.contact-form.name",
+    "class": "shopify-section section-w-margin section-w-mobile-padding",
+    "max_blocks": 12,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "t:sections.faq.settings.title.label",
+        "default": "Drop us a line"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "field",
+        "name": "t:sections.contact-form.blocks.field.name",
+        "settings": [
+          {
+            "type": "text",
+            "id": "label",
+            "label": "t:sections.contact-form.blocks.field.settings.labels.label",
+            "info": "t:sections.contact-form.blocks.field.settings.labels.info",
+            "default": "Label"
+          },
+          {
+            "type": "select",
+            "id": "type",
+            "label": "t:sections.contact-form.blocks.field.settings.type.label",
+            "options": [
+              {
+                "value": "input",
+                "label": "t:sections.contact-form.blocks.field.settings.type.options__1.label"
+              },
+              {
+                "value": "textarea",
+                "label": "t:sections.contact-form.blocks.field.settings.type.options__2.label"
+              }
+            ],
+            "default": "input"
+          },
+          {
+            "type": "checkbox",
+            "id": "required",
+            "label": "t:sections.contact-form.blocks.field.settings.required_field.label"
+          }
+        ]
+      },
+      {
+        "type": "email",
+        "name": "t:sections.contact-form.blocks.email.name",
+        "limit": 1
+      },
+      {
+        "type": "button",
+        "name": "t:sections.contact-form.blocks.button.name",
+        "limit": 1
+      }
+    ]
+  }
+{% endschema %}
+<style>
+  span.info.text-size--small {
+    display: none;
+}
+</style>

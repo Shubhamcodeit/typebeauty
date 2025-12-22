@@ -1,0 +1,287 @@
+{% if product.metafields.custom.add_on_product != blank %}
+<div class="">
+{% assign product_id = product.metafields.custom.add_on_product | times: 1 %}
+{% assign products_obj = collections.all.products | where: 'id', product_id %}
+{% assign productt = products_obj[0] %}
+<h3 class="head-add-on">Best Paired with</h3>
+<div class="flex-add">
+<div class="left-add"><img style="width: 100%" src={{productt.featured_image  | img_url: 'master'}}></div>
+<div class="right-add">
+<p class="ptit">{{ productt.title }}
+</p>
+
+
+
+  <product-variants
+              data-variants="{{ product.options_with_values.size }}"
+              data-type="{{ block.settings.variants_style }}"
+              data-hide-variants="true"
+              data-url="{{ product.url }}" data-id="{{ section.id }}"
+              style="display:block"
+              {{ block.shopify_attributes }}
+            >
+
+             {%- if style == 'select' -%}
+
+	<div class="product-variants product-variants--select"
+		{% if productt.has_only_default_variant %} style="display:none" {% endif %}
+	>
+		{%- for option in productt.options_with_values -%}
+			<div class="product-variant">
+				<label for="product-{{ option.name | escape | downcase | strip }}-{{ section.id }}">{{ 'product.page.select' | t }} {{ option.name }}</label>
+				<select class="product-variant-container" id="product-{{ option.name | escape | downcase | strip }}-{{ section.id }}">
+					{%- for value in option.values -%}
+						<option class="product-variant-value" value="{{ value | escape }}" {% if option.selected_value == value %}selected{% endif %}>
+							{{ value | escape }}
+						</option>
+					{%- endfor -%}
+				</select>
+			</div>
+		{%- endfor -%}
+	</div>
+
+{%- else -%}
+
+	{%- liquid 
+		assign color_label = 'color,colour,couleur,colore,culoare,farbe,색,色,カラー,färg,farve' | split: ','
+		assign size_label = 'size,format,größe,talla,taille,dimension,mărime,dimensione,tamanho,寸法' | split: ','
+	-%}
+		
+	<div class="product__variants" {% if productt.has_only_default_variant %} style="display:none;" {% endif %}>
+
+		{%- for option in productt.options_with_values -%}
+			{%- assign downcased_option = option.name | downcase -%}
+
+			<div class="product-variant" data-name="product-{{ option.name | escape | downcase | strip }}">
+
+				<span class="product-variant__name">{{ 'product.page.select' | t }} {{ option.name }}</span>
+
+				<div class="product-variant__container">
+					{%- for value in option.values -%}
+                  {% assign variant_option = 'option' | append: forloop.index %}
+                  {%     for varianti in productt.variants %}
+               
+                 {%  if varianti.title == value %}
+						<div class="product-variant__item 
+							{% if color_label contains downcased_option and color_swatches %} 
+								product-variant__item--color 
+							{% elsif size_label contains downcased_option %}
+								product-variant__item--size
+							{% endif %}
+						">
+							<input type="radio" name="product-{{ option.name | escape | downcase | strip }}" id="{{ product.handle }}-option-{{ option.name | escape | downcase | strip }}-{{ forloop.index }}-{{ id }}" value="{{ value | escape }}" {% if option.selected_value == value %}checked{% endif %} class="product-variant__input product-variant-value">
+							<span class="tooltiptext">{{ value | escape }}</span>
+                          <label data-varid="{{ varianti.id }}" for="{{ productt.handle }}-option-{{ option.name | escape | downcase | strip }}-{{ forloop.index }}-{{ id }}" class="product-variant__label {% if variant[variant_option] == value %}selected-var{% endif %}">
+								{%- if color_label contains downcased_option -%}
+									{%- assign color_swatch_name = value | handle | append: '.png' -%}
+									{%- assign color_swatch_image = images[color_swatch_name] -%}
+									<span aria-hidden="true" style="{% if color_swatch_image != blank %} background-image: url({{ color_swatch_image | image_url: width: 44, height: 44 }} {% else %} background-color: {{ value | escape | replace: ' ', '' | downcase }} {% endif %}"></span>
+									
+								{%- else -%}
+									{{ value }}
+								{%- endif -%}
+							</label>
+						</div>
+                       
+                  {%- endif -%}
+               
+					{%- endfor -%}
+                  {%- endfor -%}
+				</div>
+
+			</div>
+
+		{%- endfor -%}
+
+	</div>
+
+{%- endif -%}
+              {%- if block.settings.show_quantities != "no" -%} 
+                <span class="variant-quantity product__variant-quantity" 
+                  {% if product.tags contains "preorder" %} style="display:none" {% endif %}
+                  data-type="{{ block.settings.show_quantities }}"
+                ></span>
+                {%- capture variant_inventory -%}
+                  [{%- for variant in product.variants -%}{
+                    "id": {{ variant.id }}{%- if variant.inventory_management != null -%}, 
+                    "quantity": {{ variant.inventory_quantity }}, 
+                    "inventory": "{{ variant.inventory_policy }}"{%- endif -%}
+                    {%- if variant.available == false -%},"unavailable": true{%- endif -%}
+                    }{%- unless forloop.last -%},{%- endunless -%}
+                  {%- endfor -%}]
+                {%- endcapture -%}
+                <span class="variant-quantity-data" data-inventory='{{ variant_inventory }}'></span>
+              {%- endif -%}
+
+              <noscript>
+                <select name="id" id="Variants-{{ section.id }}" class="productSelect"
+                  {% if productt.has_only_default_variant %} style="display:none!important" {% endif %}
+                  form="{{ product_form_id }}"
+                >
+                  {%- for varianti in productt.variants -%}
+                    <option
+                      {% if varianti == current_varianti %}selected="selected"{% endif %}
+                      {% if varianti.available == false %}disabled{% endif %}
+                      value="{{ varianti.id }}"
+                    >
+                      {{ varianti.title }}
+                      {% if varianti.available == false %} - {{ 'productt.inventory.sold_out_variant' | t }}{% endif %}
+                      - {{ varianti.price | money | strip_html }}
+                    </option>
+                  {%- endfor -%}
+                </select>
+              </noscript>
+
+              <script type="application/json">
+                {{ productt.variants | json }}
+              </script>
+
+            </product-variants>
+    <product-form 
+              id="add-to-cart-{{ section.id }}" class="product__form" {% if settings.cart_action == 'overlay' %} data-ajax-cart {% endif %}
+              style="display:block"
+              {{ block.shopify_attributes }}
+            >
+
+              {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+
+                <template>
+                  <input type="hidden" class="item-varid" name="id" value="{{ current_variant.id }}">
+                </template>
+                <script>
+                  document.getElementById('add-to-cart-{{ section.id }}').querySelector('form').append(document.getElementById('add-to-cart-{{ section.id }}').querySelector('template').content.cloneNode(true));
+                </script>
+
+      
+                
+                <div class="product__cart-actions cart-actions buttons-holder">
+                 
+                  <div class="product__cart-actions-holder" data-value="{{ product.selected_or_first_available_variant.id }}" >
+              
+                   
+                   
+                    <button type="submit" name="add" class="{% if product.handle == 'get-even-serum-foundation' or product.handle ==  'get-even-primer' %} product__add-to-cart_v1 {% endif %} {% if product.handle == 'matte-up-balancing-primer' or product.handle ==  'matte-up-foundation' %} product__add-to-cart_v2 {% endif %} {% if product.handle == 'calm-on-foundation' or product.handle ==  'calm-on-hydrating-gel-primer' %} product__add-to-cart_v3 {% endif %} {% if product.handle == 'over-dew-primer' or product.handle ==  'decrease-foundation' %} product__add-to-cart_v4 {% endif %} product__add-to-cart btbtbtn {% unless current_variant.available %} disabled {% endunless %}">
+                 
+                <span class="add-to-cart__text">
+                     
+                        {%- liquid
+                          if current_variant.available
+                            echo 'product.page.add_to_cart_button' | t
+                          else
+                            echo 'product.inventory.sold_out_variant' | t
+                          endif
+                        -%}
+                      </span>
+                    </button>
+                
+               
+
+                  </div>
+
+                  {%- liquid
+                    if block.settings.show_dynamic_checkout
+                      echo form | payment_button
+                    endif
+                    echo form | payment_terms
+                  -%}
+                
+
+                </div>
+
+              {%- endform -%}
+            </product-form>
+
+  
+</div>
+</div>
+</div>
+<style>
+  .head-add-on{
+       font-size: 1.7rem;
+    margin-top: 3rem;
+    font-weight: 500;
+  }
+  .left-add{
+    width: 34%;
+  }
+  .left-add img{
+    display: block;
+  }
+  .flex-add{
+    display: flex;
+        justify-content: start;
+  }
+  .right-add{
+       width: 66%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 435px;
+    margin-left: 0;
+    padding-left: 20px;
+  }
+  .right-add product-variants{
+    margin-top: 1rem;
+  }
+  .ptit{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .right-add label{
+  height: 78%!important;
+    padding: 1px 2px!important;
+  }
+  .right-add .product-variant__item label span {
+    width: 25px!important;
+    height: 25px!important;
+    border-radius: 50%;
+        background-position: center;
+}
+  .right-add .product-variant__container .product-variant__item {
+    margin-bottom: -5px;
+}
+  @media only screen and (max-width: 600px) {
+  .flex-add {
+   display: block;
+  }
+     .left-add{
+       width: 76%;
+    margin-bottom: 20px;
+  }
+    .right-add{
+          width: 75%;
+    display: block;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: initial;
+    margin-left: 0;
+    padding-left: 0;
+    }
+    .ptit{
+          font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    }
+    .right-add .product__variants{
+      padding: 0;
+    }
+    .right-add .product-variant__container{
+      max-width: 100%;
+    }
+    .right-add .product__add-to-cart{
+      margin: 0;
+    }
+    .right-add .product-variant__item label span {
+    width: 30px!important;
+    height: 30px!important;
+    border-radius: 50%;
+    background-position: center;
+}
+    .right-add label {
+    height: 95%!important;
+    padding: 3px 4px!important;
+}
+}
+</style>
+  {% endif %}

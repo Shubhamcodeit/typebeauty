@@ -1,0 +1,427 @@
+{%- liquid 
+
+  unless settings.grid_aspect == 'natural' 
+    assign aspect_ratio = settings.grid_aspect 
+  endunless 
+
+-%}
+
+<div class="xxx product-item {{ css_class }} {{ settings.product_animation }} {{ product.handle }} recommended-pro" 
+  {% if scroll_speed != '0' %} 
+    data-scroll-speed="{{ scroll_speed }}" 
+    data-scroll-disable-on-lap
+  {% endif %}
+  {% if index %} data-index="{{ index }}" {% endif %}
+>
+  
+  {%- unless product.available -%}
+    <div class="product-badge text-size--small sold"><span>{{ 'collections.product_badges.sold_out' | t }}</span></div>
+  {%- elsif badges -%}
+    {%- if product.metafields.unique_feature.title != blank -%}
+      <div class="product-badge text-size--small badge">
+        {%- if product.metafields.unique_feature.icon != blank -%}
+          <span class="product-badge__icon" role="img" aria-hidden="true">
+            <img src="{{ product.metafields.unique_feature.icon | image_url: width: 48, height: 48, crop: 'center' }}" alt="{{ product.metafields.unique_feature.icon.alt }}" width="24" height="24" loading="lazy" />
+          </span>
+        {%- endif -%}
+        <span class="product-badge__title">{{ product.metafields.unique_feature.title | escape }}</span>
+      </div>
+    {%- endif -%}
+  {%- endunless -%}
+
+  <a class="product-item__link" href="{{ product.url | within: collection }}">
+
+    <div class="product-item__image {% if settings.product_show_secondary and product.images.size >= 2 %} product-item__image--show-secondary {% endif %}">
+
+      {%- unless product.media.size == 0 -%}
+        {%- render 'lazy-image', image: product.featured_media, alt: product.title, ratio: aspect_ratio, sizes: sizes -%}
+      {%- else -%}
+        <span class="onboarding-svg">
+          {{ 'image' | placeholder_svg_tag }}
+        </span>
+      {%- endunless -%}
+
+      {%- if settings.product_show_secondary and product.images.size >= 2 -%}
+        {%- render 'lazy-image', image: product.media[1], alt: product.title, ratio: aspect_ratio, sizes: sizes -%}
+      {%- endif -%}
+
+    </div>
+
+    <div class="product-item__caption">
+    
+      <span class="product-item__title">
+       
+        <span>{{ product.title | escape }}</span>
+      </span>
+
+      {%- assign variant = product.selected_or_first_available_variant -%}
+      <div></div>
+     <p class="smallorange">{{ product.metafields.my_fields.major_use }}</p>
+     {% render 'nectorcustom_review_rating', product: product, customer: customer, shop: shop %}
+      </a> 
+
+      {% if product.has_only_default_variant %} 
+      <input style="display:none;" class="product-item__variant active" type="number" value="{{ product.selected_or_first_available_variant.id }}" data-varid="{{ product.selected_or_first_available_variant.id }}" >
+        {% endif %}
+      
+        {%- liquid
+    if settings.show_variant_image
+
+      assign color_label = 'color,colour,couleur,colore,culoare,farbe,색,色,カラー,färg,farve' | split: ','
+
+      for option in product.options_with_values
+
+        assign downcased_option = option.name | downcase
+        if color_label contains downcased_option
+
+          assign variant_option = 'option' | append: forloop.index
+          assign u_index = 0
+          echo '<product-item-variants class="product-item__variants tbvar" aria-hidden="true">'
+
+          for value in option.values
+            assign downcased_value = value | downcase
+            for variant in product.variants
+           
+              if variant[variant_option] == value
+                
+                echo '<div class="product-item__variant" data-varid="' | append: variant.id | append: '" data-href="' | append: variant.url | append: '" data-id="' | append: u_index | append: '">'
+                echo '<p class="absoluted-title-variant">' | append: variant.title | append: ' </p>'
+                  assign color_swatch_name = value | handle | append: '.png'
+                  assign color_swatch_image = images[color_swatch_name]
+                  if color_swatch_image != blank
+                    assign color_swatch_image = color_swatch_image | image_url: width: 44, height: 44
+                    echo '<span style="background-image:url(' | append: color_swatch_image | append: ')"></span>'
+                  else
+                    assign color_swatch_name = downcased_value | escape | replace: ' ', ''
+                    echo '<span style="background-color:' | append: color_swatch_name | append: '"></span>'
+                  endif
+                  
+                  if variant.featured_media
+                    echo '<div class="product-item__variant-image" style="display: none" data-id="' | append: u_index | append: '">'
+                      render 'lazy-image', image: variant.featured_media, alt: product.title, ratio: aspect_ratio, sizes: sizes
+                    echo '</div>'
+                  endif
+                  assign u_index = u_index | plus: 1
+                echo '</div>'
+                break
+              endif
+            endfor
+
+          endfor
+
+          echo '</product-item-variants>'
+
+        endif
+
+      endfor
+
+    endif
+  -%}
+      <div style="align-items: stretch;" class="flex-con-col">
+        
+        <div class="price-con">
+        {%- liquid 
+
+          assign price = product.price | money_without_trailing_zeros
+
+          if product.price_varies
+
+            assign price_min = product.price_min | money
+            assign from_price = 'collections.price_variation_html' | t: price: price_min
+
+            if product.compare_at_price > product.price
+              echo '<span>' | append: from_price | append: '</span>'
+              echo '<del>'
+                echo product.compare_at_price_max | money
+              echo '</del>'
+            else
+              echo from_price
+            endif
+
+          else
+          
+            echo '<span class="visually-hidden">' 
+              echo 'general.accessibility_labels.price.regular' | t 
+            echo '</span>'
+          
+   assign price = ''
+            if product.handle contains 'combo'
+             assign price = product.price | money
+            elsif product.handle contains 'sample-set'
+       assign price = product.price | money
+           elsif product.handle contains 'sponge'
+            assign price = product.price | money
+           elsif product.handle contains 'bag'
+       assign price = product.price | money
+  elsif product.handle contains 'concealer'
+    assign price = product.price | money
+  elsif product.handle contains 'foundation'
+        assign price = product.price | money
+  elsif product.handle contains 'primer'
+          assign price = product.price | money
+  elsif product.handle contains 'lipstick'
+        assign price = product.price | money
+  elsif product.handle contains 'eyeshadow'
+        assign price = product.price | money
+  elsif product.handle contains 'smudge'
+       assign price = product.price | money
+  elsif product.handle contains 'mascara'
+      assign price = product.price | money
+            elsif product.handle contains 'tint'
+         assign price = product.price | money
+  elsif product.handle contains 'spray'
+       assign price = product.price | money
+  elsif product.handle contains 'shimmer'
+    assign price = product.price | money
+  elsif product.handle contains 'brush'
+       assign price = product.price | money
+  else
+    assign price = product.price | money
+  endif
+
+echo '<span>' | append: price | append: '</span>'
+      assign price = product.price | money
+             if product.handle contains 'combo' 
+elsif product.handle contains 'sample-set' 
+            elsif product.handle contains 'build-your-own-bundle' 
+            elsif product.handle contains 'copy-of-ace-your-base-bundle' 
+           else
+           comment
+             echo '<span class="product-itemliquid" style="text-decoration: line-through;margin-left: 5px;font-size: 14px;">' | append:price  | append: '</span>'
+           endcomment
+ 
+          endif
+
+
+          endif
+  
+          if variant.unit_price_measurement
+            echo '<span class="unit-price text-size--small">'
+            echo variant.unit_price | money
+            echo ' / '
+            if variant.unit_price_measurement.reference_value != 1
+              echo variant.unit_price_measurement.reference_value
+            endif
+            echo variant.unit_price_measurement.reference_unit
+            echo '</span>'
+          endif
+
+        -%}
+          
+          </span>
+         
+        </div>
+       {% if product.variants.size > 1 and product.variants.first.title != 'Default Title' %}
+           <div style="margin: 0;" class="add-to-con product-item-quickview" data-add-to-cart-cta data-quick-view-cta aria-label="Quick view" data-handle="{{ product.url }}">
+            Quick Shop
+           </div>
+            
+         {% else %}
+        <div class="add-to-con" data-add-to-cart-cta>
+          <form style="height: 100%;" method="post" action="/cart/add">
+            <input type="hidden" name="id" class="item-varid" value="{{ product.selected_or_first_available_variant.id }}" />
+            <input class="quant-inp" min="1" type="number" id="quantity" name="quantity" value="1"/>
+            {% if product.handle == 'eyeshadow-combo-1' or product.handle == 'lipstick-combo' or product.handle == 'lipstick-combo-1' or product.handle == 'eyeshadow-combo-2'%}
+            <a style="margin: 0;" href="{{ product.url }}" class="product-item-quickview">Add to cart</a>
+              {% else %}
+             
+            <input style="height: 100%;" type="submit" value="Add to cart" class="{% if product.handle == 'get-even-serum-foundation' or product.handle ==  'get-even-primer' %} product__add-to-cart_v1 {% endif %} {% if product.handle == 'matte-up-balancing-primer' or product.handle ==  'matte-up-foundation' %} product__add-to-cart_v2 {% endif %} {% if product.handle == 'calm-on-foundation' or product.handle ==  'calm-on-hydrating-gel-primer' %} product__add-to-cart_v3 {% endif %} {% if product.handle == 'over-dew-primer' or product.handle ==  'decrease-foundation' %} product__add-to-cart_v4 {% endif %} btn col-add-btn js-atc" />
+           {% endif %}
+          </form>
+        </div>
+          {% endif %}
+      </div>
+      
+    </div>
+
+   
+
+
+
+  {%- if settings.show_reviews_badge and product.metafields.reviews.rating.value != blank -%}
+    <span class="product-item__reviews">
+      <span class="visually-hidden">{{ 'general.accessibility_labels.rating_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}</span>
+      <span class="rating-icon" aria-hidden="true">
+        {%- render 'theme-symbols', icon: 'star' -%}
+      </span>
+      <span class="rating-text" aria-hidden="true">
+          {{ product.metafields.reviews.rating.value.rating | round: 1 | remove: '.0' }} / {{ product.metafields.reviews.rating.value.scale_max | round: 2 | remove: '.0' }}
+      </span>
+    </span>
+  {%- endif -%}
+
+</div>
+<style>
+  .product-item__variants{
+    display: none;
+  }
+  .inc-text{
+    font-size: 0.8em;
+    background-color: #000;
+    margin: 0;
+    width: 90%;
+    margin: auto!important;
+    color: #fff;
+   
+    padding: 5px;
+  }
+  
+  .product-item__variant{
+  position: relative;
+  }
+  .absoluted-title-variant{
+  position: absolute;
+    top: -32px;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    display: none;
+  }
+ 
+  .flex-con-col{
+  display: flex;
+    width: 90%;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    align-items: stretch;
+  }
+  .quant-inp{
+  display: none;
+  }
+  .col-add-btn{
+  margin: 0;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0;
+    justify-content: center;
+    padding: 10px 0;
+    height: auto;
+    text-transform: uppercase;
+cursor: pointer;
+    transition: all 0.2s ease-out;
+  }
+  .col-add-btn:hover{
+  background-color: #FF3FB5;
+  }
+  .price-con{
+  width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .add-to-con{
+  width: 59.7%;
+    justify-content: center;
+  }
+  .price-con{
+  background-color: #000;
+    color: #fff;
+  }
+  .product-item__variants{
+  margin-bottom: 20px;
+  }
+  .product-item__title{
+  margin-bottom: 8px!important;
+  }
+  #collection-filters{
+  text-align: initial;
+  }
+  @media only screen and (max-width: 768px) {
+     .inc-text{
+       width:100%;
+     }
+  .section-w-mobile-padding {
+  padding: 0!important;
+  }
+    .collection__image {
+   margin-bottom: 15px;
+}
+    .section-header__title{
+    font-size: 30px!important;
+    }
+    #CollectionProductGrid{
+    padding: 0 20px;
+    }
+    #collection-filters{
+    text-align: end;
+    margin-right: -30px;
+      margin-bottom: 22px!important;
+    }
+    .collection--regular{
+    margin-top: 0px!important;
+    }
+    figure{
+    height: auto!important;
+    }
+    .flex-con-col {
+    width: 100%;
+    }
+    .col-add-btn {
+   
+    font-size: 12px;
+    font-weight: 500;
+}
+    .rte{
+    width: 100%!important;
+      margin-bottom: 30px!important;
+      font-size: 13px!important;
+    }
+    .template-collection .section-header__title{
+    margin-bottom: 0!important;
+    }
+    ::-webkit-scrollbar {
+  height: 0px;
+}
+}
+  .absoluted-title-variant{
+  font-size: 13px;
+    font-family: inter;
+    color: #000;
+    font-weight: 500;
+  }
+  .smallorange{
+    color: #ff8f1a;
+    font-weight: 500;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+ 
+</style>
+<script>
+$(".quick-view-content-layout .product__add-to-cart").click(function(){
+ $("#quick-view-modal").removeClass("visible-modal");
+});
+$( ".product-item__variant" ).mouseenter(function() {
+ $(this).find('.absoluted-title-variant').show();
+});
+  $( ".product-item__variant" ).mouseleave(function() {
+ $(this).find('.absoluted-title-variant').hide();
+});
+
+</script>
+<script>
+  document.querySelector('.abd').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default link behavior
+    
+    // Get the target URL from the href attribute
+    var targetURL = this.getAttribute('href');
+    
+    // Navigate to the target URL
+    window.location.href = targetURL;
+    
+    // Scroll to approximately 70% of the page after a short delay (adjust the delay as needed)
+    setTimeout(function() {
+      var scrollPosition = (document.documentElement.scrollHeight || document.body.scrollHeight) * 0.7;
+      window.scrollTo(0, scrollPosition);
+    }, 500); // Delay in milliseconds
+  });
+</script>
+
+
+
+
+

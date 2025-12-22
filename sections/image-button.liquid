@@ -1,0 +1,92 @@
+{% stylesheet %}
+.Image-button{
+  width: 50%;
+  display: inline-block;
+  vertical-align: top;
+}
+.Image-button img{
+   width: 100%;
+}
+.offer-content-wrapper{
+  position: relative;
+}
+.content-button{
+  position: absolute;
+  top: auto;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  @media (max-width: 1279px){
+    .content-button{
+      bottom: 30px;
+    }
+    .offer-content-wrapper .content-button .cta-button {
+    padding: 12px 30px;
+    font-size: 14px;
+}
+  }
+  @media (max-width: 768px){
+    .Image-button{
+      width: 100%;
+    }
+    .exclusive-offer-section{
+      margin-block: 10px 70px;
+    }
+    .content-button {
+    bottom: 0px;
+}
+  }
+{% endstylesheet %}
+
+<div class="exclusive-offer-section">
+  <div class="offer-content-wrapper">
+    <img src="{{ section.settings.main_image | image_url }}" class="main-offer-image desktop-img" alt="Main Promo Image" width="957" height="957">
+    <img src="{{ section.settings.mob_image | image_url }}" class="main-offer-image mobile-img" alt="Main Promo Image" width="390" height="736">
+    <div class="content-button">
+  {% if section.settings.button_label != blank %}
+    <a href="{{ section.settings.button_link }}" class="cta-button">{{ section.settings.button_label }}</a>
+  {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image & Button",
+  "class": "Image-button",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mob_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image & Button",
+      "category": "Promotions"
+    }
+  ]
+}
+{% endschema %}

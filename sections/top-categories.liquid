@@ -1,0 +1,140 @@
+
+
+<div class="exp-cat {{ section.settings.custom_class }}">
+  <div class="categories-flexed swiper">
+    <div class="swiper-wrapper">
+    {% for block in section.blocks %}
+      <div class="swiper-slide">
+        <a href="{{ block.settings.explinks }}">
+        <img src="{{ block.settings.image | image_url: width: 107, height: 107 }}" loading="lazy">
+        </a>
+        <a style="padding: 0;" href="{{ block.settings.explinks }}" class="linkforout button button--underline">{{ block.settings.exphead }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<script>
+      var swiper = new Swiper(".top-category .swiper", {
+        slidesPerView: 9.5,
+        spaceBetween: 50,
+        breakpoints: {
+          0: {
+            slidesPerView: 4.5,
+            spaceBetween: 15,
+          },
+          768:{
+            slidesPerView: 7,
+            spaceBetween: 25,
+          },
+          1279:{
+            slidesPerView: 9.5,
+          }
+        },
+    });
+</script>
+
+<style>
+  .top-category.home-category .categories-flexed{
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .top-category .categories-flexed img{
+    width: 100%;
+  }
+  .top-category .categories-flexed .swiper-wrapper{
+    justify-content: center;
+  }
+  .categories-flexed{
+    max-width: 1440px;
+    padding: 0 20px;
+    margin: auto;
+    margin-top: 5rem;
+     margin-bottom: 5rem;
+    text-align: center;
+  }
+  .top-category.home-category .linkforout{
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  .top-category.home-category{
+    background: #FBF4EE;
+    padding: 20px 0;
+    margin-bottom: 2rem;
+  }
+  @media (max-width: 768px){
+    .top-category.home-category{
+      padding: 0;
+      background: none;
+      margin-bottom: 1rem;
+    }
+    .top-category .categories-flexed .swiper-wrapper {
+    justify-content: flex-start;
+}
+    .top-category{
+      margin-left: 15px;
+    }
+    .top-category.home-category .linkforout {
+      font-size: 12px;
+      margin-top: 0px;
+    }
+    .top-category.home-category .categories-flexed{
+      margin-bottom: 1rem;
+    }
+  }
+
+</style>
+
+{% schema %}
+{
+  "name": "Top-categories",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "expheadd",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    }
+  ],
+  "blocks": [
+     {
+       "name": "Slide",
+       "type": "slide",
+       "settings": [
+         {
+           "type": "url",
+           "id": "explinks",
+           "label": "URL Links"
+         },
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Image"
+         },
+         {
+      "type": "text",
+      "id": "exphead",
+      "label": "Block Heading"
+    }
+       ]
+     }
+   ],
+  "presets": [
+    {
+      "name": "Top-categories",
+      "settings": {
+       
+      },
+      "blocks": [
+       
+      ]
+    }
+  ]
+}
+{% endschema %}

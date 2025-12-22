@@ -1,0 +1,69 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-contact-page",
+      "blocks": {
+        "1628539090bcf511f6-0": {
+          "type": "email",
+          "settings": {}
+        },
+        "1628539090bcf511f6-1": {
+          "type": "field",
+          "settings": {
+            "label": "Message",
+            "type": "input",
+            "required": true
+          }
+        },
+        "1628539090bcf511f6-2": {
+          "type": "button",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "1628539090bcf511f6-0",
+        "1628539090bcf511f6-1",
+        "1628539090bcf511f6-2"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "newsletter_7DFCXT": {
+      "type": "newsletter",
+      "blocks": {
+        "email_form_eWckWX": {
+          "type": "email_form",
+          "settings": {}
+        },
+        "paragraph_fVyjTg": {
+          "type": "paragraph",
+          "settings": {
+            "paragraph": "<p>Be the first to know about new products and exclusive offers.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "email_form_eWckWX",
+        "paragraph_fVyjTg"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Subscribe to our Newsletter"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "newsletter_7DFCXT"
+  ]
+}

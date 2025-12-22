@@ -1,0 +1,19 @@
+<style id="vastpromotion-qv__stylesheet" type="text/css">
+
+</style>
+
+
+    <script id="vastpromotion-qv__javascript" type="text/javascript">
+    var VastQvApps = VastQvApps || {};
+    {% if customer %}
+    VastQvApps.customerId = "{{ customer.id }}"
+    VastQvApps.customerEmail = "{{ customer.email }}"
+    {% endif %}
+    VastQvApps.theme = "{{ theme.name }}";
+</script>
+
+
+{% comment %}
+Copyright © 2021 Vast Promotion Commerce All rights reserved.
+https://vastpromotion.com
+{% endcomment %}

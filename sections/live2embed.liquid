@@ -1,0 +1,49 @@
+<div>
+
+  <script
+    src="{{ 'external-script.js' | asset_url }}"
+    defer
+  ></script>
+  <live2-ai>
+    <div
+      data-live2-embed="1"
+      data-live2-embed-id="{{ section.settings.publish_id }}"
+      data-live2-picked-up="0"
+      data-live2-loaded="0"
+    >
+    <div class="live2-container"></div>
+    {% if section.settings.custom_css %}
+        <div class="live2-custom-css" style="display: none !important">
+          {{ section.settings.custom_css }}
+        </div>
+    {% endif %}
+    </div>
+  </live2-ai>
+</div>
+{% schema %}
+{
+  "name": "Live2 Embed",
+  "settings": [
+    {
+      "type": "text",
+      "id": "publish_id",
+      "label": "Publish ID",
+      "info": "Enter publish id for this block."
+    },
+    {
+      "type": "text",
+      "id": "custom_css",
+      "label": "Custom CSS",
+      "info": "Enter custom CSS styles for this block."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Live2 Embed",
+      "blocks": [
+        
+      ]
+    }
+  ]
+}
+{% endschema %}

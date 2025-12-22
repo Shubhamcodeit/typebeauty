@@ -1,0 +1,1370 @@
+function refreshCart1(){
+  $.ajax({
+    type: 'GET',
+    url: '/cart.js',
+    dataType: 'json',
+    success: function(data) {
+      var cart_structure = "";
+      var cart_structure1 = "";
+      var empty_cart = " ";
+
+   if(data.total_price == 0 ) {
+     $('#CheckOut').addClass('checkout-disabled');
+   }
+      else{
+         $('#CheckOut').removeClass('checkout-disabled');
+      }
+      
+      if(data.item_count > 0) {
+        $('.cart-heading').show();
+        $('.empty-cart').hide();
+        $('.bottom-content').show(); 
+        $('.site-cart-heading').text(data.item_count+' PRODUCT IN YOUR CART');
+        $('.cart__footer').removeClass().addClass('cart__footer');
+//         $('#site-cart-sidebar').addClass('sidebar--opened');
+//         $('#site-cart-sidebar').css('display','block');
+//         $('body').addClass('sidebar-opened');
+      }      
+      else{
+        $('.cart-heading').hide();
+        $('.empty-cart').show();
+        $('.bottom-content').hide();
+        $('.site-cart-heading').text(data.item_count+' PRODUCT IN YOUR CART');
+        $('.cart__footer').addClass('cart--empty');
+      }
+
+
+
+      $(data.items).each(function (ix, em){
+
+        if(data.item_count > 0) {
+
+          var elements = "<div>";
+          if (data.item_count > 0) {
+            elements += 'test';
+          }
+          elements += "</div>";
+
+
+          var elements123 = "<div>";
+          for(var key in em.properties) {
+            //            var elements123 +=('key: ' + key + '\n' + 'value: ' + em.properties[key]);
+            elements123 += "<div>"+ key +" : "+em.properties[key]+"</div>";
+
+            var deodem = em.properties[key];			            
+            if(deodem === "Bundle-Product"){
+              var prm = deodem;
+            }
+            else{
+              var prm = "";
+            }
+          }elements += "</div>";
+
+          cart_structure += '<div class="cart-item ' +em.handle+'" data-title="'+em.handle+'" data-id="39741437378638:3a4d287232ccdc0d9b8674e956f4d699" data-variant="39741437378638" data-qty="1">'+
+            '<div>'+
+            '<a href="'+em.url+'" class="thumbnail">'+
+            '<figure class="lazy-image  lazy-image--transparent " data-ratio="" style="padding-top: 130%">'+
+            '<img src="'+ em.image +'?crop=center&amp;height=260&amp;v=1648906613&amp;width=200 260w" sizes="100px" class="img lazy" loading="lazy" width="326" height="391">'+
+            '</figure>'+
+            '</a>'+
+            '<div class="content">'+
+            '<a href="'+em.url+'">'+
+            '<span class="title">'+em.product_title+'</span><span class="color-opt title"><span class="color-opt-bgImg bg-img-default1" style="background-image:url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/'+em.options_with_values[0].value.replace(" ", "-")+'.png)"></span>'+em.options_with_values[0].value.replace(" ", "-")+'</span></a><div class="price"><div class="item__properties">'+elements123+'</div></div>'+
+             '<div class="item__price-list"><span class="item__price">₹ '+ parseFloat(em.final_price / 100) +'</span></div></div><div class="item__properties"></div>'+
+            '<div class="quant-selector"><a  class="less" data-variantid="'+ em.variant_id + '"  href="javascript:void(0)"><img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/39384297500c145afa524e1721a04663.svg?v=1650276446"></a>'+
+            '<input  class="qty js-qty" type="number" name="updates[]" value="' + em.quantity + '" min="0" aria-label="Quantity">'+
+            '<a  class="more" data-variantid="'+ em.variant_id + '"  href="javascript:void(0)"><img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/18dddcc9cf53b547eaf0f76c308502f6_e2c6dbb9-0564-4b89-be39-282da393cb9c.svg?v=1650276446"></a></div>'+
+            '</div>'+
+            '</div>'+
+            '<div class="actions">'+
+            '<a href="#" class="remove" data-variantid="'+ em.variant_id + '" data-index="'+ix+'" title="Remove item from cart" aria-label="Remove item from cart" data-href="/cart/change?line=1&amp;quantity=0"><span aria-hidden="true"><svg aria-hidden="true" focusable="false" role="presentation" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.41418 0L16.9705 15.5563L15.5563 16.9706L-2.89679e-05 1.41421L1.41418 0Z" fill="#111111"></path><path d="M16.9706 1.41431L1.41423 16.9707L1.85966e-05 15.5564L15.5564 9.31025e-05L16.9706 1.41431Z" fill="#111111"></path></svg></span></a>'+
+            '</div></div>';
+
+          cart_structure1 += '<li  class="cart_product " id="'+prm+'" data-pro_handle="' + em.url + '" data-variantid="' + em.variant_id + '"><div class="image-info"><div class="image"><img src="'+ em.image +'" width="90px"/></div><div class="product-information"><span> '+ em.title +' </span><span class="price">Price - '+ parseFloat(em.final_line_price / 100) +'</span><div class="qty-input bold js-cart-variant-update">\
+<i class="less" data-variantid="'+ em.variant_id + '"> </i> <input class="js-qty" type="text" data-variantid="'+ em.variant_id + '" value="' + em.quantity + '"> <i class="more" data-variantid="'+ em.variant_id + '"></i>\
+</div></div><div class="edit-product" data-variantid="'+ em.variant_id + '"><img src="https://cdn.shopify.com/s/files/1/0136/9754/8374/files/edit.svg?v=1637914055"></div><div class="remove-pro"><a href="#" class="remove-pro-cart" data-variantid="'+ em.variant_id + '" data-index="'+ix+'">remove</a></div></div></li>';                 
+        }        
+      });
+
+      $('.sub-total span').html('₹ '+data.items_subtotal_price/ 100);
+      $('.totalling span').html('₹ '+data.total_price/ 100);
+
+      $('.cart-items').html(cart_structure);
+
+
+      $('.demo123').html(data.item_count);	         
+    }
+  });	
+
+
+}
+refreshCart1();
+
+function refreshCart(){
+  $.ajax({
+    type: 'GET',
+    url: '/cart.js',
+    dataType: 'json',
+    success: function(data) { 
+      console.log(data);
+      var cart_structure = "";
+      var cart_structure1 = "";
+      var empty_cart = " ";
+
+    if(data.total_price == 0 ) {
+     $('#CheckOut').addClass('checkout-disabled');
+   }
+      else{
+         $('#CheckOut').removeClass('checkout-disabled');
+      }
+      
+      if(data.item_count > 0) {
+        $('.cart-heading').show();
+        $('.empty-cart').hide();
+        $('.bottom-content').show(); 
+        $('.site-cart-heading').text(data.item_count+' PRODUCT IN YOUR CART');
+        $('.cart__footer').removeClass().addClass('cart__footer');
+        $('#site-cart-sidebar').addClass('sidebar--opened');
+        $('#site-cart-sidebar').css('display','block');
+        $('body').addClass('sidebar-opened');
+      }      
+      else{
+        $('.cart-heading').hide();
+        $('.empty-cart').show();
+        $('.bottom-content').hide();
+        $('.site-cart-heading').text(data.item_count+' PRODUCT IN YOUR CART');
+        $('.cart__footer').addClass('cart--empty');
+      }
+
+
+
+      $(data.items).each(function (ix, em){
+
+        if(data.item_count > 0) {
+
+          var elements = "<div>";
+          if (data.item_count > 0) {
+            elements += 'test';
+          }
+          elements += "</div>";
+
+
+          var elements123 = "<div class='elem'>";
+          for(var key in em.properties) {
+            //            var elements123 +=('key: ' + key + '\n' + 'value: ' + em.properties[key]);
+            elements123 += "<div>"+ key +" : "+em.properties[key]+"</div>";
+
+            var deodem = em.properties[key];			            
+            if(deodem === "Bundle-Product"){
+              var prm = deodem;
+            }
+            else{
+              var prm = "";
+            }
+          }elements += "</div>";
+
+          cart_structure += '<div class="cart-item ' +em.handle+'" data-title="'+em.handle+'" data-id="39741437378638:3a4d287232ccdc0d9b8674e956f4d699" data-variant="39741437378638" data-qty="1">'+
+            '<div>'+
+            '<a href="'+em.url+'" class="thumbnail">'+
+            '<figure class="lazy-image  lazy-image--transparent " data-ratio="" style="padding-top: 130%">'+
+            '<img src="'+ em.image +'?crop=center&amp;height=260&amp;v=1648906613&amp;width=200 260w" sizes="100px" class="img lazy" loading="lazy" width="326" height="391">'+
+            '</figure>'+
+            '</a>'+
+            '<div class="content">'+
+            '<a href="'+em.url+'">'+
+            '<span class="title">'+em.product_title+'</span><span class="color-opt title"><span class="color-opt-bgImg bg-img-default" style="background-image:url(//cdn.shopify.com/s/files/1/0555/4018/7214/files/'+em.options_with_values[0].value.replace(" ", "-")+'.png)"></span>'+em.options_with_values[0].value.replace(" ", "-")+'</span></a><div class="price"><div class="item__properties">'+elements123+'</div></div>'+
+            '<div class="item__price-list"><span class="item__price">₹ '+ parseFloat(em.final_price / 100) +'</span></div></div>'+
+            '<div class="quant-selector"><a  class="less" data-variantid="'+ em.variant_id + '"  href="javascript:void(0)"><img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/39384297500c145afa524e1721a04663.svg?v=1650276446"></a>'+
+            '<input  class="qty js-qty" type="number" name="updates[]" value="' + em.quantity + '" min="0" aria-label="Quantity">'+
+            '<a  class="more" data-variantid="'+ em.variant_id + '"  href="javascript:void(0)"><img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/18dddcc9cf53b547eaf0f76c308502f6_e2c6dbb9-0564-4b89-be39-282da393cb9c.svg?v=1650276446"></a></div>'+
+            '</div>'+
+            '</div>'+
+            '<div class="actions">'+
+            '<a href="#" class="remove" data-variantid="'+ em.variant_id + '" data-index="'+ix+'" title="Remove item from cart" aria-label="Remove item from cart" data-href="/cart/change?line=1&amp;quantity=0"><span aria-hidden="true"><svg aria-hidden="true" focusable="false" role="presentation" width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.41418 0L16.9705 15.5563L15.5563 16.9706L-2.89679e-05 1.41421L1.41418 0Z" fill="#111111"></path><path d="M16.9706 1.41431L1.41423 16.9707L1.85966e-05 15.5564L15.5564 9.31025e-05L16.9706 1.41431Z" fill="#111111"></path></svg></span></a>'+
+            '</div></div>';
+          // console.log(elements123);bund
+          cart_structure1 += '<li  class="cart_product " id="'+prm+'" data-pro_handle="' + em.url + '" data-variantid="' + em.variant_id + '"><div class="image-info"><div class="image"><img src="'+ em.image +'" width="90px"/></div><div class="product-information"><span> '+ em.title +' </span><span class="price">Price - '+ parseFloat(em.final_line_price / 100) +'</span><div class="qty-input bold js-cart-variant-update">\
+<i class="less" data-variantid="'+ em.variant_id + '"> </i> <input class="js-qty" type="text" data-variantid="'+ em.variant_id + '" value="' + em.quantity + '"> <i class="more" data-variantid="'+ em.variant_id + '"></i>\
+</div></div><div class="edit-product" data-variantid="'+ em.variant_id + '"><img src="https://cdn.shopify.com/s/files/1/0136/9754/8374/files/edit.svg?v=1637914055"></div><div class="remove-pro"><a href="#" class="remove-pro-cart" data-variantid="'+ em.variant_id + '" data-index="'+ix+'">remove</a></div></div></li>';                 
+        }        
+      });
+
+      $('.sub-total span').html('₹ '+data.items_subtotal_price/ 100);
+      $('.totalling span').html('₹ '+data.total_price/ 100);
+       
+      $('.cart-items').html(cart_structure);
+
+
+      $('.demo123').html(data.item_count);	
+    
+   
+     
+    
+    }
+  });	
+
+
+}
+
+
+function Samplecart(){
+  $.ajax({
+    type: 'GET',
+    url: '/cart.js',
+    dataType: 'json',
+    success: function(data) { 
+      
+
+   if(data.total_price == 0 ) {
+     $('#CheckOut').addClass('checkout-disabled');
+   }
+      else{
+         $('#CheckOut').removeClass('checkout-disabled');
+      }
+      
+      if(data.item_count > 0) {
+         if (data.total_price == 0)
+         {
+          
+                 console.log('only sample item');
+                 console.log(data);
+                    $.ajax({
+                    type: "POST",
+                    url: '/cart/clear.js',
+                    data: '',
+                    dataType: 'json',
+                    success: function() {
+                    refreshCart();
+                    },
+                    error: function(XMLHttpRequest, textStatus) {
+                    /* error code */
+                    }
+                    });
+               // setTimeout(function() { }, 2200);
+         }
+        
+      }      
+   
+            
+    }
+  });	
+
+
+}
+
+// setInterval(function () { Samplecart(); }, 4500);
+
+
+$(document).on('click','.col-add-btn',function(){ 
+  event.preventDefault();
+  
+  var ID = $(this).parents('.product-item__caption').find('.product-item__variant.active').attr('data-varid');  
+  
+  console.log('Selected Variant Id: '+ID);
+  
+ // var concealer_type = $('.shade-recommended').html();
+ // var foundation_type = $('.shade-recommended-fd').html();
+ //  var primer_type = $('.shade-recommended-fd').html();
+  
+ let data = {
+                    quantity:1,
+                    id:ID,
+                    // properties: {
+                    //   "Concealer": concealer_type,
+                    //   "Foundation": foundation_type,
+                    //   "Primer": primer_type
+                    // }
+                  }
+  
+  setTimeout(function() {
+        $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: data,
+    dataType: 'json', 
+    success: function (data) { 
+      $('.site-cart-heading').text(data.quantity+' PRODUCT IN YOUR CART');
+      refreshCart();
+    },
+    error : function (error) { 
+      console.error('Error:', error);
+      $('.outer-layer-no-select').fadeIn().delay(3000).fadeOut();
+       Samplecart();
+    } 
+  });
+  
+
+  }, 1000);
+  
+ 
+});
+
+ setInterval(function() {
+  var elements = document.getElementsByClassName('color-opt');
+      
+      for(var i = 0; i<elements.length; i++){
+      
+      if(elements[i].innerText==='Default-Title' || elements[i].innerText==='Thuis'){
+      elements[i].style.opacity = 0 ;
+      elements[i].style.height = 0 ;
+      
+      }
+      }
+    
+ }, 1000);
+
+$(document).on('click','.col-add-bundle-btn',function(){ 
+  event.preventDefault();
+  
+  var ID = $(this).parents('.product-item__caption').find('.product-item__variant.active').attr('data-varid');  
+  
+  console.log('Selected Variant Id: '+ID);
+  
+ var concealer_type = $('.shade-recommended').html();
+ var foundation_type = $('.shade-recommended-fd').html();
+ var primer_type = $('.active-bundle-pro .product-item__title span').text();
+  
+ let data = {
+                    quantity:1,
+                    id:ID,
+                    properties: {
+                      "Concealer": concealer_type,
+                      "Foundation": foundation_type,
+                      "Primer": primer_type,
+                      "Makeup Bag" : ' '
+                    }
+                  }
+  
+  setTimeout(function() {
+        $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: data,
+    dataType: 'json', 
+    success: function (data) { 
+      $('.site-cart-heading').text(data.quantity+' PRODUCT IN YOUR CART');
+      refreshCart();
+    },
+    error : function (error) { 
+      console.error('Error:', error);
+      $('.outer-layer-no-select').fadeIn().delay(3000).fadeOut();
+
+    } 
+  });
+  
+
+  }, 1000);
+  
+ 
+});
+
+ 
+$(document).on('click','.product__add-to-cart', function(){ 
+  event.preventDefault();
+  var ID = $(this).parents().find('.selected-var').data('varid');   
+  var qty = $('.product__quantity').val();
+  console.log('Selected ID: '+ID+' Quanity: '+qty);
+  setTimeout(function() {
+        $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: {
+      quantity:qty,
+      id:ID
+    },
+    dataType: 'json', 
+    success: function (data) { 
+      $('.site-cart-heading').text(data.quantity+' PRODUCT IN YOUR CART');
+       $('#quick-view-modal').removeClass('visible-modal')
+      $('.page-overlay').removeClass('show-quickview-overlay')
+      $('#quick-view-modal .quick-view-content-layout').html('');
+      refreshCart();
+    },
+    error : function (error) { 
+      console.error('Error:', error);
+      alert(error.responseJSON.description);
+
+    } 
+  });
+  
+
+  }, 1000);
+  
+ 
+});
+
+
+
+$(document).on('click','.remove',function(e){ 
+  var variant_id = $(e.target).attr("data-variantid");
+  var data_attr_val = $(this).attr("data-index");
+  var data_pro_index = parseInt(data_attr_val)+1;
+  console.log(variant_id);
+  var quantity = 0;
+  $.ajax({
+    url: "/cart/change.js",
+    data: {
+      line: data_pro_index,
+      quantity: 0
+    },
+    datatype:"JSON",
+    method:"POST",
+    success: function(data){
+      refreshCart();
+    }
+  })
+});
+
+
+$(document).on('click','.cart-items .less',function(e){   
+  var variant_id = $(this).attr("data-variantid");
+  var quantity = $(this).parent().find('.js-qty').val(); 
+  console.log(variant_id);
+  $.ajax({
+    url: "/cart/change.js",
+    data: {id: variant_id,
+           quantity: quantity-1
+          },
+    datatype:"JSON",
+    method:"POST",
+    success: function(data){
+      refreshCart();
+    }
+  })     
+});
+
+
+$(document).on('click','.cart-items .more',function(e){
+  var variant_id = $(this).attr("data-variantid");
+  var current_val = $(this).prev(".js-qty").val(parseInt(jQuery(this).prev(".js-qty").val())+1);
+  var updated_val =  $(this).parent().find('.js-qty').val() ;
+  console.log(variant_id);
+  $.ajax({
+    url: "/cart/change.js",
+    data: {
+       quantity:updated_val,
+      id: variant_id
+      },
+    datatype:"JSON",
+    method:"POST",
+    success: function(data){
+      refreshCart();
+    },
+    error : function (error) { 
+      console.error('Error:', error);
+      alert(error.responseJSON.description);
+
+    }
+       
+  })         
+});
+
+
+
+  $(document).on('click','.product-variant__label',function(e){
+//     alert('clicked');
+   var var_id =  $(this).data('varid');
+//     console.log(var_id);
+    $('.product-variant__label').removeClass('selected-var');
+   $(this).addClass('selected-var');
+    
+});
+
+ $(document).on('click','.product-variant__label1',function(e){
+//     alert('clicked');
+   var var_id =  $(this).data('varid');
+//     console.log(var_id);
+    $('.product-variant__label1').removeClass('selected-var');
+   $(this).addClass('selected-var');
+    
+});
+
+
+
+ $(document).on('click','.product-variant__label2',function(e){
+//     alert('clicked');
+   var var_id =  $(this).data('varid');
+//     console.log(var_id);
+    $('.product-variant__label2').removeClass('selected-var');
+   $(this).addClass('selected-var');
+    
+});
+ 
+$(document).on('click','.product-variant__label3',function(e){
+//     alert('clicked');
+   var var_id =  $(this).data('varid');
+//     console.log(var_id);
+    $('.product-variant__label3').removeClass('selected-var');
+   $(this).addClass('selected-var');
+    
+});
+
+ $(document).on('click','.product-variant__label4',function(e){
+//     alert('clicked');
+   var var_id =  $(this).data('varid');
+//     console.log(var_id);
+    $('.product-variant__label4').removeClass('selected-var');
+   $(this).addClass('selected-var');
+    
+});
+
+
+$(document).on('click','.product__cart-actions .more',function(e){
+//   var variant_id = $(this).attr("data-variantid");
+  var current_val = $(this).prev(".js-qty").val(parseInt(jQuery(this).prev(".js-qty").val())+1);
+  var updated_val =  $(this).parent().find('.js-qty').val() ;
+  
+});
+
+$(document).on('click','.product__cart-actions .less',function(e){
+ var old_val =  $(this).parent().find('.js-qty').val() ;
+  if(old_val>1) {
+  var current_val = $(this).next(".js-qty").val(parseInt(jQuery(this).next(".js-qty").val())-1);
+  var updated_val =  $(this).parent().find('.js-qty').val() ;
+  }
+});
+
+
+
+// Bundles products 
+ setTimeout(function() {
+$('.concealer-custom-shades .product-variant__input:checked').val();
+console.log('found');
+ $('.concealer-selected-shade span').html($('.concealer-custom-shades .product-variant__input').val());
+
+$('.foundation-custom-shades .product-variant__input:checked').val();
+console.log('found concealer');
+ $('.foundation-selected-shade span').html($('.foundation-custom-shades .product-variant__input1:checked').val());
+
+   
+ }, 1000);
+
+$(document).on('click','.concealer-custom-shades .product-variant__input',function(){
+    console.log($(this).val());
+    $('.concealer-selected-shade span').html($(this).val());
+});
+$(document).on('click','.product-top-grid .product-variant__input',function(){
+    console.log($(this).val());
+    $('.concealer-selected-shade span').html($(this).val());
+});
+$(document).on('click','.foundation-custom-shades .product-variant__input1',function(){
+    console.log($(this).val());
+    $('.foundation-selected-shade span').html($(this).val());
+});
+
+$(document).on('click','.foundation-custom-shades .product-variant__input1',function(){
+    console.log($(this).val());
+    $('.foundation-selected-shade span').html($(this).val());
+});
+$(document).on('click','.lustre_custom_shades_03 .product-variant__input2',function(){
+    console.log($(this).val());
+    $('.lusture-selected-shade-01 span').html($(this).val());
+});
+$(document).on('click','.lustre_custom_shades_04 .product-variant__input3',function(){
+    console.log($(this).val());
+    $('.lusture-selected-shade-02 span').html($(this).val());
+});
+
+
+$(document).on('click','.product__add-to-cart-bundle',function(){ 
+  event.preventDefault();
+  var ID = $(this).parents().find('.item-varid').val();   
+  var selected_concealer = $('#concealer-select').val();
+  var concealer_selected_shade =  $('.concealer-selected-shade span').html();
+
+    var foundation_select = $('#foundation-select').val();
+  var foundation_selected_shade =  $('.foundation-selected-shade span').html();
+  
+    var primer_select = $('#primer-select').val();
+  
+  var qty = $('.product__quantity').val();
+  console.log('Selected ID: '+ID+' Quanity: '+qty+'selected_concealer '+ selected_concealer+' '+concealer_selected_shade+' selected foundation '+foundation_select +''+foundation_selected_shade+' primer_select: '+primer_select);
+
+  let data = {
+                    quantity:qty,
+                    id:ID,
+                    properties: {
+                      "Concealer": selected_concealer +' - '+ concealer_selected_shade,
+                      "Foundation" : foundation_select+' -  '+ foundation_selected_shade,
+                      "Primer" : primer_select,
+                      "Makeup Bag" : ' '
+                    }
+                  }
+  
+  setTimeout(function() {
+        $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: data,
+    dataType: 'json', 
+    success: function (data) { 
+      $('.site-cart-heading').text(data.quantity+' PRODUCT IN YOUR CART');
+      refreshCart();
+    },
+    error : function (error) { 
+      console.error('Error:', error);
+      alert(error.responseJSON.description);
+
+    } 
+  });
+  
+
+  }, 1000);
+  
+ 
+});
+
+
+
+
+$(document).on('click','.product__add-to-cart-bundlee',function(){ 
+  event.preventDefault();
+  var ID = $(this).parents().find('.item-varid').val();   
+  var selected_concealer = $('#concealer-select').val();
+ 
+
+    var foundation_select = $('#foundation-select').val();
+  
+  
+    var primer_select = $('#primer-select').val();
+  var primer_selectt = $('#primer-selectt').val();
+  
+  var qty = $('.product__quantity').val();
+
+  let data = {
+                    quantity:qty,
+                    id:ID,
+                    properties: {
+                      "First Primer": 'OVER DEW PLUMPING PRIMER',
+                      "Second Primer" : 'CALM ON HYDRATING GEL PRIMER',
+                      "Third Primer" : 'MATTE UP BALANCING PRIMER',
+                      "Fourth Primer" : 'GET EVEN MOISTURIZING PRIMER'
+                    }
+                  }
+  
+  setTimeout(function() {
+        $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: data,
+    dataType: 'json', 
+    success: function (data) { 
+      $('.site-cart-heading').text(data.quantity+' PRODUCT IN YOUR CART');
+      refreshCart();
+    },
+    error : function (error) { 
+      console.error('Error:', error);
+      alert(error.responseJSON.description);
+
+    } 
+  });
+  
+
+  }, 1000);
+  
+ 
+});
+
+
+
+
+
+
+
+
+$(document).on('click','.product__add-to-cart-bundle-vl',function(){ 
+  event.preventDefault();
+  var ID = $(this).parents().find('.item-varid').val();   
+  var selected_concealer = $('#concealer-select').val();
+  var concealer_selected_shade =  $('.concealer-selected-shade span').html();
+
+    var foundation_select = $('#foundation-select').val();
+  var foundation_selected_shade =  $('.foundation-selected-shade span').html();
+  
+    var primer_select = $('#primer-select').val();
+  
+  var lustre_custom_shades_03 =  $('.lusture-selected-shade-01 span').html();
+
+  var lustre_select = $('#lustre-select').val();
+  
+  var lustre_custom_shades_04 =  $('.lusture-selected-shade-02 span').html();
+  
+  var qty = $('.product__quantity').val();
+  console.log('Selected ID: '+ID+' Quanity: '+qty+'selected_concealer '+ selected_concealer+' '+concealer_selected_shade+' selected foundation '+foundation_select +''+foundation_selected_shade+' lustre_select 1: '+primer_select + '' +lustre_custom_shades_03+' lusture select 2'+ lustre_select + '' +lustre_custom_shades_04 );
+
+  let data = {
+                    quantity:qty,
+                    id:ID,
+                    properties: {
+                      "Lustre 1": selected_concealer +' - '+ concealer_selected_shade,
+                      "Lustre 2" : foundation_select+' -  '+ foundation_selected_shade,
+                      "Lustre 3" : primer_select+' - ' + lustre_custom_shades_03,
+                      "Lustre 4" : lustre_select+' - ' + lustre_custom_shades_04
+                    }
+                  }
+  
+  setTimeout(function() {
+        $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: data,
+    dataType: 'json', 
+    success: function (data) { 
+      $('.site-cart-heading').text(data.quantity+' PRODUCT IN YOUR CART');
+      refreshCart();
+    },
+    error : function (error) { 
+      console.error('Error:', error);
+      alert(error.responseJSON.description);
+
+    } 
+  });
+  
+
+  }, 1000);
+  
+ 
+});
+
+
+
+
+
+
+
+
+$(document).on('click','.product__add-to-cart-diwali',function(){
+ event.preventDefault();
+  var ID = $(this).parents().find('.item-varid').val();  
+ var selected_concealer = $('.big-select:eq(0)').find('.side-selects:visible option:selected').text();
+var foundation_select = $('.big-select:eq(1)').find('.side-selects:visible option:selected').text();
+var primer_select = $('.big-select:eq(2)').find('.side-selects:visible option:selected').text();
+
+var concealer_selected_shade = $('.big-select:eq(0)').find('.selected-var').closest('.product-variant__item').find('input').val();
+var foundation_selected_shade = $('.big-select:eq(1)').find('.selected-var').closest('.product-variant__item').find('input').val();
+var lustre_custom_shades_03 = $('.big-select:eq(2)').find('.selected-var').closest('.product-variant__item').find('input').val();
+
+let data = {
+    quantity: '1',
+    id: ID,
+    properties: {
+        "Product 1": selected_concealer + ' - ' + concealer_selected_shade,
+        "Product 2": foundation_select + ' - ' + foundation_selected_shade,
+        "Product 3": primer_select + ' - ' + lustre_custom_shades_03
+    }
+}
+   console.log(data);
+  setTimeout(function() {
+        $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: data,
+    dataType: 'json', 
+    success: function (data) { 
+      $('.site-cart-heading').text(data.quantity+' PRODUCT IN YOUR CART');
+      refreshCart();
+    },
+    error : function (error) { 
+      console.error('Error:', error);
+      alert(error.responseJSON.description);
+
+    } 
+  });
+  
+
+  }, 1000);
+});
+
+
+$(document).on('click','.product__add-to-cart-bundle-vb',function(){ 
+  event.preventDefault();
+  var ID = $(this).parents().find('.item-varid').val();   
+  var selected_concealer = $('#concealer-select').val();
+  var concealer_selected_shade =  $('.concealer-selected-shade span').html();
+
+    var foundation_select = $('#foundation-select').val();
+  var foundation_selected_shade =  $('.foundation-selected-shade span').html();
+  
+    var primer_select = $('#primer-select').val();
+  
+  var lustre_custom_shades_03 =  $('.lusture-selected-shade-01 span').html();
+
+  var lustre_select = $('#lustre-select').val();
+  
+  var lustre_custom_shades_04 =  $('.lusture-selected-shade-02 span').html();
+  
+  var qty = $('.product__quantity').val();
+  console.log('Selected ID: '+ID+' Quanity: '+qty+'selected_concealer '+ selected_concealer+' '+concealer_selected_shade+' selected foundation '+foundation_select +''+foundation_selected_shade+' lustre_select 1: '+primer_select + '' +lustre_custom_shades_03+' lusture select 2'+ lustre_select + '' +lustre_custom_shades_04 );
+
+  let data = {
+                    quantity:qty,
+                    id:ID,
+                    properties: {
+                      "SHADE 1": selected_concealer +' - '+ concealer_selected_shade,
+                      "SHADE 2" : foundation_select+' -  '+ foundation_selected_shade,
+                      "SHADE 3" : primer_select+' - ' + lustre_custom_shades_03
+                    }
+                  }
+  
+  setTimeout(function() {
+        $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: data,
+    dataType: 'json', 
+    success: function (data) { 
+      $('.site-cart-heading').text(data.quantity+' PRODUCT IN YOUR CART');
+      refreshCart();
+    },
+    error : function (error) { 
+      console.error('Error:', error);
+      alert(error.responseJSON.description);
+
+    } 
+  });
+  
+
+  }, 1000);
+  
+ 
+});
+
+
+
+
+
+
+
+
+$(document).on('click','.product__add-to-cart-bundle-vglow',function(){ 
+  event.preventDefault();
+  var ID = $(this).parents().find('.item-varid').val();   
+  var selected_concealer = $('#concealer-select').val();
+  var concealer_selected_shade =  $('.concealer-selected-shade span').html();
+
+    var foundation_select = $('#foundation-select').val();
+  var foundation_selected_shade =  $('.foundation-selected-shade span').html();
+  
+    var primer_select = $('#primer-select').val();
+  
+  var lustre_custom_shades_03 =  $('.lusture-selected-shade-01 span').html();
+
+  var lustre_select = $('#lustre-select').val();
+  
+  var lustre_custom_shades_04 =  $('.lusture-selected-shade-02 span').html();
+  
+  var qty = $('.product__quantity').val();
+  console.log('Selected ID: '+ID+' Quanity: '+qty+'selected_concealer '+ selected_concealer+' '+concealer_selected_shade+' selected foundation '+foundation_select +''+foundation_selected_shade+' lustre_select 1: '+primer_select + '' +lustre_custom_shades_03+' lusture select 2'+ lustre_select + '' +lustre_custom_shades_04 );
+
+  let data = {
+                    quantity:qty,
+                    id:ID,
+                    properties: {
+                      "SHADE 2" : foundation_select+' -  '+ foundation_selected_shade,
+                      "SHADE 3" : primer_select+' - ' + lustre_custom_shades_03
+                    }
+                  }
+  
+  setTimeout(function() {
+        $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: data,
+    dataType: 'json', 
+    success: function (data) { 
+      $('.site-cart-heading').text(data.quantity+' PRODUCT IN YOUR CART');
+      refreshCart();
+    },
+    error : function (error) { 
+      console.error('Error:', error);
+      alert(error.responseJSON.description);
+
+    } 
+  });
+  
+
+  }, 1000);
+  
+ 
+});
+
+
+
+
+
+
+
+
+
+$(document).on('click','.product__add-to-cart-bundle-kk',function(){ 
+  event.preventDefault();
+  var ID = $(this).parents().find('.item-varid').val();   
+  var selected_concealer = $('#concealer-select').val();
+  var concealer_selected_shade =  $('.concealer-selected-shade span').html();
+
+    var foundation_select = $('#foundation-select').val();
+  var foundation_selected_shade =  $('.foundation-selected-shade span').html();
+  
+    var primer_select = $('#primer-select').val();
+  
+  var lustre_custom_shades_03 =  $('.lusture-selected-shade-01 span').html();
+
+  var lustre_select = $('#lustre-select').val();
+  
+  var lustre_custom_shades_04 =  $('.lusture-selected-shade-02 span').html();
+  
+  var qty = $('.product__quantity').val();
+  console.log('Selected ID: '+ID+' Quanity: '+qty+'selected_concealer '+ selected_concealer+' '+concealer_selected_shade+' selected foundation '+foundation_select +''+foundation_selected_shade+' lustre_select 1: '+primer_select + '' +lustre_custom_shades_03+' lusture select 2'+ lustre_select + '' +lustre_custom_shades_04 );
+
+  let data = {
+                    quantity:qty,
+                    id:ID,
+                    properties: {
+                      "Selected Product": selected_concealer +' - '+ concealer_selected_shade
+                    }
+                  }
+  
+  setTimeout(function() {
+        $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: data,
+    dataType: 'json', 
+    success: function (data) { 
+      $('.site-cart-heading').text(data.quantity+' PRODUCT IN YOUR CART');
+      refreshCart();
+    },
+    error : function (error) { 
+      console.error('Error:', error);
+      alert(error.responseJSON.description);
+
+    } 
+  });
+  
+
+  }, 1000);
+  
+ 
+});
+
+
+
+
+
+
+
+// Sample bundle Get Even
+
+$(document).on('click','.product__add-to-cart-bundle-sample1',function(){ 
+  event.preventDefault();
+  var ID = $(this).parents().find('.item-varid').val();   
+  var selected_concealer = $('#concealer-select').val();
+  var concealer_selected_shade =  $('.concealer-selected-shade span').html();
+
+    var foundation_select = $('#foundation-select').val();
+  var foundation_selected_shade =  $('.foundation-selected-shade span').html();
+  
+    var primer_select = $('#primer-select').val();
+  
+  var lustre_custom_shades_03 =  $('.lusture-selected-shade-01 span').html();
+
+  var lustre_select = $('#lustre-select').val();
+  
+  var lustre_custom_shades_04 =  $('.lusture-selected-shade-02 span').html();
+  
+  var qty = $('.product__quantity').val();
+  console.log('Selected ID: '+ID+' Quanity: '+qty+'selected Shade 1 '+concealer_selected_shade+' selected shade 2'+foundation_selected_shade+' selected shade 3: ' +lustre_custom_shades_03);
+
+  let data = {
+                    quantity:qty,
+                    id:ID,
+                    properties: {
+                      "Sample 1":concealer_selected_shade,
+                      "Sample 2" : foundation_selected_shade,
+                      "Sample 3" : lustre_custom_shades_03
+                    }
+                  }
+  
+  setTimeout(function() {
+        $.ajax({
+    type: 'POST',
+    url: '/cart/add.js',
+    data: data,
+    dataType: 'json', 
+    success: function (data) { 
+      $('.site-cart-heading').text(data.quantity+' PRODUCT IN YOUR CART');
+      refreshCart();
+    },
+    error : function (error) { 
+      console.error('Error:', error);
+      alert(error.responseJSON.description);
+
+    } 
+  });
+  
+
+  }, 1000);
+  
+ 
+});
+
+
+
+
+
+// // Sample Addon Get Even Foundation
+//  $(document).on('click','.product__add-to-cart_v1',function(){ 
+//   console.log('clicked sample btn');
+//   var ID1 = 40191015911502;   
+//   var qty = 1 ;
+//   console.log('Selected ID: '+ID1+' Quanity: '+qty + 'Sample ATC added');
+//  let data = {
+//                     quantity:1,
+//                     id:40191015911502,
+//             }
+// $.ajax({
+//         type: 'POST',
+//         url: '/cart/add.js',
+//         data: { 
+//         quantity: 1,
+//         id: 40191015911502
+//         },
+//         dataType: 'json',
+//         success: function(stuff) {
+          
+//          refreshCart();
+//           // alert('sample added');
+//           console.log(stuff);
+//         },
+//         error: function(jqXHR, textStatus, errorThrown) {
+//         alert(textStatus, errorThrown);
+//         }
+//         });	
+//      setTimeout(function() {
+//       $.ajax({
+//       type: 'GET',
+//       url: '/cart.js',
+//       dataType: 'json',
+//       success: function(data) { 
+//         console.log(data);
+//         $(data.items).each(function (ix, em){
+//              console.log('variant id: '+em.id)
+//              if(em.id == 40191015911502 ){
+//                // alert('Sample Found');
+//                if (em.quantity>1){
+//                // alert('Sample QTY: '+em.quantity);
+//                   setTimeout(function() {
+//                  $.ajax({
+//                   type: 'POST',
+//                    url: '/cart/update.js',
+//                   data: { updates: {40191015911502:0} },
+//                   dataType: 'json',
+//                   success: function(stuff) {
+//                     console.log('Sample Removed');
+//                    // refreshCart();
+//                   },
+//                   error: function(jqXHR, textStatus, errorThrown) {
+//                   alert(textStatus, errorThrown);
+//                   }
+//                   });	
+//                   }, 900);
+//                 setTimeout(function() {
+//                   $.ajax({
+//                   type: 'POST',
+//                   url: '/cart/add.js',
+//                   data: { 
+//                   quantity: 1,
+//                   id: 40191015911502
+//                   },
+//                   dataType: 'json',
+//                   success: function(stuff) {
+//                   console.log('Sample Updated');
+//                   refreshCart();
+//                   // alert('sample added');
+//                   console.log(stuff);
+//                   },
+//                   error: function(jqXHR, textStatus, errorThrown) {
+//                   alert(textStatus, errorThrown);
+//                   }
+//                   });	
+//                     }, 1500);
+//                                   }
+//                            }
+//            });
+//                refreshCart();
+//                    }
+//       });	
+//       }, 700);
+   
+ 
+   
+   
+//  });
+
+// // Sample Addon Matte up Foundation
+//  $(document).on('click','.product__add-to-cart_v2',function(){ 
+//   console.log('clicked sample btn');
+//   var ID1 = 40191037571150;   
+//   var qty = 1 ;
+//   console.log('Selected ID: '+ID1+' Quanity: '+qty + 'Sample ATC added');
+//  let data = {
+//                     quantity:1,
+//                     id:40191037571150,
+//             }
+// $.ajax({
+//         type: 'POST',
+//         url: '/cart/add.js',
+//         data: { 
+//         quantity: 1,
+//         id: 40191037571150
+//         },
+//         dataType: 'json',
+//         success: function(stuff) {
+          
+//          refreshCart();
+//           // alert('sample added');
+//           console.log(stuff);
+         
+//         },
+//         error: function(jqXHR, textStatus, errorThrown) {
+//         alert(textStatus, errorThrown);
+//         }
+//         });	
+//      setTimeout(function() {
+//       $.ajax({
+//       type: 'GET',
+//       url: '/cart.js',
+//       dataType: 'json',
+//       success: function(data) { 
+//         console.log(data);
+//         $(data.items).each(function (ix, em){
+//              console.log('variant id: '+em.id)
+//              if(em.id == 40191037571150 ){
+//                // alert('Sample Found');
+//                if (em.quantity>1){
+//                // alert('Sample QTY: '+em.quantity);
+//                   setTimeout(function() {
+//                  $.ajax({
+//                   type: 'POST',
+//                    url: '/cart/update.js',
+//                   data: { updates: {40191037571150:0} },
+//                   dataType: 'json',
+//                   success: function(stuff) {
+//                     console.log('Sample Removed');
+//                    // refreshCart();
+//                   },
+//                   error: function(jqXHR, textStatus, errorThrown) {
+//                   alert(textStatus, errorThrown);
+//                   }
+//                   });	
+//                   }, 700);
+//                 setTimeout(function() {
+//                   $.ajax({
+//                   type: 'POST',
+//                   url: '/cart/add.js',
+//                   data: { 
+//                   quantity: 1,
+//                   id: 40191037571150
+//                   },
+//                   dataType: 'json',
+//                   success: function(stuff) {
+//                   console.log('Sample Updated');
+//                   refreshCart();
+//                   // alert('sample added');
+//                   console.log(stuff);
+//                   },
+//                   error: function(jqXHR, textStatus, errorThrown) {
+//                   alert(textStatus, errorThrown);
+//                   }
+//                   });	
+//                     }, 1300);
+//                                   }
+//                            }
+//            });
+//                refreshCart();
+//                    }
+//       });	
+//       }, 700);
+   
+ 
+   
+   
+//  });
+
+//  // Sample Addon Calm On Foundation
+//  $(document).on('click','.product__add-to-cart_v3',function(){ 
+//   console.log('clicked sample btn');
+//   var ID1 = 40191039438926;   
+//   var qty = 1 ;
+//   console.log('Selected ID: '+ID1+' Quanity: '+qty + 'Sample ATC added');
+//  let data = {
+//                     quantity:1,
+//                     id:40191039438926,
+//             }
+// $.ajax({
+//         type: 'POST',
+//         url: '/cart/add.js',
+//         data: { 
+//         quantity: 1,
+//         id: 40191039438926
+//         },
+//         dataType: 'json',
+//         success: function(stuff) {
+          
+//          refreshCart();
+//           // alert('sample added');
+//           console.log(stuff);
+//         },
+//         error: function(jqXHR, textStatus, errorThrown) {
+//         alert(textStatus, errorThrown);
+//         }
+//         });	
+//      setTimeout(function() {
+//       $.ajax({
+//       type: 'GET',
+//       url: '/cart.js',
+//       dataType: 'json',
+//       success: function(data) { 
+//         console.log(data);
+//         $(data.items).each(function (ix, em){
+//              console.log('variant id: '+em.id)
+//              if(em.id == 40191039438926 ){
+//                // alert('Sample Found');
+//                if (em.quantity>1){
+//                // alert('Sample QTY: '+em.quantity);
+//                   setTimeout(function() {
+//                  $.ajax({
+//                   type: 'POST',
+//                    url: '/cart/update.js',
+//                   data: { updates: {40191039438926:0} },
+//                   dataType: 'json',
+//                   success: function(stuff) {
+//                     console.log('Sample Removed');
+//                    // refreshCart();
+//                   },
+//                   error: function(jqXHR, textStatus, errorThrown) {
+//                   alert(textStatus, errorThrown);
+//                   }
+//                   });	
+//                   }, 700);
+//                 setTimeout(function() {
+//                   $.ajax({
+//                   type: 'POST',
+//                   url: '/cart/add.js',
+//                   data: { 
+//                   quantity: 1,
+//                   id: 40191039438926
+//                   },
+//                   dataType: 'json',
+//                   success: function(stuff) {
+//                   console.log('Sample Updated');
+//                   refreshCart();
+//                   // alert('sample added');
+//                   console.log(stuff);
+//                   },
+//                   error: function(jqXHR, textStatus, errorThrown) {
+//                   alert(textStatus, errorThrown);
+//                   }
+//                   });	
+//                     }, 1300);
+//                                   }
+//                            }
+//            });
+//                refreshCart();
+//                    }
+//       });	
+//       }, 700);
+   
+ 
+   
+   
+//  });
+
+//   // Sample Addon De Crease Foundation
+//  $(document).on('click','.product__add-to-cart_v4',function(){ 
+//   console.log('clicked sample btn');
+//   var ID1 = 40191042715726;   
+//   var qty = 1 ;
+//   console.log('Selected ID: '+ID1+' Quanity: '+qty + 'Sample ATC added');
+//  let data = {
+//                     quantity:1,
+//                     id:40191042715726,
+//             }
+// $.ajax({
+//         type: 'POST',
+//         url: '/cart/add.js',
+//         data: { 
+//         quantity: 1,
+//         id: 40191042715726
+//         },
+//         dataType: 'json',
+//         success: function(stuff) {
+          
+//          refreshCart();
+//           // alert('sample added');
+//           console.log(stuff);
+//         },
+//         error: function(jqXHR, textStatus, errorThrown) {
+//         alert(textStatus, errorThrown);
+//         }
+//         });	
+//      setTimeout(function() {
+//       $.ajax({
+//       type: 'GET',
+//       url: '/cart.js',
+//       dataType: 'json',
+//       success: function(data) { 
+//         console.log(data);
+//         $(data.items).each(function (ix, em){
+//              console.log('variant id: '+em.id)
+//              if(em.id == 40191042715726 ){
+//                // alert('Sample Found');
+//                if (em.quantity>1){
+//                // alert('Sample QTY: '+em.quantity);
+//                   setTimeout(function() {
+//                  $.ajax({
+//                   type: 'POST',
+//                    url: '/cart/update.js',
+//                   data: { updates: {40191042715726:0} },
+//                   dataType: 'json',
+//                   success: function(stuff) {
+//                     console.log('Sample Removed');
+//                    // refreshCart();
+//                   },
+//                   error: function(jqXHR, textStatus, errorThrown) {
+//                   alert(textStatus, errorThrown);
+//                   }
+//                   });	
+//                   }, 700);
+//                 setTimeout(function() {
+//                   $.ajax({
+//                   type: 'POST',
+//                   url: '/cart/add.js',
+//                   data: { 
+//                   quantity: 1,
+//                   id: 40191042715726
+//                   },
+//                   dataType: 'json',
+//                   success: function(stuff) {
+//                   console.log('Sample Updated');
+//                   refreshCart();
+//                   // alert('sample added');
+//                   console.log(stuff);
+//                   },
+//                   error: function(jqXHR, textStatus, errorThrown) {
+//                   alert(textStatus, errorThrown);
+//                   }
+//                   });	
+//                     }, 1300);
+//                                   }
+//                            }
+//            });
+//                refreshCart();
+//                    }
+//       });	
+//       }, 700);
+   
+ 
+   
+   
+//  });

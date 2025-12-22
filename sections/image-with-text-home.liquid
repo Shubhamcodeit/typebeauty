@@ -1,0 +1,774 @@
+{% stylesheet %}
+  .Image-text-home{
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .Image-text-home img{
+     width: 100%;
+  }
+  .find-match .content-wrapper{
+    position: relative;
+  }
+  .find-match .img-content{
+    position: absolute;
+    top: 60px;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 60%;
+    padding: 0 15px;
+  }
+  .find-match .img-content h2{
+    font-size: 48px;
+    font-weight: 800;
+    font-family: 'Inter';
+    text-transform: uppercase;
+    line-height: 136%;
+    max-width: 90%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .find-match .img-content p{
+    font-size: 20px;
+    font-family: 'Inter';
+    line-height: 140%;
+    opacity: 0.75;
+    text-align: center;
+  }
+      .inner-pop-up-combo-recommendation{
+       padding: 50px;
+    }
+    .cross-inner{
+     position: absolute;
+  /*     top: 21%; */
+      right: 2%;
+      width: 2%;
+      cursor: pointer;
+      transform: translate(-50%, -50%);
+    }
+  .pop-up-combo-recommendation{
+   display: none;
+      position: fixed;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    text-align: center;
+      left: 50%;
+      top: 50%;
+      background-color: #fff;
+      transform: translate(-50%,-50%);
+      width: 50%;
+      max-height: 78vh;
+      overflow: auto;
+    z-index: 9999;
+  }
+  select{
+   cursor:pointer;
+  }
+  .product-item {
+  margin-bottom: 0!important;
+  }
+  .mount-parallax-w-padding{
+  margin-bottom: 30px!important;
+  }
+  .dashed-title{
+  display: none;
+  }
+  .recomm-shade{
+  font-family: 'Inter';
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 154.69%;
+  /* or 31px */
+
+  letter-spacing: 0.05em;
+
+  color: #000000;
+  }
+   .recomm-shade span{
+  text-transform: uppercase;
+    font-weight: 700;
+    color: #FF3FB5;
+  }
+  .step-level-indicator{
+  display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+  }
+  .step-level-indicator img{
+  width: 30%;
+  }
+  .skin-more-options select{
+   font-family: 'Inter';
+  font-weight: 700;
+  font-size: 11.9318px;
+  line-height: 126.69%;
+  background-color: #fff;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #000;
+  width: 49%;
+    display: block;
+    max-height: 45px;
+    border: 1px solid #FF8F1A;
+    margin-bottom: 30px;
+  }
+  #skin_shade:focus-visible{
+   border: 1px solid #FF8F1A;
+
+  }
+  #skin_shade{
+      font-family: 'Inter';
+  font-weight: 700;
+  font-size: 11.9318px;
+  line-height: 126.69%;
+  background-color: #fff;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #000;
+  width: 49%;
+    display: block;
+    max-height: 45px;
+    border: 1px solid #FF8F1A;
+  }
+  .skin-opt{
+  border-radius: 25px!important;
+    font-family: 'Inter';
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 154.69%;
+  /* or 31px */
+
+  letter-spacing: 0.05em;
+  }
+  .recommended-output h2{
+   font-family: 'Inter';
+  font-style: italic;
+  font-weight: 900;
+  font-size: 1.5vw;
+  line-height: 117.19%;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #FF3FB5;
+  }
+  .skin-more-options h2{
+   font-family: 'Inter';
+  font-style: italic;
+  font-weight: 900;
+  font-size: 1.5vw;
+  line-height: 117.19%;
+  /* or 35px */
+
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #FF3FB5;
+  }
+  .Skin-type h2{
+  font-family: 'Inter';
+  font-style: italic;
+  font-weight: 900;
+  font-size: 2vw;
+  line-height: 117.19%;
+  /* or 35px */
+
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #FF3FB5;
+  }
+  .filter_title img{
+  width: 100%;
+  }
+  .img-div{
+  width: 31%;
+  }
+  .grayed-step{
+  color: #ABABAB!important;
+  }
+  .stepi{
+  font-family: Inter;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 144.19%;
+  margin: 0 10px;
+    white-space: pre;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #000000;
+  }
+  .filter_title{
+  display: flex!important;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  .close-icon{
+  display: block;
+    width: max-content;
+    margin-bottom: 40px;
+  }
+  .pop-up-final-outer{
+  display: none;
+  }
+  .overlay.pop-up-final-outer{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.6);
+  }
+  .quiz-page-container{
+  position: relative;
+
+  }
+  .pop-up-quiz-con{
+    padding: 50px;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    background-color: #fff;
+    transform: translate(-50%,-50%);
+    width: 50%;
+    max-height: 78vh;
+    overflow: auto;
+    z-index: 999;
+  }
+  .step-info{
+  font-family: Inter;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 133.69%;
+  /* or 21px */
+
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  color: #FF3FB5;
+  }
+  .inner-flexed-three-texts{
+  width: 30%;
+  }
+  .flexed-bottom-sec-desk{
+  display: flex;
+    justify-content: space-between;
+  }
+  .step{
+  font-family: Inter;
+    display: block;
+    width: 100%;
+    margin-bottom: 12px;
+    text-align: center;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 133.69%;
+  /* or 21px */
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  color: #000000;
+  }
+  .third{
+  display: flex;
+    margin: auto;
+    margin-top: -65px;
+
+  }
+  .mid{
+  margin: 0 -40px;
+  }
+  .flex-three-cons{
+  display: flex;
+    justify-content: center;
+  }
+  .flex-three-cons img{
+  opacity: 0.8;
+  }
+  .first-gola{
+  border-radius: 50%;
+    margin: 0 20px;
+  }
+  .three-golas{
+  display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .flexed-out-thirty{
+  width: 30%;
+  }
+  .flexed-bottom-sec{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+  .how-works{
+  font-family: Inter;
+    margin: 0 20px;
+  font-weight: 900;
+  font-size: 35px;
+  line-height: 144.19%;
+  /* or 50px */
+
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #000000;
+  }
+  .flexed{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .flexed-out-between{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+  .bottom-section-quiz{
+  max-width: 1100px;
+    padding: 0 20px;
+    margin: auto;
+  }
+  .top-section-quiz{
+  margin-bottom: 154px;
+  }
+  .righty-jali{
+  position: absolute;
+    left: 2%;
+    bottom: -32%;
+    transform: translate(-50%, -50%);
+    width: 24%;
+    z-index: -1;
+  }
+  .text-left-orange{
+  position: absolute;
+    top: 72%;
+    left: 44%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+  }
+  .arrow-left-orange{
+  position: absolute;
+    top: 65%;
+    left: 19%;
+    transform: translate(-50%, -50%);
+    width: 22%;
+  }
+  .top-right-jali{
+  position: absolute;
+    right: 0;
+    top: -90px;
+
+  }
+  .first-text-for-quiz{
+  font-family: Inter;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 2.4vw;
+  line-height: 117.19%;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  color: #FF3FB5;
+  }
+  .second-text-for-quiz{
+  font-family: Inter;
+  font-weight: 500;
+  font-size: 1.1vw;
+  line-height: 154.69%;
+  /* or 31px */
+
+  letter-spacing: 0.05em;
+
+  color: #000000;
+  }
+  .lefti{
+  width: 36%;
+    padding-top: 40px;
+    position: relative;
+  }
+  .righty{
+  width: 61%;
+    position: relative;
+  }
+  .first-flexed-section-quiz{
+  max-width: 1240px;
+    margin: auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+    .resultmail{
+  border: none;
+    background-color: #000;
+    height: 41px;
+    width: 100%;
+      color: #fff!important;
+    font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 12px;
+  }
+  .resultmail::placeholder{
+  color: #fff;
+    font-family: 'Inter';
+  font-style: italic;
+  font-weight: 400;
+  font-size: `15px;
+    text-align: center;
+  line-height: 12px;
+
+  }
+  #emailresults:hover{
+  color: #FF3FB5;
+  }
+  .recomm-shad-fd {
+    margin-top:35px;
+  }
+
+  #shopify-section-bundles-set-results .collection--regular {
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+  }
+  #shopify-section-bundles-set-results a.product-item__link {
+      margin-bottom: 25px;
+      display: block;
+  }
+    button#emailresults {
+    margin: 0 auto;
+    float: none;
+    display: block;
+    text-decoration: underline;
+  }
+  input.resultmail {
+    margin-bottom: 20px;
+  }
+
+  .filter-skin-main{ margin:0 auto; }
+  .filter-skin-main .ten-tenths {
+      margin: 0 auto;
+        display: block;
+  }
+  .skin-options li {
+    list-style-type: none;
+  }
+  .skin-shade {
+    margin: 25px 0px;
+    margin-bottom: 0;
+  }
+  .step-btn{
+
+
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0;
+    justify-content: center;
+    padding: 10px 30px!important;
+    height: auto;
+    text-transform: Capitalize;
+  cursor: pointer;
+    transition: all 0.2s ease-out;
+   display: block;
+   margin: auto;
+     margin-top:30px;
+  }
+  .step-btn:hover{
+  background-color: #FF3FB5;
+  }
+  .filter-skin-main .collection.collection--regular {
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    margin-top: 30px;
+  }
+  .recomm-shade {
+    text-align: center;
+  }
+  .recomm-shade span {
+    display: initial!important;
+  }
+  .img-div img{
+  vertical-align: middle;
+  }
+
+  @media only screen and (max-width: 768px) {
+  .pop-up-quiz-con {
+    padding: 28px;
+    top: 43%;
+    width: 92%;
+  }
+    .close-icon{
+    margin-bottom: 25px;
+    }
+    .stepi{
+    font-size: 12px;
+    margin: 0 6px;
+    }
+    .filter_title {
+    margin-bottom: 25px;
+    }
+    .Skin-type h2 {
+      font-size: 4vw;
+    }
+    select{
+    width: 100%!important;
+      font-size: 10.9318px!important;
+      max-height: 40px!important;
+    }
+    .skin-more-options h2 {
+      font-size: 3.5vw;
+
+    }
+    .product-item {
+    width: 90%!important;
+  }
+    .collection--regular {
+    margin-left: -4%!important;
+    }
+    .recommended-output h2 {
+    font-size: 3.2vw;
+    }
+
+  }
+   .collection--regular {
+    margin-left: -4%!important;
+    }
+  .skin-opt:checked {
+    background: #ff3fb5!important;
+  }
+
+    @media only screen and (max-width: 1100px) {
+  .pop-up-quiz-con {
+    width: 79%;
+  }
+      .first-text-for-quiz{
+      font-size: 3.4vw;
+      }
+      .second-text-for-quiz{
+      font-size: 2.1vw;
+      }
+      .arrow-left-orange {
+    position: absolute;
+        top: 114%;}
+      .text-left-orange {
+    position: absolute;
+        top: 122%;}
+      .three-golas img{
+      width: 49%;
+      }
+      .first-gola{
+      width: 45%;
+      }
+  }
+  @media only screen and (max-width: 768px) {
+     .cross-inner{
+    width: 3%;
+     }
+     .inner-pop-up-combo-recommendation{
+     padding: 20px;
+    }
+    .pop-up-combo-recommendation{
+      width: 90%;
+
+    }
+    .three-golas img {
+    width: 32%;
+  }
+  .first-flexed-section-quiz ,.flexed-bottom-sec{
+   display: block;
+  }
+    .lefti,.righty,.flexed-out-thirty{
+    width: 100%
+    }
+    .lefti{
+    padding: 0;
+    }
+    .first-text-for-quiz{
+    font-size: 7.5vw;
+      margin-bottom: 12px;
+    }
+    .second-text-for-quiz{
+    margin-bottom: 120px;
+      font-size: 4.1vw;
+    }
+    .arrow-left-orange {
+   left: 56%;
+      top: 124%;
+  }
+    .text-left-orange {
+    position: absolute;
+    top: 136%;
+    left: 81%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+  }
+    .top-right-jali {
+    position: absolute;
+    right: initial;
+    top: initial;
+      left: 0;
+     bottom: 40%;
+    width: 39%;
+  }
+    .righty-jali {
+    position: absolute;
+    left: initial;
+    bottom: 0%;
+    transform: translate(-50%, -50%);
+    width: 24%;
+    z-index: -1;
+    right: -23%;
+  }
+    .top-section-quiz {
+    margin-bottom: 104px;
+  }
+    .line-diagram{
+    width: 93%;
+    }
+    .how-works {
+    white-space: pre;
+      font-size: 22px;
+      margin: 0 9px;
+  }
+    .inner-flexed-three-texts {
+    width: 55%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 81px;
+  }
+    .first-gola {
+    border-radius: 50%;
+    margin: 0 74px;
+  }
+  }
+
+    @media (max-width: 1440px){
+      .find-match .img-content{
+        top: 30px;
+      }
+      .find-match .img-content h2{
+        font-size: 30px;
+        margin-bottom: 15px;
+      }
+      .find-match .img-content{
+        max-width: 100%;
+      }
+      .find-match .img-content p{
+        max-width: 85%;
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+      .find-match .content-wrapper .cta-button{
+        padding: 12px 30px;
+        font-size: 14px;
+      }
+    }
+    @media (max-width: 768px){
+      .Image-text-home{
+        width: 100%;
+      }
+      .find-match .img-content {
+      top: 50px;
+  }
+      .find-match .img-content h2 {
+      font-size: 32px;
+      margin-bottom: 8px;
+  }
+      .find-match .img-content p{
+        font-size: 18px;
+        margin-bottom: 20px;
+        max-width: 95%;
+      }
+    }
+{% endstylesheet %}
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<div class="find-match">
+  <div class="content-wrapper">
+    <div class="img-content">
+      {% if section.settings.title != blank %}
+        <h2>{{ section.settings.title }}</h2>
+      {% endif %}
+      {% if section.settings.description != blank %}
+        <p>{{ section.settings.description }}</p>
+      {% endif %}
+      {% if section.settings.button_label != blank %}
+        <a href="javascript:void(0)" class="cta-button quiz-button">{{ section.settings.button_label }}</a>
+      {% endif %}
+    </div>
+    <img
+      src="{{ section.settings.main_image | image_url }}"
+      class="main-offer-image desktop-img"
+      alt="Main Promo Image" width="957" height="957"
+    >
+    <img src="{{ section.settings.mob_image | image_url }}" class="main-offer-image mobile-img" alt="Main Promo Image" width="390" height="682">
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image-text home",
+  "class": "Image-text-home",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mob_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image-text home",
+      "category": "Promotions"
+    }
+  ]
+}
+{% endschema %}

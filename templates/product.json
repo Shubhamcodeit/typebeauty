@@ -1,0 +1,530 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_Nrkttg": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% comment %} Breadcrumb Navigation {% endcomment %}\n<nav class=\"breadcrumb\" aria-label=\"breadcrumb\">\n  <ul>\n    <li><a href=\"{{ shop.url }}\">Home</a></li>\n    \n    {% if template contains 'collection' and collection.handle %}\n      <li>\n        <a href=\"{{ collection.url }}\">{{ collection.title }}</a>\n      </li>\n    {% endif %}\n    \n    {% if template contains 'product' %}\n      {% if collection.handle %}\n        <li>\n          <a href=\"{{ collection.url }}\">{{ collection.title }}</a>\n        </li>\n      {% endif %}\n      <li class=\"active\">{{ product.title }}</li>\n    {% elsif template contains 'page' %}\n      <li class=\"active\">{{ page.title }}</li>\n    {% elsif template contains 'blog' %}\n      <li>\n        <a href=\"{{ blog.url }}\">{{ blog.title }}</a>\n      </li>\n      {% if article.handle %}\n        <li class=\"active\">{{ article.title }}</li>\n      {% endif %}\n    {% elsif template contains 'search' %}\n      <li class=\"active\">Search Results</li>\n    {% endif %}\n  </ul>\n</nav>\n\n{% comment %} Add some basic styling {% endcomment %}\n<style>\n.breadcrumb ul {\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  display: flex;\n}\n.breadcrumb li {\n  display: inline;\n  font-size: 14px;\n}\n.breadcrumb li + li:before {\n  content: \" > \";\n  padding: 0 5px;\n}\n.breadcrumb a {\n  text-decoration: none;\n  color: #007bff;\n}\n.breadcrumb .active {\n  color: #555;\n  font-weight: bold;\n}\n</style>",
+        "full_width": false
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "show_vendor": false,
+            "show_reviews": false,
+            "show_tax_info": false,
+            "show_sku": false,
+            "show_barcode": false,
+            "stick_product_header_on_mobile": false
+          }
+        },
+        "live2_ai_shoppable_videos_live2_product_embed_7yDKDw": {
+          "type": "shopify://apps/live2-ai-shoppable-videos/blocks/live2-product-embed/0596afb0-e030-408f-9be8-108a43e90013",
+          "disabled": true,
+          "settings": {
+            "team_id": "65b104952550a1e7a05db38c",
+            "selected_type": "STORY",
+            "custom_css": ""
+          }
+        },
+        "b4661e63-efdc-456d-ae40-2a0a54a47aa9": {
+          "type": "shopify://apps/nector-loyalty-rewards/blocks/review_rating/1c1144ea-67f0-4232-93c6-0d8fbb8c8d3a",
+          "disabled": true,
+          "settings": {
+            "product": "{{product}}",
+            "view_type": "compact",
+            "all_reviews": false,
+            "fetch_all_reviews_if_not_found": false,
+            "color": "#ff3fb5",
+            "font_size": 16,
+            "text_align": "start",
+            "font_weight": "normal",
+            "padding_x": 0,
+            "padding_y": 0,
+            "review_rating_classes": ""
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "variants_style": "radio",
+            "show_color_swatches": true,
+            "show_quantities": "no"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_quantity_selector": true
+          }
+        },
+        "pickup_avaiability": {
+          "type": "pickup_avaiability",
+          "settings": {}
+        },
+        "f3fcae28-c3e1-4551-9cf8-2e057682df9d": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "FIND YOUR SHADE",
+            "content": "<p>Find your Shade <a href=\"https://www.typebeautyinc.com/pages/skincare-quiz\" title=\"https://www.typebeautyinc.com/pages/skincare-quiz\">here</a></p><p></p><p></p>",
+            "page": ""
+          }
+        },
+        "9d23327f-d043-4890-9616-2f5f4b7d173f": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "INGREDIENTS",
+            "content": "<p>{{ product.metafields.my_fields.product_ingredients | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "1baab5c0-1d06-41e9-a081-f0b44d2b3cad": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "HOW TO USE / APPLY",
+            "content": "<p>{{ product.metafields.my_fields.how_to_use | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "d5bf8b8c-02a6-4627-ae5c-208ed0e496da": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "ADDITIONAL INFORMATION",
+            "content": "<p>{{ product.metafields.custom.additional_info | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "fc3dd7c4-2547-40ac-b4b0-088c6ae61583": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "{{ product.metafields.custom.faqone.value }}",
+            "content": "<p>{{ product.metafields.custom.faqoneans | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "02140cdf-1eb1-47af-8f3a-ba1bc1211a8c": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "{{ product.metafields.custom.faqtwo.value }}",
+            "content": "<p>{{ product.metafields.custom.faqtwoans.value }}</p>",
+            "page": ""
+          }
+        },
+        "44109d40-a34f-4f2b-8eb6-aeed61d0229a": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "{{ product.metafields.custom.faqthree.value }}",
+            "content": "<p>{{ product.metafields.custom.faqthreeans.value }}</p>",
+            "page": ""
+          }
+        },
+        "88985021-7cc8-4552-9a80-4cf9cde460cb": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "{{ product.metafields.custom.faqfour.value }}",
+            "content": "<p>{{ product.metafields.custom.faqfourans.value }}</p>",
+            "page": ""
+          }
+        },
+        "d5c5268f-caf8-4efb-95ca-788a5139d9ab": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "{{ product.metafields.custom.faqfive.value }}",
+            "content": "<p>{{ product.metafields.custom.faqfiveans.value }}</p>",
+            "page": ""
+          }
+        },
+        "9517f664-0e0c-4a7f-891e-cc041c84c671": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "{{ product.metafields.custom.faqsix.value }}",
+            "content": "<p>{{ product.metafields.custom.faqsixans | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "2ea54c21-d837-4eed-8062-6944c25ba4a2": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "{{ product.metafields.custom.faqseven.value }}",
+            "content": "<p>{{ product.metafields.custom.faqsevenans.value }}</p>",
+            "page": ""
+          }
+        },
+        "8aba7bc1-7201-4f7b-b51c-132d4c18f98b": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "{{ product.metafields.custom.faqeight.value }}",
+            "content": "<p>{{ product.metafields.custom.faqeightans | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "04381a58-bca6-4071-adf3-df777b6426f7": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "{{ product.metafields.custom.faqnine.value }}",
+            "content": "<p>{{ product.metafields.custom.faqnineans | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "ddc9873b-b1b1-4b39-83ec-460dc0c54bf1": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "{{ product.metafields.custom.faqten.value }}",
+            "content": "<p>{{ product.metafields.custom.faqtenans | metafield_tag }}</p>",
+            "page": ""
+          }
+        },
+        "f749127d-d77d-4389-bfcc-900b3e189da0": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<p class=\"desc-head\">{{product.metafields.my_fields.desc_head}}</p>\n<table class=\"product-custom-table\">\n{% if product.metafields.my_fields.prodone_feature != blank %}\n<tr>\n<td class=\"dark\">{{product.metafields.my_fields.prodone_feature}}</td>\n<td class=\"light\">{{product.metafields.my_fields.prodone_desc}}</td>\n</tr>\n{% endif %}\n{% if product.metafields.my_fields.prodtwo_feature != blank %}\n<tr>\n<td class=\"dark\">{{product.metafields.my_fields.prodtwo_feature}}</td>\n<td class=\"light\">{{product.metafields.my_fields.prodtwo_desc}}</td>\n</tr>\n{% endif %}\n{% if product.metafields.my_fields.prodthree_feature != blank %}\n<tr>\n\n<td class=\"dark\">{{product.metafields.my_fields.prodthree_feature}}</td>\n<td class=\"light\">{{product.metafields.my_fields.prodthree_desc}}</td>\n</tr>\n{% endif %}\n</table>"
+          }
+        },
+        "5094b23e-ed99-4f7b-964e-a06e9163b694": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div>{{product.description}}</div>"
+          }
+        },
+        "dea343ee-d1f0-4d93-bdc2-e8ae388d9814": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"flexed-custom\">\n<div>\n<p class=\"abfirst\">{{product.metafields.custom.percentusersone}}</p>\n<p class=\"absecond\">{{product.metafields.custom.percentusersonedesc}}</p>\n</div>\n<div>\n<p class=\"abfirst\">{{product.metafields.custom.percentuserstwo}}</p>\n<p class=\"absecond\">{{product.metafields.custom.percentuserstwodesc}}\n</div>\n<div>\n<p class=\"abfirst\">{{product.metafields.custom._percentusersthree}}</p>\n<p class=\"absecond\">{{product.metafields.custom._percentusersthreedesc}}\n</div>\n    <div>\n<p class=\"abfirst\">{{product.metafields.custom.percentusersfour}}</p>\n<p class=\"absecond\">{{product.metafields.custom.percentusersfourdesc}}\n</div>\n</div>"
+          }
+        }
+      },
+      "block_order": [
+        "header",
+        "live2_ai_shoppable_videos_live2_product_embed_7yDKDw",
+        "b4661e63-efdc-456d-ae40-2a0a54a47aa9",
+        "variant_picker",
+        "buy_buttons",
+        "pickup_avaiability",
+        "f3fcae28-c3e1-4551-9cf8-2e057682df9d",
+        "9d23327f-d043-4890-9616-2f5f4b7d173f",
+        "1baab5c0-1d06-41e9-a081-f0b44d2b3cad",
+        "d5bf8b8c-02a6-4627-ae5c-208ed0e496da",
+        "fc3dd7c4-2547-40ac-b4b0-088c6ae61583",
+        "02140cdf-1eb1-47af-8f3a-ba1bc1211a8c",
+        "44109d40-a34f-4f2b-8eb6-aeed61d0229a",
+        "88985021-7cc8-4552-9a80-4cf9cde460cb",
+        "d5c5268f-caf8-4efb-95ca-788a5139d9ab",
+        "9517f664-0e0c-4a7f-891e-cc041c84c671",
+        "2ea54c21-d837-4eed-8062-6944c25ba4a2",
+        "8aba7bc1-7201-4f7b-b51c-132d4c18f98b",
+        "04381a58-bca6-4071-adf3-df777b6426f7",
+        "ddc9873b-b1b1-4b39-83ec-460dc0c54bf1",
+        "f749127d-d77d-4389-bfcc-900b3e189da0",
+        "5094b23e-ed99-4f7b-964e-a06e9163b694",
+        "dea343ee-d1f0-4d93-bdc2-e8ae388d9814"
+      ],
+      "settings": {
+        "media_aspect": "natural",
+        "enable_zoom": true,
+        "enable_video_looping": false
+      }
+    },
+    "videos_section_BcrKmN": {
+      "type": "videos-section",
+      "settings": {}
+    },
+    "lipstick_comparison_biT3wQ": {
+      "type": "lipstick-comparison",
+      "blocks": {
+        "carousel_block_KMX7hx": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "500 Ceo",
+            "image1": "shopify://shop_images/ceo_2.png",
+            "image2": "shopify://shop_images/ceo_3.png",
+            "image3": "shopify://shop_images/ceo_02f68063-847f-4251-845d-076c3bf434dc.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_3.44.49_PM.png"
+          }
+        },
+        "carousel_block_3zdnTg": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "501 Vendatta",
+            "image1": "shopify://shop_images/vendetta_2.png",
+            "image2": "shopify://shop_images/vendetta_3.png",
+            "image3": "shopify://shop_images/vendetta_73c784f6-869f-461f-9bc5-87b0611fd532.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.19.47_PM_1.png"
+          }
+        },
+        "carousel_block_996CTN": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "512 Dirty Mama",
+            "image1": "shopify://shop_images/dirty_mama_2.png",
+            "image2": "shopify://shop_images/dirty_mama_3.png",
+            "image3": "shopify://shop_images/dirty_mama.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.20.52_PM.png"
+          }
+        },
+        "carousel_block_kWFge9": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "508 Anti Social",
+            "image1": "shopify://shop_images/anti_social_2.png",
+            "image2": "shopify://shop_images/anti_social_3.png",
+            "image3": "shopify://shop_images/anti_social.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.21.49_PM.png"
+          }
+        },
+        "carousel_block_geUmhb": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "509 Salty",
+            "image1": "shopify://shop_images/salty_2.png",
+            "image2": "shopify://shop_images/salty_3.png",
+            "image3": "shopify://shop_images/salty_91a1a33d-0ea7-4124-b3c1-c7ea3c3cfa4e.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.22.32_PM.png"
+          }
+        },
+        "carousel_block_qc4HNE": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "506 workaholic",
+            "image1": "shopify://shop_images/workaholic_2.png",
+            "image2": "shopify://shop_images/workaholic_3.png",
+            "image3": "shopify://shop_images/workaholic_863a3a23-75be-4bd6-8d62-62333d799937.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.23.34_PM.png"
+          }
+        },
+        "carousel_block_BYdLA8": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "505 Influencer",
+            "image1": "shopify://shop_images/influencer_2.png",
+            "image2": "shopify://shop_images/influencer_3.png",
+            "image3": "shopify://shop_images/influencer_3c98d411-f736-44c7-a6a8-7b2913d18b14.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.24.10_PM.png"
+          }
+        },
+        "carousel_block_jEmWBT": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "504 Obsession",
+            "image1": "shopify://shop_images/obsession_2.png",
+            "image2": "shopify://shop_images/obsession_3.png",
+            "image3": "shopify://shop_images/obsession_ee7f2f7a-9e4d-4e4a-baa5-1c7feeddedf6.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.27.15_PM.png"
+          }
+        },
+        "carousel_block_CQfget": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "503 Ambition",
+            "image1": "shopify://shop_images/ambition_2.png",
+            "image2": "shopify://shop_images/ambition_3.png",
+            "image3": "shopify://shop_images/anti_social_daae5916-4c8d-4478-88bc-4b4298ead858.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.29.32_PM.png"
+          }
+        },
+        "carousel_block_G8ibxM": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "502 Self Made",
+            "image1": "shopify://shop_images/selfmade_2.png",
+            "image2": "shopify://shop_images/selfmade_3.png",
+            "image3": "shopify://shop_images/selfmade.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.30.18_PM.png"
+          }
+        },
+        "carousel_block_CannHk": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "514 Boardroom",
+            "image1": "shopify://shop_images/board_room_social_2.png",
+            "image2": "shopify://shop_images/board_room_social_3.png",
+            "image3": "shopify://shop_images/board_room_social.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.32.06_PM.png"
+          }
+        },
+        "carousel_block_jetYDC": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "511 Sharpshooter",
+            "image1": "shopify://shop_images/sharp_shooter_2.png",
+            "image2": "shopify://shop_images/sharp_shooter_3.png",
+            "image3": "shopify://shop_images/sharp_shooter.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.33.47_PM.png"
+          }
+        },
+        "carousel_block_Cz8YyE": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "507 Socialite",
+            "image1": "shopify://shop_images/socialite_2.png",
+            "image2": "shopify://shop_images/socialite_3.png",
+            "image3": "shopify://shop_images/socialite_8c8a1766-c3a1-4da8-8811-6f98636a4e35.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.34.36_PM.png"
+          }
+        },
+        "carousel_block_Hg8Xrt": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "513 Stun Gun",
+            "image1": "shopify://shop_images/Stun_gun_2.png",
+            "image2": "shopify://shop_images/Stun_gun_3.png",
+            "image3": "shopify://shop_images/Stun_gun.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.35.44_PM.png"
+          }
+        },
+        "carousel_block_3rUnhr": {
+          "type": "carousel_block",
+          "settings": {
+            "text_title": "510 Rebel",
+            "image1": "shopify://shop_images/rebel_2.png",
+            "image2": "shopify://shop_images/rebel_3.png",
+            "image3": "shopify://shop_images/rebel_1da3e944-2910-480e-ba37-456f1aa92ae6.png",
+            "image4": "shopify://shop_images/Screenshot_2024-09-08_at_4.38.35_PM.png"
+          }
+        }
+      },
+      "block_order": [
+        "carousel_block_KMX7hx",
+        "carousel_block_3zdnTg",
+        "carousel_block_996CTN",
+        "carousel_block_kWFge9",
+        "carousel_block_geUmhb",
+        "carousel_block_qc4HNE",
+        "carousel_block_BYdLA8",
+        "carousel_block_jEmWBT",
+        "carousel_block_CQfget",
+        "carousel_block_G8ibxM",
+        "carousel_block_CannHk",
+        "carousel_block_jetYDC",
+        "carousel_block_Cz8YyE",
+        "carousel_block_Hg8Xrt",
+        "carousel_block_3rUnhr"
+      ],
+      "settings": {}
+    },
+    "16744074311d4ffa7f": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "full_width": false
+      }
+    },
+    "1652002811c5d0593f": {
+      "type": "custom-coded-product",
+      "settings": {
+        "first-text": "The Future of Beauty Has Arrived.",
+        "second-text": "",
+        "third-text": "",
+        "linktext": "",
+        "custom_text_body": ""
+      }
+    },
+    "1712150043403adfd6": {
+      "type": "apps",
+      "blocks": {
+        "nector_loyalty_rewards_review_list_K3tRzD": {
+          "type": "shopify://apps/nector-loyalty-rewards/blocks/review_list/1c1144ea-67f0-4232-93c6-0d8fbb8c8d3a",
+          "settings": {
+            "product": "{{product}}",
+            "background_color": "",
+            "default_reviews_sort": "created_at",
+            "view_type": "grid",
+            "all_reviews": false,
+            "fetch_all_reviews_if_not_found": false,
+            "show_images_carousel": true,
+            "show_tags": true,
+            "show_summary": true,
+            "show_detailed_breakup": false,
+            "show_featured_reviews_only": false,
+            "hide_date": false,
+            "hide_overall_rating": false,
+            "hide_total_review_count": false,
+            "show_qna": false
+          }
+        }
+      },
+      "block_order": [
+        "nector_loyalty_rewards_review_list_K3tRzD"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "1651786538ad89d0da": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "full_width": false
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "products_number": 3
+      }
+    },
+    "17181813791dee38dc": {
+      "type": "apps",
+      "blocks": {
+        "live2_ai_shoppable_videos_live2_product_embed_kzbJp4": {
+          "type": "shopify://apps/live2-ai-shoppable-videos/blocks/live2-product-embed/0596afb0-e030-408f-9be8-108a43e90013",
+          "settings": {
+            "team_id": "65b104952550a1e7a05db38c",
+            "selected_type": "FLOATING",
+            "custom_css": ""
+          }
+        }
+      },
+      "block_order": [
+        "live2_ai_shoppable_videos_live2_product_embed_kzbJp4"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "rich_text_KAYpxF": {
+      "type": "rich-text",
+      "blocks": {
+        "text_tEKnjy": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.faq_schema.value }}</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_tEKnjy"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "text_alignment": "left"
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_Nrkttg",
+    "main",
+    "videos_section_BcrKmN",
+    "lipstick_comparison_biT3wQ",
+    "16744074311d4ffa7f",
+    "1652002811c5d0593f",
+    "1712150043403adfd6",
+    "1651786538ad89d0da",
+    "product-recommendations",
+    "17181813791dee38dc",
+    "rich_text_KAYpxF"
+  ]
+}

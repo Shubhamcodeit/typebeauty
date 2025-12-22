@@ -1,0 +1,992 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "current": {
+    "color_accent": "#ff3fb5",
+    "color_text": "#111111",
+    "color_background": "#ffffff",
+    "headings_font": "roboto_n4",
+    "headings_size": 36,
+    "body_font": "roboto_n4",
+    "body_size": 18,
+    "grid_aspect": "natural",
+    "product_animation": "product-item--zoom",
+    "product_show_secondary": true,
+    "show_variant_image": true,
+    "color_sale_price": "#ea0000",
+    "show_reviews_badge": false,
+    "favicon": "shopify://shop_images/Type_Favicon-_Final-01.png",
+    "cart_action": "overlay",
+    "cart_notes_enable": false,
+    "cart_additional_buttons": true,
+    "predictive_search_enabled": true,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": true,
+    "predictive_search_include_articles": true,
+    "predictive_search_include_pages": true,
+    "social_facebook": "https://m.facebook.com/101162962477110/",
+    "social_instagram": "https://instagram.com/typebeautyinc?igshid=YmMyMTA2M2Y=",
+    "social_twitter": "",
+    "social_youtube": "https://www.youtube.com/channel/UC4C2feDPl9zIfvqApyAXvag",
+    "social_vimeo": "",
+    "social_pinterest": "",
+    "social_tumblr": "",
+    "social_linkedin": "https://www.linkedin.com/company/typebeautyinc/",
+    "social_reddit": "",
+    "social_flickr": "",
+    "social_email": "",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify://shop_images/Group_2.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#ffffff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#000000",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#ff3fb5",
+    "checkout_button_color": "#111111",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo_src": "shopify://shop_images/Group.png",
+          "logo_height": 50,
+          "show_icon_labels": false,
+          "show_search": true,
+          "menu_primary": "main-menu",
+          "menu_secondary": "",
+          "show_social_icons": true,
+          "show_locale_selector": true,
+          "show_country_selector": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "image_aEhA77": {
+            "type": "image",
+            "settings": {
+              "title": "",
+              "image": "shopify://shop_images/Mask_group.png"
+            }
+          },
+          "cb26e229-0f34-44da-a191-022d03cc56e4": {
+            "type": "newsletter",
+            "settings": {
+              "title": "get 10% OFF on your first order",
+              "text": "<p>By subscribing you agree to the <a href=\"/pages/terms-of-use-policies\" title=\"Terms Of Use & Policies\">Terms of Use</a> & <a href=\"/pages/policies\" title=\"policies\">Privacy Policy</a>.</p>"
+            }
+          },
+          "657d0481-8a40-4d4d-a64c-1a3264f6de2a": {
+            "type": "menus",
+            "settings": {
+              "title_1": "",
+              "menu_1": "new-footer-menu",
+              "title_2": "Menu",
+              "menu_2": ""
+            }
+          },
+          "d327e0f3-6a93-4ac5-b9a8-deb84ca91874": {
+            "type": "social",
+            "settings": {
+              "title": ""
+            }
+          }
+        },
+        "block_order": [
+          "image_aEhA77",
+          "cb26e229-0f34-44da-a191-022d03cc56e4",
+          "657d0481-8a40-4d4d-a64c-1a3264f6de2a",
+          "d327e0f3-6a93-4ac5-b9a8-deb84ca91874"
+        ],
+        "settings": {
+          "show_payment_icons": false,
+          "show_locale_selector": false,
+          "show_country_selector": false
+        }
+      },
+      "text-columns-with-icons": {
+        "type": "text-columns-with-icons",
+        "blocks": {
+          "dc0e2351-9175-4503-9568-f4f102cbc798": {
+            "type": "text-icon",
+            "settings": {
+              "title": "Shipping",
+              "body": "<p>Write some useful information about your shipping details</p><p>Link to your <a href='#'>shipping policy</a>.</p>",
+              "select_icon": "shipping-box"
+            }
+          },
+          "00665f2b-5814-4213-853b-3b6c73955a4a": {
+            "type": "text-icon",
+            "settings": {
+              "title": "Delivery",
+              "body": "<p>Let your customers know if you offer free delivery for certain types of orders</p><p>Link to your <a href='#'>offers page</a>.</p>",
+              "select_icon": "delivery"
+            }
+          },
+          "913a05c0-114a-4fb7-ba39-047df22f46cf": {
+            "type": "text-icon",
+            "settings": {
+              "title": "Returns",
+              "body": "<p>Show customers how much time they have for testing your products</p><p>Link to your <a href='#'>returns policy</a>.</p>",
+              "select_icon": "time-limit"
+            }
+          }
+        },
+        "block_order": [
+          "dc0e2351-9175-4503-9568-f4f102cbc798",
+          "00665f2b-5814-4213-853b-3b6c73955a4a",
+          "913a05c0-114a-4fb7-ba39-047df22f46cf"
+        ],
+        "settings": {
+          "show_on_homepage": false,
+          "show_on_product": false,
+          "show_on_collection": false,
+          "show_on_blog": false,
+          "show_on_regular": false
+        }
+      },
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "slide_JxiWj7": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "bar_message": "Travel-size Mini Foundation with SPF 40 PA+++",
+              "bar_link": "shopify://collections/mini-foundation"
+            }
+          },
+          "slide_bnVnKb": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "bar_message": "Buy the Hydra Jelly Tints Now",
+              "bar_link": "shopify://collections/tints"
+            }
+          },
+          "004bbdb7-00a5-4bb1-a064-8af77aae8adf": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "bar_message": "free shipping on all prepaid orders",
+              "bar_link": "shopify://collections/all-products"
+            }
+          },
+          "a987fca2-a8f5-4793-a381-0a73aabd7a4a": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "bar_message": "Buy 4 Lip lusters at 1000 rupees off",
+              "bar_link": "shopify://products/copy-of-ace-your-base-bundle"
+            }
+          },
+          "dd7d1c07-6bc7-437e-bb95-d49452d9d448": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "bar_message": "Add get your 3 pc base at 2999",
+              "bar_link": "shopify://products/build-your-own-bundle"
+            }
+          },
+          "61b22405-c5f6-4601-b2f4-687edee06dd0": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "bar_message": "Shop Gifts set under 1500",
+              "bar_link": "shopify://collections/under-1500"
+            }
+          },
+          "726b624e-9650-4d3f-aa93-7545d2a1df13": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "bar_message": "Free Samples on every purchase over 999",
+              "bar_link": "#"
+            }
+          },
+          "slide_L4wJ4D": {
+            "type": "slide",
+            "disabled": true,
+            "settings": {
+              "bar_message": "Use code TYPE10 for 10% off on your first order.",
+              "bar_link": ""
+            }
+          },
+          "slide_AYWWDH": {
+            "type": "slide",
+            "settings": {
+              "bar_message": "Hydra jelly tints now 2 at 5% off, 3 at 10% off and 4 at 15% off",
+              "bar_link": "shopify://collections/tints"
+            }
+          }
+        },
+        "block_order": [
+          "slide_JxiWj7",
+          "slide_bnVnKb",
+          "004bbdb7-00a5-4bb1-a064-8af77aae8adf",
+          "a987fca2-a8f5-4793-a381-0a73aabd7a4a",
+          "dd7d1c07-6bc7-437e-bb95-d49452d9d448",
+          "61b22405-c5f6-4601-b2f4-687edee06dd0",
+          "726b624e-9650-4d3f-aa93-7545d2a1df13",
+          "slide_L4wJ4D",
+          "slide_AYWWDH"
+        ],
+        "settings": {
+          "bar_show": true,
+          "bar_show_on_homepage": false,
+          "bar_show_dismiss": false,
+          "bar_bgcolor": "#ff8f1a",
+          "bar_txtcolor": "#111111"
+        }
+      },
+      "gift-card": {
+        "type": "gift-card",
+        "settings": {
+          "logo_src": "",
+          "logo_height": 40
+        }
+      },
+      "popup": {
+        "type": "popup",
+        "settings": {
+          "title": "Popup",
+          "content": "<p>Stay up to date on the latest product releases, special offers & news by signing up for our newsletter.</p><p>Read our <a href=\"#\">privacy policy</a>.</p>",
+          "newsletter_enable": true,
+          "popup_enable": false,
+          "newsletter_auto": 10,
+          "newsletter_frequent": "week",
+          "popup_bgcolor": "#111111",
+          "popup_txtcolor": "#ffffff"
+        }
+      },
+      "policy-page-section": {
+        "type": "policy-page-section",
+        "settings": {
+          "guidelines": "<p>Use of the Website is offered to you conditioned on acceptance without modification of all the terms, conditions and notices contained in these Terms, as may be posted on the Website from time to time. Type Beauty Inc. at its sole discretion reserves the right not to accept a User from registering on the Website without assigning any reason thereof.</p><p>Except where additional terms and conditions are provided which are product specific, these terms and conditions supersede all previous representations, understandings, or agreements and shall prevail notwithstanding any variance with any other terms of any order submitted. By using the services of Type Beauty Inc., you agree to be bound by the Terms & Conditions</p><p>This document is an electronic record in terms of Information Technology Act, 2000 (“IT Act”) and rules issued thereunder, as applicable and the provisions pertaining to electronic records in various statutes as amended by the IT Act and is published in accordance with the provisions of applicable laws, including the Consumer Protection (E-Commerce) Rules 2020, that require publishing the rules and regulations, privacy policy and terms and conditions for access or usage of the Website. This electronic record is generated by a computer system and does not require any physical or digital signatures.</p><p>The Company reserves the right to amend or revise the T&C at any time by uploading a revised or amended T&C on the Website with or without prior notice. The amended T&C will be effective immediately after it is uploaded on this Website. Your access or use of the Website following any such changes constitutes your acceptance to follow and you shall be bound by these T&C, as amended. The version of the T&C that will apply to your order will be those uploaded on the Website at the time you use or access or place your order. For this reason, we encourage you to review these T&C each time you access and place your order. If you do not agree to this T&C (including any referenced policies or guidelines), please immediately terminate your use of the Website.</p><p>You may only access the Website for lawful purposes. You are solely responsible for the knowledge of and adherence to any and all laws, rules, and regulations pertaining to your use of the Website.</p><p>We reserve the right to block any user and permanently disable user account if we believe in our sole discretion that action of such user has resulted in breach of fair usage policy or T&C.</p><p>Please read the entire set of terms and conditions (“T&C”) carefully by accessing, browsing, using www.typebeautyinc.com or availing any of the products of Type Beauty Inc. or Enaara Beauty Pvt. Ltd. (hereinafter collectively referred to as “company” or “us” or “we”) you including the persons who browses or the persons who orders the product agree to be bound by all of the T&C mentioned hereunder.</p>",
+          "ethics": "<p>Use of the Website is available only to persons who can form legally binding contracts under applicable law. Persons who are 'incompetent to contract' within the meaning of the Indian Contract Act, 1872 including un-discharged insolvents etc. are not eligible to use the Website. If you are a minor i.e. under the age of 18 years but at least 13 years of age you may use this Website only under the supervision of a parent or legal guardian who agrees to be bound by these T&C. If your age is below that of 18 years your parents or legal guardians can transact on behalf of you if they are registered users. You are prohibited from purchasing any material which is for adult consumption the sale or purchase of which to/by minors are strictly prohibited.</p><p>You will receive a username and password for your account upon completing the Website’s registration process. You are responsible for maintaining the confidentiality of the password and account, and are fully responsible for all activities that occur under your password or account. You agree to (a) immediately notify the company of any unauthorized use of your password or account or any other breach of security, and (b) ensure that you exit from your account at the end of each session. Company cannot and will not be liable for any loss or damage arising from your failure to comply with the above mentioned guidelines or maintain security of your account.</p><p>By using Website you agree not to host, display, upload, modify, publish, transmit, update or share any information that:</p><p>i. belongs to another person ;</p><p>ii. infringes upon another person’s copyright, trademark, patent or other propriety rights;</p><p>iii. is harmful to minors, harassing, blasphemous defamatory, obscene, invasive of another’s privacy; or</p><p>iv. impersonate another person.</p><p>Limited instances where we may share your personal information include:</p><p>We may employ third party companies or individuals to process personal information on our behalf based on our instructions and in compliance with this Privacy Policy. In addition, some of the information we request may be collected by third party providers on our behalf.</p><p>If we believe that disclosure is reasonably necessary to comply with a law, regulation or legal request; to protect the safety, rights, or property of the public, any person, or company; or to detect, prevent, or otherwise address fraud, security or technical issues.</p><p>We may engage in a merger, acquisition, bankruptcy, dissolution, reorganization, or similar transaction or proceeding that involves the transfer of the information described in this Policy.</p><p>We may also share aggregated or non-personally identifiable information with our partners or others.</p>",
+          "terms": "<p>The products and services available on the Website, and the samples, if any, that Website may provide you, are for your personal and/or professional use only. The products or services, or samples thereof, which you may receive from us, shall not be sold or resold for any/commercial or retails purposes or reasons.</p><p>It is advised that consumers with allergies should always read a product's ingredient statement before use. The entire range of products available on the Website is vegan and animal cruelty free.</p><p>Company reserves all rights to withdraw any product without prior notice.</p>",
+          "privacy": "<p>Company strives to provide accurate product and pricing information, however errors may occur.</p><p>Prices and availability of the products provided or offered on the Website are subject to change without prior notice and at the sole discretion of company</p>",
+          "choices": "<p>Mode of payment - Payments for the products available on Website may be made in the following ways:</p><p>- UPI, Credit Cards, Debit Cards, Net Banking.</p><p>- Online payments are instant payment options and recommended to ensure faster processing of your order.</p><p>- Cash on Delivery</p><p>All online payments are handled by authorized Payment Gateways considering transaction security measures mandated by RBI and other regulatory authorities. Company is not responsible for any breach of information, or inappropriate transactions.</p>",
+          "contact": "<p>Confirmed orders will be shipped within 48 working hours. Once shipped, they'll be delivered to you within 5-7 working days. Estimated delivery time may change due to the customer’s geographical location, shipping destination, product availability and courier partner’s delivery time & location.</p><p>In case of one or more defective products is in your order, please register a single complaint as the return/replacement will be arranged only once.</p><p>Customers are advised not to accept tampered or damaged shipments.</p>",
+          "cookie": "<p>There may be certain orders that Type Beauty Inc. cannot accept, and therefore, we reserve the right, at our sole discretion, to cancel any order. Some reasons may include errors in pricing, certain issues identified by our fraud avoidance department or any order placed using a technological glitch/loophole, etc. We will notify you in case your order has been cancelled fully or partially or if any additional information is required to ship your order.</p>",
+          "advert-policy": "<p>Refunds are only applicable in case of a damaged product is received by you. No refund against cancellation of product will be processed once the product has been dispatched.</p><p>If the order or the item(s) that you want to cancel have not been shipped yet, you can write to our customer support team on www.typebeautyinc.com.</p><p> </p><p>Refunds are processed in a maximum of 3 to 5 working days from the date on which cancellation request is processed on www.typebeautyinc.com as per the terms as mentioned in the superseding para. In case of prepaid orders through Credit Card, Debit Card or Net Banking, the amount will be transferred back to the account from which it was paid.</p>",
+          "advert-guidelines": "<p>This Privacy Policy outlines Company’s approach to Data Protection and Privacy to fulfil its obligations under the applicable laws and regulations. This Privacy Policy applies to your Personal Data which is processed by us, whether in physical or electronic mode.</p><p>By visiting the Website or providing your information, you expressly agree to be bound by this Privacy Policy and agree to be governed by the laws of India including but not limited to the laws applicable to data protection and privacy. If you do not agree please do not use or access our Website.</p><p>In this Privacy Policy, the expressions ‘Personal Data’, ‘Data Subject’, ‘Controller’, ‘Processor’ and ‘Processing’ shall have the meanings given to them in the applicable privacy laws. We are committed to treat data privacy seriously.</p>"
+        }
+      },
+      "slider-vertical": {
+        "type": "slider-vertical",
+        "blocks": {
+          "82e07cc6-b91d-4428-b755-cc17ba8963dc": {
+            "type": "image",
+            "settings": {
+              "heading": "We did the math to give you a solution.",
+              "caption": "Smart Makeup",
+              "img-bottom-text": "",
+              "button_label": "",
+              "button_link": "",
+              "image1": "shopify://shop_images/b30852f5f042271ca6134c838a40ce2a_2.png",
+              "video1": "",
+              "image1_caption": "<p>Beauty that needs no compromise.</p>",
+              "image1_link": "",
+              "image2": "shopify://shop_images/d4cf3852019e76fc4a3067a1f17db11e_1.png",
+              "video2": "",
+              "image2_caption": "<p>makeup, but better.</p>",
+              "image2_link": "",
+              "video3": "",
+              "image3_caption": "",
+              "image3_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "82e07cc6-b91d-4428-b755-cc17ba8963dc"
+        ],
+        "settings": {
+          "text_size": "large",
+          "blending_modes": true
+        }
+      },
+      "featured-collection": {
+        "type": "featured-collection",
+        "settings": {
+          "heading": "bestsellers",
+          "caption": "",
+          "collection": "concealers",
+          "show_view_all": false,
+          "layout": "regular",
+          "products_number": 3,
+          "show_promotional_block": false,
+          "promotional_block_title": "",
+          "promotional_block_button_label": "",
+          "promotional_block_button_link": ""
+        }
+      },
+      "instafeed": {
+        "type": "instafeed",
+        "settings": {
+          "heading_font": "helvetica_n4",
+          "heading_size": 20,
+          "feed_width": 80,
+          "html_area": ""
+        }
+      },
+      "custom-coded-about": {
+        "type": "custom-coded-about",
+        "settings": {
+          "first-text": "WE GIVE YOU MAKEUP WITH NO STRINGS ATTACHED.",
+          "second-text": "WE GIVE YOU MAKEUP WITH NO STRINGS ATTACHED.  Let's face it, we can’t live without makeup and we shouldn't have to either. Why should it be a choice between synthetic or natural, lab-made or handmade, healing or feeling good? It’s about a balancing act with smart decisions and clever choices. Makeup that gives you long-term benefits. Makeup that feels just as good as it looks.",
+          "third-text": "",
+          "linktext": "",
+          "custom_text_body": ""
+        }
+      },
+      "clean-beauty": {
+        "type": "clean-beauty",
+        "settings": {}
+      },
+      "keep-it-simple": {
+        "type": "keep-it-simple",
+        "settings": {}
+      },
+      "give-the-world": {
+        "type": "give-the-world",
+        "settings": {}
+      },
+      "skincare-results": {
+        "type": "skincare-results",
+        "settings": {
+          "custom_class": "",
+          "heading": "Recommended products for your skin:",
+          "caption": "",
+          "collection": "concealers",
+          "collection1": "foundations",
+          "collection2": "primer",
+          "show_view_all": false,
+          "layout": "regular",
+          "products_number": 12,
+          "show_promotional_block": false,
+          "promotional_block_title": "Write a short, captivating paragraph about your products.",
+          "promotional_block_button_label": "",
+          "promotional_block_button_link": ""
+        }
+      },
+      "slider-vertical-about": {
+        "type": "slider-vertical-about",
+        "blocks": {
+          "7cfe9fbb-37bf-4760-b389-e739e8c85531": {
+            "type": "image",
+            "settings": {
+              "heading": "scsac",
+              "caption": "Showcase your best products",
+              "img-bottom-text": "",
+              "button_label": "",
+              "button_link": "",
+              "image1": "shopify://shop_images/Final_Images_for_Type_Website-12.jpg",
+              "video1": "",
+              "image1_caption": "<p>BEAUTY THAT NEEDS NO COMPROMISE.</p>",
+              "image1_link": "",
+              "image2": "shopify://shop_images/Final_Image_Crops_for_Website-50.jpg",
+              "video2": "",
+              "image2_caption": "<h1>MAKEUP, BUT BETTER.</h1>",
+              "image2_link": "",
+              "video3": "",
+              "image3_caption": "",
+              "image3_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "7cfe9fbb-37bf-4760-b389-e739e8c85531"
+        ],
+        "settings": {
+          "text_size": "large",
+          "blending_modes": true
+        }
+      },
+      "slider-vertical-founder": {
+        "type": "slider-vertical-founder",
+        "blocks": {
+          "bff62501-1997-43ba-9269-b08cdaef8c90": {
+            "type": "image",
+            "settings": {
+              "heading": "Welcome to our store",
+              "caption": "Showcase your best products",
+              "img-bottom-text": "",
+              "button_label": "",
+              "button_link": "",
+              "image1": "shopify://shop_images/BF2BCF2B-9940-4408-80EF-92A5FC6B17E4.jpg",
+              "video1": "",
+              "image1_caption": "",
+              "image1_link": "",
+              "video2": "",
+              "image2_caption": "",
+              "image2_link": "",
+              "video3": "",
+              "image3_caption": "",
+              "image3_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "bff62501-1997-43ba-9269-b08cdaef8c90"
+        ],
+        "settings": {
+          "text_size": "large",
+          "blending_modes": true
+        }
+      },
+      "custom-coded-founder": {
+        "type": "custom-coded-founder",
+        "settings": {
+          "first-text": "",
+          "second-text": "I am a complete makeup junkie and that is what led to the movement you see here today! For me, makeup has always been a form of therapy, a way to step outside of the world and reflect, moreover it helps me put my best face forward and approach every day with confidence!<br><br>When I came back to India during the pandemic I decided to use my degree for good! I started tinkering around in my kitchen, trying to develop skincare that would sort out the troubled skin my makeup brought on! Skincare that was made for my skin and that of my friends who were intrigued! IT WORKED! I created semi-customised skincare! But I couldn’t stop there, so I continued, at the end of the pandemic I moved back to India for good and I assembled a team. Together our mission was to create makeup that functioned exactly like skincare, thereby eliminating the need for two routines every morning!<br><br>We’re happy to tell you that we succeeded! Type is officially shade-inclusive makeup and skincare in one! Not just makeup that won’t harm your skin, but makeup that can actually improve the quality of your specific skin! Dermatologist-tested makeup customised by your skin type, because why should skincare junkies have all the fun!<br><br>As scientists and consumers, we knew you would want proof so each product is dermatologist tested for sensitive skin and also efficacy tested on 100 consumers to prove that our makeup works!<br><br>So dive in! Join our community! And tell us what you want out of your makeup! Because of Type Beauty Inc. Will always strive to make the best makeup just for you!<br><br>Thank you for putting your trust in us!",
+          "third-text": "Ananya Kapur<br>Founder<br>Type Beauty Inc.",
+          "linktext": "",
+          "custom_text_body": ""
+        }
+      },
+      "bundles-set-results": {
+        "type": "bundles-set-results",
+        "settings": {
+          "heading": "Featured Collection",
+          "caption": "",
+          "collection3": "bundles-sets",
+          "show_view_all": false,
+          "layout": "regular",
+          "products_number": 12,
+          "show_promotional_block": false,
+          "promotional_block_title": "Write a short, captivating paragraph about your products.",
+          "promotional_block_button_label": "",
+          "promotional_block_button_link": ""
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "6279071938380501511": {
+        "type": "shopify://apps/powerful-contact-form-builder/blocks/app-embed/e4bcb1eb-35b2-42e6-bc37-bfe0e1542c9d",
+        "disabled": false,
+        "settings": {}
+      },
+      "6174324309569838175": {
+        "type": "shopify://apps/smile-loyalty-rewards/blocks/smile-shopify-app/2fae4e25-1841-4ea2-bc02-bd548478c4f6",
+        "disabled": false,
+        "settings": {}
+      },
+      "6143736321357441667": {
+        "type": "shopify://apps/tidio-live-chat-chatbots/blocks/app-embed/1002274d-fb18-4939-98f6-5f05a8deeadc",
+        "disabled": true,
+        "settings": {}
+      },
+      "8309967055356621262": {
+        "type": "shopify://apps/nector-loyalty-rewards/blocks/floating_widget/1c1144ea-67f0-4232-93c6-0d8fbb8c8d3a",
+        "disabled": false,
+        "settings": {}
+      },
+      "5674012996228588682": {
+        "type": "shopify://apps/cartbot/blocks/cartbot-script-append/f7a44e3b-3901-4412-9d5a-3db0980a9db0",
+        "disabled": false,
+        "settings": {}
+      },
+      "16477348613150133823": {
+        "type": "shopify://apps/unlimited-bundles/blocks/script-app-block/d33d0f48-dee0-42a0-b156-2a5dce91814a",
+        "disabled": false,
+        "settings": {
+          "reload_on_line_item_properties": true,
+          "disable_reload_on_cart_update": true,
+          "disable_cart_attribute_tracker": true,
+          "disable_facebook_events": true,
+          "enable_reload_on_bundle_auto_match": true,
+          "use_h2_header": true
+        }
+      },
+      "144831480468751239": {
+        "type": "shopify://apps/essential-upsell/blocks/app-embed/50627fd9-24fd-4250-8614-accc12826d80",
+        "disabled": false,
+        "settings": {}
+      },
+      "1530068250781986104": {
+        "type": "shopify://apps/fbp-fast-bundle/blocks/fast_bundle/9e87fbe2-9041-4c23-acf5-322413994cef",
+        "disabled": true,
+        "settings": {
+          "home": false
+        }
+      },
+      "1232542678405107163": {
+        "type": "shopify://apps/instafeed/blocks/head-block/c447db20-095d-4a10-9725-b5977662c9d5",
+        "disabled": false,
+        "settings": {}
+      },
+      "2766656906679212237": {
+        "type": "shopify://apps/quinn-shoppable-reel/blocks/app-embed-legacy/483fa771-9c4d-49e4-8c0d-0155f4b872d6",
+        "disabled": false,
+        "settings": {}
+      },
+      "14167655181940180261": {
+        "type": "shopify://apps/quinn-shoppable-reel/blocks/app-embed/483fa771-9c4d-49e4-8c0d-0155f4b872d6",
+        "disabled": false,
+        "settings": {}
+      },
+      "16387799423947206774": {
+        "type": "shopify://apps/ecf-contact-form-builder/blocks/cs-app-block/f801eb98-c038-452f-9400-11754de52b77",
+        "disabled": false,
+        "settings": {
+          "ecfversion": "v2"
+        }
+      }
+    }
+  },
+  "presets": {
+    "Modern": {
+      "color_accent": "#3f14e1",
+      "color_text": "#000000",
+      "color_background": "#ffffff",
+      "headings_font": "roboto_n4",
+      "body_font": "roboto_n4",
+      "body_size": 18,
+      "headings_size": 36,
+      "grid_aspect": "natural",
+      "show_variant_image": true,
+      "color_sale_price": "#ea0000",
+      "favicon": "",
+      "cart_action": "overlay",
+      "cart_notes_enable": true,
+      "cart_additional_buttons": true,
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": true,
+      "predictive_search_include_articles": true,
+      "predictive_search_include_pages": true,
+      "social_facebook": "",
+      "social_instagram": "",
+      "social_twitter": "",
+      "social_youtube": "",
+      "social_vimeo": "",
+      "social_pinterest": "",
+      "social_tumblr": "",
+      "social_linkedin": "",
+      "social_reddit": "",
+      "social_flickr": "",
+      "social_email": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_accent_color": "#197bbd",
+      "checkout_button_color": "#197bbd",
+      "checkout_error_color": "#e32c2b",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 50,
+            "show_search": true,
+            "menu_primary": "main-menu",
+            "menu_secondary": "",
+            "show_social_icons": true,
+            "show_locale_selector": true,
+            "show_country_selector": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "83a51fca-3419-4673-9613-9505c11e0d29": {
+              "type": "text",
+              "settings": {
+                "title": "About",
+                "content": "<p>Write a short statement about your brand.</p>"
+              }
+            },
+            "657d0481-8a40-4d4d-a64c-1a3264f6de2a": {
+              "type": "menus",
+              "settings": {
+                "title_1": "LINKS",
+                "menu_1": "footer"
+              }
+            },
+            "cb26e229-0f34-44da-a191-022d03cc56e4": {
+              "type": "newsletter",
+              "settings": {
+                "title": "Newsletter"
+              }
+            }
+          },
+          "block_order": [
+            "83a51fca-3419-4673-9613-9505c11e0d29",
+            "657d0481-8a40-4d4d-a64c-1a3264f6de2a",
+            "cb26e229-0f34-44da-a191-022d03cc56e4"
+          ],
+          "settings": {
+            "show_payment_icons": true,
+            "show_locale_selector": true,
+            "show_country_selector": true
+          }
+        },
+        "text-columns-with-icons": {
+          "type": "text-columns-with-icons",
+          "blocks": {
+            "dc0e2351-9175-4503-9568-f4f102cbc798": {
+              "type": "text-icon",
+              "settings": {
+                "title": "Shipping",
+                "body": "<p>Write some useful information about your shipping details</p><p>Link to your <a href='#'>shipping policy</a>.</p>",
+                "select_icon": "shipping-box"
+              }
+            },
+            "00665f2b-5814-4213-853b-3b6c73955a4a": {
+              "type": "text-icon",
+              "settings": {
+                "title": "Delivery",
+                "body": "<p>Let your customers know if you offer free delivery for certain types of orders</p><p>Link to your <a href='#'>offers page</a>.</p>",
+                "select_icon": "delivery"
+              }
+            },
+            "913a05c0-114a-4fb7-ba39-047df22f46cf": {
+              "type": "text-icon",
+              "settings": {
+                "title": "Returns",
+                "body": "<p>Show customers how much time they have for testing your products</p><p>Link to your <a href='#'>returns policy</a>.</p>",
+                "select_icon": "time-limit"
+              }
+            }
+          },
+          "block_order": [
+            "dc0e2351-9175-4503-9568-f4f102cbc798",
+            "00665f2b-5814-4213-853b-3b6c73955a4a",
+            "913a05c0-114a-4fb7-ba39-047df22f46cf"
+          ],
+          "settings": {
+            "show_on_homepage": true,
+            "show_on_product": true,
+            "show_on_collection": true,
+            "show_on_blog": true,
+            "show_on_regular": true
+          }
+        },
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "settings": {
+            "bar_show": true,
+            "bar_show_on_homepage": true,
+            "bar_show_dismiss": true,
+            "bar_bgcolor": "#000000",
+            "bar_txtcolor": "#ffffff"
+          }
+        },
+        "gift-card": {
+          "type": "gift-card",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 40
+          }
+        }
+      }
+    },
+    "Single": {
+      "color_accent": "#ffffff",
+      "color_text": "#d3d6c7",
+      "color_background": "#34362b",
+      "headings_font": "roboto_n4",
+      "headings_size": 36,
+      "body_font": "roboto_mono_n4",
+      "body_size": 16,
+      "quote_font": "swiss_721_n1",
+      "grid_aspect": "natural",
+      "show_variant_image": true,
+      "color_sale_price": "#c1cf89",
+      "favicon": "",
+      "cart_action": "overlay",
+      "cart_notes_enable": true,
+      "cart_additional_buttons": true,
+      "predictive_search_enabled": true,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": true,
+      "predictive_search_include_articles": true,
+      "predictive_search_include_pages": true,
+      "social_facebook": "",
+      "social_instagram": "",
+      "social_twitter": "",
+      "social_youtube": "",
+      "social_vimeo": "",
+      "social_pinterest": "",
+      "social_tumblr": "",
+      "social_linkedin": "",
+      "social_reddit": "",
+      "social_flickr": "",
+      "social_email": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_accent_color": "#197bbd",
+      "checkout_button_color": "#197bbd",
+      "checkout_error_color": "#e32c2b",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 50,
+            "menu_primary": "main-menu",
+            "menu_secondary": "",
+            "show_social_icons": true,
+            "show_locale_selector": true,
+            "show_country_selector": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "83a51fca-3419-4673-9613-9505c11e0d29": {
+              "type": "text",
+              "settings": {
+                "title": "About",
+                "content": "<p>Write a short statement about your brand.</p>"
+              }
+            },
+            "657d0481-8a40-4d4d-a64c-1a3264f6de2a": {
+              "type": "menus",
+              "settings": {
+                "title_1": "LINKS",
+                "menu_1": "footer",
+                "title_2": "",
+                "menu_2": ""
+              }
+            },
+            "cb26e229-0f34-44da-a191-022d03cc56e4": {
+              "type": "newsletter",
+              "settings": {
+                "title": "Newsletter",
+                "text": "<p>Invite customers to join your newsletter.<br/>Link to your <a href='#'>privacy policy</a>.</p>"
+              }
+            }
+          },
+          "block_order": [
+            "83a51fca-3419-4673-9613-9505c11e0d29",
+            "657d0481-8a40-4d4d-a64c-1a3264f6de2a",
+            "cb26e229-0f34-44da-a191-022d03cc56e4"
+          ],
+          "settings": {
+            "show_payment_icons": true,
+            "show_locale_selector": true,
+            "show_country_selector": true
+          }
+        },
+        "text-columns-with-icons": {
+          "type": "text-columns-with-icons",
+          "blocks": {
+            "dc0e2351-9175-4503-9568-f4f102cbc798": {
+              "type": "text-icon",
+              "settings": {
+                "title": "Shipping",
+                "body": "<p>Write some useful information about your shipping details</p><p>Link to your <a href='#'>shipping policy</a>.</p>",
+                "select_icon": "shipping-box"
+              }
+            },
+            "00665f2b-5814-4213-853b-3b6c73955a4a": {
+              "type": "text-icon",
+              "settings": {
+                "title": "Delivery",
+                "body": "<p>Let your customers know if you offer free delivery for certain types of orders</p><p>Link to your <a href='#'>offers page</a>.</p>",
+                "select_icon": "delivery"
+              }
+            },
+            "913a05c0-114a-4fb7-ba39-047df22f46cf": {
+              "type": "text-icon",
+              "settings": {
+                "title": "Returns",
+                "body": "<p>Show customers how much time they have for testing your products</p><p>Link to your <a href='#'>returns policy</a>.</p>",
+                "select_icon": "time-limit"
+              }
+            }
+          },
+          "block_order": [
+            "dc0e2351-9175-4503-9568-f4f102cbc798",
+            "00665f2b-5814-4213-853b-3b6c73955a4a",
+            "913a05c0-114a-4fb7-ba39-047df22f46cf"
+          ],
+          "settings": {
+            "show_on_homepage": true,
+            "show_on_product": true,
+            "show_on_collection": true,
+            "show_on_blog": true,
+            "show_on_regular": true
+          }
+        },
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "settings": {
+            "bar_show": true,
+            "bar_show_on_homepage": true,
+            "bar_show_dismiss": true,
+            "bar_bgcolor": "#25261d",
+            "bar_txtcolor": "#ffffff"
+          }
+        },
+        "popup": {
+          "type": "popup",
+          "settings": {
+            "title": "Popup",
+            "content": "<p>Stay up to date on the latest product releases, special offers & news by signing up for our newsletter.</p><p>Read our <a href='#'>privacy policy</a>.</p>",
+            "newsletter_enable": true,
+            "popup_enable": false,
+            "newsletter_auto": 10,
+            "newsletter_frequent": "week",
+            "popup_bgcolor": "#111111",
+            "popup_txtcolor": "#ffffff"
+          }
+        }
+      }
+    },
+    "Art": {
+      "color_accent": "#147d3b",
+      "color_text": "#000000",
+      "color_background": "#efefef",
+      "headings_font": "cardo_n4",
+      "headings_size": 36,
+      "body_font": "roboto_n4",
+      "body_size": 18,
+      "grid_aspect": "natural",
+      "product_animation": "product-item--move",
+      "product_show_secondary": false,
+      "show_variant_image": true,
+      "color_sale_price": "#dc0000",
+      "image_reveal": "opacity",
+      "favicon": "",
+      "cart_action": "overlay",
+      "cart_notes_enable": true,
+      "cart_additional_buttons": true,
+      "cart_quantity_selector": false,
+      "predictive_search_enabled": false,
+      "predictive_search_show_vendor": false,
+      "predictive_search_show_price": true,
+      "predictive_search_include_articles": false,
+      "predictive_search_include_pages": false,
+      "social_facebook": "",
+      "social_instagram": "",
+      "social_twitter": "",
+      "social_youtube": "",
+      "social_vimeo": "",
+      "social_pinterest": "",
+      "social_tumblr": "",
+      "social_linkedin": "",
+      "social_reddit": "",
+      "social_flickr": "",
+      "social_email": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "medium",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#fff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#fafafa",
+      "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+      "checkout_accent_color": "#197bbd",
+      "checkout_button_color": "#197bbd",
+      "checkout_error_color": "#e32c2b",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 50,
+            "show_icon_labels": false,
+            "menu_primary": "main-menu",
+            "menu_secondary": "",
+            "show_social_icons": true,
+            "show_locale_selector": true,
+            "show_country_selector": true
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "cdb6f407-a5da-4d24-9e44-6fbc2156dae9": {
+              "type": "text",
+              "settings": {
+                "title": "About",
+                "content": "<p>Write a short statement about your brand.</p>"
+              }
+            },
+            "c931c7a9-fe5b-41dd-8e23-da04cb966b98": {
+              "type": "social",
+              "settings": {
+                "title": "Follow me"
+              }
+            }
+          },
+          "block_order": [
+            "cdb6f407-a5da-4d24-9e44-6fbc2156dae9",
+            "c931c7a9-fe5b-41dd-8e23-da04cb966b98"
+          ],
+          "settings": {
+            "show_payment_icons": false,
+            "show_locale_selector": false,
+            "show_country_selector": false
+          }
+        },
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "settings": {
+            "bar_show": false,
+            "bar_show_on_homepage": true,
+            "bar_show_dismiss": true,
+            "bar_bgcolor": "#000000",
+            "bar_txtcolor": "#ffffff"
+          }
+        },
+        "gift-card": {
+          "type": "gift-card",
+          "settings": {
+            "logo_src": "",
+            "logo_height": 40
+          }
+        },
+        "popup": {
+          "type": "popup",
+          "settings": {
+            "title": "Stay updated!",
+            "content": "<p>Stay up to date on the latest product releases, special offers &amp; news by signing up for our newsletter.</p><p>Read our <a href=\"#\">privacy policy</a>.</p>",
+            "newsletter_enable": true,
+            "popup_enable": true,
+            "newsletter_auto": 10,
+            "newsletter_frequent": "week",
+            "popup_bgcolor": "#111111",
+            "popup_txtcolor": "#ffffff"
+          }
+        }
+      }
+    }
+  }
+}

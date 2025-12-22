@@ -1,0 +1,157 @@
+{% comment %} FAQ Section {% endcomment %}
+
+<style>
+  .faq-wrapper .page-width{
+    max-width: 1120px;
+  }
+  .faq-title {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 70%;
+    margin-inline: auto;
+  }
+  .faq-item {
+    border: 1px solid #000;
+    margin-bottom: 15px;
+  }
+  .faq-question {
+    width: 100%;
+    padding: 17px 25px;
+    text-align: left;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    line-height: 1;
+    font-family: 'Inter';
+    align-items: center;
+    color: #000;
+  }
+  .faq-question span{
+        border: 1px solid #000;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .faq-answer {
+    padding: 0 25px 15px;
+    font-size: 18px;
+    color: #000000B2;
+  }
+  .faq-answer p{
+    margin-bottom: 0;
+  }
+  @media (max-width: 768px){
+    .faq-title{
+      margin-bottom: 20px;
+      max-width: 100%;
+    }
+    .faq-question{
+      font-size: 18px;
+      padding: 15px;
+      line-height: 130%;
+      gap: 10px;
+    }
+    .faq-answer{
+      font-size: 16px;
+      padding: 0 15px 15px;
+    }
+    .faq-item{
+      margin-bottom: 12px;
+    }
+  }
+</style>
+
+<div class="faq-wrapper">
+  <div class="page-width">
+  <h2 class="faq-title">{{ section.settings.title }}</h2>
+  <div class="faq-items">
+    {% for block in section.blocks %}
+      <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-{{ block.id }}">
+        {{ block.settings.question }}
+        <span class="faq-toggle-icon" aria-hidden="true">+</span>
+      </button>
+
+        <div class="faq-answer" id="faq-answer-{{ block.id }}" hidden>
+          <p>{{ block.settings.answer }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const items = document.querySelectorAll('.faq-question');
+    items.forEach(button => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        const answer = document.getElementById(button.getAttribute('aria-controls'));
+        const icon = button.querySelector('.faq-toggle-icon');
+
+        // Toggle visibility and icon
+        button.setAttribute('aria-expanded', !expanded);
+        answer.hidden = expanded;
+        icon.textContent = expanded ? '+' : '–';
+      });
+    });
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "FAQ Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Frequently Asked Questions"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "What is sunscreen face cream?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Sunscreen face cream is a skincare product designed to protect your face from harmful UV rays."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "FAQ Section",
+      "blocks": [
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        },
+        {
+          "type": "faq"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

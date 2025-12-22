@@ -1,0 +1,16 @@
+<div
+  class="swiper-wrapper"
+>
+  {%- liquid
+    if products != blank
+      for product in products limit: limit
+        assign scroll_speed = '0'
+
+        assign css_class = css_class | append: ' ' | append: push_class | append: ' ' | append: mobile_class
+        echo '<div class="swiper-slide">'
+          render 'product-item-tlpc', product: product, css_class: css_class, scroll_speed: scroll_speed, sizes: sizes, badges: true
+        echo '</div>'
+      endfor
+    endif
+  -%}
+</div>

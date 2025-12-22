@@ -1,0 +1,180 @@
+<div class="exp-cat {{ section.settings.custom_class }}">
+  <div class="categories-flexed">
+    <p style="text-align: center;" class="sec-head dashed-title h1">{{ section.settings.expheadd }}</p>
+    <div class="flux">
+    {% for block in section.blocks %}
+      <div style="position: relative">
+        <a href="{{ block.settings.explinks }}">
+        <img src="{{ block.settings.image | img_url: 'master' }}" loading="lazy">
+        </a>
+        <a style="padding: 0;" href="{{ block.settings.explinks }}" class="linkforout button button--underline">{{ block.settings.exphead }}</a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<style>
+  .linkforout{
+    position: absolute;
+    left: 50%;
+    top: 87%;
+    transform: translate(-50%, -50%);
+  }
+  .categories-flexed{
+    max-width: 1440px;
+    padding: 0 20px;
+    margin: auto;
+    margin-top: 5rem;
+     margin-bottom: 5rem;
+    text-align: center;
+  }
+  .sec-head{
+    margin-bottom: 3rem!important;
+    font-style: italic;
+  }
+  .flux{
+    display: flex;
+    justify-content: space-between;
+  }
+  .flux div{
+    width: 24%;
+    display: inline-block;
+  }
+  .flux img{
+    width: 100%;
+  }
+  @media only screen and (max-width: 600px) {
+   .sec-head{
+    font-size: 1rem!important;
+    font-style: italic;
+      margin-bottom: 1rem!important;
+  }
+    #insta-feed {
+    width: 95%!important;
+}
+     .categories-flexed{
+        margin-bottom: -2rem;
+     }
+    .categories-flexed
+      .dashed-title::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -65px;
+    height: 15px;
+    width: 57px;
+    transform: translateY(-50%);
+    background-image: url(/cdn/shop/files/Group_36_1.svg?v=1651781798);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+      .categories-flexed .dashed-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -65px;
+    height: 15px;
+    width: 57px;
+    transform: translateY(-50%);
+    background-image: url(/cdn/shop/files/Group_37_1.svg?v=1651781886);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+    .flux{
+      display: block;
+    }
+    .flux div{
+      width: 100%;
+      margin-bottom: 4vw;
+    }
+    .vertical-slider .slide-image--secondary figure{
+      left: 6vw;
+      height: 233px!important;
+    }
+    .verti-new .slide-image--secondary figure{
+      left: 0vw;
+      height: 233px!important;
+    }
+    .verti-new .slideleft1{
+  position: absolute;
+    bottom: 17vw;
+    left: 16vw;
+      z-index: 2;
+}
+    .verti-new .slide-image--third{
+      position: absolute;
+    bottom: 18vw;
+    left: 49vw;
+    z-index: 1;
+    }
+    .mount-collection .dashed-title::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -116px;
+    height: 15px;
+    width: 0px!important;
+    transform: translateY(-50%);
+    background-image: url(/cdn/shop/files/Group_36_1.svg?v=1651781798);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+    }
+
+</style>
+{% schema %}
+{
+  "name": "exp-categories",
+  "tag": "section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "expheadd",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    }
+  ],
+  "blocks": [
+     {
+       "name": "Slide",
+       "type": "slide",
+       "settings": [
+         {
+           "type": "url",
+           "id": "explinks",
+           "label": "URL Links"
+         },
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Image"
+         },
+         {
+      "type": "text",
+      "id": "exphead",
+      "label": "Block Heading"
+    }
+       ]
+     }
+   ],
+  "presets": [
+    {
+      "name": "exp-categories",
+      "settings": {
+       
+      },
+      "blocks": [
+       
+      ]
+    }
+  ]
+}
+{% endschema %}

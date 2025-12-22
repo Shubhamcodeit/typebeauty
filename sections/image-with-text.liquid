@@ -1,0 +1,177 @@
+<div class="image-with-text image-with-text--{{ section.settings.layout }} grid">
+
+  <div class="image-with-text__image five-tenths lap--six-tenths palm--full-width push-left-one-tenth lap--push-left-none">
+    <div class="round-grid-img-wrapper">
+      <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/circle-net_0bd4a2c2-2b4d-4353-84f3-e2c588ae80ce.png?v=1651084390" class="round-grid-img" />
+    </div>
+    {%- unless section.settings.image == blank -%}
+      {%- assign sizes = 'sizes="(max-width: 599px) calc(100vw - 40px), (max-width: 1023px) 50vw, 42vw"' -%}
+    <video style="width: 100%;position:relative;z-index: 1;" autoplay="" muted="" loop="" playsinline="" class="loaded">
+                  <source src="https://cdn.shopify.com/videos/c/o/v/cc621c20e478470fa44fba00352332eb.mp4" type="video/mp4">
+                </video>
+   
+    {%- else -%}
+      <span class="onboarding-svg section--image-text--item__image onboarding-background">
+        {{ 'image' | placeholder_svg_tag }}
+      </span>
+    {%- endunless -%}
+    <p class="comes-down-to-science">it all comes down to a science.</p>
+  </div>
+
+  <div class="image-with-text__content four-tenths lap--five-tenths palm--full-width push-left-one-tenth lap--push-left-none">
+
+    {%- for block in section.blocks -%}
+
+      {%- case block.type -%}
+
+        {%- when 'heading' -%}
+    <h3 class="image-with-text__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>{{ block.settings.heading | escape }} <span class="pink-text-in-head">power of skincare.</span></h3>
+
+        {%- when 'text' -%}
+          <div class="image-with-text__description rte" {{ block.shopify_attributes }}>{{ block.settings.text }}</div>
+
+        {%- when 'button' -%}
+          <a class="image-with-text__button button button--underline" href="{{ block.settings.button_link }}" title="{{ block.settings.button_label | escape }}" {{ block.shopify_attributes }}>
+            {{ block.settings.button_label | escape }}
+            <span class="svg svg__arrow" aria-hidden="true">{%- render 'theme-symbols', icon: 'arrow-right' -%}</span>
+          </a>
+
+      {%- endcase -%}
+
+    {%- endfor -%}
+
+  </div>
+
+  <div class="bg-shapes-wrapper">
+   
+      <img class="shape-1" src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Triangle_group-_Home_page.svg?v=1651784151" />
+   
+  
+      <img class="shape-2" src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/shape-img-2.png?v=1651110568" />
+   
+      <img class="shape-3" src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Plus_all_the_good_stuff_minus_all_the_bad._1.svg?v=1651784519" />
+   
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "t:sections.image-with-text.name",
+    "class": "section-w-mobile-padding section-w-margin section-w-reduced-margin home-products-main",
+    "blocks": [
+      {
+        "type": "heading",
+        "name": "t:sections.rich-text.blocks.heading.name",
+        "limit": 1,
+        "settings": [
+           {
+            "type": "text",
+            "id": "heading",
+            "label": "t:sections.rich-text.blocks.heading.settings.heading.label",
+            "default": "Write your story"
+          }, 
+          {
+            "type": "select",
+            "id": "heading_size",
+            "label": "t:sections.rich-text.blocks.heading.settings.heading_size.label",
+            "options": [
+              {
+                "value": "h2",
+                "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__1.label"
+              },
+              {
+                "value": "h1",
+                "label": "t:sections.rich-text.blocks.heading.settings.heading_size.options__2.label"
+              }
+            ],
+            "default": "h1"
+          }
+        ]
+      },
+      { 
+        "type": "text",
+        "name": "t:sections.rich-text.blocks.text.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "text",
+            "label": "t:sections.rich-text.blocks.text.settings.text.label",
+            "default": "<p>Write some information about your brand, products or story.</p>"
+          }
+        ]
+      },
+      {
+        "type": "button",
+        "name": "t:sections.rich-text.blocks.button.name",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "button_label",
+            "label": "t:sections.rich-text.blocks.button.settings.button_label.label",
+            "default": "Button label"
+          },
+          {
+            "type": "url",
+            "id": "button_link",
+            "label": "t:sections.rich-text.blocks.button.settings.button_link.label"
+          }
+        ]
+      }
+    ],
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "t:sections.gallery.blocks.image.name"
+      },
+      {
+        "type": "select",
+        "id": "layout",
+        "label": "t:sections.rich-text.settings.image_position.label",
+        "options": [
+          {
+            "label": "t:sections.rich-text.settings.image_position.options__1.label",
+            "value": "right-alignment"
+          },
+          {
+            "label": "t:sections.rich-text.settings.image_position.options__2.label",
+            "value": "left-alignment"
+          }
+        ],
+        "default": "right-alignment"
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.image-with-text.name",
+        "blocks": [
+          {
+            "type": "heading"
+          },
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+<style>
+  .comes-down-to-science{
+  font-family: 'Inter';
+font-style: italic;
+font-weight: 500;
+font-size: 15px;
+line-height: 164.19%;
+margin-top: 13px;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+
+color: #000000;
+  }
+  .pink-text-in-head{
+  color: #FF3FB5!important;
+  }
+</style>

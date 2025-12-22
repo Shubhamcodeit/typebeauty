@@ -1,0 +1,144 @@
+
+
+{% stylesheet %}
+  .easy-apply-wrapper {
+    padding: 130px 0;
+    position: relative;
+  }
+  .easy-apply-wrapper::after{
+    content: '';
+    position: absolute;
+    background-image: url('https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Frame_31.png?v=1746101319');
+    width: 726px;
+    height: 315px;
+    top: 0;
+    right: 0;
+    background-size: cover;
+  }
+  .easy-apply-title {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+  }
+  .easy-apply-card {
+    text-align: center;
+  }
+  .easy-apply-image {
+    width: 100%;
+    height: auto;
+  }
+  .easy-apply-label {
+    display: inline-block;
+    background-color: #ff0080;
+    color: white;
+    font-weight: bold;
+    padding: 4px 12px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    font-size: 14px;
+    border-radius: 3px;
+  }
+  .easy-apply-desc {
+    font-size: 14px;
+    color: #333;
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  @media (max-width: 1279px){
+    .easy-apply-wrapper:after{
+      width: 606px;
+      height: 225px;
+    }
+    .easy-apply-wrapper{
+      padding: 100px 0;
+    }
+  }
+  @media (max-width: 768px){
+    .easy-apply-wrapper:after{
+      width: 506px;
+      height: 205px;
+    }
+    .easy-apply-wrapper{
+      padding: 70px 0;
+    }
+    .easy-apply-wrapper .page-width{
+      padding-right: 0;
+    }
+    .easy-apply-title{
+      margin-bottom: 15px;
+      padding-right: 15px;
+    }
+  }
+{% endstylesheet %}
+
+<div class="easy-apply-wrapper" style="background-color:{{ section.settings.bg_color }}">
+  <div class="page-width">
+    <h2 class="easy-apply-title">{{ section.settings.title }}</h2>
+    <div class="swiper easy-apply-swiper">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide easy-apply-card">
+            {% if block.settings.image != blank %}
+              <img src="{{ block.settings.image | image_url }}" class="easy-apply-image" alt="">
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="swiper-pagination product-pagination"></div>
+    </div>
+  </div>
+</div>
+<script>
+ const swiperi = new Swiper('.easy-apply-swiper', {
+    slidesPerView: 1.3,
+    spaceBetween: 20,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      768: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
+      1280: { slidesPerView: 4 }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Easy Apply Slider",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "EASY TO APPLY, EASY TO LOVE"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Easy Apply Slider",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

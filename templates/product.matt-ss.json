@@ -1,0 +1,610 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product-pdp",
+      "blocks": {
+        "b4661e63-efdc-456d-ae40-2a0a54a47aa9": {
+          "type": "shopify://apps/nector-loyalty-rewards/blocks/review_rating/1c1144ea-67f0-4232-93c6-0d8fbb8c8d3a",
+          "settings": {
+            "product": "zit-quit-hydra-jelly-tint-1",
+            "view_type": "compact",
+            "all_reviews": false,
+            "fetch_all_reviews_if_not_found": false,
+            "color": "#ff3fb5",
+            "font_size": 16,
+            "text_align": "start",
+            "font_weight": "normal",
+            "padding_x": 0,
+            "padding_y": 0,
+            "review_rating_classes": ""
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "show_vendor": false,
+            "show_reviews": false,
+            "show_tax_info": false,
+            "show_sku": false,
+            "show_barcode": false,
+            "stick_product_header_on_mobile": false
+          }
+        },
+        "live2_ai_shoppable_videos_live2_product_embed_7yDKDw": {
+          "type": "shopify://apps/live2-ai-shoppable-videos/blocks/live2-product-embed/0596afb0-e030-408f-9be8-108a43e90013",
+          "disabled": true,
+          "settings": {
+            "team_id": "65b104952550a1e7a05db38c",
+            "selected_type": "STORY",
+            "custom_css": ""
+          }
+        },
+        "custom_liquid_rDyYyk": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"product-info-section\">\n\n  <div class=\"product-badges\">\n    <span class=\"badge\">14K units sold</span>\n    <span class=\"badge\">23 users are looking at the product</span>\n  </div>\n\n  <p class=\"product-description\">\nA lightweight mist infused with niacinamide that can be used to prep your bare skin and set your makeup. It will leave you with a soft matte oil controlling finish perfect for oily skin. \n\n  </p>\n\n  <hr>\n\n  <ul class=\"product-features\">\n    <li><span class=\"icon\">✦</span> SPF 35 on the go\n</li>\n    <li><span class=\"icon\">✦</span> Long Lasting - 12 hour wear \n</li>\n    <li><span class=\"icon\">✦</span> Travel Friendly\n</li>\n  </ul>\n\n  <hr>\n\n</div>"
+          }
+        },
+        "product_variant_iLmJR6": {
+          "type": "Product-variant",
+          "settings": {
+            "title": "Oily and Acne Prone skin",
+            "product_1": "set-me-up-mattifying-setting-spray",
+            "title2": "Fine Lines and Wrinkles",
+            "product_2": "set-me-up-hydrating-setting-spray",
+            "title3": "Dark Spots and Dullness",
+            "product_3": "set-me-up-brightening-setting-spray"
+          }
+        },
+        "custom_liquid_ttiYa3": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<div class=\"tint-flavours\">\n<a href=\"https://www.typebeautyinc.com/collections/tints/products/zit-quit-hydra-jelly-tint\">ZIT QUIT</a>\n<a href=\"https://www.typebeautyinc.com/collections/tints/products/soak-it-hydra-jelly-tint\">SOAK IT</a>\n<a href=\"https://www.typebeautyinc.com/collections/tints/products/get-even-hydra-jelly-tint\">GET EVEN</a>\n</div>"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "disabled": true,
+          "settings": {
+            "variants_style": "radio",
+            "show_color_swatches": true,
+            "show_quantities": "no"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "disabled": true,
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_quantity_selector": true
+          }
+        },
+        "custom_liquid_bttttw": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<img src=\"https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Group_1171278775.png?v=1746183174\" class=\"desktop-img\">\n<img src=\"https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Group_1171278775_1.png?v=1746183190\" class=\"mobile-img\">"
+          }
+        },
+        "custom_liquid_93rNcR": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "<div class=\"offers-wrapper\">\n  <h3>Available Offers</h3>\n  <div class=\"offers-container\">\n    <div class=\"offer-box\">\n      <div class=\"offer-header\">Flat 5% OFF</div>\n      <div class=\"offer-body\">\n        <p>Get flat 5% OFF<br>on buying 2 products</p>\n      </div>\n    </div>\n\n    <div class=\"offer-box\">\n      <div class=\"offer-header\">Flat 10% OFF</div>\n      <div class=\"offer-body\">\n        <p>Get flat 10% OFF<br>on buying 3 products</p>\n      </div>\n    </div>\n\n    <div class=\"offer-box\">\n      <div class=\"offer-header\">Flat 15% OFF</div>\n      <div class=\"offer-body\">\n        <p>Get flat 15% OFF<br>on buying 4 products</p>\n      </div>\n    </div>\n  </div>\n</div>"
+          }
+        },
+        "f3fcae28-c3e1-4551-9cf8-2e057682df9d": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Description",
+            "content": "<p>Set Me Up Mattifying Setting Spray: A lightweight mist that can be used to prep your bare skin and set your makeup for up to 12 hours. The spray will leave you with a soft matte oil controlling finish perfect for oily skin. <br/></p><p>Enhanced with ingredients like Niacinamide and Upsalite, this product helps balance the oil production of the skin from within, visibly reducing shine on your natural skin overtime. </p><p>This product also contains blue light protection filters and SPF 35 Pa ++++ using korean sunscreen filters to help protect you from the sun. As a result it is now the easiest way to reapply your SPF on the go, and helping prevent new acne scars from forming.</p><p><em>Our products comply with Sephora's clean beauty standards.</em></p>",
+            "content_product2": "",
+            "content_product3": "",
+            "page": ""
+          }
+        },
+        "9d23327f-d043-4890-9616-2f5f4b7d173f": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Ingredients",
+            "content": "<p>Aqua, Styrene/Acrylates/Ammonium Methacrylate Copolymer (and) Butylene Glycol (and) Sodium Laureth, Polyglutamic Acid ,Phenoxyethanol (and) Caprylyl Glycol, cucumber extract, Niacinamide, Polysorbate 20,Aqua (and) Phosphatidylcholine (and) Glycerin (and) Haematococcus Pluvialis Extract, Sodium Palmitoyl Proline (and) Nymphaea Alba Flower Extract, Caffeine, Magnesium carbonate,\"C12-15 Alkyl Benzoate Diethylamino Hydroxybenzoyl Hexyl Benzoate, Ethylhexyl Triazone, Bis-Ethylhexyloxyphenol , Methoxyphenyl,Triazine,Propanediol,Phenoxyethanol,Hydroxyacetophenone,Phospholipids, Menthyl Lactate (and) PPG-26-Buteth-26 (and) PEG-40 Hydrogenated Castor Oil</p>",
+            "content_product2": "",
+            "content_product3": "",
+            "page": ""
+          }
+        },
+        "1baab5c0-1d06-41e9-a081-f0b44d2b3cad": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How to use / Apply",
+            "content": "<p><strong>Glow, set, and protect - all in one mist</strong></p><p>Mist your way to makeup that stays</p><p>1. Spritz as a gentle mist over your finished makeup look</p><p>2. or spray on bare skin to prime for makeup</p><p>3. or just reapply your SPF</p>",
+            "content_product2": "",
+            "content_product3": "",
+            "page": ""
+          }
+        },
+        "d5bf8b8c-02a6-4627-ae5c-208ed0e496da": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Additional Information",
+            "content": "<p>{{ product.metafields.custom.additional_info | metafield_tag }}</p>",
+            "content_product2": "",
+            "content_product3": "",
+            "page": ""
+          }
+        },
+        "custom_liquid_Y7UxCt": {
+          "type": "custom_liquid",
+          "disabled": true,
+          "settings": {
+            "custom_liquid": "{% render 'common-product' %}"
+          }
+        }
+      },
+      "block_order": [
+        "b4661e63-efdc-456d-ae40-2a0a54a47aa9",
+        "header",
+        "live2_ai_shoppable_videos_live2_product_embed_7yDKDw",
+        "custom_liquid_rDyYyk",
+        "product_variant_iLmJR6",
+        "custom_liquid_ttiYa3",
+        "variant_picker",
+        "buy_buttons",
+        "custom_liquid_bttttw",
+        "custom_liquid_93rNcR",
+        "f3fcae28-c3e1-4551-9cf8-2e057682df9d",
+        "9d23327f-d043-4890-9616-2f5f4b7d173f",
+        "1baab5c0-1d06-41e9-a081-f0b44d2b3cad",
+        "d5bf8b8c-02a6-4627-ae5c-208ed0e496da",
+        "custom_liquid_Y7UxCt"
+      ],
+      "settings": {
+        "media_aspect": "1",
+        "enable_zoom": true,
+        "enable_video_looping": false
+      }
+    },
+    "video_pdp_j3mJcm": {
+      "type": "video-pdp",
+      "settings": {
+        "heading": "EASY TO APPLY, EASY TO LOVE",
+        "subheading": "Your No-Fuss, Everyday Glow – No Brushes Needed",
+        "left_img": "shopify://shop_images/Setting_Spray_A_creative.png",
+        "mob_img": "shopify://shop_images/Setting_Spray_A_creative.png",
+        "video_url": "https://cdn.shopify.com/videos/c/o/v/983996a25cb14ea7af5f4bd335a89b27.mp4"
+      }
+    },
+    "scrolling_promotion_eiy3FL": {
+      "type": "scrolling-promotion",
+      "blocks": {
+        "scrolling_text_CWbbd7": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "VEGAN"
+          }
+        },
+        "scrolling_text_nr8npY": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "CRUELTY-FREE"
+          }
+        },
+        "scrolling_text_LBaWkb": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "SKINCARE POWERED"
+          }
+        },
+        "scrolling_text_ixzW3E": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "VEGAN"
+          }
+        },
+        "scrolling_text_kE4f7w": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "CRUELTY-FREE"
+          }
+        },
+        "scrolling_text_DJRxWU": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "SKINCARE POWERED"
+          }
+        },
+        "scrolling_text_z8d66L": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "VEGAN"
+          }
+        },
+        "scrolling_text_mQr8y3": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "CRUELTY-FREE"
+          }
+        },
+        "scrolling_text_bDYatt": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "SKINCARE POWERED"
+          }
+        },
+        "scrolling_text_7bKc9c": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "VEGAN"
+          }
+        },
+        "scrolling_text_fCbUf7": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "CRUELTY-FREE"
+          }
+        },
+        "scrolling_text_GTjXkF": {
+          "type": "scrolling-text",
+          "settings": {
+            "title": "SKINCARE POWERED"
+          }
+        }
+      },
+      "block_order": [
+        "scrolling_text_CWbbd7",
+        "scrolling_text_nr8npY",
+        "scrolling_text_LBaWkb",
+        "scrolling_text_ixzW3E",
+        "scrolling_text_kE4f7w",
+        "scrolling_text_DJRxWU",
+        "scrolling_text_z8d66L",
+        "scrolling_text_mQr8y3",
+        "scrolling_text_bDYatt",
+        "scrolling_text_7bKc9c",
+        "scrolling_text_fCbUf7",
+        "scrolling_text_GTjXkF"
+      ],
+      "settings": {
+        "bg_color": "#000000"
+      }
+    },
+    "174823634930edb240": {
+      "type": "apps",
+      "settings": {
+        "full_width": false
+      }
+    },
+    "pdp_banner_gB8UEa": {
+      "type": "pdp-banner",
+      "settings": {
+        "image_1": "shopify://shop_images/Mattifying_spray_1.png",
+        "image_2": "shopify://shop_images/Mattifying_spray_1_2e1c11a4-dc16-4bd9-b4f3-49dada1b3cf4.png",
+        "custom_class": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "easy_apply_slider_eQL4EY": {
+      "type": "easy-apply-slider",
+      "blocks": {
+        "item_X3gm3H": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Group_1171279105.png"
+          }
+        },
+        "item_wjUPNj": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Group_1171279106.png"
+          }
+        },
+        "item_w76E8A": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Group_1171279107.png"
+          }
+        },
+        "item_bWCcHg": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/Group_1171279108.png"
+          }
+        }
+      },
+      "block_order": [
+        "item_X3gm3H",
+        "item_wjUPNj",
+        "item_w76E8A",
+        "item_bWCcHg"
+      ],
+      "settings": {
+        "bg_color": "#f6e3d5",
+        "title": "EASY TO APPLY, EASY TO LOVE"
+      }
+    },
+    "pdp_banner_cYtpqF": {
+      "type": "pdp-banner",
+      "settings": {
+        "image_1": "shopify://shop_images/Mattifying_spray_2.png",
+        "image_2": "shopify://shop_images/Mattifying_spray_2_a1f45567-9c52-4d41-9db3-f4eef745f39a.png",
+        "custom_class": "",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "before_after_pdp_KTWEha": {
+      "type": "before-after-pdp",
+      "blocks": {
+        "before_after_y399aX": {
+          "type": "Before-After",
+          "settings": {
+            "before_image": "shopify://shop_images/Group_1171279097.png",
+            "after_image": "shopify://shop_images/Group_1171279098_1.png",
+            "icon": "shopify://shop_images/Group_1171278809.png",
+            "name": "Bhakti Sahu",
+            "verified": true,
+            "rating": "4.5",
+            "max_rating": "5",
+            "title": "<ul><li>Hydrated</li><li>Smooth</li><li>Even</li></ul>",
+            "description": "“Lightweight but powerful—my skin looks fresh, even, and hydrated all day.”"
+          }
+        },
+        "before_after_QCK4B6": {
+          "type": "Before-After",
+          "settings": {
+            "before_image": "shopify://shop_images/Group_1171279099.png",
+            "after_image": "shopify://shop_images/Group_1171279100_1.png",
+            "icon": "shopify://shop_images/Frame_43_1.png",
+            "name": "Tanvi Rao",
+            "verified": true,
+            "rating": "4.5",
+            "max_rating": "5",
+            "title": "<ul><li>Acne-Safe</li><li>Natural Finish</li><li>Skin-Calming</li></ul>",
+            "description": "\"It gives me a natural glow while actually calming my breakouts. Love the even tone it gives!\""
+          }
+        },
+        "before_after_WfCMUm": {
+          "type": "Before-After",
+          "disabled": true,
+          "settings": {
+            "before_image": "shopify://shop_images/Group_1171279101.png",
+            "after_image": "shopify://shop_images/Group_1171279102_1.png",
+            "icon": "shopify://shop_images/Frame_42.png",
+            "name": "Rhea Mehta",
+            "verified": true,
+            "rating": "4.5",
+            "max_rating": "5",
+            "title": "<ul><li>Hydrated</li><li>Smooth</li><li>Even</li></ul>",
+            "description": "\"My skin feels insanely smooth and hydrated all day—plus, the tint never clogs my pores!\""
+          }
+        },
+        "before_after_4iBiNd": {
+          "type": "Before-After",
+          "disabled": true,
+          "settings": {
+            "before_image": "shopify://shop_images/Group_1171279103.png",
+            "after_image": "shopify://shop_images/Group_1171279104_1.png",
+            "icon": "shopify://shop_images/Frame_41.png",
+            "name": "Simran D’Souza",
+            "verified": true,
+            "rating": "4.5",
+            "max_rating": "5",
+            "title": "<ul><li>Buildable Tint</li><li>Skincare-Infused</li><li>Radiant Skin</li></ul>",
+            "description": "\"Finally, makeup that heals while I wear it. The pigmentation is perfect, and my skin looks clearer!\""
+          }
+        }
+      },
+      "block_order": [
+        "before_after_y399aX",
+        "before_after_QCK4B6",
+        "before_after_WfCMUm",
+        "before_after_4iBiNd"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "Visible Results. Verified Radiance."
+      }
+    },
+    "pdp_banner_Mqq9dD": {
+      "type": "pdp-banner",
+      "settings": {
+        "image_1": "shopify://shop_images/Group_91.png",
+        "image_2": "shopify://shop_images/Group_91_1.png",
+        "custom_class": "",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 40
+      }
+    },
+    "faqs_LUzTym": {
+      "type": "Faqs",
+      "blocks": {
+        "faq_3y7m44": {
+          "type": "faq",
+          "settings": {
+            "question": "What’s the difference between the three setting sprays?",
+            "answer": "Brightening evens tone, Mattifying controls oil, and Hydrating gives a dewy glow."
+          }
+        },
+        "faq_WJWnim": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I use it before makeup?",
+            "answer": "Yes - it works great as a primer too."
+          }
+        },
+        "faq_cTzYJp": {
+          "type": "faq",
+          "settings": {
+            "question": "Does it really set makeup for 12 hours?",
+            "answer": "Yes - it locks your look in place all day long."
+          }
+        },
+        "faq_NhgHtp": {
+          "type": "faq",
+          "settings": {
+            "question": "Is it suitable for all skin types?",
+            "answer": "Yes - just pick the variant based on your skin’s needs (brightening, matte, or hydration)."
+          }
+        },
+        "faq_CirUAd": {
+          "type": "faq",
+          "settings": {
+            "question": "Does it contain SPF?",
+            "answer": "Yes - all three offer SPF 35 for on-the-go protection."
+          }
+        },
+        "faq_M8N9EM": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I reapply it during the day?",
+            "answer": "Absolutely - spritz anytime to refresh and protect."
+          }
+        },
+        "faq_T9KRJC": {
+          "type": "faq",
+          "settings": {
+            "question": "Will it leave a white cast?",
+            "answer": "No - it’s transparent and blends in seamlessly."
+          }
+        },
+        "faq_8Cb8Xd": {
+          "type": "faq",
+          "settings": {
+            "question": "Is it travel-friendly?",
+            "answer": "Yes - designed for on-the-go use."
+          }
+        },
+        "faq_X6naKF": {
+          "type": "faq",
+          "settings": {
+            "question": "Does it clog pores or feel heavy?",
+            "answer": "No - it’s lightweight, breathable, and non-comedogenic."
+          }
+        },
+        "faq_mpWWRp": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I use it without makeup?",
+            "answer": "Yes - spritz it on bare skin for a fresh, protected base."
+          }
+        }
+      },
+      "block_order": [
+        "faq_3y7m44",
+        "faq_WJWnim",
+        "faq_cTzYJp",
+        "faq_NhgHtp",
+        "faq_CirUAd",
+        "faq_M8N9EM",
+        "faq_T9KRJC",
+        "faq_8Cb8Xd",
+        "faq_X6naKF",
+        "faq_mpWWRp"
+      ],
+      "settings": {
+        "title": "Frequently Asked Questions"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "products_number": 3
+      }
+    },
+    "pdp_banner_D9wDic": {
+      "type": "pdp-banner",
+      "settings": {
+        "image_1": "shopify://shop_images/Group_1171278949.png",
+        "image_2": "shopify://shop_images/Group_91_478d189b-e303-4c3c-a2c5-dab30446e83e.png",
+        "custom_class": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "mobile_padding_top": 40,
+        "mobile_padding_bottom": 40
+      }
+    },
+    "1747213642d46ba997": {
+      "type": "apps",
+      "blocks": {
+        "nector_loyalty_rewards_review_list_ypG8GY": {
+          "type": "shopify://apps/nector-loyalty-rewards/blocks/review_list/1c1144ea-67f0-4232-93c6-0d8fbb8c8d3a",
+          "settings": {
+            "product": "{{product}}",
+            "background_color": "",
+            "default_reviews_sort": "image_count",
+            "view_type": "image_optimized_grid",
+            "all_reviews": false,
+            "fetch_all_reviews_if_not_found": false,
+            "show_images_carousel": true,
+            "show_tags": true,
+            "show_summary": true,
+            "show_detailed_breakup": false,
+            "show_featured_reviews_only": false,
+            "hide_date": false,
+            "hide_overall_rating": false,
+            "hide_total_review_count": false,
+            "show_qna": false
+          }
+        }
+      },
+      "block_order": [
+        "nector_loyalty_rewards_review_list_ypG8GY"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "rich_text_LYwGk4": {
+      "type": "rich-text",
+      "blocks": {
+        "text_aqTbbX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>{{ product.metafields.custom.faq_schema.value }}</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_aqTbbX"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "text_alignment": "left"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "video_pdp_j3mJcm",
+    "scrolling_promotion_eiy3FL",
+    "174823634930edb240",
+    "pdp_banner_gB8UEa",
+    "easy_apply_slider_eQL4EY",
+    "pdp_banner_cYtpqF",
+    "before_after_pdp_KTWEha",
+    "pdp_banner_Mqq9dD",
+    "faqs_LUzTym",
+    "product-recommendations",
+    "pdp_banner_D9wDic",
+    "1747213642d46ba997",
+    "rich_text_LYwGk4"
+  ]
+}

@@ -1,0 +1,111 @@
+<div style="position: relative;margin-bottom: 1rem;" class="whole-banner">
+  <img style="width: 100%;" class="desk moo" src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/WhatsApp_Image_2023-08-01_at_17.08.57.jpg?v=1690966914">
+  <img style="width: 100%;" class="mob moo" src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/WhatsApp_Image_2023-08-01_at_17.08.57.jpg?v=1690966914">
+ <div class="countdown-container">
+  <div id="countdown"><span></span></div>
+  
+</div>
+</div>
+ 
+<script>
+  function updateCountdown(endDate) {
+    var countdownElement = document.getElementById('countdown');
+
+    var timer = setInterval(function() {
+      var currentDate = new Date().getTime();
+      var remainingTime = endDate - currentDate;
+
+      if (remainingTime <= 0) {
+        clearInterval(timer);
+        countdownElement.innerHTML = "Voucher Promo ended!";
+        return;
+      }
+
+      var days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+
+      countdownElement.innerHTML = "Sale Ends in<a>" + days + "<span>days</span> </a> <a>" + 
+                                    hours + "<span>hours</span></a> <a>" + minutes + "<span>mins</span></a>";
+    }, 1000);
+  }
+
+  // Set the start and end dates for the countdown
+  var startDate = new Date("2023-08-01T00:00:00"); // Current date and time
+  var endDate = new Date("2023-08-07T00:00:00");
+
+  updateCountdown(endDate);
+</script>
+
+  <style>
+  #back-to-school{
+    margin-top: 119px;
+  }
+     .countdown-container{
+        background-color: #eb26c2;
+    width: max-content;
+    text-align: center;
+    padding: 6px;
+    border-radius: 15px;
+          position: absolute;
+    top: 61%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    }
+    .announcement-bar{
+      border: none;
+    }
+    #countdown{
+      color: #fff;
+    font-size: 2rem;
+    font-family: Inter;
+    font-weight: 500;
+    }
+     #countdown a{
+        color: #000;
+      font-size: 2rem;
+       background-color: #fff;
+      display: table-cell;
+       font-weight: 900;
+        border-radius: 10px;
+       padding: 5px;
+       margin-left: 5px;
+     }
+    #countdown a span{
+      font-size: 1rem;
+    }
+    @media only screen and (max-width: 600px) {
+   .countdown-container{
+        background-color: #eb26c2;
+    width: max-content;
+    text-align: center;
+    padding: 6px;
+    border-radius: 15px;
+          position: absolute;
+    top: 28%;
+    left: 84%;
+    transform: translate(-50%, -50%);
+         margin-bottom: -7vh;
+    }
+    .announcement-bar{
+      border: none;
+    }
+    #countdown{
+      color: #fff;
+      font-size: 1rem;
+      font-family: Inter;
+      font-weight: bolder;
+    }
+     #countdown a{
+        color: #000;
+      font-size: 1.1rem;
+       background-color: #fff;
+       display: inline-block;
+       font-weight: 700;
+       padding: 5px;
+     }
+      #back-to-school{
+        margin-top: 14px!important;
+      }
+}
+  </style>

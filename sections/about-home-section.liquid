@@ -1,0 +1,212 @@
+{% stylesheet %}
+.founder-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding-left: 150px;
+  gap: 15px;
+  background-color: #fff;
+  position: relative;
+}
+  .about-home{
+    margin-top: 180px;
+  }
+.founder-section::after{
+  position: absolute;
+  content: '';
+  background-image: url('https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Rectangle.png?v=1745990136');
+  width: 137px;
+  height: 216px;
+  top: -180px;
+  left: 0;
+  bottom: auto;
+  right: auto;
+}
+.founder-image{
+  max-width: 45%;
+  box-sizing: border-box;
+}
+.founder-image img {
+  width: 100%;
+  height: auto;
+  vertical-align: top;
+}
+
+.founder-content {
+  position: relative;
+  background-image: url("https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Frame_10.png?v=1745925673");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  flex: 1;
+  box-sizing: border-box;
+  padding: 120px 200px 120px 115px;
+}
+
+.founder-name {
+  color: #FF8F1A;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  font-style: italic;
+}
+.founder-text span{
+  position: relative;
+}
+  .founder-text span::after{
+    position: absolute;
+    content: '';
+    background-image: url('https://cdn.shopify.com/s/files/1/0555/4018/7214/files/animated-gif.gif?v=1746004238');
+    width: 120%;
+    height: 140%;
+    top: -5px;
+    bottom: 0;
+    right: 0;
+    left: -13px;
+    background-repeat: no-repeat;
+  }
+.founder-text {
+    font-size: 24px;
+    color: #000000BF;
+    margin-bottom: 40px;
+    line-height: 140%;
+    font-weight: 400;
+}
+@media (max-width: 1500px){
+  .founder-content{
+    padding: 0px 100px 0px 65px;
+  }
+}
+@media (max-width: 1440px){
+  .founder-section:after{
+    width: 117px;
+    height: 186px;
+    background-size: cover;
+  }
+  .about-home {
+    margin-top: 140px;
+  }
+  .founder-text{
+    font-size: 22px;
+  }
+  .founder-section{
+    padding-left: 100px;
+  }
+}
+  @media (max-width: 1279px){
+    .founder-section {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+    .founder-content {
+    padding: 0 0px 0 20px;
+}
+    .founder-name{
+      font-size: 42px;
+      margin-bottom: 18px;
+    }
+    .founder-text {
+    font-size: 20px;
+      margin-bottom: 20px;
+}
+    .founder-section:after {
+    width: 87px;
+    height: 136px;
+    top: -110px;
+      z-index: -1;
+}
+    .about-home {
+    margin-top: 100px;
+}
+    .founder-text span:after{
+      width: 120%;
+      height: 140%;
+      top: -5px;
+      left: -10px;
+      background-size: cover;
+    }
+  }
+@media (max-width: 768px) {
+  .founder-image,
+  .founder-content {
+    max-width: 100%;
+    flex: 1 1 100%;
+  }
+  .founder-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+  .founder-content {
+    padding: 0;
+}
+  .founder-text {
+    font-size: 18px;
+    margin-bottom: 14px;
+}
+  .founder-section:after {
+    width: 67px;
+    height: 106px;
+    top: -90px;
+}
+}
+  
+{% endstylesheet %}
+
+<div class="founder-section">
+  <div class="founder-image">
+    {% if section.settings.image %}
+      <img src="{{ section.settings.image | image_url }}" alt="Founder Image">
+    {% endif %}
+  </div>
+  <div class="founder-content">
+    <div class="founder-name">{{ section.settings.name }}</div>
+    <div class="founder-text">{{ section.settings.text }}</div>
+    {% if section.settings.button_label != blank %}
+      <a href="{{ section.settings.button_link }}" class="cta-button">{{ section.settings.button_label }}</a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Founder Section",
+  "class": "about-home",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Founder Image"
+    },
+    {
+      "type": "text",
+      "id": "name",
+      "label": "Founder Name",
+      "default": "ANANYA KAPUR"
+    },
+    {
+      "type": "html",
+      "id": "text",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "ABOUT US"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Founder Section"
+    }
+  ]
+}
+{% endschema %}

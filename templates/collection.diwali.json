@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_liquid_UJAAcL": {
+      "type": "custom-liquid",
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<img class=\"desk\" src=\"https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Banner_horizontal.png?v=1760689266\">\n<img class=\"mob\" src=\"https://cdn.shopify.com/s/files/1/0555/4018/7214/files/banner_ver.png?v=1760689265\">",
+        "full_width": true
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "layout": "regular",
+        "products_number": 48,
+        "enable_filtering": true,
+        "enable_sorting": true,
+        "show_promotional_block": false,
+        "promotional_block_title": "Write a short, captivating paragraph about your products.",
+        "promotional_block_button_label": "",
+        "promotional_block_button_link": ""
+      }
+    }
+  },
+  "order": [
+    "custom_liquid_UJAAcL",
+    "main"
+  ]
+}

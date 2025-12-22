@@ -1,0 +1,27 @@
+<div>
+  {% include 'countdown' %}
+</div>
+{% schema %}
+{
+  "name": "Slideshow",
+  "tag": "section",
+  "class": "slideshow",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Slideshow",
+      "settings": {
+        "title": "Slideshow"
+      }
+    }
+  ]
+}
+{% endschema %}
+

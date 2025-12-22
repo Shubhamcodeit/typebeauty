@@ -1,0 +1,385 @@
+<div class="product__header">
+  
+  {% if product.handle == 'brush-up-on-science' %}
+  <style>
+  .toggle[data-index="5"] {
+  display: none;
+}
+    .toggle[data-index="6"] {
+  display: none;
+}
+     .toggle[data-index="7"] {
+   margin-top: 1em;
+       border-bottom: 1px solid #FF3FB5;
+
+}
+  
+  </style>
+    
+   {% if type == 'section' %}
+    <h3 class="product__title h2">
+{% else %}
+    <h1 class="product__title h2">
+{% endif %}
+    {{ product.title | append: ' <span>CONCEALER BRUSH</span>' }}
+</{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'foundation' and product.handle contains '20ml'  %}
+    {% assign pptitle = product.title | split:' ' | last  %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        {{ product.title | escape | replace: pptitle, ' ' }}<span>FOUNDATION</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'foundation'  %}
+    {% assign pptitle = product.title | split:' ' | last  %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        {{ product.title | escape | replace: pptitle, ' ' }}<span>SERUM FOUNDATION</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'set-me-up-mattifying-setting-spray' %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        SET ME UP<span style="font-size: 1.5rem;">Mattifying Setting Spray</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'set-me-up-brightening-setting-spray' %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        SET ME UP<span style="font-size: 1.5rem;">Brightening Setting Spray</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'set-me-up-hydrating-setting-spray' %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        SET ME UP<span style="font-size: 1.5rem;">Hydrating Setting Spray</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'eyeshadow-sticks' %}
+    {% assign poptitle = product.title | split:' ' | last  %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        {{ product.title | escape | replace: "EYESHADOW STICK", ' ' }}<span>EYESHADOW STICK</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'over-dew-primer' %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        OVER DEW<span>PLUMPING PRIMER</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'calm-on-hydrating-gel-primer' %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        CALM ON<span>HYDRATING GEL PRIMER</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'get-even-primer' %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        GET EVEN<span>MOISTURIZING PRIMER</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'matte-up-balancing-primer' %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        MATTE UP<span>BALANCING PRIMER</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'soak-it-lip-shimmer' %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        SOAK IT<span>LIP LUSTRE</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+
+{% elsif product.handle contains 'oil' %}
+     {% assign words = product.title | split: ' ' %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        {{ words[0] }} {{ words[1] }}<span>{{ words[2] }} {{ words[3] }} {{ words[4] }}</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'light-up-lip-shimmer' %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        LIGHT UP<span>LIP LUSTRE</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'smudge-stick' %}
+    {% assign words = product.title | split: ' ' %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        {{ words[0] }} {{ words[1] }}<span>{{ words[2] }} {{ words[3] }} {{ words[4] }}</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'concealer' or product.handle contains 'lipstick' %}
+    {% assign ptitle = product.title | split:' ' | last  %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        {{ product.title | escape | replace: ptitle, ' ' }}<span>{{ ptitle }}</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
+{% elsif product.handle contains 'mascara' %}
+    {% assign ptitle = product.title | split:' '   %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        LASH OUT<span>{{ ptitle[2] }} {{ ptitle[3] }}</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+{% elsif product.handle contains 'tint' %}
+  
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        {{ product.title | replace: "HYDRA JELLY TINT", "" }}
+<span>HYDRA JELLY TINT</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+{% else %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        {{ product.title | escape }}<span>{{ ptitle }}</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+{% endif %}
+
+
+ 
+ 
+  {%- if show_vendor -%}
+    {%- capture vendor -%} {{ product.vendor | link_to_vendor }} {%- endcapture -%}
+    <p class="product__vendor text-size--small">{{ 'product.page.vendor_html' | t: vendor: vendor }}</p>
+  {%- endif -%}
+  <p class="major-use">{{product.metafields.my_fields.major_use}}</p>
+    {% render 'nectorcustom_review_rating', product: product, customer: customer, shop: shop %}
+  <span class="product__price text-size--larger" id="product-price-{{ section.id }}">
+
+     <span class="product__price-container">
+
+      <span class="product__price--originall" style="font-weight: bold;"><span class="visually-hidden">{{ 'general.accessibility_labels.price.regular' | t }}</span>
+         {% if product.handle contains 'combo' %}
+            {{ product.price | money }}
+                   {% elsif product.handle contains 'spray'%}
+       {{ product.price | money }}
+            {% elsif product.handle contains 'sample-set' %}
+        {{ product.price | money }}
+             {% elsif product.handle contains 'combo' %}
+      {{ product.price | money }}
+     {% elsif product.handle contains 'concealer' %}
+    {{ product.price | money }}
+       {% elsif product.handle contains 'foundation'%}
+       {{ product.price | money }}
+       {% elsif product.handle contains 'primer'%}
+     {{ product.price | money }}
+        {% elsif product.handle contains 'lipstick'%}
+         {{ product.price | money }}
+        {% elsif product.handle contains 'eyeshadow'%}
+        {{ product.price | money }}
+        {% elsif product.handle contains 'smudge'%}
+       {{ product.price | money }}
+        {% elsif product.handle contains 'mascara'%}
+    {{ product.price | money }}
+ {% elsif product.handle contains 'tint'%}
+       {{ product.price | money }}
+        {% elsif product.handle contains 'shimmer'%}
+        {{ product.price | money }}
+        {% elsif product.handle contains 'brush'%}
+      {{ product.price | money }}
+            {% elsif product.handle contains 'sponge'%}
+      {{ product.price | money }}
+       {% else %}
+       
+       {{ product.price | money }}{% endif %}
+
+      </span>
+      
+      <span class="product__price--compare">
+        <span class="visually-hidden">{{ 'general.accessibility_labels.price.sale' | t }}</span>
+           {% assign discount_handles = '' | split: ',' %}
+          {% assign show_price = false %}
+          {% for handle in discount_handles %}
+            {% if product.handle contains handle %}
+              {% unless product.handle contains 'combo' or  product.handle contains 'sample-set'%}
+                {% assign show_price = true %}
+              {% endunless %}
+            {% endif %}
+          {% endfor %}
+          {% if show_price %}
+            {{ variant.price | money }}
+          {% endif %}
+
+
+
+
+        {%- if variant.compare_at_price > variant.price -%}
+          {{ variant.compare_at_price | money }}
+        {%- endif -%}
+      </span>
+       
+{%- if variant.compare_at_price > variant.price -%}
+  {% assign discount = variant.compare_at_price | minus: variant.price %}
+  {% assign discount_percentage = discount | times: 100 | divided_by: variant.compare_at_price %}
+  <span class="product__discount-tag" style="    background-color: #F6891F;
+    color: #000;
+    padding: 4px 6px;
+    font-size: 14px;
+    font-weight: 600;
+    vertical-align: middle;
+    margin-left: 12px;">
+    {{ discount_percentage | round }}% OFF
+  </span>
+{%- endif -%}
+
+      <span class="product__price--unit text-size--smaller">
+        {%- liquid
+          if variant.unit_price_measurement
+            echo variant.unit_price | money
+            echo '/'
+            if variant.unit_price_measurement.reference_value != 1
+              echo variant.unit_price_measurement.reference_value
+            endif
+            echo variant.unit_price_measurement.reference_unit
+          endif
+        -%}
+      </span>
+       {% comment %}
+ 	{% if product.handle contains 'sponge' %}
+       <p class="percent-discount">35% off</p>
+{% elsif product.handle contains 'bag' %}
+       <p class="percent-discount">35% off</p>
+{% elsif product.handle contains 'concealer' %}
+       <p class="percent-discount">35% off</p>
+      {% elsif product.handle contains 'tint' %}
+        <p class="percent-discount">10% off</p>
+{% elsif product.handle contains 'foundation' %}
+  <p class="percent-discount">35% off</p>
+{% elsif product.handle contains 'primer' %}
+       <p class="percent-discount">35% off</p>
+{% elsif product.handle contains 'lipstick' %}
+  <p class="percent-discount">35% off</p>
+{% elsif product.handle contains 'eyeshadow' %}
+  <p class="percent-discount">35% off</p>
+{% elsif product.handle contains 'smudge' %}
+       <p class="percent-discount">35% off</p>
+{% elsif product.handle contains 'mascara' %}
+       <p class="percent-discount">35% off</p>
+{% elsif product.handle contains 'spray' %}
+       <p class="percent-discount">35% off</p>
+{% elsif product.handle contains 'shimmer' %}
+        <p class="percent-discount">10% off</p>
+{% elsif product.handle contains 'brush' %}
+       <p class="percent-discount">35% off</p>
+{% endif %}
+{% endcomment %}
+    </span>
+ 
+
+
+    {%- if show_reviews and product.metafields.reviews.rating.value != blank -%}
+      <span class="product__price-reviews text-size--regular">
+        <span class="visually-hidden">{{ 'general.accessibility_labels.rating_info' | t: rating_value: product.metafields.reviews.rating.value, rating_max: product.metafields.reviews.rating.value.scale_max }}</span>
+        <span class="rating-icon" aria-hidden="true">
+          {%- render 'theme-symbols', icon: 'star' -%}
+        </span>
+        <span class="rating-text" aria-hidden="true">
+          {{ product.metafields.reviews.rating.value.rating | round: 1 | remove: '.0' }} / {{ product.metafields.reviews.rating.value.scale_max | round: 2 | remove: '.0' }}
+        </span>
+      </span>
+
+    {%- endif -%}
+
+  </span>
+
+  <div class="product__extras text-size--smaller">
+
+    {%- if show_tax_info -%}
+      {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
+        <span class="product__policies" data-product-policies>
+          {% if shop.taxes_included %}
+            {{ 'product.page.include_taxes' | t }}
+          {%- endif -%}
+          {%- if shop.shipping_policy.body != blank -%}
+            {{ 'product.page.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+          {%- endif -%}
+        </span>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if show_sku -%}
+      <span class="product__sku">
+        {%- if variant.sku != empty -%}
+          {{ 'product.page.sku' | t }}{{ variant.sku | escape }}
+        {%- endif -%}
+      </span>
+    {%- endif -%}
+    {%- if show_barcode -%}
+      <span class="product__barcode">
+        {%- if variant.barcode != empty -%}
+          {{ 'product.page.barcode' | t }}{{ variant.barcode | escape }}
+        {%- endif -%}
+      </span>
+    {%- endif -%}
+
+  </div>
+
+</div>
+
+
+
+{% if product.handle contains 'eyeshadow-sticks' %}
+  <script>
+    $( document ).ready(function() {
+    $("<span class='quant-btn diffhead'>Matte</span>").insertAfter(".product-variant__item:nth-child(7)");
+       $("<span class='quant-btn diffhead'>Shimmer</span>").insertBefore(".product-variant__item:nth-child(1)");
+      });
+  </script>
+  <style>
+    .diffhead{
+      width: 100%;
+    }
+  </style>
+ 
+  {% endif %}
+ <script>
+    $(document).ready(function(){
+    $(".product__price--original").find(".visually-hidden").remove();
+ const newText =   $(".product__price--original").text().replace("MRP", "Rs.");
+   $(".product__price--original").text(newText); 
+      });
+  </script>
+  {% if product.handle contains 'soak-it-smudge-stick' or product.handle contains 'get-even-smudge-stick' or product.handle contains 'zit-quit-smudge-stick' %}
+  <script>
+    $( document ).ready(function() {
+      
+      $("<span class='quant-btn diffhead'>Bronzer</span>").insertAfter(".product-variant__item:nth-child(11)");
+    $("<span class='quant-btn diffhead'>Blush</span>").insertAfter(".product-variant__item:nth-child(5)");
+       $("<span class='quant-btn diffhead'>Highlight</span>").insertBefore(".product-variant__item:nth-child(1)");
+      });
+  </script>
+  <style>
+    .diffhead{
+      width: 100%;
+    }
+  </style>
+ 
+  {% endif %}
+  {% if product.handle contains 'get-even-dual-smudge-stick' or product.handle contains 'soak-it-dual-smudge-stick' or product.handle contains 'zit-quit-dual-smudge-stick' %}
+  <script>
+    $( document ).ready(function() {
+      
+    $("<span class='quant-btn diffhead'>Blush+ Bronzer</span>").insertAfter(".product-variant__item:nth-child(6)");
+       $("<span class='quant-btn diffhead'>Highlight+ Blush</span>").insertBefore(".product-variant__item:nth-child(1)");
+      });
+  </script>
+  <style>
+    .diffhead{
+      width: 100%;
+    }
+  </style>
+ 
+  {% endif %}
+  
+<style>
+  .percent-discount{
+        margin: 0;
+    color: #fff;
+    background-color: #ff3eb5;
+    font-size: 15px;
+    display: inline-block;
+       text-transform: uppercase;
+    font-weight: 600;
+    white-space: pre;
+    padding: 4px 10px;
+
+  }
+   {% if page.handle == 'grid' %}
+     @media only screen and (max-width: 600px) {
+       .live2ai-carousel-wrapper {
+   display: flex!important;
+  }
+     }
+    {% endif %}
+</style>
+
+
+  

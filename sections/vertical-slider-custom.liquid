@@ -1,0 +1,164 @@
+<div class="top-content">
+  <div class="top-content-inner">
+    <div class="left-content">
+      <div class="left-content-inner">
+         <span style="display: block;" class="slide-caption">skincare + makeup</span>
+    <span style="display: block;margin-bottom: 1rem;" class="slide-title">Introduce your skin to the beauty of science.</span>
+    <div class="btn-slide desk">
+    {% for block in section.blocks %}
+        <a class="cutbtn slide-button button button--underline palm--hide" href="{{ block.settings.linklink }}" title="SHOP Hydra Jelly Tints">{{ block.settings.linktext }}<span class="svg svg__arrow" aria-hidden="true"><svg aria-hidden="true" focusable="false" role="presentation" enable-background="new -19 23 66 16" viewBox="-19 23 66 16" xmlns="http://www.w3.org/2000/svg"><path d="m-19 29.6h64v2.9h-64z"></path><path d="m47 31-2-2-6-6-2 2 5.9 6-5.9 6 2 2 6-6z"></path></svg></span></a>
+    {% endfor %}
+      </div>
+      </div>
+   
+  </div>
+  <div class="right-content">
+    <div class="img-slide">
+   {% for block in section.blocks %}
+     <a href="{{ block.settings.linklink }}">
+        <img style="width: 100%;" class="img" src="{{ block.settings.imgblock | img_url: 'master' }}" >
+     </a>
+    {% endfor %}
+      </div>
+    <p class="bot-text">BEAUTY THAT NEEDS NO COMPROMISE.</p>
+    <img class="stamp-img" style="" src="https://www.typebeautyinc.com/cdn/shop/t/60/assets/Stamp.png?v=27636468430054937231700729318">
+    <div class="btn-slide mob">
+    {% for block in section.blocks %}
+        <a class="cutbtn slide-button button button--underline palm--hide" href="{{ block.settings.linklink }}" title="SHOP Hydra Jelly Tints">{{ block.settings.linktext }}<span class="svg svg__arrow" aria-hidden="true"><svg aria-hidden="true" focusable="false" role="presentation" enable-background="new -19 23 66 16" viewBox="-19 23 66 16" xmlns="http://www.w3.org/2000/svg"><path d="m-19 29.6h64v2.9h-64z"></path><path d="m47 31-2-2-6-6-2 2 5.9 6-5.9 6 2 2 6-6z"></path></svg></span></a>
+    {% endfor %}
+      </div>
+ </div>
+  </div>
+  
+</div>
+<script>
+   $('.img-slide').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  asNavFor: '.btn-slide',
+     autoplay: true,
+  autoplaySpeed: 4000
+});
+$('.btn-slide').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  asNavFor: '.img-slide',
+  autoplay: true,
+   arrows: false,
+  autoplaySpeed: 4000
+});
+</script>
+<style>
+  .bot-text {
+    margin: 0;
+    margin-top: 5px;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: Inter;
+    text-align: end;
+}
+  .stamp-img{
+        position: absolute;
+    top: 20px;
+    right: -11%;
+    width: 20%;
+    animation: rotation 8s infinite linear;
+  }
+   .top-content-inner .left-content{
+     width: 48%;
+     text-align: left;
+      position: relative;
+   }
+   .top-content-inner .right-content{
+     width: 48%;
+     position: relative;
+   }
+  .top-content-inner{
+    display: flex;
+    justify-content: center;
+  }
+  .left-content-inner{
+     position: sticky;
+    z-index: 1;
+    top: 32%;
+  }
+  .top-content{
+    max-width: 1600px;
+    padding: 0 30px;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+  .cutbtn{
+        color: #FF8F1A !important;
+    border-color: #FF8F1A !important;
+    font-family: Inter;
+    font-weight: 600 !important;
+  }
+   .cutbtn svg path{
+     fill: #FF8F1A !important;
+   }
+  .btn-slide{
+    width: 60%;
+  }
+  @media only screen and (max-width: 600px) {
+  .right-content {
+   width: 100%!important;
+    margin-top: 1rem;
+  }
+     .left-content{
+     width: 100%!important;
+     }
+    .top-content-inner{
+    display: block;
+    }
+     .btn-slide{
+   width: 100%!important;
+  }
+    .cutbtn {
+    text-align: left!important;
+    margin-top: 1rem!important;
+}
+}
+</style>
+{% schema %}
+{
+  "name": "Top Slider",
+  "settings": [
+    
+  ],
+  	"blocks": [
+     {
+       "name": "Slide",
+       "type": "slide",
+       "settings": [
+          {
+           "type": "image_picker",
+           "id": "imgblock",
+           "label": "Image"
+         },
+         {
+           "type": "url",
+           "id": "linklink",
+           "label": "Button Link"
+         },
+          {
+           "type": "text",
+           "id": "linktext",
+           "label": "Button text"
+         }
+       ]
+     }
+  ],
+  "presets": [
+    {
+      "name": "Top Slider",
+      "settings": {
+      }
+    }
+  ]
+}
+{% endschema %}

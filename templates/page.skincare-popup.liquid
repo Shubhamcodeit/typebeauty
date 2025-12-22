@@ -1,0 +1,1003 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script src="//cdn.shopify.com/s/files/1/0068/1836/5529/t/4/assets/papaparse.js?v=14160904763589616364" ></script>
+  
+  <div class="filter-skin-main page-width" id="filter-header">
+      <label class="filter_title ten-tenths">Step1---------Step2---------Step3</label>
+   
+     <div class="Skin-type  ten-tenths">
+       <h2>What is your skin Type</h2>
+       <div class="skin-options">
+         
+       </div>
+       <div class="skin-shade" style="display:none;">
+         <select id="skin_shade"><option>Select Shade</option></select>
+          <button class="step-btn" id="step2">STEP 2</button>
+       </div>
+      
+    </div>
+     
+     <div class="skin-more-options  ten-tenths" style="display:none;">
+       <h2>SeLECT THE BRAND, PRODUCT NAME AND 
+         SHADE OF FOUNDATION THAT MATCHES YOUR SKIN 
+         CLOSELY TO FIND YOUR PERFECT TYPE MATCH </h2>
+        <select id="brand_select"><option>Select Brand</option></select>
+       <select id="productname_select"><option val="pro-name">Select Product Name</option></select>
+       <select id="shade_select"><option val="pro-shade">Select Shade</option></select>
+       
+       <button class="step-btn" id="step3">STEP 3</button>
+       
+    </div>
+     <div class="recommended-output" style="display:none;">
+       <p class="recomm-shade">Recommended Shade: <span class="shade-recommended  ten-tenths"></span></p>
+       
+       {% section 'skincare-results' %}
+<!--         <div class="recommended-pro get-even-serum-foundation" style="display:none;">
+        Get Even Serum Foundation
+       </div>
+      <div class="recommended-pro eye-light-concealer" style="display:none;">
+        Eye Light Concealer
+       </div>
+       <div class="recommended-pro zit-quit-concealer" style="display:none;">
+         Zit Quit Concealer
+       </div> -->
+    
+    </div>
+   
+    
+    </div>
+<style>
+  .filter-skin-main{ margin:0 auto; }
+  .filter-skin-main .ten-tenths {
+      margin: 0 auto;
+        display: block;
+  }
+  .skin-options li {
+    list-style-type: none;
+}
+  .skin-shade {
+    margin: 25px 0px;
+}
+ .step-btn{
+  margin-top:15px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0;
+    justify-content: center;
+    padding: 10px 20px!important;
+    height: auto;
+    text-transform: uppercase;
+cursor: pointer;
+    transition: all 0.2s ease-out;
+  }
+  .step-btn:hover{
+  background-color: #FF3FB5;
+  }
+  .filter-skin-main .collection.collection--regular {
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    margin-top: 30px;
+  }
+  .recomm-shade {
+    text-align: center;
+}
+  .recomm-shade span {
+    display: initial!important;
+}
+
+</style>
+
+<script>
+ 
+    $('.recommended-pro').hide(); 
+      
+    function doStuff(data) {
+
+      var unique_mf = [];
+      var unique_md = [];
+      var unique_yr = [];
+     console.log(data);
+      
+      $.each(data, function(key,value) {
+//         console.log('Data- start: '+data[key]+'End');
+       
+//         console.log(key+' : '+value);
+//         console.log(data[key][1]);
+         var manufacturer =  data[key][1];
+         var model =  data[key][2];
+         var year =  data[key][3];
+        
+//           console.log(manu_options);
+      
+        
+          var array_unique = data[key][0];
+          unique_mf.push(array_unique);
+      
+          var array_unique1 = data[key][2];
+          unique_md.push(array_unique1);
+        
+          var array_unique2 = data[key][3];
+          unique_yr.push(array_unique2);
+        
+        
+           }); 
+      
+//       console.log(unique_mf);
+      
+      let uni_manufacture = [...new Set(unique_mf)];
+  
+     
+      for (var i = 0; i < uni_manufacture.length; i++) {
+        if(uni_manufacture[i]!= null) {
+          console.log(uni_manufacture[i]+'val');
+         var manu_options = '<li><input type="radio" name="option-skin" class="skin-opt" value='+ uni_manufacture[i] +'><label>'+uni_manufacture[i]+'</label></li>';
+     
+        $('.skin-options').append(manu_options);
+//         console.log(uni_manufacture[i]);
+        }
+      }
+      
+//       console.log(unique_md);
+      
+      let uni_model = [...new Set(unique_md)];
+  
+     
+      for (var i = 0; i < uni_model.length; i++) {
+         var model_options = '<option value='+uni_model[i]+'>'+uni_model[i]+'</option>';
+//           $('#model_opt').append(model_options);
+        
+//         console.log(model_options[i]);
+        
+      }
+      
+//       console.log(unique_yr);
+      
+       let uni_year = [...new Set(unique_yr)];
+  
+     
+      for (var i = 0; i < uni_year.length; i++) {
+         var year_options = '<option value='+uni_year[i]+'>'+uni_year[i]+'</option>';
+//          $('#make_year_opt').append(year_options);
+       // console.log(uni_year[i]);
+        
+      }
+     
+       
+     
+      
+}
+
+       function doStuffsearch(data) {
+        var unique_veh = [];
+      var unique_mf = [];
+      var unique_md = [];
+      var unique_yr = [];
+     // console.log(data);
+      
+      $.each(data, function(key,value) {
+//         console.log('Data- start: '+data[key]+'End');
+       
+//         console.log(key+' : '+value);
+//         console.log(data[key][1]);
+         var manufacturer =  data[key][1];
+         var model =  data[key][2];
+         var year =  data[key][3];
+          var manufacturer_serh =  data[key];
+//           console.log(manu_options);
+      
+          var array_unique_veh = data[key][1];
+          unique_veh.push(array_unique_veh);
+        
+          var array_unique = data[key][1];
+          unique_mf.push(array_unique);
+      
+          var array_unique1 = data[key][2];
+          unique_md.push(array_unique1);
+        
+          var array_unique2 = data[key][3];
+          unique_yr.push(array_unique2);
+        
+
+           }); 
+      
+         
+       
+		  let uni_unique_veh = [...new Set(unique_veh)];
+  var realveh = uni_unique_veh.filter(function (e) {return e != null;});
+//      console.log(realveh);
+           
+           $('#skin_shade').empty();
+         
+        
+         var checkboxes = document.getElementsByName('option-skin');
+         for (var checkbox of checkboxes)
+         {
+           if (checkbox.checked) {
+//              alert(checkbox.value + ' ');
+             var val_model = checkbox.value.trim();
+             console.log(val_model+'test');
+           }
+         }
+         
+          var task_names = [];
+         data.forEach(function (i) {
+           task_names.push(i);              
+         });
+         
+         console.log(val_model+task_names.length);
+         
+      for (var i = 0; i < task_names.length; i++) {
+        if(task_names[i].length>1){
+//         console.log(task_names[i]);
+        
+         if($.inArray(val_model, task_names[i]) != -1){  
+            console.log(task_names[i][1]);
+         var manu_options = '<option value="'+task_names[i][1]+'">'+task_names[i][1]+'</option>';
+       
+        $('#skin_shade').append(manu_options);
+           $('.skin-shade').show();
+//         console.log(realveh[i]);
+          }
+        
+      }
+      }
+     
+}
+
+       function doStuffsearch2(data) {
+        var unique_veh = [];
+      var unique_mf = [];
+      var unique_md = [];
+      var unique_yr = [];
+     // console.log(data);
+      
+      $.each(data, function(key,value) {
+//         console.log('Data- start: '+data[key]+'End');
+       
+//         console.log(key+' : '+value);
+//         console.log(data[key][1]);
+         var manufacturer =  data[key][1];
+         var model =  data[key][2];
+         var year =  data[key][3];
+          var manufacturer_serh =  data[key];
+//           console.log(manu_options);
+      
+          var array_unique_veh = data[key][1];
+          unique_veh.push(array_unique_veh);
+        
+          var array_unique = data[key][1];
+          unique_mf.push(array_unique);
+      
+          var array_unique1 = data[key][2];
+          unique_md.push(array_unique1);
+        
+          var array_unique2 = data[key][3];
+          unique_yr.push(array_unique2);
+        
+        
+        
+//           var val = "Ducati"; 
+//          var next = manufacturer_serh[($.inArray(val, manufacturer_serh) + 1) % manufacturer_serh.length];
+         //console.log(next);
+        
+        
+           }); 
+      
+          $('#make_year_opt').html('<option value="default">Select Year</option>');
+         
+            var checkboxes = document.getElementsByName('option-skin');
+         for (var checkbox of checkboxes)
+         {
+           if (checkbox.checked) {
+//              alert(checkbox.value + ' ');
+             var val_type = checkbox.value.trim();
+             console.log(val_type+': shade');
+           }
+         }
+         
+//             var val_type = 'Sensitive';
+            var manufacturer_opt1 = $('#skin_shade').val();
+            
+//              console.log(val_type+manufacturer_opt);
+           var match_array = val_type+manufacturer_opt1;
+//            console.log(match_array);
+
+            var loc_array =[];
+           loc_array.push(val_type); 
+           loc_array.push(manufacturer_opt1); 
+       
+           $('#model_opt').empty();
+         
+		var val_model = $('#manufacturer_opt').val();
+         var task_names = [];
+         data.forEach(function (i) {
+           task_names.push(i);              
+         });
+         
+          let checker = (arr, target) => target.every(v => arr.includes(v));
+           
+          
+           const arr1 = loc_array;
+           console.log(arr1);
+         
+         
+         
+            for (var i = 0; i < task_names.length; i++) { 
+              
+               var arr2_loc = task_names[i].filter(function (e) {return e != null;});
+             const arr2 = task_names[i];
+              
+              const results = arr2.map(element => {
+                if (typeof element === 'string') {
+                  return element.trim();
+                }
+
+                return element;
+              });
+              
+//           console.log(arr2_loc);
+           const contains = (first, second) => {
+             const indexArray = first.map(el => {
+               return second.indexOf(el);
+             });
+             return indexArray.indexOf(-1) === -1;
+           }
+           
+          
+           var array_checked = contains(arr1, results);
+//               console.log('checked array:- '+array_checked);
+         
+             if (array_checked== true){
+//              console.log(task_names[i]);
+               var model_val = task_names[i][2].replaceAll(' ', '-');
+               console.log('Model value:- '+model_val);
+               $('.recommended-pro').hide();
+               $('.'+model_val).show();
+//                var model_option = '<option value="'+model_val+'">'+model_val+'</option>'; 
+//                 $("#model_opt").append('<option value="default">Select Model</option>'+model_option); 
+             }
+             
+              
+              
+            }
+ 
+              
+
+         
+        
+      
+}
+  
+//   Step 2 1st brand select options
+  
+  
+    function doStuffstep21(data) {
+
+      var unique_mf = [];
+      var unique_md = [];
+      var unique_yr = [];
+     console.log(data);
+      
+      $.each(data, function(key,value) {
+//         console.log('Data- start: '+data[key]+'End');
+       
+//         console.log(key+' : '+value);
+//         console.log(data[key][1]);
+         var manufacturer =  data[key][1];
+         var model =  data[key][2];
+         var year =  data[key][3];
+        
+//           console.log(manu_options);
+      
+        
+          var array_unique = data[key][0];
+          unique_mf.push(array_unique);
+      
+          var array_unique1 = data[key][2];
+          unique_md.push(array_unique1);
+        
+          var array_unique2 = data[key][3];
+          unique_yr.push(array_unique2);
+        
+        
+           }); 
+      
+
+      
+      let uni_manufacture = [...new Set(unique_mf)];
+       console.log(uni_manufacture); 
+     
+      for (var i = 0; i < uni_manufacture.length; i++) {
+       
+        if(uni_manufacture[i]!= null) {
+           console.log(uni_manufacture[i]);
+         var manu_options = '<option value="'+uni_manufacture[i]+'">'+uni_manufacture[i]+'</option>';
+     
+        $('#brand_select').append(manu_options);
+//         console.log(uni_manufacture[i]);
+        }
+      }
+      
+
+          $('#step3').on('click', function() {
+            var val_type = $('#brand_select').val();
+            var manufacturer_opt1 = $('#productname_select').val();
+             var model_opt1 = $('#shade_select').val();
+//              var make_year_opt1 = $('#make_year_opt').val();
+//              console.log(manufacturer_opt+model_opt+make_year_opt);
+           var match_array = manufacturer_opt1+','+model_opt1;
+//            console.log(match_array);
+
+            var loc_array =[];
+           loc_array.push(val_type); 
+           loc_array.push(manufacturer_opt1); 
+           loc_array.push(model_opt1);
+//            loc_array.push(parseInt(make_year_opt1));
+//            loc_array.push('Small');
+           
+           console.log(loc_array);
+              let checker = (arr, target) => target.every(v => arr.includes(v));
+           
+          
+           const arr1 = loc_array;
+           console.log(arr1);
+           
+            if(arr1[0] == 'default'){
+             alert('Please select options to Search.');
+             
+             }
+//            if(arr1[1] == 'default'){
+//              alert('Please select Manufacturer To Search.');
+             
+//              }
+//            if(arr1[2] == 'default'){
+//              alert('Please select Model To Search.');
+             
+//              }
+//            if(arr1[3] == 'default'){
+//              alert('Please Select Year To Search.');
+             
+//              }
+           
+           var task_names = data;
+           for (var i = 0; i < task_names.length; i++) { 
+  
+           if ($.inArray(arr1, task_names[i]) == 1) {
+             // Neither foo or bar in array
+             
+              var array1234 = $.map(task_names[i], function(value, index){
+                 return [value];
+               }); 
+//              console.log('Araay comp1 : '+task_names[i]);
+             
+               var loc1 =[];
+//              console.log(array123);
+               $.each(array1234, function(index, value){ 
+
+                   loc1.push(value);                 
+                              
+               });
+//                console.log('Araay comp1 : '+loc1);
+             
+           }
+             
+             const arr2 = task_names[i];
+//             console.log(arr2);
+           const contains = (first, second) => {
+             const indexArray = first.map(el => {
+               return second.indexOf(el);
+             });
+             return indexArray.indexOf(-1) === -1;
+           }
+           
+          
+           var array_checked = contains(arr1, arr2);
+             console.log(array_checked);
+             
+             if (array_checked== true){
+             
+                console.log(contains(arr1, arr2));
+                var skinshade = task_names[i][3];
+               console.log(skinshade);
+                $('.shade-recommended').html(skinshade);
+               
+             }
+              
+             
+           
+             
+             
+           }
+           
+//            console.log(checker(array2, array1));  // false
+           
+           
+            });   
+         
+     
+}
+// End of brand select
+  
+//   Step 2 Select Product Name
+      function doStuffsearch22(data) {
+        var unique_veh = [];
+      var unique_mf = [];
+      var unique_md = [];
+      var unique_yr = [];
+     // console.log(data);
+      
+      $.each(data, function(key,value) {
+//         console.log('Data- start: '+data[key]+'End');
+       
+//         console.log(key+' : '+value);
+//         console.log(data[key][1]);
+         var manufacturer =  data[key][1];
+         var model =  data[key][2];
+         var year =  data[key][3];
+          var manufacturer_serh =  data[key];
+//           console.log(manu_options);
+      
+          var array_unique_veh = data[key][1];
+          unique_veh.push(array_unique_veh);
+        
+          var array_unique = data[key][1];
+          unique_mf.push(array_unique);
+      
+          var array_unique1 = data[key][2];
+          unique_md.push(array_unique1);
+        
+          var array_unique2 = data[key][3];
+          unique_yr.push(array_unique2);
+        
+
+           }); 
+      
+         
+       
+		  let uni_unique_veh = [...new Set(unique_veh)];
+  var realveh = uni_unique_veh.filter(function (e) {return e != null;});
+//      console.log(realveh);
+           
+           $('#productname_select').empty();
+         
+        
+             var val_model = $('#brand_select').val().trim();
+             console.log(val_model+'test');
+          
+          var task_names = [];
+         data.forEach(function (i) {
+           task_names.push(i);              
+         });
+         
+         console.log(val_model+task_names.length);
+         
+      for (var i = 0; i < task_names.length; i++) {
+        if(task_names[i].length>1){
+//         console.log(task_names[i]);
+        
+         if($.inArray(val_model, task_names[i]) != -1){  
+            console.log(task_names[i][1]);
+         var manu_options = '<option value="'+task_names[i][1]+'">'+task_names[i][1]+'</option>';
+       
+        $('#productname_select').append(manu_options);
+           
+//         console.log(realveh[i]);
+            var prod_name = $('#productname_select').val().trim();
+             console.log(prod_name+'product name');
+           
+           
+          }
+        
+      }
+      }
+     
+}
+
+//   Product Shade Select
+  
+        function doStuffsearch23(data) {
+        var unique_veh = [];
+      var unique_mf = [];
+      var unique_md = [];
+      var unique_yr = [];
+     // console.log(data);
+      
+      $.each(data, function(key,value) {
+//         console.log('Data- start: '+data[key]+'End');
+       
+//         console.log(key+' : '+value);
+//         console.log(data[key][1]);
+         var manufacturer =  data[key][1];
+         var model =  data[key][2];
+         var year =  data[key][3];
+          var manufacturer_serh =  data[key];
+//           console.log(manu_options);
+      
+          var array_unique_veh = data[key][1];
+          unique_veh.push(array_unique_veh);
+        
+          var array_unique = data[key][1];
+          unique_mf.push(array_unique);
+      
+          var array_unique1 = data[key][2];
+          unique_md.push(array_unique1);
+        
+          var array_unique2 = data[key][3];
+          unique_yr.push(array_unique2);
+        
+        
+        
+//           var val = "Ducati"; 
+//          var next = manufacturer_serh[($.inArray(val, manufacturer_serh) + 1) % manufacturer_serh.length];
+         //console.log(next);
+        
+        
+           }); 
+      
+          $('#make_year_opt').html('<option value="default">Select Year</option>');
+         
+           var val_type = $('#brand_select').val().trim();
+             console.log(val_type+'test');
+         
+//             var val_type = 'Sensitive';
+            var manufacturer_opt1 = $('#productname_select').val();
+            
+//              console.log(val_type+manufacturer_opt);
+           var match_array = val_type+manufacturer_opt1;
+//            console.log(match_array);
+
+            var loc_array =[];
+           loc_array.push(val_type); 
+           loc_array.push(manufacturer_opt1); 
+       
+           $("#shade_select").empty();
+         
+		var val_model = $('#manufacturer_opt').val();
+         var task_names = [];
+         data.forEach(function (i) {
+           task_names.push(i);              
+         });
+         
+          let checker = (arr, target) => target.every(v => arr.includes(v));
+           
+          
+           const arr1 = loc_array;
+           console.log(arr1);
+         
+         
+         
+            for (var i = 0; i < task_names.length; i++) { 
+              
+               var arr2_loc = task_names[i].filter(function (e) {return e != null;});
+             const arr2 = task_names[i];
+              
+              const results = arr2.map(element => {
+                if (typeof element === 'string') {
+                  return element.trim();
+                }
+
+                return element;
+              });
+              
+//           console.log(arr2_loc);
+           const contains = (first, second) => {
+             const indexArray = first.map(el => {
+               return second.indexOf(el);
+             });
+             return indexArray.indexOf(-1) === -1;
+           }
+           
+          
+           var array_checked = contains(arr1, results);
+//               console.log('checked array:- '+array_checked);
+         
+             if (array_checked== true){
+//              console.log(task_names[i]);
+               var model_val = task_names[i][2];
+               console.log('Model value:- '+model_val);
+//                $('.recommended-pro').hide();
+//                $('.'+model_val).show();
+               var shade_option = '<option value="'+model_val+'">'+model_val+'</option>'; 
+                $("#shade_select").append('<option value="default">Select Shade</option>'+shade_option); 
+             }
+             
+              
+              
+            }
+ 
+              
+
+         
+        
+      
+}
+  
+//   End of shade
+  
+           
+         $('#filter_srh').on('click', function() {
+           $('.filter-loading').fadeIn();
+           $('.filter-loading').css('display', 'flex');
+           setTimeout(function() {
+             $('.filter-loading').fadeOut();
+           }, 2000);
+           
+            var val_type = $('#vehicle_type').val();
+            var manufacturer_opt1 = $('#manufacturer_opt').val();
+             var model_opt1 = $('#model_opt').val();
+             var make_year_opt1 = $('#make_year_opt').val();
+//              console.log(manufacturer_opt+model_opt+make_year_opt);
+           var match_array = manufacturer_opt1+','+model_opt1+','+make_year_opt1;
+//            console.log(match_array);
+
+            var loc_array =[];
+           loc_array.push(val_type); 
+           loc_array.push(manufacturer_opt1); 
+           loc_array.push(model_opt1);
+           loc_array.push(parseInt(make_year_opt1));
+//            loc_array.push('Small');
+           
+//            console.log(loc_array);
+              let checker = (arr, target) => target.every(v => arr.includes(v));
+           
+          
+           const arr1 = loc_array;
+           console.log(arr1);
+           
+           var task_names = [];
+           for (var i = 0; i < data.length; i++) { 
+
+             
+             const arr2 = data[i];
+//             console.log(arr2);
+           const contains = (first, second) => {
+             const indexArray = first.map(el => {
+               return second.indexOf(el);
+             });
+             return indexArray.indexOf(-1) === -1;
+           }
+           
+          
+           var array_checked = contains(arr1, arr2);
+           
+             console.log(array_checked);
+             
+             if (array_checked== true){
+             console.log(data[i]);
+                console.log(contains(arr1, arr2));
+                var checked_strap = data[i][4];
+               
+                if (checked_strap=='Small'){
+//                alert('Small');
+                  $('.no_strap_found').fadeOut();
+                   $('.small_strap').fadeIn();
+                  $('.medium_strap').fadeOut();
+                   $('.no_strap').fadeOut();
+               }
+               if (checked_strap=='Medium'){
+                  $('.no_strap_found').fadeOut();
+                 $('.medium_strap').fadeIn();
+                 $('.small_strap').fadeOut();
+                   $('.no_strap').fadeOut();
+//                alert('Medium');
+               }
+                if (checked_strap=='?'){
+//                alert('?');
+                   $('.no_strap_found').fadeOut();
+                    $('.no_strap').fadeIn();
+                   $('.medium_strap').fadeOut();
+                 $('.small_strap').fadeOut();
+               }
+               
+             }
+             
+             
+             
+           }
+           
+ 
+          
+
+           
+            });
+  
+  
+//     function doStuffsearchshade(data) {
+//         var unique_veh = [];
+//       var unique_mf = [];
+//       var unique_md = [];
+//       var unique_yr = [];
+//      // console.log(data);
+      
+//       $.each(data, function(key,value) {
+// //         console.log('Data- start: '+data[key]+'End');
+       
+// //         console.log(key+' : '+value);
+// //         console.log(data[key][1]);
+//          var manufacturer =  data[key][1];
+//          var model =  data[key][2];
+//          var year =  data[key][3];
+//           var manufacturer_serh =  data[key];
+// //           console.log(manu_options);
+      
+//           var array_unique_veh = data[key][1];
+//           unique_veh.push(array_unique_veh);
+        
+//           var array_unique = data[key][1];
+//           unique_mf.push(array_unique);
+      
+//           var array_unique1 = data[key][2];
+//           unique_md.push(array_unique1);
+        
+//           var array_unique2 = data[key][3];
+//           unique_yr.push(array_unique2);
+        
+        
+        
+// //           var val = "Ducati"; 
+// //          var next = manufacturer_serh[($.inArray(val, manufacturer_serh) + 1) % manufacturer_serh.length];
+//          //console.log(next);
+        
+        
+//            }); 
+      
+//           $('#make_year_opt').html('<option value="default">Select Year</option>');
+         
+//            var val_type = $('#brand_select').val().trim();
+//              console.log(val_type+'test');
+         
+// //             var val_type = 'Sensitive';
+//             var manufacturer_opt1 = $('#productname_select').val();
+            
+// //              console.log(val_type+manufacturer_opt);
+//            var match_array = val_type+manufacturer_opt1;
+// //            console.log(match_array);
+
+//             var loc_array =[];
+//            loc_array.push(val_type); 
+//            loc_array.push(manufacturer_opt1); 
+       
+// //            $("#shade_select").empty();
+         
+// 		var val_model = $('#manufacturer_opt').val();
+//          var task_names = [];
+//          data.forEach(function (i) {
+//            task_names.push(i);              
+//          });
+         
+//           let checker = (arr, target) => target.every(v => arr.includes(v));
+           
+          
+//            const arr1 = loc_array;
+//            console.log(arr1);
+         
+         
+         
+//             for (var i = 0; i < task_names.length; i++) { 
+              
+//                var arr2_loc = task_names[i].filter(function (e) {return e != null;});
+//              const arr2 = task_names[i];
+              
+//               const results = arr2.map(element => {
+//                 if (typeof element === 'string') {
+//                   return element.trim();
+//                 }
+
+//                 return element;
+//               });
+              
+// //           console.log(arr2_loc);
+//            const contains = (first, second) => {
+//              const indexArray = first.map(el => {
+//                return second.indexOf(el);
+//              });
+//              return indexArray.indexOf(-1) === -1;
+//            }
+           
+          
+//            var array_checked = contains(arr1, results);
+// //               console.log('checked array:- '+array_checked);
+         
+//              if (array_checked== true){
+// //              console.log(task_names[i]);
+//                var model_val = task_names[i][2];
+//                console.log('Model value:- '+model_val);
+// //                $('.recommended-pro').hide();
+// //                $('.'+model_val).show();
+//                var shade_option = '<option value="'+model_val+'">'+model_val+'</option>'; 
+//                 $("#shade_select").append('<option value="default">Select Shade</option>'+shade_option); 
+//              }
+             
+              
+              
+//             }
+ 
+              
+
+         
+        
+      
+// }
+  
+  
+
+function parseData(url, callBack) {
+    Papa.parse(url, {
+        download: true,
+        dynamicTyping: true,
+        complete: function(results) {
+            callBack(results.data);
+        }
+    });
+}
+  parseData("https://cdn.shopify.com/s/files/1/0555/4018/7214/files/step-one-quiz.csv?v=1651376564", doStuff);
+
+
+
+   $(document).on("click",".skin-opt",function() {
+//   alert(this.value);
+       parseData("https://cdn.shopify.com/s/files/1/0555/4018/7214/files/step-one-quiz.csv?v=1651376564", doStuffsearch);
+                 
+                 
+    });  
+  
+     $('#skin_shade').on('change', function() {
+//   alert( this.value );
+       parseData("https://cdn.shopify.com/s/files/1/0555/4018/7214/files/step-one-quiz.csv?v=1651376564", doStuffsearch2);
+                 
+                 
+    });  
+    
+//   Step 2 Functions start here
+
+  parseData("https://cdn.shopify.com/s/files/1/0555/4018/7214/files/step-two-sheet.csv?v=1651376564", doStuffstep21);
+
+  $('#brand_select').on('change', function() {
+    //   alert( this.value );
+    parseData("https://cdn.shopify.com/s/files/1/0555/4018/7214/files/step-two-sheet.csv?v=1651376564", doStuffsearch22);
+  });   
+
+  
+   $('#productname_select').on('change', function() {
+    //   alert( this.value );
+    parseData("https://cdn.shopify.com/s/files/1/0555/4018/7214/files/step-two-sheet.csv?v=1651376564", doStuffsearch23);
+  });   
+
+  
+       
+    setInterval(function () {
+
+      var usedNames = {};
+      $(".filter-skin-main select > option").each(function () {
+        if(usedNames[this.text]) {
+          $(this).remove();
+        } else {
+          usedNames[this.text] = this.value;
+        }
+      });   
+      
+    $('select option[value="null"]').remove();
+      
+    }, 50);  
+       
+   $("#step2").click(function(){
+     $(".Skin-type").fadeOut();
+     $(".skin-more-options").fadeIn();
+     });
+
+  $("#step3").click(function(){
+    $(".skin-more-options").fadeOut();
+    $(".recommended-output").fadeIn();
+  });
+  
+//   $(".filtered-data .cancel").click(function(){
+//      $("#a").fadeOut();
+//      $("#b").fadeOut();
+//   $('html, body').css({
+//     overflow: 'auto',
+//     height: 'auto'
+// });
+// });
+      
+    </script>

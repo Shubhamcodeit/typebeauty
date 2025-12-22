@@ -1,0 +1,152 @@
+<div class="your-type">
+  <div class="type-flexed">
+    <p style="text-align: center;" class="shead dashed-title h1">{{ section.settings.expheaddtype }}</p>
+    <div class="fluxtype">
+    {% for block in section.blocks %}
+      <div style="position: relative">
+        <a href="{{ block.settings.explinkstype }}">
+        <img src="{{ block.settings.imagetype | img_url: 'master' }}" loading="lazy">
+        </a>
+        <a style="padding: 0;" href="{{ block.settings.explinkstype }}" class="button button--underline">{{ block.settings.expheadtype }}
+      <span style="position: relative;" class="svg svg__arrow" aria-hidden="true"><svg aria-hidden="true" focusable="false" role="presentation" enable-background="new -19 23 66 16" viewBox="-19 23 66 16" xmlns="http://www.w3.org/2000/svg"><path d="m-19 29.6h64v2.9h-64z"></path><path d="m47 31-2-2-6-6-2 2 5.9 6-5.9 6 2 2 6-6z"></path></svg></span>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<style>
+  .your-type{
+        max-width: 1300px;
+    padding: 0 20px;
+    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+    text-align: center;
+  }
+  .fluxtype{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 5rem;
+  }
+  .fluxtype div{
+    width: 45%;
+    margin-bottom: 4rem;
+  }
+  .fluxtype div img{
+    width: 100%;
+    display: block;
+    margin-bottom: 1rem;
+  }
+  .fluxtype div:nth-child(2) {
+ margin-top: 8rem;
+}
+  .fluxtype div:nth-child(3) {
+ margin-top: -8rem;
+}
+  @media only screen and (max-width: 600px) {
+    .verti-new{
+          margin-bottom: -18vw!important;
+    }
+   .shead{
+      font-size: 1rem!important;
+    font-style: italic;
+      margin-bottom: 1rem!important;
+   }
+    .your-type
+      .dashed-title::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -65px;
+    height: 15px;
+    width: 57px;
+    transform: translateY(-50%);
+    background-image: url(/cdn/shop/files/Group_36_1.svg?v=1651781798);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+      .your-type .dashed-title::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -65px;
+    height: 15px;
+    width: 57px;
+    transform: translateY(-50%);
+    background-image: url(/cdn/shop/files/Group_37_1.svg?v=1651781886);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+    .fluxtype{
+      margin: 0;
+    }
+    fluxtype div {
+    width: 48%;
+    margin-bottom: 2rem;
+}
+     .fluxtype div a{
+      text-align: left;
+     }
+    .your-type {
+    max-width: 1300px;
+    padding: 0 20px;
+    margin: auto;
+    margin-top: 5rem;
+    margin-bottom: -9rem;
+    text-align: center;
+}
+    }
+
+</style>
+{% schema %}
+{
+  "name": "type",
+  "tag": "section",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "expheaddtype",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+     {
+       "name": "Slide",
+       "type": "slide",
+       "settings": [
+         {
+           "type": "url",
+           "id": "explinkstype",
+           "label": "URL Links"
+         },
+         {
+           "type": "image_picker",
+           "id": "imagetype",
+           "label": "Image"
+         },
+         {
+      "type": "text",
+      "id": "expheadtype",
+      "label": "Block Heading"
+    }
+       ]
+     }
+   ],
+  "presets": [
+    {
+      "name": "type",
+      "settings": {
+       
+      },
+      "blocks": [
+       
+      ]
+    }
+  ]
+}
+{% endschema %}

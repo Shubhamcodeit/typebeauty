@@ -1,0 +1,386 @@
+
+
+{% stylesheet %}
+  .slider-main{
+    padding-bottom: 130px;
+    position: relative;
+  }
+  .slider-main::before{
+    position: absolute;
+    content: '';
+    background-image: url('https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Frame_8.png?v=1746014761');
+    background-repeat: no-repeat;
+    width: 770px;
+    height: 400px;
+    bottom: auto;
+    right: auto;
+    left: 0;
+    top: 40px;
+  }
+  .hero-swipe{
+    display: flex;
+  }
+  .hero-swipe .slider-left{
+    width: 46%;
+    position: relative;
+    height: 100%;
+  }
+  .hero-swipe .slider-left::after{
+    position: absolute;
+    content: '';
+    background-image: url('https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Group_3.png?v=1746014310');
+    background-repeat: no-repeat;
+    width: 445px;
+    height: 225px;
+    bottom: 100px;
+    right: -70px;
+    left: auto;
+    top: auto;
+  }
+  .hero-swipe .hero-content{
+    padding-bottom: 5px;
+  }
+  .hero-swipe .slider-left .swipe1 {
+    margin-top: 60px;
+  }
+  .hero-swipe .slider-right{
+    width: 54%;
+    position: relative;
+    height: 100%;
+  }
+  .small-slide-img{
+        position: absolute;
+    top: auto;
+    bottom: -30px;
+    width: 57%;
+    height: auto;
+    left: -33%;
+    right: auto;
+  }
+  .hero-swipe img{
+    width: 100%;
+    vertical-align: top;
+  }
+  .hero-swipe .hero-content .slider-caption{
+    font-size: 24px;
+    font-family: 'Inter';
+    letter-spacing: 0;
+    color: #FF3FB5;
+    line-height: 140%;
+    font-style: italic;
+    font-weight: 800;
+    margin-bottom: 28px;
+  }
+  .hero-swipe .hero-content .h1{
+    font-size: 54px;
+    font-family: 'Inter';
+    font-weight: 900;
+    font-style: italic;
+    line-height: 136%;
+    margin-bottom: 45px;
+    max-width: 90%;
+    text-transform: uppercase;
+  }
+  .hero-swipe .hero-content .h1 span{
+    position: relative;
+  }
+  .hero-swipe .hero-content .h1 span::before{
+    position: absolute;
+    contain: '';
+    background-image: url('https://cdn.shopify.com/s/files/1/0555/4018/7214/files/ezgifgif.gif?v=1746081704');
+    width: 120%;
+    height: 140%;
+    top: -5px;
+    bottom: 0;
+    right: 0;
+    left: -13px;
+    background-repeat: no-repeat;
+  }
+  .hero-swipe .hero-content p{
+    font-size: 24px;
+    line-height: 140%;
+    font-family: 'Inter';
+    font-weight: 400;
+    opacity: 0.75;
+    margin-bottom: 40px;
+    max-width: 73%;
+   }
+  .stamp-image{
+    margin-top: 100px;
+  }
+  .hero-swipe .stamp-img {
+    width: auto;
+    animation: rotation 8s infinite linear;
+}
+  @keyframes rotation{
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(359deg);
+    }
+  }
+  @media (max-width: 1440px){
+    .hero-swipe .hero-content .h1 {
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+    .hero-swipe .stamp-img{
+      width: 120px;
+      height: auto;
+    }
+    .stamp-image {
+      margin-top: 50px;
+    }
+    .slider-main{
+      padding-bottom: 70px;
+      margin-top: 15px;
+    }
+    .hero-swipe .hero-content .slider-caption{
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    .hero-swipe .hero-content p{
+      font-size: 20px;
+      max-width: 70%;
+      margin-bottom: 30px;
+    }
+    .hero-swipe .slider-left:after{
+      width: 335px;
+      height: 170px;
+      bottom: 145px;
+      right: -100px;
+    }
+    .slider-main:before{
+      width: 460px;
+      height: 240px;
+      background-size: cover;
+    }
+    .hero-swipe .slider-left .swipe1 {
+    margin-top: 30px;
+}
+  }
+@media (max-width: 1279px){
+  .hero-swipe .hero-content .h1{
+    font-size: 35px;
+  }
+  .hero-swipe .hero-content p{
+    font-size: 18px;
+  }
+  .hero-swipe .slider-left:after{
+    width: 315px;
+    height: 150px;
+  }
+}
+  @media (max-width: 768px){
+    .slider-main{
+      margin-top: 0;
+    }
+    .hero-swipe .slider-left,.hero-swipe .slider-right{
+      width: 100%;
+    }
+    .hero-swipe{
+      flex-direction: column-reverse;
+    }
+    .small-slide-img {
+      bottom: -50px;
+      width: 50%;
+      right: 20px;
+      left: auto;
+    }
+    .hero-swipe .slider-left{
+      margin-top: 70px;
+    }
+    .hero-swipe .slider-left:after {
+    width: 245px;
+    height: 120px;
+    bottom: auto;
+    right: auto;
+    top: -140px;
+    left: -30px;
+    background-size: cover;
+}
+    .hero-swipe .slider-left .swipe1 {
+    margin-top: 0;
+}
+    .hero-swipe .hero-content .slider-caption {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+    .hero-swipe .hero-content .h1 {
+    font-size: 30px;
+    margin-bottom: 6px;
+}
+    .hero-swipe .hero-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+      max-width: 70%;
+}
+.stamp-image {
+    margin-top: 0;
+    width: auto;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+    .slider-main:before {
+    width: 100%;
+    height: 200px;
+    bottom: 80px;
+    top: auto;
+}
+  .hero-swipe .stamp-img{
+    width: 90px;
+  }
+  }
+{% endstylesheet %}
+<div class="slider-main">
+  <div class="page-width">
+<div class="hero-swipe">
+  <div class="slider-left">
+    <div class="swiper swipe1">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="hero-content">
+              <div class="slider-caption">{{ block.settings.subtitle }}</div>
+              <div class="h1">{{ block.settings.title }}</div>
+              <p>{{ block.settings.description }}</p>
+              {% if block.settings.button_label != blank %}
+                <a href="{{ block.settings.button_link }}" class="cta-button hero-button">
+                  {{ block.settings.button_label }}
+                </a>
+              {% endif %}
+            <div class="stamp-image">
+                <img class="stamp-img" style="" src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/TYPE_ELEMENTS-05.png?v=1746017022" width="183" height="184">
+            </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="slider-right">
+    <div class="swiper swipe2">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            {% if block.settings.main_image %}
+              <img src="{{ block.settings.main_image | image_url: width: 875 }}" class="hero-main-img" alt="">
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="small-slide-img">
+    <div class="swiper swipe3">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            {% if block.settings.secondary_image %}
+              <img src="{{ block.settings.secondary_image | image_url: width: 500 }}" class="hero-secondary-img" alt="">
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</div>
+<script>
+  const swiper2 = new Swiper('.hero-swipe .swipe2', {
+    autoplay: {
+      delay: 5000,
+    },
+    effect: 'slide',
+  });
+    const swiper1 = new Swiper('.hero-swipe .swipe1', {
+    autoplay: {
+      delay: 5000,
+    },
+    effect: 'fade',
+        fadeEffect: {
+    crossFade: true,
+  },
+  });
+  const swiper3 = new Swiper('.hero-swipe .swipe3', {
+    autoplay: {
+      delay: 5000,
+    },
+    grabCursor: true,
+      effect: "creative",
+      creativeEffect: {
+        prev: {
+          shadow: true,
+          translate: [0, 0, -400],
+        },
+        next: {
+          translate: ["100%", 0, 0],
+        },
+      },
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Swipe Hero Section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Hero Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "SKINCARE + MAKEUP"
+        },
+        {
+          "type": "html",
+          "id": "title",
+          "label": "Main Title",
+          "default": "MAKEUP THAT <span>LOVES</span> YOUR SKIN"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Science-backed, skincare-infused beauty for every skin type."
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Main Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "secondary_image",
+          "label": "Secondary Image"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "Swipe Hero Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

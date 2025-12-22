@@ -1,0 +1,29 @@
+<div class="newsletter-form">
+	{%- form 'customer', id: id -%}
+    {%- render 'form-errors', form: form -%}
+	  {%- if form.posted_successfully? -%}	
+	  	{%- assign success_text = 'general.newsletter.confirmation' | t -%}
+	  	{%- if type == 'page' -%}
+	  		<div class="h2">{{ success_text }}</div>
+	  	{%- else -%}
+	  		{%- render 'form-success', text: success_text -%}
+	  	{%- endif -%}
+	  {%- else -%}
+	  	<div class="newsletter-input-holder">
+	      <label for="Email-{{ type }}" class="visually-hidden">{{ 'general.newsletter.email_label' | t }}</label>
+	      <input type="email" class="newsletter-input" value="{% if customer %}{{ customer.email }}{% endif %}" name="contact[email]" id="Email-{{ type }}" placeholder="Email address" aria-label="{{ 'general.newsletter.email_label' | t }}" autocapitalize="off" required />
+	      <button type="submit" class="newsletter-submit {% if type == 'popup' %} button button--solid button--wide {% endif %}" id="Subscribe-{{ type }}">
+      		<span {% unless type == 'popup' %} class="visually-hidden" {% endunless %}>{{ 'general.newsletter.submit_label' | t }}</span>
+	      	{%- unless type == 'popup' -%}
+	      		
+<svg width="16" height="13" viewBox="0 0 16 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.61328 6.61523H14.6133M14.6133 6.61523L9.82381 1.61523M14.6133 6.61523L9.82381 11.6152" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+	      	{%- endunless -%}
+      	</button>
+	      <input type="hidden" name="contact[tags]" value="newsletter" />
+	    </div>
+	  {%- endif -%}
+	{%- endform -%}
+</div>

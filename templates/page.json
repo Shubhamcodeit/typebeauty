@@ -1,0 +1,50 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "no_margins": false,
+        "reduced_margins": false
+      }
+    },
+    "live2embed_dfRti3": {
+      "type": "live2embed",
+      "disabled": true,
+      "settings": {
+        "publish_id": "onc3t3fyxl",
+        "custom_css": ""
+      }
+    },
+    "live2embed_AMdtHy": {
+      "type": "live2embed",
+      "settings": {
+        "publish_id": "7fqdiisko8",
+        "custom_css": ".live2ai-container { padding: 0 calc(var(--grid-width) / 12 * 1); }.live2ai-layout-wrapper { width: 100%; } .live2ai-carousel-wrapper { display: grid !important; grid-template-columns: repeat(6, 1fr); width: 100%; } .live2ai_carousel_item { display: inline-block; width: unset; } @media screen and (max-width: 767px){  .live2ai-layout-wrapper { width: 100%; }.live2ai-carousel-wrapper{ display: flex!important;    flex-direction: column; grid-template-columns: repeat(2, 1fr); width: 100%; } .live2ai_carousel_item { display: inline-block; width: 100%!important; } }"
+      }
+    },
+    "live2embed_nkwiV7": {
+      "type": "live2embed",
+      "disabled": true,
+      "settings": {
+        "publish_id": "faktfiu1sr",
+        "custom_css": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "live2embed_dfRti3",
+    "live2embed_AMdtHy",
+    "live2embed_nkwiV7"
+  ]
+}

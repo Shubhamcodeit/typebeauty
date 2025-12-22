@@ -1,0 +1,116 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "16788576269eec43eb": {
+      "type": "apps",
+      "blocks": {
+        "ffc85583-345f-4e6a-b917-baaccb324c54": {
+          "type": "shopify://apps/byob-build-your-own-bundle/blocks/byob-bundle-info-block/cbcdb3c1-93e1-4702-8f46-0cad28865e89",
+          "settings": {
+            "show_banner_image": true,
+            "top-layout": "default",
+            "media_size": "full",
+            "image_header_padding": 0,
+            "byob_section_wrapper": true,
+            "align_text": "center",
+            "title_size": "h1",
+            "description_font_size": 15
+          }
+        },
+        "ef4f8d1e-53c4-45bb-a699-581f0bd882ae": {
+          "type": "shopify://apps/byob-build-your-own-bundle/blocks/byob-confirm-modal-block/cbcdb3c1-93e1-4702-8f46-0cad28865e89",
+          "settings": {
+            "button_color": "",
+            "button_text_color": "",
+            "show_view_cart_button": true,
+            "show_create_another_button": false,
+            "direct_checkout": false,
+            "hide_sku_on_cart": false,
+            "show_quantity_in_line_items": false,
+            "disable_block_list": false
+          }
+        },
+        "262a5ea0-d818-4b15-b3b1-9cb3d81c37d4": {
+          "type": "shopify://apps/byob-build-your-own-bundle/blocks/byob-quickview-block/cbcdb3c1-93e1-4702-8f46-0cad28865e89",
+          "settings": {
+            "icon_background_color": "#454545",
+            "background_color": "#ffffff",
+            "show_icon_text": false,
+            "show_view_more": false,
+            "show_quantity_input": true,
+            "show_product_vendor": false,
+            "show_html_product_description": false
+          }
+        },
+        "91e6a331-e7f4-4db3-bb03-f990b309ae05": {
+          "type": "shopify://apps/byob-build-your-own-bundle/blocks/byob-product-grid-block/cbcdb3c1-93e1-4702-8f46-0cad28865e89",
+          "settings": {
+            "items_per_row": 4,
+            "items_per_row_mobile": 2,
+            "open_all_tabs": false,
+            "byob_section_wrapper": true,
+            "card_background": "#ffffff",
+            "tab_color": "#d1ecfe",
+            "tab_text_color": "#000000",
+            "tick_icon_color": "#008000",
+            "button_color": "#000000",
+            "button_text_color": "#ffffff",
+            "max_image_height": 80,
+            "disable_product_link": false,
+            "enable_quickview": true,
+            "show_product_price": true,
+            "show_product_reviews": false,
+            "show_currency_code": false,
+            "show_product_type": false,
+            "show_product_vendor": false,
+            "enable_quantity_input": false
+          }
+        },
+        "a5bbb14a-05a7-41f7-9979-5b5db9f93b7f": {
+          "type": "shopify://apps/byob-build-your-own-bundle/blocks/byob-footer-block/cbcdb3c1-93e1-4702-8f46-0cad28865e89",
+          "settings": {
+            "background_color": "#e8e8e8",
+            "footer_product_name_color": "#222222",
+            "footer_show_product_title": true,
+            "footer_show_total_price": true,
+            "footer_show_total_compare_at_price": false,
+            "footer_bottom_position": 10,
+            "product_card_padding": 5,
+            "icon_type": "bag",
+            "icon_horizontal_position": "left"
+          }
+        }
+      },
+      "block_order": [
+        "ffc85583-345f-4e6a-b917-baaccb324c54",
+        "ef4f8d1e-53c4-45bb-a699-581f0bd882ae",
+        "262a5ea0-d818-4b15-b3b1-9cb3d81c37d4",
+        "91e6a331-e7f4-4db3-bb03-f990b309ae05",
+        "a5bbb14a-05a7-41f7-9979-5b5db9f93b7f"
+      ],
+      "custom_css": [],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "32d1a6d8-b0e3-462d-afc8-57d00b3be313": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<style>\nselect.byob-max-w-full.byob-gpo-select {\n  background: auto !important;\n  background-repeat: no-repeat;\n  background-position-x: 95% !important;\n  background-position-y: 42% !important;\n}\n#byob-quickview-input {\n  margin-bottom: 0px !important;\n}\n</style>",
+        "full_width": false
+      }
+    }
+  },
+  "order": [
+    "16788576269eec43eb",
+    "32d1a6d8-b0e3-462d-afc8-57d00b3be313"
+  ]
+}

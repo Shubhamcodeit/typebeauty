@@ -1,0 +1,207 @@
+<div class="press-main">
+  <div class="press-outer">
+  <h2 style="margin-bottom: 2rem!important;" class="dashed-title section-header__title h4">As Seen In</h2>
+  <div class="press-inner">
+   <a class="vogue" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/1544px-VOGUE_LOGO_svg.png?v=1675115021">
+  </a>
+  <a class="elle" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/ELLE_Magazine_Logo_svg.png?v=1675028580">
+  </a>
+   <a class="idiva" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/35d6e191403c9d890705f1b8ee77d164.png?v=1674325410">
+  </a>
+   <a class="popxo" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/download.png?v=1674324980">
+  </a>
+  <a class="zest" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Zestlogo-website-250x100.png?v=1675062990">
+  </a>
+  <a class="ht" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/HT-logo-new-1.png?v=1675114879">
+  </a>
+  <a class="la" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Lifestyle_Asia_Logo.png?v=1675115837">
+  </a>
+  <a class="pm" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/download_4.png?v=1675115384">
+  </a>
+   <a class="bs" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/balcony_stories_logo.png?v=1675115638">
+  </a>
+  <a class="bzr" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Harpers-Bazaar-logo.png?v=1675028882">
+  </a>
+   <a class="estd" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Screenshot_2023-02-01_042503.png?v=1675205731">
+  </a>
+   <a class="il" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/logo.png?v=1675115743">
+  </a>
+  <a class="xp" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Screenshot_2023-01-31_033614.png?v=1675116400">
+  </a>
+  <a class="pokrela" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/logo-wide-light.png?v=1675201902">
+  </a>
+   <a class="tfs" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/234823696c115cdf6cc6b3fa0cc99738.png?v=1675201955">
+  </a>
+   <a class="daiji" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/daijiworldLogo1.jpg?v=1675202187">
+  </a>
+   <a class="ci" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/CILIOGOWEB424.png?v=1675202187">
+  </a>
+
+   <a class="dc" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/LOGO_1.png?v=1675202530">
+  </a>
+   <a class="cc" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/CLAP-CLAP-LOGO.jpg?v=1675202529">
+  </a>
+   <a class="carma" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/logo-web.png?v=1675202529">
+  </a>
+   <a class="hs" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/download_5.png?v=1675202529">
+  </a>
+   <a class="msn" href="javascript:void(0)">
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/download_6.png?v=1675202529">
+  </a>
+    </div>
+    <div class="press-inner-two">
+  {% for block in section.blocks %}
+    <div>
+     <p>{{ block.settings.textrelated  }}</p>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+</div>
+<script>
+  
+</script>
+<style>
+  .press-inner img{
+    max-width: 200px;
+    margin: auto;
+    margin: 0 20px;
+    width: 100%;
+    
+  }
+  .press-inner-two{
+    display: none!important;
+  }
+  .press-inner-two{
+    margin-top: 30px;
+  }
+  .press-main .slick-slide {
+    transition: all .25s ease;
+    cursor: pointer;
+    margin: 0 10px;
+}
+.press-outer{
+  padding: 40px 20px 20px 20px;
+      max-width: 1300px;
+  margin: auto;
+  text-align: center;
+}
+  press-main.press-inner{
+    display: flex;
+    justify-content: space-between;
+  }
+  .press-outer .slick-arrow{
+    display: none!important;
+  }
+ @media only screen and (max-width: 600px) {
+.press-main .slick-dots button{
+  width: 0.5rem!important;
+  height: 0.5rem!important;
+}
+   .press-outer {
+    padding: 20px;
+   }
+   .press-inner img{
+    max-width: 200px;
+    margin: auto!important;
+  }
+}
+</style>
+{% schema %}
+{
+  "name": "press-marq",
+  "tag": "section",
+  "class": "slideshow",
+  "max_blocks": 50,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }
+  ],
+  "blocks": [
+     {
+       "name": "Slide",
+       "type": "slide",
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Press Image"
+         },
+         {
+           "type": "text",
+           "id": "textrelated",
+           "label": "Press Text"
+         }
+       ]
+     }
+   ],
+  "presets": [
+    {
+      "name": "press-marq",
+      "settings": {
+        "title": "Slideshow"
+      },
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+  <script>
+      $('.press-inner').slick({
+   slidesToShow: 5,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 0,
+  speed: 5000,
+  pauseOnHover: false,
+  cssEase: 'linear',
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 2
+      }
+    }
+  ]
+});
+   
+
+    
+  </script>

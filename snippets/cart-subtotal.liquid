@@ -1,0 +1,128 @@
+<div id="AjaxCartSubtotal">
+
+
+
+	<div class="cart__footer {% if cart.item_count == 0 %} cart--empty {% endif %}">
+
+	  {%- if settings.cart_notes_enable -%}
+	    <textarea name="note" id="cartSpecialInstructions" placeholder="{{ 'cart.note' | t }}" aria-label="{{ 'cart.note' | t }}" form="cart">{{ cart.note }}</textarea>
+	  {%- endif -%}
+
+	  <div class="cart-out">
+
+	    <div id="CartDetails">
+	      
+	      {%- if cart.cart_level_discount_applications != blank -%} 
+	        <div>
+	          <p id="CartSubTotal">{{ 'cart.subtotal' | t }} <span>{{ cart.items_subtotal_price | money }}</span></p>
+	          <p id="CartDiscounts">
+	            {{ 'cart.discounts' | t }}
+	            {%- for discount_application in cart.cart_level_discount_applications -%}
+	              <span style="display: inline-block">{{ discount_application.title }} <span style="display: inline-block">(-{{ discount_application.total_allocated_amount | money | strip }})</span></span>
+	            {%- endfor -%}
+	          </p>
+	        </div>
+	      {%- endif -%}
+
+	    </div>
+
+	    <p class="sub-total" id="CartTotal">Sub Total<span>{{ cart.total_price  | money_without_trailing_zeros }}</span></p>
+           <span class="info">{{ 'cart.shipping_at_checkout' | t }}</span>
+       
+            <p class="totalling" id="CartTotal">{{ 'cart.total' | t }} <span>{{ cart.total_price | money_without_trailing_zeros }}</span></p>
+	 
+
+	    <div class="cart-actions  {% if additional_checkout_buttons and settings.cart_additional_buttons and type == 'page' %} cart-actions--additional-checkout-buttons {% endif %}">
+	      
+	     
+          <noscript>
+	      	<button name="update" class="button button--border button--wide" form="cart">{{ 'cart.update_cart' | t }}</button>
+	      </noscript>
+	  
+	      <!-- <button id="CheckOut" class="width-btns button button--solid {% if additional_checkout_buttons and settings.cart_additional_buttons and type == 'page' %} button--wide {% endif %}" type="submit" name="checkout" form="cart">{{ 'cart.checkout' | t }}</button> -->
+	      <!-- <button id=""  onclick="handleFloCheckoutBtn()" class="width-btns button button--solid {% if additional_checkout_buttons and settings.cart_additional_buttons and type == 'page' %} button--wide {% endif %}" type="submit" name="checkout" form="cart">{{ 'cart.checkout' | t }}</button> -->
+	    <button type="button" id="checkout2" onclick="handlefreegift()" class="width-btns button button--solid {% if additional_checkout_buttons and settings.cart_additional_buttons and type == 'page' %} button--wide {% endif %}" name="checkout2">
+		{{ 'cart.checkout' | t }}
+</button>
+          <button  class="button button--solid width-btns"  ><a href="https://www.typebeautyinc.com/collections/all-products">continue shopping</a></button>
+	     
+				{%- unless template contains 'order' -%}  
+					{%- if additional_checkout_buttons and settings.cart_additional_buttons -%}
+						<div class="additional-checkout-buttons additional-checkout-buttons--vertical">{{ content_for_additional_checkout_buttons }}</div>
+					{%- endif -%}
+				{%- endunless -%}
+
+	    </div>
+
+	  </div>
+
+	  <div class="cart-continue">
+	    <a href="{{ routes.all_products_collection_url }}" class="button button--solid button--wide button--align">
+	      <span>{{ 'cart.continue_browsing' | t }}</span>
+	    </a>
+	  </div>
+
+	</div>
+
+</div>
+<style>
+  .cart__footer {
+  border-top: 1px solid #000000;
+margin-top: 20px;
+  }
+  .sub-total{
+  display: flex;
+    justify-content: space-between;
+    font-family: 'Inter';
+font-weight: 500!important;
+font-size: 12px!important;
+line-height: 126.69%;
+/* or 15px */
+
+letter-spacing: 0.075em;
+text-transform: uppercase;
+
+color: #000000;
+  }
+  .info{
+  font-weight: 500!important;
+font-size: 12px!important;
+line-height: 126.69%;
+/* or 15px */
+
+letter-spacing: 0.075em;
+text-transform: uppercase;
+
+color: #000000;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #000000;
+  }
+  .totalling{
+ text-align: end;
+    margin-top: 20px;
+    font-family: 'Inter';
+font-weight: 700!important;
+font-size: 12px!important;
+line-height: 126.69%;
+margin-bottom: 20px!important;
+letter-spacing: 0.075em;
+text-transform: uppercase;
+
+color: #FF3FB5;
+  }
+  .cart-out{
+  margin-top: 10px;
+  }
+  .width-btns{
+  width: 100%;
+    margin-bottom: 20px;
+  
+  }
+  .width-btns a{
+  color: #fff!important;
+  }
+  .width-btns:hover{
+  background-color: #FF3FB5;
+  }
+</style>

@@ -1,0 +1,179 @@
+
+   <a class="flexo" href="https://www.typebeautyinc.com/pages/press">
+    <div>
+   <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/ELLE_Magazine_Logo_svg.png?v=1675028580">
+    </div>
+       <div>
+  <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Harpers-Bazaar-logo.png?v=1675028882">
+     </div>
+     <div>
+        <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/grazia-logo.png?v=1673891536">
+     </div>
+      
+  
+    
+  <div>
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/logo_femina.png?v=1673891963">
+  </div>
+  <div>
+ <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/download.png?v=1674324980">
+  </div>
+  <div>
+    <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/35d6e191403c9d890705f1b8ee77d164.png?v=1674325410">
+  </div>
+   <div>
+      <img src="https://cdn.shopify.com/s/files/1/0555/4018/7214/files/Cosmopolitan-Logo.png?v=1675028745">
+   </div>
+     
+    </a>
+    
+
+{% schema %}
+{
+  "name": "brand-slider",
+  "tag": "section",
+  "class": "slideshow",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Slideshow"
+    }
+  ],
+  "blocks": [
+     {
+       "name": "Slide",
+       "type": "slide",
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Image"
+         }
+       ]
+     }
+   ],
+  "presets": [
+    {
+      "name": "brand-slider",
+      "settings": {
+        "title": "Slideshow"
+      },
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<script>
+  $('.flexo').slick({
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 0,
+  arrows: false,
+  speed: 2000,
+  pauseOnHover: false,
+  cssEase: 'linear'
+ 
+});
+
+
+
+
+
+{% comment %} $('.flexo').slick({
+  slidesToShow: 5,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 0,
+  arrows: false,
+  speed: 2000,
+  pauseOnHover: false,
+  cssEase: 'linear'
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+       autoplay: true,
+  autoplaySpeed: 0,
+  arrows: false,
+  speed: 2000,
+  pauseOnHover: false,
+  cssEase: 'linear',
+       slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+       autoplay: true,
+  autoplaySpeed: 0,
+  arrows: false,
+  speed: 2000,
+  pauseOnHover: false,
+  cssEase: 'linear',
+       slidesToShow: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+       autoplay: true,
+  autoplaySpeed: 0,
+  arrows: false,
+  speed: 2000,
+  pauseOnHover: false,
+  cssEase: 'linear',
+       slidesToShow: 2
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+ {% endcomment %}
+</script>
+<style>
+  .flexo{
+    display: flex;
+    align-items: center;
+    position: relative;
+   padding-top: 1em;
+    background-color: #fff;
+  }
+ .flexo img{
+   margin: 0 auto!important;
+   max-width: 200px;
+ }
+   
+  .flexo .slick-slide {
+      margin: 0 27px;
+  }
+
+ 
+  .flexo .slick-list {
+      margin: 0 -27px;
+  }
+   .flexo .slick-track{
+  display: flex;
+    align-items: center;
+  }
+@media only screen and (max-width: 768px) {
+.flexo{
+ padding-top: 0;
+}
+   .flexo img{
+   max-width: 80px;
+ }
+}
+  
+</style>
