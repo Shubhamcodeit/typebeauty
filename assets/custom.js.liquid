@@ -1008,6 +1008,61 @@ $(document).on('click','.product__add-to-cart-bundle-sample1',function(){
  
 });
 
+// Concealer + Foundation Combo Add to Cart Handler
+$(document).on('click','.product__add-to-cart-bundle-cf',function(){ 
+  event.preventDefault();
+  var ID = $(this).parents().find('.item-varid').val();   
+  var selected_concealer = $('#concealer-select').val();
+  var concealer_selected_shade =  $('.concealer-selected-shade span').html();
+
+  var foundation_select = $('#foundation-select').val();
+  var foundation_selected_shade =  $('.foundation-selected-shade span').html();
+  
+  var qty = $('.product__quantity').val();
+  console.log('Concealer Foundation Combo - Selected ID: '+ID+' Quantity: '+qty+' Concealer: '+ selected_concealer+' Shade: '+concealer_selected_shade+' Foundation: '+foundation_select +' Shade: '+foundation_selected_shade);
+
+  // Validate selections
+  if (!concealer_selected_shade || concealer_selected_shade.trim() === '') {
+    alert('Please select a concealer shade');
+    return;
+  }
+  
+  if (!foundation_selected_shade || foundation_selected_shade.trim() === '') {
+    alert('Please select a foundation shade');
+    return;
+  }
+
+  let data = {
+    quantity: qty,
+    id: ID,
+    properties: {
+      "Concealer": selected_concealer +' - '+ concealer_selected_shade,
+      "Foundation": foundation_select+' - '+ foundation_selected_shade
+    }
+  }
+  
+  setTimeout(function() {
+    $.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      data: data,
+      dataType: 'json', 
+      success: function (data) { 
+        $('.site-cart-heading').text(data.quantity+' PRODUCT IN YOUR CART');
+        refreshCart();
+        // Open cart sidebar if using overlay
+        if (typeof document.getElementById('site-cart-sidebar') !== 'undefined' && document.getElementById('site-cart-sidebar')) {
+          document.getElementById('site-cart-sidebar').show();
+        }
+      },
+      error : function (error) { 
+        console.error('Error:', error);
+        alert(error.responseJSON ? error.responseJSON.description : 'Error adding to cart');
+      } 
+    });
+  }, 1000);
+});
+
 
 
 
