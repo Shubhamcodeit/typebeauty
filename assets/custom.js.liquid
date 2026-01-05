@@ -1008,6 +1008,71 @@ $(document).on('click','.product__add-to-cart-bundle-sample1',function(){
  
 });
 
+// Dynamic shade loading for Concealer + Foundation Combo
+$(document).on('change', '#concealer-select', function() {
+  var selectedHandle = $(this).find(':selected').data('attr');
+  var targetContainer = $('.concealer-custom-shades .product-variant__container');
+  targetContainer.empty(); // Clear existing shades
+
+  $.getJSON('/products/' + selectedHandle + '.js', function(product) {
+    if (product && product.variants) {
+      product.variants.forEach(function(variant, index) {
+        if (variant.option1) { // Assuming option1 is the shade name
+          // Convert shade name to URL format (e.g., "10 Vanilla" -> "10-Vanilla")
+          var shadeNameForUrl = variant.option1.replace(/\s+/g, '-');
+          // Build image URL
+          var imageUrl = '//www.typebeautyinc.com/cdn/shop/files/' + shadeNameForUrl + '.png?crop=center&height=44&v=1653987025&width=44';
+          // Convert shade name to data-attr format (lowercase with dashes)
+          var dataAttr = shadeNameForUrl.toLowerCase();
+          
+          var radioHtml = '<div class="product-variant__item product-variant__item--color ' + (index === 0 ? 'firsty' : '') + '" data-attr="' + dataAttr + '">' +
+            '<input type="radio" name="product-color" id="concealer-option-color-' + (index + 1) + '-' value="' + variant.option1 + '" ' + (index === 0 ? 'checked=""' : '') + ' class="product-variant__input product-variant-value">' +
+            '<span class="tooltiptext">' + variant.option1 + '</span>' +
+            '<label data-varid="' + variant.id + '" for="concealer-option-color-' + (index + 1) + '-' class="product-variant__label ' + (index === 0 ? 'selected-var' : '') + '">' +
+            '<span aria-hidden="true" style="background-image: url(' + imageUrl + ')"></span>' +
+            '</label>' +
+            '</div>';
+          targetContainer.append(radioHtml);
+        }
+      });
+      // Update selected shade display
+      $('.concealer-selected-shade span').html($('.concealer-custom-shades .product-variant__input:checked').val());
+    }
+  });
+});
+
+$(document).on('change', '#foundation-select', function() {
+  var selectedHandle = $(this).find(':selected').data('attr');
+  var targetContainer = $('.foundation-custom-shades .product-variant__container');
+  targetContainer.empty(); // Clear existing shades
+
+  $.getJSON('/products/' + selectedHandle + '.js', function(product) {
+    if (product && product.variants) {
+      product.variants.forEach(function(variant, index) {
+        if (variant.option1) { // Assuming option1 is the shade name
+          // Convert shade name to URL format (e.g., "100 Vanilla" -> "100-Vanilla")
+          var shadeNameForUrl = variant.option1.replace(/\s+/g, '-');
+          // Build image URL
+          var imageUrl = '//www.typebeautyinc.com/cdn/shop/files/' + shadeNameForUrl + '.png?crop=center&height=44&v=1659643095&width=44';
+          // Convert shade name to data-attr format (lowercase with dashes)
+          var dataAttr = shadeNameForUrl.toLowerCase();
+          
+          var radioHtml = '<div class="product-variant__item product-variant__item--color ' + (index === 0 ? 'firsty' : '') + '" data-attr="' + dataAttr + '">' +
+            '<input type="radio" name="product-color" id="foundation-option-color-' + (index + 1) + '-' value="' + variant.option1 + '" ' + (index === 0 ? 'checked=""' : '') + ' class="product-variant__input1 product-variant-value">' +
+            '<span class="tooltiptext">' + variant.option1 + '</span>' +
+            '<label data-varid="' + variant.id + '" for="foundation-option-color-' + (index + 1) + '-' class="product-variant__label1 ' + (index === 0 ? 'selected-var' : '') + '">' +
+            '<span aria-hidden="true" style="background-image: url(' + imageUrl + ')"></span>' +
+            '</label>' +
+            '</div>';
+          targetContainer.append(radioHtml);
+        }
+      });
+      // Update selected shade display
+      $('.foundation-selected-shade span').html($('.foundation-custom-shades .product-variant__input1:checked').val());
+    }
+  });
+});
+
 // Concealer + Foundation Combo Add to Cart Handler
 $(document).on('click','.product__add-to-cart-bundle-cf',function(){ 
   event.preventDefault();
