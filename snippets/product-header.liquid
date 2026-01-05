@@ -24,6 +24,12 @@
     {{ product.title | append: ' <span>CONCEALER BRUSH</span>' }}
 </{% if type == 'section' %}h3{% else %}h1{% endif %}>
 
+{% elsif product.handle contains 'concealer' and product.handle contains 'foundation'  %}
+    {% assign pptitle = product.title | split:' ' | last  %}
+    <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
+        {{ product.title | escape | replace: pptitle, ' ' }}<span>COMBO</span>
+    </{% if type == 'section' %}h3{% else %}h1{% endif %}>
+
 {% elsif product.handle contains 'foundation' and product.handle contains '20ml'  %}
     {% assign pptitle = product.title | split:' ' | last  %}
     <{% if type == 'section' %}h3{% else %}h1{% endif %} class="product__title h2">
