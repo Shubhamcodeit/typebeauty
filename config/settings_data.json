@@ -218,7 +218,6 @@
           },
           "slide_L4wJ4D": {
             "type": "slide",
-            "disabled": true,
             "settings": {
               "bar_message": "Use code TYPE10 for 10% off on your first order.",
               "bar_link": ""
@@ -226,6 +225,7 @@
           },
           "slide_AYWWDH": {
             "type": "slide",
+            "disabled": true,
             "settings": {
               "bar_message": "Hydra jelly tints now 2 at 5% off, 3 at 10% off and 4 at 15% off",
               "bar_link": "shopify://collections/tints"
